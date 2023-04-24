@@ -28,10 +28,10 @@ export default function PaintEarn() {
               our vibrant regens community!
             </h2>
             <h2>
-              We're a passionate and uplifting group dedicated to web3,
+              We&aposre a passionate and uplifting group dedicated to web3,
               sustainability, gaming, and exploring the infinite possibilities
               of creativity and energy Grab your spray cans, bring your A-game,
-              and let's refi some art together!
+              and let&aposs refi some art together!
             </h2>
           </div>
           <div className="text-2xl grid gap-4">
@@ -39,8 +39,8 @@ export default function PaintEarn() {
               Rule #2: get a wallet! (DYOR or let us DYOR)
             </h2>
             <h2 className="text-green">
-              Crypto-phobia? No worries, we'll guide you through the process and
-              make earning rewards a piece of cake!
+              Crypto-phobia? No worries, we&aposll guide you through the process
+              and make earning rewards a piece of cake!
             </h2>
             <h2>
               Our eclectic brojects will unleash your inner geeky So, grab your
