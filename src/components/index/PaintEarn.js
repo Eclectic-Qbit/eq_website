@@ -4,8 +4,8 @@ import TikTok from "../../../public/svgs/TikTok";
 
 export default function PaintEarn() {
   return (
-    <div className="relative my-2">
-      <div className="absolute top-0 right-4 flex flex-col mr-auto top-10">
+    <div className="relative">
+      <div className="absolute top-0 right-4 flex flex-col gap-3 mr-auto top-10">
         <div className="bg-white rounded-full w-8 p-2">
           <Instagram fill="black" />
         </div>
@@ -18,7 +18,7 @@ export default function PaintEarn() {
       </div>
       <div className="grid grid-cols-2 gap-8">
         <div className="mx-16 grid gap-6">
-          <h1 className="text-7xl font-bold mt-24">
+          <h1 className="text-7xl font-bold mt-16">
             THIS IS <br /> PAINT&EARN!
           </h1>
           <div className="text-2xl grid gap-4">

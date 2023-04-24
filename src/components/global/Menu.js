@@ -3,7 +3,7 @@ import Magnifier from "../../../public/svgs/Magnifier";
 export default function Menu() {
   return (
     <div className="flex items-center space-x-full text-3xl mx-16 mt-8">
-      <div className="flex gap-4">
+      <div className="flex items-center gap-4">
         <h1>PNG</h1>
         <div className="flex flex-col">
           <h1>Eclectic</h1>
