@@ -23,16 +23,17 @@ export default function PhasesSecond() {
             feedback to make necessary adjustments and im - provements. We will
             use a combination of planet and mush- room emojis to signify growth
             and community engagement, and astronaut emojis to signify the
-            project's potential for continued success. Additionally, we will
-            work to connect the project with other Web3 projects and
+            project&apos;s potential for continued success. Additionally, we
+            will work to connect the project with other Web3 projects and
             superconnectors in the industry to expand its reach and potential
             opportunities. <br />
             Benefits: Increased user satisfaction, retention, and po - tential
             for future revenue opportunities. <br />
-            Timeline: Ongoing With Eclectic Qbit's assistance, your Web3 project
-            will have a strong foundation for success, with a comprehensive
-            launch strategy, engaged community, effective marketing efforts, and
-            ongoing support. Let us help you launch your project to the moons!
+            Timeline: Ongoing With Eclectic Qbit&apos;s assistance, your Web3
+            project will have a strong foundation for success, with a
+            comprehensive launch strategy, engaged community, effective
+            marketing efforts, and ongoing support. Let us help you launch your
+            project to the moons!
           </h2>
         </div>
       </div>

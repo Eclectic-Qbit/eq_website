@@ -34,11 +34,11 @@ export default function PaintEarnFirst() {
                 with our vibrant regens community!
               </h2>
               <h2>
-                We're a passionate and uplifting group dedicated to web3,
+                We&apos;re a passionate and uplifting group dedicated to web3,
                 sustainability, gaming, and exploring the infinite possibilities
                 of creativity and energy <br />
-                Grab your spray cans, bring your A-game, and let's refi some art
-                together!
+                Grab your spray cans, bring your A-game, and let&apos;s refi
+                some art together!
               </h2>
             </div>
           </div>
@@ -48,8 +48,8 @@ export default function PaintEarnFirst() {
             </h2>
             <div>
               <h2 className="text-green">
-                Crypto-phobia? No worries, we'll guide you through the process
-                and make earning rewards a piece of cake!
+                Crypto-phobia? No worries, we&apos;ll guide you through the
+                process and make earning rewards a piece of cake!
               </h2>
               <h2>
                 Our eclectic brojects will unleash your inner geeky <br />
