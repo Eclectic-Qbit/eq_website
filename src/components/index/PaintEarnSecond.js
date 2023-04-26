@@ -11,9 +11,9 @@ export default function PaintEarnSecond() {
                 sustainable and cost-effective paint.
               </h2>
               <h2>
-                We&aposll provide you what you need, so you can create epic
-                street art pieces without harming the environment let&aposs join
-                worlds to regenerate into 1
+                We'll provide you what you need, so you can create epic street
+                art pieces without harming the environment <br />
+                Let's join worlds to regenerate into 1
               </h2>
             </div>
           </div>
@@ -28,9 +28,10 @@ export default function PaintEarnSecond() {
               </h2>
               <h2>
                 Discord warrior, share your progress using our hashtags, and
-                follow our quests & challenges closely You might just get the
-                chance to be sent into orbit! Get ready to unleash your creative
-                powers and take the street art game to the next level!
+                follow our quests & challenges closely <br />
+                You might just get the chance to be sent into orbit! <br />
+                Get ready to unleash your creative powers and take the street
+                art game to the next level!
               </h2>
             </div>
           </div>
@@ -46,9 +47,9 @@ export default function PaintEarnSecond() {
               <h2>
                 on top of default reward, the community will vote on the best
                 mural, with the winner drawing evolving into limited edition
-                swag that will make you the talk of the next Web3 irl So, grab
-                your spray cans, get those creative juices flowing, and
-                let&aposs paint the metaverse up!
+                swag that will make you the talk of the next Web3 irl <br />
+                So, grab your spray cans, get those creative juices flowing, and
+                let's paint the metaverse up!
               </h2>
             </div>
           </div>
