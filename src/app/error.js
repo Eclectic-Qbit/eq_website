@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Error() {
   return (
     <div className="min-w-screen mt-20 flex justify-center items-center">
