@@ -1,8 +1,9 @@
+import Link from "next/link";
 import Magnifier from "../../../public/svgs/Magnifier";
 
 export default function Menu() {
   return (
-    <div className="flex items-center space-x-full text-3xl mx-16 mt-8">
+    <div className="absolute z-10 top-0 left-0 flex items-center space-x-full w-full text-3xl px-8 mt-8">
       <div className="flex items-center gap-4">
         <h1>PNG</h1>
         <div className="flex flex-col">
@@ -16,21 +17,21 @@ export default function Menu() {
           <div className="w-12 h-1 bg-white rounded-xl" />
           <div className="w-12 h-1 bg-white rounded-xl" />
         </button>
-        <div>
+        <Link href="/">
           <h1>HOME</h1>
-        </div>
-        <div>
+        </Link>
+        <Link href="/artists">
           <h1>ARTISTS</h1>
-        </div>
-        <div>
+        </Link>
+        <Link href="/projects">
           <h1>NFT PROJECTS</h1>
-        </div>
-        <div>
+        </Link>
+        <Link href="/team">
           <h1>TEAM</h1>
-        </div>
-        <div>
+        </Link>
+        <Link href="/contacts">
           <h1>CONTACTS</h1>
-        </div>
+        </Link>
         <div className="relative flex items-center border-2 border-solid border-white max-w-[20vw]">
           <button className="w-12 relative scale-50">
             <Magnifier fill="white" />
