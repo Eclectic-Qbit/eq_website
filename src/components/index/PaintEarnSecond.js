@@ -11,9 +11,9 @@ export default function PaintEarnSecond() {
                 sustainable and cost-effective paint.
               </h2>
               <h2>
-                We'll provide you what you need, so you can create epic street
-                art pieces without harming the environment <br />
-                Let's join worlds to regenerate into 1
+                We&apos;ll provide you what you need, so you can create epic
+                street art pieces without harming the environment <br />
+                Let&apos;s join worlds to regenerate into 1
               </h2>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function PaintEarnSecond() {
                 mural, with the winner drawing evolving into limited edition
                 swag that will make you the talk of the next Web3 irl <br />
                 So, grab your spray cans, get those creative juices flowing, and
-                let's paint the metaverse up!
+                let&apos;s paint the metaverse up!
               </h2>
             </div>
           </div>
