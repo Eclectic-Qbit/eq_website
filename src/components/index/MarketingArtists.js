@@ -4,7 +4,7 @@ export default function MarketingArtists() {
       <div className="mx-[5%] grid gap-4">
         <div className="grid gap-2">
           <h1 className="text-4xl">STREET MARKETING</h1>
-          <h2 className="text-pink">
+          <h2 className="text-orange">
             Looking for a dynamic and tech-savvy marketing campaign that&apos;ll
             make a lasting impression? <br />
             &quot;Paint&earn&quot; is the street marketing solution you&apos;ve
@@ -23,7 +23,7 @@ export default function MarketingArtists() {
         </div>
         <div className="grid gap-2">
           <h1 className="text-4xl">ARTISTS</h1>
-          <h2 className="text-pink">
+          <h2 className="text-orange">
             Are you tired of seeing talented street artists resorting to using
             ketchup as paint because they can&apos;t afford the real stuff?
             <br />
