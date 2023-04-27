@@ -1,30 +1,11 @@
-import Link from "next/link";
-import Facebook from "../../../public/svgs/Facebook";
-import Instagram from "../../../public/svgs/Instagram";
-import TikTok from "../../../public/svgs/TikTok";
-
 export default function PaintEarnFirst() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center mt-20">
-      <div className="absolute top-0 right-4 flex flex-col gap-3 mr-auto top-10">
-        <Link
-          href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y="
-          target="_blank"
-          className="bg-white rounded-full w-8 p-2"
-        >
-          <Instagram fill="black" />
-        </Link>
-        <div className="bg-white rounded-full w-8 p-2">
-          <TikTok fill="black" />
-        </div>
-        <div className="bg-white rounded-full w-8 p-2">
-          <Facebook fill="black" />
-        </div>
-      </div>
+    <div className="relative min-h-screen flex items-center justify-center">
       <div className="grid grid-cols-2 gap-8">
         <div className="mx-16 grid gap-6">
-          <h1 className="text-7xl font-bold">
-            THIS IS <br /> PAINT&EARN!
+          <h1 className="font-bold">
+            <span className="text-7xl">THIS IS</span> <br />{" "}
+            <span className="text-8xl">PAINT&EARN!</span>
           </h1>
           <div className="grid gap-4">
             <h2 className="text-blue">Rule #1: Join the Paint&Earn club!</h2>
