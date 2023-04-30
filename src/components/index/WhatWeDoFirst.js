@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function WhatWeDoFirst() {
   return (
-    <div className="relative min-h-[95%] mt-20">
-      <div className="absolute top-0 right-4 flex flex-col gap-3 mr-auto top-10">
+    <div className="relative">
+      <div className="absolute -top-8 right-4 flex flex-col gap-3 z-30">
         <Link
           href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y="
           target="_blank"
@@ -22,7 +22,7 @@ export default function WhatWeDoFirst() {
           <Facebook fill="black" />
         </div>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="relative h-[90vh]">
         <div className="grid grid-cols-[65%_35%] gap-8 mt-[5%] mx-32 max-w-[130rem]">
           <div className="flex flex-col gap-9">
             <h1 className="font-bold text-purple">
@@ -36,12 +36,9 @@ export default function WhatWeDoFirst() {
                 </h2>
                 <h2>
                   eclectic qbit, it&apos;s all about bringing the modus operandi
-                  of qbits, into web3, with a it&apos;s a me twist nature is our
-                  main inspiration, and just like fungi, we exchange nutrients
-                  and other resources within & beyond web3 space <br />
-                  our team of regens will help you grow an eclectic community,
-                  powered up by multidimensional inputs & co-built values, to
-                  create unique and exciting experiences
+                  of qbits, into web3, with a IT&apos;S A ME twist with nature
+                  as our main inspiration, just like fungi, we exchange
+                  nutrients and other resources within & beyond web3 space
                 </h2>
               </div>
               <div className="grid gap-2">
@@ -49,19 +46,11 @@ export default function WhatWeDoFirst() {
                   🍄 Community Building: Joining Forces with Eclectic regens 🎮
                 </h2>
                 <h2>
-                  at eclectic qbit, we know that building a successful web3
-                  project takes more than just cutting-edge technology - it also
-                  requires a touch of magic <br />
-                  that&apos;s why we bring the it&apos;s a me vibe into the
-                  picture, infusing your project with the fun and excitement
-                  that players of all ages have come to know and love <br />
-                  your web3 project needs to be able to navigate the
-                  complexities of the blockchain world, and that&apos;s where
-                  our eclectic regens come in, to quantum leap your project to
-                  the next level <br />
-                  we harness the power of interdependence to create projects
-                  that are not bound by the limitations of classical bits,
-                  leveraging partnerships and mass collaboration
+                  we know that building a successful web3 project takes more
+                  than just cutting-edge technology - it also requires a touch
+                  of magic our eclectic regens will quantum leap your project to
+                  the next level, infusing your community with the fun and
+                  excitement that players of all ages have come to know and love
                 </h2>
               </div>
             </div>
@@ -69,7 +58,11 @@ export default function WhatWeDoFirst() {
           <div className="mx-auto my-auto relative flex items-center justify-center w-full max-w-md aspect-[3/4] grayscale hover:grayscale-0 transition ease-in duration-200">
             <Link href="https://malpegados.jimdosite.com/" target="_blank">
               <Image
-                src={"/images/proudCat.jpg"}
+                src={
+                  true
+                    ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat.jpg"
+                    : "/images/proudCat.jpg"
+                }
                 fill
                 sizes="auto"
                 alt="Cat Logo"
