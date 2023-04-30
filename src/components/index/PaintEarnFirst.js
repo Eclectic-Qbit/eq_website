@@ -1,7 +1,7 @@
 export default function PaintEarnFirst() {
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-8 max-w-[130rem]">
         <div className="mx-16 grid gap-6">
           <h1 className="font-bold">
             <span className="text-7xl">THIS IS</span> <br />{" "}
