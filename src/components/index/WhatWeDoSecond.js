@@ -1,9 +1,9 @@
 export default function WhatWeDoSecond() {
   return (
-    <div className="flex  justify-center">
+    <div className="flex justify-center">
       <div className="flex flex-wrap gap-3 w-[60%] max-w-[130rem]">
         <div className="grid gap-2">
-          <h2 className="text-orange font-bold text-2xl">
+          <h2 className="text-orange text-2xl">
             👾 Gamification and Engagement: power up and network around 🤝
           </h2>
           <h2>
@@ -18,7 +18,7 @@ export default function WhatWeDoSecond() {
           </h2>
         </div>
         <div className="grid gap-2">
-          <h2 className="text-orange font-bold text-2xl">
+          <h2 className="text-orange text-2xl">
             🍄 Grey area: techie Wizards and State-of-the-Art Tools 🚀
           </h2>
           <h2>
@@ -35,7 +35,7 @@ export default function WhatWeDoSecond() {
           </h2>
         </div>
         <div className="grid gap-2">
-          <h2 className="text-orange font-bold text-2xl">
+          <h2 className="text-orange text-2xl">
             🌍 ReFi heads: we like it sustainable 🐢
           </h2>
           <h2>

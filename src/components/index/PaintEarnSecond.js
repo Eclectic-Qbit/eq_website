@@ -1,7 +1,7 @@
 export default function PaintEarnSecond() {
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      <div className="ml-[25%] mr-[10%]">
+      <div className="max-w-[130rem]">
         <div className="mx-16 grid gap-6">
           <div className="grid gap-4">
             <h2 className="text-blue">Rule #3: Get Your Refi Paint!</h2>

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function WhatWeDoFirst() {
   return (
-    <div className="relative">
+    <div className="relative flex items-center justify-center">
       <div className="absolute -top-8 right-4 flex flex-col gap-3 z-30">
         <Link
           href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y="
@@ -31,7 +31,7 @@ export default function WhatWeDoFirst() {
             </h1>
             <div className="flex flex-wrap gap-3">
               <div className="grid gap-2">
-                <h2 className="text-orange font-bold text-2xl">
+                <h2 className="text-orange text-2xl">
                   🌌 Quantum Vibe: interdependence is the new independence 🕶️
                 </h2>
                 <h2>
@@ -42,7 +42,7 @@ export default function WhatWeDoFirst() {
                 </h2>
               </div>
               <div className="grid gap-2">
-                <h2 className="text-orange font-bold text-2xl">
+                <h2 className="text-orange text-2xl">
                   🍄 Community Building: Joining Forces with Eclectic regens 🎮
                 </h2>
                 <h2>
