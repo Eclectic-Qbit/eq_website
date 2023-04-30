@@ -15,7 +15,7 @@ export default function ShowOnHover({ children }) {
         active: active,
       })
     );
-  }, [active]);
+  }, [active, children]);
   return (
     <h2
       onMouseEnter={() => setActive(true)}

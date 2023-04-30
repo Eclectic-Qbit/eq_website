@@ -16,6 +16,6 @@ export default function ConsoleEffect({ content, active }) {
         setTimeout(() => setValue(newStr), 7);
       }
     }
-  }, [value, active]);
+  }, [value, active, content]);
   return value.length > 0 ? value : "";
 }
