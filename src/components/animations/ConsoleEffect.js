@@ -13,9 +13,9 @@ export default function ConsoleEffect({ content, active }) {
     } else {
       if (value.length > 0) {
         const newStr = value.substring(0, value.length - 1);
-        setTimeout(() => setValue(newStr), 7);
+        setTimeout(() => setValue(newStr), 6);
       }
     }
   }, [value, active, content]);
-  return value.length > 0 ? value : "";
+  return value.length > 0 ? value : <br />;
 }
