@@ -1,9 +1,30 @@
+"use client";
+
 import Link from "next/link";
 import Magnifier from "../../../public/svgs/Magnifier";
+import { useEffect, useRef, useState } from "react";
 
 export default function Menu() {
+  const lastScroll = useRef(0);
+  const [show, setShow] = useState(true);
+  function handleScroll() {
+    if (scrollY > lastScroll.current) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+    lastScroll.current = scrollY;
+  }
+  useEffect(() => {
+    document.addEventListener("scroll", handleScroll);
+    return () => document.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <div className="sticky h-[10vh] bg-black z-10 top-0 left-0 flex items-center space-x-full w-full text-3xl px-8 mt-8">
+    <div
+      className={`fixed h-[10vh] bg-black z-10 top-0 left-0 flex items-center space-x-full w-full text-3xl px-8 ${
+        !show && "-translate-y-full"
+      } transition ease-out duration-300`}
+    >
       <div className="flex items-center gap-4">
         <h1>PNG</h1>
         <div className="flex flex-col">

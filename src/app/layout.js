@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="min-h-screen min-w-screen bg-black text-white">
       <body>
         <Menu />
-        {children}
+        <div className="mt-[10vh]">{children}</div>
       </body>
     </html>
   );
