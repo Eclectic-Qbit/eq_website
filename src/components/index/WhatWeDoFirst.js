@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function WhatWeDoFirst() {
   return (
     <div className="relative flex items-center justify-center">
-      <div className="absolute -top-8 right-4 flex flex-col gap-3 z-30">
+      <div className="absolute top-4 right-4 flex flex-col gap-3">
         <Link
           href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y="
           target="_blank"
