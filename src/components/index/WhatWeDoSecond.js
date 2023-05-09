@@ -13,8 +13,7 @@ export default function WhatWeDoSecond() {
             incentivize engagement, making your troops stand out from the crowd
             and become stars players our strong network, will connect you with
             the right communities and resources to reach a state of
-            superposition, interacting with communities in ways that defy
-            classical web3
+            superposition, interacting in ways that defy classical web3
           </h2>
         </div>
         <div className="grid gap-2">
