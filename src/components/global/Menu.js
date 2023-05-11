@@ -49,11 +49,11 @@ export default function Menu() {
         <CustomLink href="/">
           <h1>HOME</h1>
         </CustomLink>
-        <CustomLink href="/artists">
-          <h1>ARTISTS</h1>
+        <CustomLink href="/brojects">
+          <h1>BROJECTS</h1>
         </CustomLink>
-        <CustomLink href="/projects">
-          <h1>NFT PROJECTS</h1>
+        <CustomLink href="/collabs">
+          <h1>COLLABS</h1>
         </CustomLink>
         <CustomLink href="/team">
           <h1>TEAM</h1>
@@ -68,7 +68,7 @@ export default function Menu() {
           <input
             onClick={() => setSearchbarText("Not yet amigo :)")}
             onBlur={() => setSearchbarText("")}
-            value={searchbarText}
+            defaultValue={searchbarText}
             type="text"
             className="w-full h-full bg-black focus:outline-none text-2xl"
           />
