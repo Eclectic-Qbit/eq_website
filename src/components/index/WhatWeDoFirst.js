@@ -60,8 +60,8 @@ export default function WhatWeDoFirst() {
               <Image
                 src={
                   true
-                    ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat.jpg"
-                    : "/images/proudCat.jpg"
+                    ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat - latest.jpg"
+                    : "/images/proudCat - latest.jpg"
                 }
                 fill
                 sizes="auto"
