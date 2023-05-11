@@ -29,7 +29,7 @@ export default function WhatWeDoFirst() {
               <span className="text-7xl">THIS IS</span> <br />{" "}
               <span className="text-8xl">WHAT WE DO</span>
             </h1>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 lowercase">
               <div className="grid gap-2">
                 <h2 className="text-orange text-2xl">
                   🌌 Quantum Vibe: interdependence is the new independence 🕶️

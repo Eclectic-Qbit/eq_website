@@ -11,7 +11,7 @@ export default function HowWeDo() {
           <span className="text-7xl">THIS IS</span> <br />{" "}
           <span className="text-8xl">HOW WE DO IT</span>
         </h1>
-        <div className="flex flex-col mx-[10%]">
+        <div className="flex flex-col mx-[10%] lowercase">
           <ShowOnHover>
             <div className="text-orange pr-2">💬 Warp Pipes</div>
             <ConsoleEffect content="we build a discord server that provides a space for eclectic Koopas to connect, share ideas, and provide feedback on your project" />
