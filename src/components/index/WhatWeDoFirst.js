@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function WhatWeDoFirst() {
   return (
     <div className="relative flex items-center justify-center">
-      <div className="absolute top-4 right-4 flex flex-col gap-3">
+      <div className="absolute z-20 top-4 right-4 flex flex-col gap-3">
         <Link
           href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y="
           target="_blank"
@@ -24,7 +24,7 @@ export default function WhatWeDoFirst() {
       </div>
       <div className="relative h-[90vh]">
         <div className="grid grid-cols-[65%_35%] gap-8 mt-[5%] mx-32 max-w-[130rem]">
-          <div className="flex flex-col gap-9">
+          <div className="flex flex-col justify-center items-center gap-9">
             <h1 className="font-bold text-purple">
               <span className="text-7xl">THIS IS</span> <br />{" "}
               <span className="text-8xl">WHAT WE DO</span>

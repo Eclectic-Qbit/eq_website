@@ -4,6 +4,7 @@ import Link from "next/link";
 import Magnifier from "../../../public/svgs/Magnifier";
 import { useEffect, useRef, useState } from "react";
 import EclicticLogo from "../../../public/svgs/EclicticLogo";
+import CustomLink from "./CustomLink";
 
 export default function Menu() {
   const lastScroll = useRef(0);
@@ -23,40 +24,43 @@ export default function Menu() {
   }, []);
   return (
     <div
-      className={`fixed h-[10vh] bg-black z-10 top-0 left-0 flex items-center space-x-full w-full text-3xl px-8 ${
+      className={`fixed h-[10vh] bg-black z-10 top-0 left-0 flex items-center gap-4 w-full text-3xl px-8 ${
         !show && "-translate-y-full"
-      } transition ease-out duration-300`}
+      } transition ease-out duration-300 border-b-2 border-solid border-white`}
     >
-      <div className="flex items-center gap-4 h-full">
-        <div className="flex items-center h-full">
-          <EclicticLogo fill="white" height={"80%"} width={"80%"} />
-          <div>
-            <h1>Eclectic</h1>
-            <h1 className="font-bold">Qbit</h1>
-          </div>
+      <div className="flex items-center h-full">
+        <EclicticLogo
+          className="w-16 aspect-square"
+          height={"100%"}
+          width={"100%"}
+          fill="white"
+        />
+        <div>
+          <h1>Eclectic</h1>
+          <h1 className="font-bold">Qbit</h1>
         </div>
       </div>
-      <div className="flex items-center gap-4 ml-auto">
+      <div className="flex items-center gap-4 ml-auto text-center">
         <button className="flex flex-col gap-1">
           <div className="w-12 h-1 bg-white rounded-xl" />
           <div className="w-12 h-1 bg-white rounded-xl" />
           <div className="w-12 h-1 bg-white rounded-xl" />
         </button>
-        <Link href="/">
+        <CustomLink href="/">
           <h1>HOME</h1>
-        </Link>
-        <Link href="/artists">
+        </CustomLink>
+        <CustomLink href="/artists">
           <h1>ARTISTS</h1>
-        </Link>
-        <Link href="/projects">
+        </CustomLink>
+        <CustomLink href="/projects">
           <h1>NFT PROJECTS</h1>
-        </Link>
-        <Link href="/team">
+        </CustomLink>
+        <CustomLink href="/team">
           <h1>TEAM</h1>
-        </Link>
-        <Link href="/contacts">
+        </CustomLink>
+        <CustomLink href="/contacts">
           <h1>CONTACTS</h1>
-        </Link>
+        </CustomLink>
         <div className="relative flex items-center border-2 border-solid border-white max-w-[20vw]">
           <button className="w-12 relative scale-50">
             <Magnifier fill="white" />

@@ -6,7 +6,7 @@ import WhatWeDoSecond from "@/components/index/WhatWeDoSecond";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col gap-16 text-xl">
+      <div className="">
         <div>
           <WhatWeDoFirst />
           <WhatWeDoSecond />

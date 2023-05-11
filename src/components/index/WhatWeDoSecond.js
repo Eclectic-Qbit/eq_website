@@ -1,6 +1,6 @@
 export default function WhatWeDoSecond() {
   return (
-    <div className="flex justify-center">
+    <div className="relative flex justify-center">
       <div className="flex flex-wrap gap-3 w-[60%] max-w-[130rem]">
         <div className="grid gap-2">
           <h2 className="text-orange text-2xl">
