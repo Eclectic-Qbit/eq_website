@@ -3,10 +3,12 @@
 import Link from "next/link";
 import Magnifier from "../../../public/svgs/Magnifier";
 import { useEffect, useRef, useState } from "react";
+import EclicticLogo from "../../../public/svgs/EclicticLogo";
 
 export default function Menu() {
   const lastScroll = useRef(0);
   const [show, setShow] = useState(true);
+  const [searchbarText, setSearchbarText] = useState("");
   function handleScroll() {
     if (scrollY > lastScroll.current) {
       setShow(false);
@@ -25,11 +27,13 @@ export default function Menu() {
         !show && "-translate-y-full"
       } transition ease-out duration-300`}
     >
-      <div className="flex items-center gap-4">
-        <h1>PNG</h1>
-        <div className="flex flex-col">
-          <h1>Eclectic</h1>
-          <h1 className="font-bold">Qbit</h1>
+      <div className="flex items-center gap-4 h-full">
+        <div className="flex items-center h-full">
+          <EclicticLogo fill="white" height={"80%"} width={"80%"} />
+          <div>
+            <h1>Eclectic</h1>
+            <h1 className="font-bold">Qbit</h1>
+          </div>
         </div>
       </div>
       <div className="flex items-center gap-4 ml-auto">
@@ -58,6 +62,9 @@ export default function Menu() {
             <Magnifier fill="white" />
           </button>
           <input
+            onClick={() => setSearchbarText("Not yet amigo :)")}
+            onBlur={() => setSearchbarText("")}
+            value={searchbarText}
             type="text"
             className="w-full h-full bg-black focus:outline-none text-2xl"
           />
