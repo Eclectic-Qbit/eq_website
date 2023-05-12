@@ -1,10 +1,11 @@
-export default function TikTok({ fill }) {
+export default function TikTokLogo({ className, width, height, fill }) {
   return (
     <svg
+      className={className ? className : ""}
       xmlns="http://www.w3.org/2000/svg"
-      width={"100%"}
-      height={"100%"}
-      fill={fill}
+      width={width ? width : 800}
+      height={height ? height : 800}
+      fill={fill ? fill : "black"}
       version="1.1"
       viewBox="0 0 32 32"
     >

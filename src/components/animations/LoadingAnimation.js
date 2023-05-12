@@ -7,7 +7,10 @@ export default function LoadingAnimation() {
   const [first, setFirst] = useState("-translate-x-full -translate-y-full");
   const [second, setSecond] = useState("-translate-x-full translate-y-0");
   const [third, setThird] = useState("-translate-x-full translate-y-full");
-  const [hide, setHide] = useState({ temp: false, perma: false });
+  const [hide, setHide] = useState({
+    temp: false,
+    perma: false,
+  });
   const handleMouse = useCallback((e) => {
     setMouse({
       x: -(document.body.offsetWidth / 2 - e.clientX) * 0.25,
@@ -18,20 +21,26 @@ export default function LoadingAnimation() {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
       setHide({ temp: true, perma: true });
+      sessionStorage.setItem("loaded", true);
     }, [1000]);
   }
   useEffect(() => {
-    document.addEventListener("mousemove", handleMouse);
-    document.addEventListener("scroll", handleScroll);
-    setTimeout(() => {
-      setFirst("translate-x-0 -translate-y-0");
-    }, 0);
-    setTimeout(() => {
-      setSecond("translate-x-0 -translate-y-0");
-    }, 500);
-    setTimeout(() => {
-      setThird("translate-x-0 -translate-y-0");
-    }, 1000);
+    const loaded = sessionStorage.getItem("loaded");
+    if (loaded) {
+      handleScroll();
+    } else {
+      document.addEventListener("mousemove", handleMouse);
+      document.addEventListener("scroll", handleScroll);
+      setTimeout(() => {
+        setFirst("translate-x-0 -translate-y-0");
+      }, 0);
+      setTimeout(() => {
+        setSecond("translate-x-0 -translate-y-0");
+      }, 500);
+      setTimeout(() => {
+        setThird("translate-x-0 -translate-y-0");
+      }, 1000);
+    }
     return () => {
       document.removeEventListener("mousemove", handleMouse);
       document.removeEventListener("scroll", handleScroll);

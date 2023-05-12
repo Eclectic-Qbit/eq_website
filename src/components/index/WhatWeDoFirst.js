@@ -1,26 +1,27 @@
 import Link from "next/link";
-import Facebook from "../../../public/svgs/Facebook";
-import Instagram from "../../../public/svgs/Instagram";
-import TikTok from "../../../public/svgs/TikTok";
 import Image from "next/image";
+import LogoLink from "../global/LogoLink";
+import InstagramLogo from "../../../out/svgs/Instagram";
+import DiscordLogo from "../../../public/svgs/DiscordLogo";
+import TwitterLogo from "../../../public/svgs/TwitterLogo";
+import RedditLogo from "../../../public/svgs/RedditLogo";
 
 export default function WhatWeDoFirst() {
   return (
     <div className="relative flex items-center justify-center">
-      <div className="absolute z-20 top-4 right-4 flex flex-col gap-3">
-        <Link
-          href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y="
-          target="_blank"
-          className="bg-white rounded-full w-8 p-2 scale-100 hover:scale-125 transition"
-        >
-          <Instagram fill="black" />
-        </Link>
-        <div className="bg-white rounded-full w-8 p-2 scale-100 hover:scale-125 transition">
-          <TikTok fill="black" />
-        </div>
-        <div className="bg-white rounded-full w-8 p-2 scale-100 hover:scale-125 transition">
-          <Facebook fill="black" />
-        </div>
+      <div className="absolute z-10 top-4 right-4 flex flex-col gap-3">
+        <LogoLink href="">
+          <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
+        </LogoLink>
+        <LogoLink href="">
+          <TwitterLogo fill={"black"} width={"100%"} height={"100%"} />
+        </LogoLink>
+        <LogoLink href="">
+          <RedditLogo fill={"black"} width={"100%"} height={"100%"} />
+        </LogoLink>
+        <LogoLink href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y=">
+          <InstagramLogo fill={"black"} width={"100%"} height={"100%"} />
+        </LogoLink>
       </div>
       <div className="relative h-[90vh]">
         <div className="grid grid-cols-[65%_35%] gap-8 mt-[5%] mx-32 max-w-[130rem]">
