@@ -1,9 +1,9 @@
 "use client";
 
-import Magnifier from "../../../public/svgs/Magnifier";
 import { useEffect, useRef, useState } from "react";
-import EclicticLogo from "../../../public/svgs/EclicticLogo";
+import EclicticLogo from "../logos/EclicticLogo";
 import CustomLink from "./CustomLink";
+import Magnifier from "../logos/Magnifier";
 
 export default function Menu() {
   const lastScroll = useRef(0);

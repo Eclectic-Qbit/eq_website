@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import LogoLink from "../global/LogoLink";
-import InstagramLogo from "../../../out/svgs/Instagram";
-import DiscordLogo from "../../../public/svgs/DiscordLogo";
-import TwitterLogo from "../../../public/svgs/TwitterLogo";
-import RedditLogo from "../../../public/svgs/RedditLogo";
+import DiscordLogo from "../logos/DiscordLogo";
+import TwitterLogo from "../logos/TwitterLogo";
+import RedditLogo from "../logos/RedditLogo";
+import InstagramLogo from "../logos/InstagramLogo";
 
 export default function WhatWeDoFirst() {
   return (
