@@ -3,8 +3,8 @@ export default function EclicticLogo({ className, width, height, fill }) {
     <svg
       className={className ? className : ""}
       xmlns="http://www.w3.org/2000/svg"
-      width={width ? width : 688}
-      height={height ? height : 688}
+      width={width ? width : 800}
+      height={height ? height : 800}
       fill={fill ? fill : "black"}
       version="1"
       viewBox="0 0 516 516"

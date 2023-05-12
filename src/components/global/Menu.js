@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Magnifier from "../../../public/svgs/Magnifier";
 import { useEffect, useRef, useState } from "react";
 import EclicticLogo from "../../../public/svgs/EclicticLogo";
@@ -24,7 +23,7 @@ export default function Menu() {
   }, []);
   return (
     <div
-      className={`fixed h-[10vh] bg-black z-10 top-0 left-0 flex items-center gap-4 w-full text-3xl px-8 ${
+      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-4 w-full text-3xl px-8 ${
         !show && "-translate-y-full"
       } transition ease-out duration-300 border-b-2 border-solid border-white`}
     >
@@ -37,7 +36,7 @@ export default function Menu() {
         />
         <div>
           <h1>Eclectic</h1>
-          <h1 className="font-bold">Qbit</h1>
+          <h1>Qbit</h1>
         </div>
       </div>
       <div className="flex items-center gap-4 ml-auto text-center">
