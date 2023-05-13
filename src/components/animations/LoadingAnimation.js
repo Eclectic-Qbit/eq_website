@@ -21,11 +21,11 @@ export default function LoadingAnimation() {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
       setHide({ temp: true, perma: true });
-      sessionStorage.setItem("loaded", true);
+      localStorage.setItem("loaded", true);
     }, [1000]);
   }
   useEffect(() => {
-    const loaded = sessionStorage.getItem("loaded");
+    const loaded = localStorage.getItem("loaded");
     if (loaded) {
       handleScroll();
     } else {
