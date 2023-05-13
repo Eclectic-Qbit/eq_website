@@ -35,8 +35,8 @@ export default function Menu() {
           fill="white"
         />
         <div>
-          <h1>Eclectic</h1>
-          <h1>Qbit</h1>
+          <h1>eclectic</h1>
+          <h1>qbit</h1>
         </div>
       </div>
       <div className="flex items-center gap-4 ml-auto text-center">
