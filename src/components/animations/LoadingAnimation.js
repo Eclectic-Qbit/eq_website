@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { H3, H4, H5 } from "../text/Headers";
+import { H3, H4, H5, H6 } from "../text/Headers";
 
 export default function LoadingAnimation() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -62,11 +62,11 @@ export default function LoadingAnimation() {
                 transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
               }}
             >
-              <H5
+              <H6
                 className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
               >
                 Interdependence
-              </H5>
+              </H6>
             </div>
             <div
               style={{
