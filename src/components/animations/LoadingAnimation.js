@@ -56,7 +56,7 @@ export default function LoadingAnimation() {
             hide.temp ? "opacity-0" : "opacity-1"
           } z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center transition-all duration-1000 ease-in`}
         >
-          <div className="flex flex-col gap-9 sm:gap-0 w-full">
+          <div className="flex flex-col gap-12 sm:gap-0 w-full">
             <div
               style={{
                 transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
