@@ -1,62 +1,65 @@
 import Link from "next/link";
 import Image from "next/image";
 import LogoLink from "../global/LogoLink";
-import DiscordLogo from "../logos/DiscordLogo";
-import TwitterLogo from "../logos/TwitterLogo";
-import RedditLogo from "../logos/RedditLogo";
-import InstagramLogo from "../logos/InstagramLogo";
+import { DiscordLogo, RedditLogo, TelegramLogo } from "../logos/FullLogo";
+import { InstagramLogo, TwitterLogo } from "../logos/BorderLogo";
+import { H3, H4, H9 } from "../text/Headers";
+import { P1 } from "../text/Paragraphs";
 
 export default function WhatWeDoFirst() {
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex justify-center">
       <div className="absolute z-10 top-4 right-4 flex flex-col gap-3">
-        <LogoLink href="">
+        <LogoLink href="https://discord.gg/n3gxVeqq">
           <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
         </LogoLink>
-        <LogoLink href="">
+        <LogoLink href="https://twitter.com/EclecticQbit">
           <TwitterLogo fill={"black"} width={"100%"} height={"100%"} />
         </LogoLink>
-        <LogoLink href="">
+        <LogoLink href="https://www.reddit.com/user/Eclecticqbit/">
           <RedditLogo fill={"black"} width={"100%"} height={"100%"} />
         </LogoLink>
         <LogoLink href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y=">
           <InstagramLogo fill={"black"} width={"100%"} height={"100%"} />
         </LogoLink>
+        <LogoLink href="https://t.me/eclecticqbit">
+          <TelegramLogo fill={"black"} width={"100%"} height={"100%"} />
+        </LogoLink>
       </div>
-      <div className="relative h-[90vh]">
-        <div className="grid grid-cols-[65%_35%] gap-8 mt-[5%] mx-32 max-w-[130rem]">
-          <div className="flex flex-col justify-center items-center gap-9">
-            <h1 className="font-bold text-purple">
-              <span className="text-7xl">THIS IS</span> <br />{" "}
-              <span className="text-8xl">WHAT WE DO</span>
-            </h1>
-            <div className="flex flex-wrap gap-3 lowercase">
+      <div className="relative w-full">
+        <div className="flex flex-wrap gap-8 mt-[5%] mx-32">
+          <div className="flex flex-col justify-center gap-9 max-w-5xl">
+            <div className="font-bold text-purple w-full">
+              <H4>THIS IS</H4>
+              <H3>WHAT WE DO</H3>
+            </div>
+            <div className="flex flex-wrap gap-3 lowercase w-full">
               <div className="grid gap-2">
-                <h2 className="text-orange text-2xl">
+                <H9 className="text-orange text-2xl">
                   🌌 Quantum Vibe: interdependence is the new independence 🕶️
-                </h2>
-                <h2>
+                </H9>
+                <P1>
                   eclectic qbit, it&apos;s all about bringing the modus operandi
                   of qbits, into web3, with a IT&apos;S A ME twist with nature
                   as our main inspiration, just like fungi, we exchange
                   nutrients and other resources within & beyond web3 space
-                </h2>
+                </P1>
               </div>
               <div className="grid gap-2">
-                <h2 className="text-orange text-2xl">
+                <H9 className="text-orange text-2xl">
                   🍄 Community Building: Joining Forces with Eclectic regens 🎮
-                </h2>
-                <h2>
+                </H9>
+                <P1>
                   we know that building a successful web3 project takes more
                   than just cutting-edge technology - it also requires a touch
                   of magic our eclectic regens will quantum leap your project to
                   the next level, infusing your community with the fun and
                   excitement that players of all ages have come to know and love
-                </h2>
+                </P1>
               </div>
             </div>
           </div>
-          <div className="mx-auto my-auto relative flex items-center justify-center w-full max-w-md aspect-[3/4] grayscale hover:grayscale-0 transition ease-in duration-200">
+          <div className="mx-auto my-auto relative flex items-center justify-center w-full max-w-xs xl:max-w-md aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
             <Link href="https://malpegados.jimdosite.com/" target="_blank">
               <Image
                 src={

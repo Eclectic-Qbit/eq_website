@@ -1,6 +1,7 @@
 "use client";
 
 import { cloneElement, useEffect, useState } from "react";
+import { P1, P2 } from "../text/Paragraphs";
 
 export default function ShowOnHover({ children }) {
   const [active, setActive] = useState(false);
@@ -17,13 +18,13 @@ export default function ShowOnHover({ children }) {
     );
   }, [active, children]);
   return (
-    <h2
+    <div
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      className="cursor-pointer w-full"
+      className="cursor-pointer w-full flex flex-col"
     >
       {children[0]}
-      {child}
-    </h2>
+      <P2>{child}</P2>
+    </div>
   );
 }

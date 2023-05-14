@@ -6,15 +6,19 @@ import WhatWeDoSecond from "@/components/index/WhatWeDoSecond";
 export default function Home() {
   return (
     <>
-      <div className="">
-        <div>
+      <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-10">
           <WhatWeDoFirst />
           <WhatWeDoSecond />
         </div>
-        <HowWeDo />
         <div>
+          <HowWeDo />
+        </div>
+        <div>
+          {/* NOT READY 
           <PaintEarnFirst />
           <PaintEarnSecond />
+          */}
         </div>
       </div>
     </>

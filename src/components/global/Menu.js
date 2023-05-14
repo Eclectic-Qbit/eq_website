@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import EclicticLogo from "../logos/EclicticLogo";
 import CustomLink from "./CustomLink";
 import Magnifier from "../logos/Magnifier";
+import { H4, H6, H8, H9 } from "../text/Headers";
 
 export default function Menu() {
   const lastScroll = useRef(0);
@@ -23,43 +24,46 @@ export default function Menu() {
   }, []);
   return (
     <div
-      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-4 w-full text-3xl px-8 ${
+      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl px-8 ${
         !show && "-translate-y-full"
       } transition ease-out duration-300 border-b-2 border-solid border-white`}
     >
-      <div className="flex items-center h-full">
+      <div className="flex items-center">
         <EclicticLogo
-          className="w-16 aspect-square"
+          className="w-8 lg:w-24 sm:w-16 xs:w-8 aspect-square transition-all duration-150 ease-in"
           height={"100%"}
           width={"100%"}
           fill="white"
         />
         <div>
-          <h1>eclectic</h1>
-          <h1>qbit</h1>
+          <H9>eclectic</H9>
+          <H9>qbit</H9>
         </div>
       </div>
-      <div className="flex items-center gap-4 ml-auto text-center">
+      <div className="flex items-center justify-end w-full gap-2 lg:gap-4 sm:gap-3-auto text-center">
+        {/* NOT NECESSARY
         <button className="flex flex-col gap-1">
           <div className="w-12 h-1 bg-white rounded-xl" />
           <div className="w-12 h-1 bg-white rounded-xl" />
           <div className="w-12 h-1 bg-white rounded-xl" />
         </button>
+        */}
         <CustomLink href="/">
-          <h1>HOME</h1>
+          <H9>HOME</H9>
         </CustomLink>
         <CustomLink href="/brojects">
-          <h1>BROJECTS</h1>
+          <H9>BROJECTS</H9>
         </CustomLink>
         <CustomLink href="/collabs">
-          <h1>COLLABS</h1>
+          <H9>COLLABS</H9>
         </CustomLink>
         <CustomLink href="/team">
-          <h1>TEAM</h1>
+          <H9>TEAM</H9>
         </CustomLink>
         <CustomLink href="/contacts">
-          <h1>CONTACTS</h1>
+          <H9>CONTACTS</H9>
         </CustomLink>
+        {/* NOT NECESSARY:
         <div className="relative flex items-center border-2 border-solid border-white max-w-[20vw]">
           <button className="w-12 relative scale-50">
             <Magnifier fill="white" />
@@ -72,6 +76,7 @@ export default function Menu() {
             className="w-full h-full bg-black focus:outline-none text-2xl"
           />
         </div>
+        */}
       </div>
     </div>
   );
