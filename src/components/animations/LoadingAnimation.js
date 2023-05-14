@@ -62,11 +62,11 @@ export default function LoadingAnimation() {
                 transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
               }}
             >
-              <H3
-                className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-[55deg] sm:rotate-0`}
+              <H4
+                className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-[69deg] sm:rotate-0`}
               >
                 Interdependence
-              </H3>
+              </H4>
             </div>
             <div
               style={{
@@ -75,11 +75,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <H2
-                className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-[55deg] sm:rotate-0`}
+              <H3
+                className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-[69deg] sm:rotate-0`}
               >
                 is the new
-              </H2>
+              </H3>
             </div>
             <div
               style={{
@@ -88,11 +88,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <H3
-                className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-[55deg] sm:rotate-0`}
+              <H4
+                className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-[69deg] sm:rotate-0`}
               >
                 independence
-              </H3>
+              </H4>
             </div>
           </div>
         </div>
