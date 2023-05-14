@@ -82,7 +82,7 @@ export function H9({ className, children }) {
   const props = className ? className : "";
   return (
     <h1
-      className={`${props} text-[1.25rem] 2xl:text-[2rem] xl:text-[1.25rem] lg:text-[1.25rem] sm:text-[1.25rem] xs:text-[1.25rem] leading-none transition-all duration-300 ease-in`}
+      className={`${props} text-[1rem] 2xl:text-[2rem] xl:text-[1.75rem] lg:text-[1.5rem] sm:text-[1.25rem] xs:text-[1rem] leading-none transition-all duration-300 ease-in`}
     >
       {children}
     </h1>

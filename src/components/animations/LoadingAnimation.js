@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { H3 } from "../text/Headers";
+import { H3, H4 } from "../text/Headers";
 
 export default function LoadingAnimation() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -62,11 +62,11 @@ export default function LoadingAnimation() {
                 transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
               }}
             >
-              <H3
+              <H4
                 className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
               >
                 Interdependence
-              </H3>
+              </H4>
             </div>
             <div
               style={{
@@ -75,11 +75,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <H3
+              <H4
                 className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
               >
                 is the new
-              </H3>
+              </H4>
             </div>
             <div
               style={{
@@ -88,11 +88,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <H3
+              <H4
                 className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
               >
                 independence
-              </H3>
+              </H4>
             </div>
           </div>
         </div>

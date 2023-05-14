@@ -24,7 +24,7 @@ export default function Menu() {
   }, []);
   return (
     <div
-      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl px-8 ${
+      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl px-[2%] ${
         !show && "-translate-y-full"
       } transition ease-out duration-300 border-b-2 border-solid border-white`}
     >
