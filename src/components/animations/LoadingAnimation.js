@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { H3, H4, H5, H6 } from "../text/Headers";
+import { H2, H3, H4, H5, H6 } from "../text/Headers";
 
 export default function LoadingAnimation() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -62,11 +62,11 @@ export default function LoadingAnimation() {
                 transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
               }}
             >
-              <H6
-                className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
+              <H2
+                className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-45 sm:rotate-0`}
               >
                 Interdependence
-              </H6>
+              </H2>
             </div>
             <div
               style={{
@@ -75,11 +75,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <H4
-                className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
+              <H2
+                className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-45 sm:rotate-0`}
               >
                 is the new
-              </H4>
+              </H2>
             </div>
             <div
               style={{
@@ -88,11 +88,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <H5
-                className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
+              <H2
+                className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold -rotate-45 sm:rotate-0`}
               >
                 independence
-              </H5>
+              </H2>
             </div>
           </div>
         </div>
