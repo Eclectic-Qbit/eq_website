@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { H3 } from "../text/Headers";
 
 export default function LoadingAnimation() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -21,11 +22,11 @@ export default function LoadingAnimation() {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
       setHide({ temp: true, perma: true });
-      localStorage.setItem("loaded", true);
+      sessionStorage.setItem("loaded", true);
     }, [1000]);
   }
   useEffect(() => {
-    const loaded = localStorage.getItem("loaded");
+    const loaded = sessionStorage.getItem("loaded");
     if (loaded) {
       handleScroll();
     } else {
@@ -61,11 +62,11 @@ export default function LoadingAnimation() {
                 transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
               }}
             >
-              <h1
+              <H3
                 className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
               >
                 Interdependence
-              </h1>
+              </H3>
             </div>
             <div
               style={{
@@ -74,11 +75,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <h1
+              <H3
                 className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
               >
                 is the new
-              </h1>
+              </H3>
             </div>
             <div
               style={{
@@ -87,11 +88,11 @@ export default function LoadingAnimation() {
                 }px, 0)`,
               }}
             >
-              <h1
+              <H3
                 className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
               >
                 independence
-              </h1>
+              </H3>
             </div>
           </div>
         </div>
