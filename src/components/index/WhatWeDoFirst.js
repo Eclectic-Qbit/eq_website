@@ -28,7 +28,7 @@ export default function WhatWeDoFirst() {
       </div>
       <div className="relative w-full">
         <div className="flex flex-wrap gap-8 mt-[5%] mx-32">
-          <div className="flex flex-col justify-center gap-9 max-w-5xl">
+          <div className="flex flex-col justify-center gap-9 max-w-2xl xl:max-w-4xl">
             <div className="font-bold text-purple w-full">
               <H4>THIS IS</H4>
               <H3>WHAT WE DO</H3>
@@ -59,8 +59,12 @@ export default function WhatWeDoFirst() {
               </div>
             </div>
           </div>
-          <div className="mx-auto my-auto relative flex items-center justify-center w-full max-w-xs xl:max-w-md aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
-            <Link href="https://malpegados.jimdosite.com/" target="_blank">
+          <div className="relative w-full h-min mx-auto my-auto relative flex items-center justify-center max-w-xs xl:max-w-md aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
+            <Link
+              className="relative w-full h-full"
+              href="https://malpegados.jimdosite.com/"
+              target="_blank"
+            >
               <Image
                 src={
                   true
@@ -68,7 +72,8 @@ export default function WhatWeDoFirst() {
                     : "/images/proudCat - latest.jpg"
                 }
                 fill
-                sizes="auto"
+                sizes="100%"
+                priority
                 alt="Cat Logo"
                 className="scale-100 hover:scale-110 transition rounded-xl"
               />

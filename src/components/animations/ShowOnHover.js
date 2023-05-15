@@ -1,7 +1,7 @@
 "use client";
 
+import settings from "@/frontendSettings";
 import { cloneElement, useEffect, useState } from "react";
-import { P1, P2 } from "../text/Paragraphs";
 
 export default function ShowOnHover({ children }) {
   const [active, setActive] = useState(false);
@@ -16,15 +16,20 @@ export default function ShowOnHover({ children }) {
         active: active,
       })
     );
+    if (window.innerWidth < settings.mobileView) {
+      setActive(true);
+    }
   }, [active, children]);
   return (
     <div
       onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
+      onMouseLeave={() =>
+        setActive(window.innerWidth < settings.mobileView ? true : false)
+      }
       className="cursor-pointer w-full flex flex-col"
     >
       {children[0]}
-      <P2>{child}</P2>
+      {child}
     </div>
   );
 }
