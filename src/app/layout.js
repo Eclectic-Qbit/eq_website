@@ -7,10 +7,11 @@ import { useEffect, useState } from "react";
 import settings from "@/frontendSettings";
 import LanguageContext from "@/contexts/LanguageContext";
 
-export const metadata = {
+const metadata = {
   title: "Barrio Buidlers",
   description: "Interdipendence is the new indipendence",
 };
+export { metadata };
 
 export default function RootLayout({ children }) {
   const [lang, setLang] = useState(settings.defaultLang);
