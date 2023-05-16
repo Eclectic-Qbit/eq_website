@@ -5,7 +5,7 @@ import EclicticLogo from "../logos/EclicticLogo";
 import CustomLink from "./CustomLink";
 import Magnifier from "../logos/Magnifier";
 import { H4, H6, H8, H9 } from "../text/Headers";
-import { P1 } from "../text/Paragraphs";
+import { P1, P2, P3 } from "../text/Paragraphs";
 
 export default function Menu() {
   const lastScroll = useRef(0);
@@ -31,14 +31,14 @@ export default function Menu() {
     >
       <div className="flex items-center">
         <EclicticLogo
-          className="w-12 lg:w-20 sm:w-16 aspect-square transition-all duration-150 ease-in"
+          className="w-24 lg:w-24 sm:w-16 aspect-square transition-all duration-150 ease-in"
           height={"100%"}
           width={"100%"}
           fill="white"
         />
         <div>
-          <P1>eclectic</P1>
-          <P1>qbit</P1>
+          <P2>eclectic</P2>
+          <P2>qbit</P2>
         </div>
       </div>
       <div className="flex uppercase items-center justify-end w-full lg:gap-4 sm:gap-3-auto text-center">
@@ -51,19 +51,19 @@ export default function Menu() {
         */}
         <div className="grid gap-0.5 md:flex md:gap-3">
           <CustomLink href="/">
-            <P1 translationPath="menu/home" />
+            <P3 translationPath="menu/home" />
           </CustomLink>
           <CustomLink href="/brojects">
-            <P1 translationPath="menu/brojects" />
+            <P3 translationPath="menu/brojects" />
           </CustomLink>
           <CustomLink href="/collabs">
-            <P1 translationPath="menu/collabs" />
+            <P3 translationPath="menu/collabs" />
           </CustomLink>
           <CustomLink href="/team">
-            <P1 translationPath="menu/team" />
+            <P3 translationPath="menu/team" />
           </CustomLink>
           <CustomLink href="/contacts">
-            <P1 translationPath="menu/contacts" />
+            <P3 translationPath="menu/contacts" />
           </CustomLink>
         </div>
 
