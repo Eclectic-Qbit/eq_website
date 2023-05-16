@@ -5,6 +5,7 @@ import EclicticLogo from "../logos/EclicticLogo";
 import CustomLink from "./CustomLink";
 import Magnifier from "../logos/Magnifier";
 import { H4, H6, H8, H9 } from "../text/Headers";
+import { P1 } from "../text/Paragraphs";
 
 export default function Menu() {
   const lastScroll = useRef(0);
@@ -36,8 +37,8 @@ export default function Menu() {
           fill="white"
         />
         <div>
-          <H9>eclectic</H9>
-          <H9>qbit</H9>
+          <P1>eclectic</P1>
+          <P1>qbit</P1>
         </div>
       </div>
       <div className="flex uppercase items-center justify-end w-full gap-2 lg:gap-4 sm:gap-3-auto text-center">
@@ -49,19 +50,19 @@ export default function Menu() {
         </button>
         */}
         <CustomLink href="/">
-          <H9 translationPath="menu/home" />
+          <P1 translationPath="menu/home" />
         </CustomLink>
         <CustomLink href="/brojects">
-          <H9 translationPath="menu/brojects" />
+          <P1 translationPath="menu/brojects" />
         </CustomLink>
         <CustomLink href="/collabs">
-          <H9 translationPath="menu/collabs" />
+          <P1 translationPath="menu/collabs" />
         </CustomLink>
         <CustomLink href="/team">
-          <H9 translationPath="menu/team" />
+          <P1 translationPath="menu/team" />
         </CustomLink>
         <CustomLink href="/contacts">
-          <H9 translationPath="menu/contacts" />
+          <P1 translationPath="menu/contacts" />
         </CustomLink>
         {/* NOT NECESSARY:
         <div className="relative flex items-center border-2 border-solid border-white max-w-[20vw]">

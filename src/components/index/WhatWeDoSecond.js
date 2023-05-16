@@ -4,7 +4,7 @@ import { P1 } from "../text/Paragraphs";
 export default function WhatWeDoSecond() {
   return (
     <div className="relative flex justify-center">
-      <div className="flex flex-wrap gap-3 w-[60%] max-w-[130rem] lowercase">
+      <div className="flex flex-wrap gap-3 mx-[15%] max-w-[130rem] lowercase">
         <div className="grid gap-2">
           <H9 translationPath="whatWeDo/h3" className="text-orange" />
           <P1 translationPath="whatWeDo/p3" />
