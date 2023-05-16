@@ -31,7 +31,7 @@ export default function Menu() {
     >
       <div className="flex items-center">
         <EclicticLogo
-          className="w-12 lg:w-24 sm:w-16 aspect-square transition-all duration-150 ease-in"
+          className="w-12 lg:w-20 sm:w-16 aspect-square transition-all duration-150 ease-in"
           height={"100%"}
           width={"100%"}
           fill="white"
@@ -41,7 +41,7 @@ export default function Menu() {
           <P1>qbit</P1>
         </div>
       </div>
-      <div className="flex uppercase items-center justify-end w-full gap-2 lg:gap-4 sm:gap-3-auto text-center">
+      <div className="flex uppercase items-center justify-end w-full lg:gap-4 sm:gap-3-auto text-center">
         {/* NOT NECESSARY
         <button className="flex flex-col gap-1">
           <div className="w-12 h-1 bg-white rounded-xl" />
@@ -49,21 +49,24 @@ export default function Menu() {
           <div className="w-12 h-1 bg-white rounded-xl" />
         </button>
         */}
-        <CustomLink href="/">
-          <P1 translationPath="menu/home" />
-        </CustomLink>
-        <CustomLink href="/brojects">
-          <P1 translationPath="menu/brojects" />
-        </CustomLink>
-        <CustomLink href="/collabs">
-          <P1 translationPath="menu/collabs" />
-        </CustomLink>
-        <CustomLink href="/team">
-          <P1 translationPath="menu/team" />
-        </CustomLink>
-        <CustomLink href="/contacts">
-          <P1 translationPath="menu/contacts" />
-        </CustomLink>
+        <div className="grid gap-0.5 md:flex md:gap-3">
+          <CustomLink href="/">
+            <P1 translationPath="menu/home" />
+          </CustomLink>
+          <CustomLink href="/brojects">
+            <P1 translationPath="menu/brojects" />
+          </CustomLink>
+          <CustomLink href="/collabs">
+            <P1 translationPath="menu/collabs" />
+          </CustomLink>
+          <CustomLink href="/team">
+            <P1 translationPath="menu/team" />
+          </CustomLink>
+          <CustomLink href="/contacts">
+            <P1 translationPath="menu/contacts" />
+          </CustomLink>
+        </div>
+
         {/* NOT NECESSARY:
         <div className="relative flex items-center border-2 border-solid border-white max-w-[20vw]">
           <button className="w-12 relative scale-50">
