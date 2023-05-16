@@ -9,7 +9,7 @@ import { H4, H6, H8, H9 } from "../text/Headers";
 export default function Menu() {
   const lastScroll = useRef(0);
   const [show, setShow] = useState(true);
-  const [searchbarText, setSearchbarText] = useState("");
+  //const [searchbarText, setSearchbarText] = useState("");
   function handleScroll() {
     if (scrollY > lastScroll.current) {
       setShow(false);
@@ -40,7 +40,7 @@ export default function Menu() {
           <H9>qbit</H9>
         </div>
       </div>
-      <div className="flex items-center justify-end w-full gap-2 lg:gap-4 sm:gap-3-auto text-center">
+      <div className="flex uppercase items-center justify-end w-full gap-2 lg:gap-4 sm:gap-3-auto text-center">
         {/* NOT NECESSARY
         <button className="flex flex-col gap-1">
           <div className="w-12 h-1 bg-white rounded-xl" />
@@ -49,19 +49,19 @@ export default function Menu() {
         </button>
         */}
         <CustomLink href="/">
-          <H9>HOME</H9>
+          <H9 translationPath="menu/home" />
         </CustomLink>
         <CustomLink href="/brojects">
-          <H9>BROJECTS</H9>
+          <H9 translationPath="menu/brojects" />
         </CustomLink>
         <CustomLink href="/collabs">
-          <H9>COLLABS</H9>
+          <H9 translationPath="menu/collabs" />
         </CustomLink>
         <CustomLink href="/team">
-          <H9>TEAM</H9>
+          <H9 translationPath="menu/team" />
         </CustomLink>
         <CustomLink href="/contacts">
-          <H9>CONTACTS</H9>
+          <H9 translationPath="menu/contacts" />
         </CustomLink>
         {/* NOT NECESSARY:
         <div className="relative flex items-center border-2 border-solid border-white max-w-[20vw]">

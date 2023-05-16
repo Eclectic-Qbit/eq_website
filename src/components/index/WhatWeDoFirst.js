@@ -29,33 +29,18 @@ export default function WhatWeDoFirst() {
       <div className="relative w-full">
         <div className="flex flex-wrap gap-8 mt-[5%] mx-32">
           <div className="flex flex-col justify-center gap-9 max-w-2xl xl:max-w-4xl">
-            <div className="font-bold text-purple w-full">
-              <H4>THIS IS</H4>
-              <H3>WHAT WE DO</H3>
+            <div className="font-extrabold uppercase text-purple w-full">
+              <H4 translationPath="whatWeDo/title/p1" />
+              <H3 translationPath="whatWeDo/title/p2" />
             </div>
             <div className="flex flex-wrap gap-3 lowercase w-full">
               <div className="grid gap-2">
-                <H9 className="text-orange text-2xl">
-                  🌌 Quantum Vibe: interdependence is the new independence 🕶️
-                </H9>
-                <P1>
-                  eclectic qbit, it&apos;s all about bringing the modus operandi
-                  of qbits, into web3, with a IT&apos;S A ME twist with nature
-                  as our main inspiration, just like fungi, we exchange
-                  nutrients and other resources within & beyond web3 space
-                </P1>
+                <H9 translationPath="whatWeDo/h1" className="text-orange" />
+                <P1 translationPath="whatWeDo/p1" />
               </div>
               <div className="grid gap-2">
-                <H9 className="text-orange text-2xl">
-                  🍄 Community Building: Joining Forces with Eclectic regens 🎮
-                </H9>
-                <P1>
-                  we know that building a successful web3 project takes more
-                  than just cutting-edge technology - it also requires a touch
-                  of magic our eclectic regens will quantum leap your project to
-                  the next level, infusing your community with the fun and
-                  excitement that players of all ages have come to know and love
-                </P1>
+                <H9 translationPath="whatWeDo/h2" className="text-orange" />
+                <P1 translationPath="whatWeDo/p2" />
               </div>
             </div>
           </div>
