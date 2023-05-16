@@ -6,12 +6,16 @@ const translations = {
     team: { en: "team", it: "team" },
     contacts: { en: "contacts", it: "contatti" },
   },
+  eclecticQbit: {
+    title: { p1: { en: "eclectic" }, p2: { en: "qbit" } },
+    h1: { en: "interdependence is the new independence" },
+    p1: {
+      en: "\"eclectic qbit, it's all about bringing the modus operandi of qbits, into web3, with a it's a me twist with nature as our main inspiration, just like fungi, we exchange nutrients and other resources within & beyond web3 space\"",
+    },
+  },
   whatWeDo: {
     title: { p1: { en: "this is" }, p2: { en: "what we do" } },
-    h1: { en: "🌌 quantum vibe: interdependence is the new independence 🕶️" },
-    p1: {
-      en: "eclectic qbit, it's all about bringing the modus operandi of qbits, into web3, with a it's a me twist with nature as our main inspiration, just like fungi, we exchange nutrients and other resources within & beyond web3 space",
-    },
+
     h2: { en: "🍄 community building: joining forces with eclectic regens 🎮" },
     p2: {
       en: "we know that building a successful web3 project takes more than just cutting-edge technology - it also requires a touch of magic our eclectic regens will quantum leap your project to the next level, infusing your community with the fun and excitement that players of all ages have come to know and love",

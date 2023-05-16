@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
-import { P2 } from "../text/Paragraphs";
+import { P2, P3, P4 } from "../text/Paragraphs";
 import settings from "@/frontendSettings";
 import LanguageContext from "@/contexts/LanguageContext";
 import { translateText } from "@/commonFrontend";
@@ -74,5 +74,5 @@ export default function ConsoleEffect({
     additionalChar,
     parsedPlaceholderChar.length,
   ]);
-  return value.length > 0 ? <P2>{value}</P2> : <br />;
+  return value.length > 0 ? <P4>{value}</P4> : <br />;
 }

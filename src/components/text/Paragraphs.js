@@ -9,7 +9,7 @@ export function P1({ className, children, translationPath }) {
   const props = className ? className : "";
   return (
     <p
-      className={`${props} text-[1.25rem] xl:text-[1.75rem] md:text-[1.5rem] leading-none transition-all duration-300 ease-in`}
+      className={`${props} text-[1.75rem] xl:text-[2.25rem] md:text-[2rem] leading-none transition-all duration-300 ease-in`}
     >
       {children ? children : translateText(translationPath, lang)}
     </p>
@@ -17,6 +17,30 @@ export function P1({ className, children, translationPath }) {
 }
 
 export function P2({ className, children, translationPath }) {
+  const { lang, setLang } = useContext(LanguageContext);
+  const props = className ? className : "";
+  return (
+    <p
+      className={`${props} text-[1.5rem] xl:text-[2rem] md:text-[1.75rem] leading-none transition-all duration-300 ease-in`}
+    >
+      {children ? children : translateText(translationPath, lang)}
+    </p>
+  );
+}
+
+export function P3({ className, children, translationPath }) {
+  const { lang, setLang } = useContext(LanguageContext);
+  const props = className ? className : "";
+  return (
+    <p
+      className={`${props} text-[1.25rem] xl:text-[1.75rem] md:text-[1.5rem] leading-none transition-all duration-300 ease-in`}
+    >
+      {children ? children : translateText(translationPath, lang)}
+    </p>
+  );
+}
+
+export function P4({ className, children, translationPath }) {
   const { lang, setLang } = useContext(LanguageContext);
   const props = className ? className : "";
   return (
