@@ -3,7 +3,6 @@
 import ConsoleEffect from "../animations/ConsoleEffect";
 import ShowOnHover from "../animations/ShowOnHover";
 import { H3, H4, H9 } from "../text/Headers";
-import { P2 } from "../text/Paragraphs";
 
 export default function HowWeDo() {
   return (
@@ -13,7 +12,7 @@ export default function HowWeDo() {
           <H4 translationPath="howWeDo/title/p1" />
           <H3 translationPath="howWeDo/title/p2" />
         </div>
-        <div className="flex flex-col mx-16 items-center justify-center lowercase gap-1">
+        <div className="flex flex-col mx-[5%] items-center justify-center lowercase gap-1">
           <ShowOnHover>
             <H9 translationPath="howWeDo/h1" className="text-orange" />
             <ConsoleEffect
