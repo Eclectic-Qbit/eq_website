@@ -1,3 +1,4 @@
+import EclecticQbit from "@/components/index/EclecticQbit";
 import HowWeDo from "@/components/index/HowWeDo";
 import PaintEarnFirst from "@/components/index/PaintEarnFirst";
 import PaintEarnSecond from "@/components/index/PaintEarnSecond";
@@ -7,6 +8,9 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col gap-32">
+        <div>
+          <EclecticQbit />
+        </div>
         <div className="flex flex-col gap-20">
           <WhatWeDoFirst />
           <WhatWeDoSecond />

@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <LanguageProvider>
           <LoadingAnimation />
           <Menu />
-          <div className="mt-[10vh]">{children}</div>
+          {children}
         </LanguageProvider>
       </body>
     </html>
