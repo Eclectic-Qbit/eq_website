@@ -1,31 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import LogoLink from "../global/LogoLink";
-import { DiscordLogo, RedditLogo, TelegramLogo } from "../logos/FullLogo";
-import { InstagramLogo, TwitterLogo } from "../logos/BorderLogo";
 import { H2, H3, H4, H9 } from "../text/Headers";
 import { P1, P2, P4 } from "../text/Paragraphs";
 
 export default function WhatWeDoFirst() {
   return (
     <div className="relative flex justify-center">
-      <div className="absolute z-10 top-4 right-4 flex flex-col gap-3">
-        <LogoLink href="https://discord.gg/n3gxVeqq">
-          <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
-        </LogoLink>
-        <LogoLink href="https://twitter.com/EclecticQbit">
-          <TwitterLogo fill={"black"} width={"100%"} height={"100%"} />
-        </LogoLink>
-        <LogoLink href="https://www.reddit.com/user/Eclecticqbit/">
-          <RedditLogo fill={"black"} width={"100%"} height={"100%"} />
-        </LogoLink>
-        <LogoLink href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y=">
-          <InstagramLogo fill={"black"} width={"100%"} height={"100%"} />
-        </LogoLink>
-        <LogoLink href="https://t.me/eclecticqbit">
-          <TelegramLogo fill={"black"} width={"100%"} height={"100%"} />
-        </LogoLink>
-      </div>
       <div className="relative w-full">
         <div className="flex flex-wrap gap-8 mt-[5%] mx-[5%]">
           <div className="flex flex-col justify-center gap-9 max-w-2xl xl:max-w-4xl">
