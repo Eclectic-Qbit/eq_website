@@ -25,13 +25,13 @@ export default function Menu() {
   }, []);
   return (
     <div
-      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl px-[2%] ${
+      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl py-[1vh] px-[2%] ${
         !show && "-translate-y-full"
       } transition ease-out duration-300 border-b-2 border-solid border-white`}
     >
       <div className="flex items-center">
         <EclicticLogo
-          className="w-24 lg:w-24 sm:w-16 aspect-square transition-all duration-150 ease-in"
+          className="w-20 aspect-square transition-all duration-150 ease-in"
           height={"100%"}
           width={"100%"}
           fill="white"
