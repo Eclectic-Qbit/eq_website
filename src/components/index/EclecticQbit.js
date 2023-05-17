@@ -1,26 +1,50 @@
+import Link from "next/link";
 import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
 import { H1, H2, H3, H5, H6, H7, H8, H9 } from "../text/Headers";
 import { P1, P2, P3, P4 } from "../text/Paragraphs";
+import Image from "next/image";
 
 export default function EclecticQbit() {
   return (
-    <div className="flex flex-col space-y-full gap-[5vh] items-center justify-center min-h-screen">
-      <div className="flex items-center justify-center font-extrabold uppercase w-full">
+    <div className="relative w-full min-h-screen">
+      <div className="flex flex-wrap items-center justify-center font-extrabold uppercase w-full gap-y-10">
         <MouseMoveGradient
-          className="w-full text-center"
+          className="w-auto text-center mx-auto"
           from="#FF6600"
           to="#9500E9"
         >
-          <H3 translationPath="eclecticQbit/title/p1" />
-          <H3 translationPath="eclecticQbit/title/p2" />
+          <H2 translationPath="eclecticQbit/title/p1" />
+          <H2 translationPath="eclecticQbit/title/p2" />
         </MouseMoveGradient>
+        <div className="relative mx-auto flex items-center justify-center w-[16rem] xl:w-[24rem] aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
+          <Link
+            className="relative w-full h-full"
+            href="https://malpegados.jimdosite.com/"
+            target="_blank"
+          >
+            <Image
+              src={
+                true
+                  ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat - latest.jpg"
+                  : "/images/proudCat - latest.jpg"
+              }
+              fill
+              sizes="100%"
+              priority
+              alt="Cat Logo"
+              className="scale-100 hover:scale-105 transition rounded-xl"
+            />
+          </Link>
+        </div>
       </div>
-      <div className="grid gap-2 w-2/3 text-center">
-        <P1
-          translationPath="eclecticQbit/h1"
-          className="text-orange uppercase font-bold"
-        />
-        <P2 translationPath="eclecticQbit/p1" />
+      <div className="realtive w-full h-full flex items-center justify-center gap-2 text-center">
+        <div className="w-2/3">
+          <P1
+            translationPath="eclecticQbit/h1"
+            className="text-orange uppercase font-bold mt-[2.5%]"
+          />
+          <P2 translationPath="eclecticQbit/p1" />
+        </div>
       </div>
     </div>
   );

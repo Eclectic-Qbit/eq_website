@@ -71,37 +71,37 @@ export default function LoadingAnimation() {
                 transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
               }}
             >
-              <H2
-                className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
+              <H3
+                className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
               >
                 Interdependence
-              </H2>
-            </div>
-            <div
-              style={{
-                transform: `translate3d(${mouse.x * 1.2}px, ${
-                  mouse.y * 1.2
-                }px, 0)`,
-              }}
-            >
-              <H3
-                className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
-              >
-                is the new
               </H3>
             </div>
             <div
               style={{
-                transform: `translate3d(${mouse.x * 1.4}px, ${
-                  mouse.y * 1.4
+                transform: `translate3d(${mouse.x * 1.3}px, ${
+                  mouse.y * 1.5
                 }px, 0)`,
               }}
             >
-              <H2
-                className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-300 ease-in hover:font-semibold`}
+              <H4
+                className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
+              >
+                is the new
+              </H4>
+            </div>
+            <div
+              style={{
+                transform: `translate3d(${mouse.x * 1.6}px, ${
+                  mouse.y * 2
+                }px, 0)`,
+              }}
+            >
+              <H3
+                className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
               >
                 independence
-              </H2>
+              </H3>
             </div>
           </div>
         </div>
