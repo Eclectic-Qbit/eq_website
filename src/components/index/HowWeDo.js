@@ -9,7 +9,7 @@ export default function HowWeDo() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="grid gap-4 w-full max-w-[130rem]">
-        <div className="font-extrabold uppercase mb-8 text-center text-purple">
+        <div className="font-extrabold uppercase mb-8 text-center bg-clip-text text-transparent bg-gradient-to-tr from-orange to-purple">
           <H4 translationPath="howWeDo/title/p1" />
           <H3 translationPath="howWeDo/title/p2" />
         </div>
