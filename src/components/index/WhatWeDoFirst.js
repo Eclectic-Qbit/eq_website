@@ -20,26 +20,6 @@ export default function WhatWeDoFirst() {
               </div>
             </div>
           </div>
-          <div className="relative w-full h-min mx-auto my-auto relative flex items-center justify-center max-w-xs xl:max-w-md aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
-            <Link
-              className="relative w-full h-full"
-              href="https://malpegados.jimdosite.com/"
-              target="_blank"
-            >
-              <Image
-                src={
-                  true
-                    ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat - latest.jpg"
-                    : "/images/proudCat - latest.jpg"
-                }
-                fill
-                sizes="100%"
-                priority
-                alt="Cat Logo"
-                className="scale-100 hover:scale-110 transition rounded-xl"
-              />
-            </Link>
-          </div>
         </div>
       </div>
     </div>
