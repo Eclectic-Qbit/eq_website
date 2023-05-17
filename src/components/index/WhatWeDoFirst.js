@@ -9,7 +9,7 @@ export default function WhatWeDoFirst() {
       <div className="relative w-full">
         <div className="flex flex-wrap gap-8 mt-[5%] mx-[5%]">
           <div className="flex flex-col justify-center gap-9 max-w-2xl xl:max-w-4xl">
-            <div className="font-extrabold uppercase text-purple w-full">
+            <div className="font-extrabold uppercase w-full bg-clip-text text-transparent bg-gradient-to-tr from-orange to-purple">
               <H4 translationPath="whatWeDo/title/p1" />
               <H3 translationPath="whatWeDo/title/p2" />
             </div>
