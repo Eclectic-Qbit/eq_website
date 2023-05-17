@@ -10,8 +10,8 @@ export default function HowWeDo() {
     <div className="min-h-screen flex items-center justify-center">
       <div className="grid gap-4 w-full max-w-[130rem]">
         <div className="font-extrabold uppercase mb-8 text-center text-purple">
-          <H3 translationPath="howWeDo/title/p1" />
-          <H2 translationPath="howWeDo/title/p2" />
+          <H4 translationPath="howWeDo/title/p1" />
+          <H3 translationPath="howWeDo/title/p2" />
         </div>
         <div className="flex flex-col mx-[5%] items-center justify-center lowercase gap-1">
           <ShowOnHover>

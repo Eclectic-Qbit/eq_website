@@ -21,7 +21,7 @@ export function P2({ className, children, translationPath }) {
   const props = className ? className : "";
   return (
     <p
-      className={`${props} text-[1.5rem] xl:text-[2rem] md:text-[1.75rem] leading-none transition-all duration-300 ease-in`}
+      className={`${props} text-[1.25rem] xl:text-[1.5rem] md:text-[1.375rem] leading-none transition-all duration-300 ease-in`}
     >
       {children ? children : translateText(translationPath, lang)}
     </p>
@@ -33,7 +33,7 @@ export function P3({ className, children, translationPath }) {
   const props = className ? className : "";
   return (
     <p
-      className={`${props} text-[1.25rem] xl:text-[1.75rem] md:text-[1.5rem] leading-none transition-all duration-300 ease-in`}
+      className={`${props} text-[1.125rem] xl:text-[1.375rem] md:text-[1.25rem] leading-none transition-all duration-300 ease-in`}
     >
       {children ? children : translateText(translationPath, lang)}
     </p>
@@ -45,7 +45,7 @@ export function P4({ className, children, translationPath }) {
   const props = className ? className : "";
   return (
     <p
-      className={`${props} text-[1rem] xl:text-[1.5rem] md:text-[1.25rem] leading-none transition-all duration-300 ease-in`}
+      className={`${props} text-[1rem] xl:text-[1.25rem] md:text-[1.125rem] leading-none transition-all duration-300 ease-in`}
     >
       {children ? children : translateText(translationPath, lang)}
     </p>
