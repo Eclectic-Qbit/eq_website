@@ -10,8 +10,8 @@ export default function EclecticQbit() {
       <div className="flex flex-wrap items-center justify-center font-extrabold uppercase w-full gap-y-10">
         <MouseMoveGradient
           className="w-auto text-center mx-auto"
-          from="#FF6600"
-          to="#9500E9"
+          from="#9500E9"
+          to="#FF6600"
         >
           <H2 translationPath="eclecticQbit/title/p1" />
           <H2 translationPath="eclecticQbit/title/p2" />
