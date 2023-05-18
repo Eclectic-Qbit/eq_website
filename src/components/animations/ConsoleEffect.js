@@ -14,11 +14,14 @@ export default function ConsoleEffect({
 }) {
   /* Fix the ghost cancellation - first noticed after lang translation */
   const { lang, setLang } = useContext(LanguageContext);
+  const text = translateText(content.content, lang);
   const parsedContent = useMemo(() => {
     return content.type === "raw"
       ? content.content
-      : translateText(content.content, lang);
-  }, [content.content, content.type, lang]);
+      : typeof text === "string"
+      ? text
+      : text.props.children;
+  }, [content.content, content.type, text]);
   const [parsedChar, setParsedChar] = useState(additionalChar);
   const parsedPlaceholderChar = placeholderChar ? placeholderChar : "";
   const [value, setValue] = useState(parsedPlaceholderChar);
