@@ -53,8 +53,8 @@ export default function FirstCanvas() {
     ctx.filter = "none";
   }
   useEffect(() => {
-    canvasRef.current.width = window.innerWidth;
-    canvasRef.current.height = window.innerHeight;
+    canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
+    canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
     const context = canvasRef.current.getContext("2d");
 
     for (let i = 11; i < window.innerWidth - 11; i += 11) {

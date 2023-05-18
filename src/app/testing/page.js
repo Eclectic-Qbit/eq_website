@@ -14,7 +14,6 @@ export default function Testing() {
       <div className="absolute top-0 left-0">
         <FirstCanvas />
       </div>
-      <WhatWeDoFirst />
       <div className="relative flex flex-wrap justify-center gap-6">
         <div>
           <H4 className="text-orange font-extrabold">HELLO</H4>
