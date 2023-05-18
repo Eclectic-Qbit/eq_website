@@ -11,7 +11,7 @@ import { useEffect, useRef } from "react";
 export default function Testing() {
   return (
     <div className="realtive w-full h-full">
-      <div className="absolute top-0 left-0">
+      <div className="absolute top-0 left-0 w-full h-full">
         <FirstCanvas />
       </div>
       <div className="relative flex flex-wrap justify-center gap-6">
