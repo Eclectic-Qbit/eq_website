@@ -10,7 +10,7 @@ export default function WhatWeDoFirst() {
       <div className="relative w-full">
         <div className="flex flex-wrap gap-8 mt-[5%] mx-[5%]">
           <div className="flex flex-col justify-center gap-9 max-w-2xl xl:max-w-4xl">
-            <div className="font-extrabold uppercase w-full bg-clip-text text-purple">
+            <div className="font-extrabold uppercase w-full bg-clip-text text-transparent bg-gradient-to-tr from-purple to-orange">
               <H4 translationPath="whatWeDo/title/p1" />
               <H3 translationPath="whatWeDo/title/p2" />
             </div>
@@ -18,7 +18,7 @@ export default function WhatWeDoFirst() {
               <div className="grid gap-2">
                 <P3
                   translationPath="whatWeDo/h2"
-                  className="text-yellow font-bold"
+                  className="text-purple font-bold"
                 />
                 <P4 translationPath="whatWeDo/p2" className="text-yellow" />
               </div>
