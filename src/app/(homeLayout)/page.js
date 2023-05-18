@@ -1,3 +1,4 @@
+import FirstCanvas from "@/components/backgrounds/FirstCanvas";
 import EclecticQbit from "@/components/index/EclecticQbit";
 import HowWeDo from "@/components/index/HowWeDo";
 import PaintEarnFirst from "@/components/index/PaintEarnFirst";
@@ -11,7 +12,10 @@ export default function Home() {
         <div>
           <EclecticQbit />
         </div>
-        <div className="flex flex-col gap-20">
+        <div className="relative flex flex-col gap-20">
+          <div className="absolute top-0 left-0 h-full w-full overflow-hidden">
+            <FirstCanvas />
+          </div>
           <WhatWeDoFirst />
           <WhatWeDoSecond />
         </div>
