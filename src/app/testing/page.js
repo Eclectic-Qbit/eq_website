@@ -75,7 +75,7 @@ export default function Testing() {
     });
     drawSinusoidal(context);
     /* Testing */
-    drawDebugLines(context);
+    //drawDebugLines(context);
   }, []);
   return (
     <div className="realtive w-full h-full">
