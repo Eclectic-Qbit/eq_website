@@ -1,5 +1,5 @@
 import Menu from "@/components/global/Menu";
-import "./globals.css";
+import "../globals.css";
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
 import LanguageProvider from "@/components/global/LanguageProvider";
 import LogoLink from "@/components/global/LogoLink";

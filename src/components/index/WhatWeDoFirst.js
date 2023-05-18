@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { H2, H3, H4, H9 } from "../text/Headers";
 import { P1, P2, P3, P4 } from "../text/Paragraphs";
+import FirstCanvas from "../backgrounds/FirstCanvas";
 
 export default function WhatWeDoFirst() {
   return (
