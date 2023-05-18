@@ -16,19 +16,56 @@ const translations = {
   whatWeDo: {
     title: { p1: { en: "this is" }, p2: { en: "what we do" } },
 
-    h2: { en: "🍄 community building: joining forces with eclectic regens 🎮" },
+    h2: {
+      en: (
+        <span>
+          🍄 community building: joining forces with eclectic regens 🎮
+        </span>
+      ),
+    },
     p2: {
-      en: "we know that building a successful web3 project takes more than just cutting-edge technology - it also requires a touch of magic our eclectic regens will quantum leap your project to the next level, infusing your community with the fun and excitement that players of all ages have come to know and love",
+      en: (
+        <span>
+          we know that building a successful web3 project takes more than just
+          cutting-edge technology - it also requires a touch of magic. <br />
+          eclectic regens will quantum leap your project to the next level,
+          infusing your community with the fun and excitement that players of
+          all ages have come to know and love
+        </span>
+      ),
     },
     h3: {
       en: "👾 gamification and engagement: power up and network around 🤝",
     },
     p3: {
-      en: "but we don't stop there! we're also gamification masters we'll make your project jump higher, run faster, and defeat enemies to level up in the web3 world with quests & challenges will incentivize engagement, making your troops stand out from the crowd and become stars players our strong network, will connect you with the right communities and resources to reach a state of superposition, interacting in ways that defy classical web3",
+      en: (
+        <span>
+          but we don't stop there! we're also gamification masters we'll make
+          your project jump higher, run faster, and defeat enemies to level up
+          in the web3 world with quests & challenges will incentivize
+          engagement, making your troops stand out from the crowd and become
+          stars players. <br /> our strong network, will connect you with the
+          right communities and resources to reach a state of superposition,
+          interacting in ways that defy classical web3
+        </span>
+      ),
     },
     h4: { en: "🍄 grey area: techie wizards and state-of-the-art tools 🚀" },
     p4: {
-      en: "we're not just about fun and games - we're also serious about the technical side of web3 whether you're a blockchain newbie or a defi pro, our technical wizards are ready to help you navigate the complex web of protocols, platforms, and technologies that make up the decentralized web revolution we're into our squad of techie troublemakers is armed with the latest tools and frameworks to help you smash your tech goals out of the park we're not afraid to roll up our sleeves and get our hands dirty with smart contracts, decentralized storage, and all the other nerdy bits and bobs that power the decentralized web 🎮🚀🕹️🌐",
+      en: (
+        <span>
+          we're not just about fun and games - we're also serious about the
+          technical side of web3 whether you're a blockchain newbie or a defi
+          pro, our technical wizards are ready to help you navigate the complex
+          web of protocols, platforms, and technologies that make up the
+          decentralized web revolution we're into our. <br /> squad of techie
+          troublemakers is armed with the latest tools and frameworks to help
+          you smash your tech goals out of the park we're not afraid to roll up
+          our sleeves and get our hands dirty with smart contracts,
+          decentralized storage, and all the other nerdy bits and bobs that
+          power the decentralized web 🎮🚀🕹️🌐
+        </span>
+      ),
     },
     h5: { en: "🌍 refi heads: we like it sustainable 🐢" },
     p5: {
