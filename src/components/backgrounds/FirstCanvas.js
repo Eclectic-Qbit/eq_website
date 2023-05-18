@@ -4,13 +4,6 @@ import { useEffect, useRef } from "react";
 
 export default function FirstCanvas() {
   const canvasRef = useRef(null);
-  function drawDebugLines(ctx) {
-    ctx.fillStyle = "rgba(0, 255, 0, 1)";
-    for (let i = 0; i < canvasRef.current.width; i += 20) {
-      ctx.fillRect(i, 0, i % 3, canvasRef.current.height);
-    }
-    ctx.stroke();
-  }
   function drawSinusoidal(ctx) {
     ctx.lineWidth = 4;
     ctx.strokeStyle = "rgba(0,255,0,1)";
@@ -71,8 +64,6 @@ export default function FirstCanvas() {
       color: "rgba(0,255,0,1)",
     });
     drawSinusoidal(context);
-    /* Testing */
-    drawDebugLines(context);
   }, []);
   return <canvas ref={canvasRef} className="rounded-xl"></canvas>;
 }
