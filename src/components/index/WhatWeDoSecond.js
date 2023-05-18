@@ -18,7 +18,7 @@ export default function WhatWeDoSecond() {
             translationPath="whatWeDo/h5"
             className="bg-clip-text text-transparent bg-gradient-to-tr from-orange to-purple font-bold"
           />
-          <P4 translationPath="whatWeDo/p5" />
+          <P4 translationPath="whatWeDo/p5" className="text-purple" />
         </div>
       </div>
     </div>
