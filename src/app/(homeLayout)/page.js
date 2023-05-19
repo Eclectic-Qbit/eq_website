@@ -1,4 +1,5 @@
-import FirstCanvas from "@/components/backgrounds/FirstCanvas";
+import DottedCanvas from "@/components/backgrounds/DottedCanvas";
+import FirstCanvas from "@/components/backgrounds/WhatWeDoCanvas";
 import EclecticQbit from "@/components/index/EclecticQbit";
 import HowWeDo from "@/components/index/HowWeDo";
 import PaintEarnFirst from "@/components/index/PaintEarnFirst";
@@ -8,7 +9,10 @@ import WhatWeDoSecond from "@/components/index/WhatWeDoSecond";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col gap-32">
+      <div className="relative flex flex-col gap-32 pt-[17.5vh]">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <DottedCanvas />
+        </div>
         <div>
           <EclecticQbit />
         </div>

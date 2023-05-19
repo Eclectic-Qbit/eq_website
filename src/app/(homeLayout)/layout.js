@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
             <TelegramLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>
         </div>
-        <div className="mt-[17.5vh]">{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );

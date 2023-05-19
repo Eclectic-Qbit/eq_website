@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { H2, H3, H4, H9 } from "../text/Headers";
 import { P1, P2, P3, P4 } from "../text/Paragraphs";
-import FirstCanvas from "../backgrounds/FirstCanvas";
+import FirstCanvas from "../backgrounds/WhatWeDoCanvas";
 import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
 
 export default function WhatWeDoFirst() {
@@ -24,12 +24,12 @@ export default function WhatWeDoFirst() {
                 <P2
                   style={{ textShadow: "1px 1px 2px white" }}
                   translationPath="whatWeDo/h2"
-                  className="text-purple font-bold"
+                  className="text-purple font-bold uppercase"
                 />
                 <P4
                   style={{ textShadow: "2px 2px 2px black" }}
                   translationPath="whatWeDo/p2"
-                  className="text-yellow"
+                  className="text-yellow font-bold"
                 />
               </div>
             </div>
