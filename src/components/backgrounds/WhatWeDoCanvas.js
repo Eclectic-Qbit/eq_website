@@ -50,11 +50,6 @@ export default function FirstCanvas() {
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
     const context = canvasRef.current.getContext("2d");
     drawGrid(context);
-    drawCircle(context, 0, 300, 150, 0, 0, 3, "rgba(0, 255, 0, 0.95)", {
-      blur: 10,
-      color: "rgba(0,255,0,1)",
-    });
-    drawSinusoidal(context);
   }, []);
   return <canvas ref={canvasRef} className="rounded-xl"></canvas>;
 }

@@ -1,8 +1,7 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 
-export default function DottedCanvas() {
+export default function CircleCanvas({ x, y, r }) {
   const canvasRef = useRef(null);
   function drawCircle(ctx, x, y, r, fill, blur, w, color, shadow) {
     ctx.beginPath();
@@ -16,17 +15,13 @@ export default function DottedCanvas() {
     ctx.filter = "none";
   }
   useEffect(() => {
+    canvasRef.current.width = r * 2 + 10;
+    canvasRef.current.height = r * 2 + 10;
     const context = canvasRef.current.getContext("2d");
-    canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
-    canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
-    for (let i = 11; i < canvasRef.current.width - 11; i += 11) {
-      for (let j = 11; j < canvasRef.current.height - 11; j += 11) {
-        const num = Math.floor(Math.random() * (1000 - 0 + 1) + 0);
-        if (num > 950) {
-          drawCircle(context, i, j, num > 995 ? 2 : 1, 1, 1, 0, "white");
-        }
-      }
-    }
-  }, []);
+    drawCircle(context, x, y, r, 0, 0, 3, "rgba(0, 255, 0, 0.95)", {
+      blur: 10,
+      color: "rgba(0,255,0,1)",
+    });
+  }, [r, x, y]);
   return <canvas ref={canvasRef} />;
 }

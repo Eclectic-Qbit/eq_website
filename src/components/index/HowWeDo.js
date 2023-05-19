@@ -23,7 +23,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h1"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -37,7 +37,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h2"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -51,7 +51,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h3"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -65,7 +65,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h4"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -79,7 +79,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h5"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -93,7 +93,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h6"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase bg-blac"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -107,7 +107,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h7"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -121,7 +121,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h8"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -135,7 +135,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h9"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
@@ -149,7 +149,7 @@ export default function HowWeDo() {
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h10"
-              className="text-purple font-bold uppercase bg-black"
+              className="text-purple font-bold uppercase"
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
