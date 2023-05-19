@@ -107,56 +107,31 @@ export default function Testing() {
     },
     []
   );
-  const handleMouseMove = useCallback(
-    (e, ctx) => {
-      const date = Date.now();
-      if (date - lastTime.current > TIMEOUT) {
-        const x = e.clientX;
-        const y = e.clientY;
-        for (let i = 0; i < items.current.length; i++) {
-          if (date - items.current[i][3] > 2 * TIMEOUT) {
-            if (
-              items.current[i][0] + CIRCLE > x &&
-              items.current[i][0] - CIRCLE < x
-            ) {
-              if (
-                items.current[i][1] + CIRCLE > y &&
-                items.current[i][1] - CIRCLE < y
-              ) {
-                const w = items.current[i][2];
-                drawCircle(
-                  ctx,
-                  items.current[i][0],
-                  items.current[i][1],
-                  w + 1, // consider the border (1) too!
-                  1,
-                  1,
-                  0,
-                  "black"
-                );
-                const number = Math.floor(Math.random() * (5 - 0 + 1) + 0);
-                const color = colors[number];
-                drawCircle(
-                  ctx,
-                  items.current[i][0],
-                  items.current[i][1],
-                  w,
-                  1,
-                  1,
-                  0,
-                  color
-                );
-                //items.current.splice(i, 1);
-                //items.current.push([x, y, w, date]);
-              }
-            }
+  const handleMouseMove = useCallback((e, ctx) => {
+    const date = Date.now();
+    if (date - lastTime.current > TIMEOUT) {
+      const x = e.clientX;
+      const y = e.clientY;
+      for (let i = 0; i < items.current.length; i++) {
+        //if (date - items.current[i][3] > 2 * TIMEOUT) {
+        if (
+          items.current[i][0] + CIRCLE > x &&
+          items.current[i][0] - CIRCLE < x
+        ) {
+          if (
+            items.current[i][1] + CIRCLE > y &&
+            items.current[i][1] - CIRCLE < y
+          ) {
+            const w = items.current[i][2];
+            // MOVE HERE
+            // drawTo(items.current[i], { x: x, y: y });
           }
         }
-        lastTime.current = Date.now();
+        //}
       }
-    },
-    [colors, drawCircle]
-  );
+      lastTime.current = Date.now();
+    }
+  }, []);
   useEffect(() => {
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
