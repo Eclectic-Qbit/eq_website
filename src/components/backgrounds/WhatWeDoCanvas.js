@@ -49,15 +49,6 @@ export default function FirstCanvas() {
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
     const context = canvasRef.current.getContext("2d");
-
-    for (let i = 11; i < window.innerWidth - 11; i += 11) {
-      for (let j = 11; j < window.innerHeight - 11; j += 11) {
-        const num = Math.floor(Math.random() * (1000 - 0 + 1) + 0);
-        if (num > 950) {
-          drawCircle(context, i, j, num > 995 ? 2 : 1, 1, 1, 0, "white");
-        }
-      }
-    }
     drawGrid(context);
     drawCircle(context, 0, 300, 150, 0, 0, 3, "rgba(0, 255, 0, 0.95)", {
       blur: 10,

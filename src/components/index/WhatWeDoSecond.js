@@ -8,36 +8,36 @@ export default function WhatWeDoSecond() {
           <P2
             style={{ textShadow: "1px 1px 2px white" }}
             translationPath="whatWeDo/h3"
-            className="text-purple font-bold"
+            className="text-purple font-bold uppercase"
           />
           <P4
             style={{ textShadow: "2px 2px 2px black" }}
             translationPath="whatWeDo/p3"
-            className="text-yellow"
+            className="text-yellow font-bold"
           />
         </div>
         <div className="grid gap-2">
           <P2
             style={{ textShadow: "1px 1px 2px white" }}
             translationPath="whatWeDo/h4"
-            className="text-purple font-bold"
+            className="text-purple font-bold uppercase"
           />
           <P4
             style={{ textShadow: "2px 2px 2px black" }}
             translationPath="whatWeDo/p4"
-            className="text-yellow"
+            className="text-yellow font-bold"
           />
         </div>
         <div className="grid gap-2">
           <P2
             style={{ textShadow: "1px 1px 2px white" }}
             translationPath="whatWeDo/h5"
-            className="text-purple font-bold"
+            className="text-purple font-bold uppercase"
           />
           <P4
             style={{ textShadow: "2px 2px 2px black" }}
             translationPath="whatWeDo/p5"
-            className="text-yellow"
+            className="text-yellow font-bold"
           />
         </div>
       </div>

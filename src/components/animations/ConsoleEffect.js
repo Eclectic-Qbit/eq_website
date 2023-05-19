@@ -7,6 +7,8 @@ import LanguageContext from "@/contexts/LanguageContext";
 import { translateText } from "@/commonFrontend";
 
 export default function ConsoleEffect({
+  style,
+  className,
   content,
   active,
   additionalChar,
@@ -77,5 +79,11 @@ export default function ConsoleEffect({
     additionalChar,
     parsedPlaceholderChar.length,
   ]);
-  return value.length > 0 ? <P4>{value}</P4> : <br />;
+  return value.length > 0 ? (
+    <P4 style={style} className={className}>
+      {value}
+    </P4>
+  ) : (
+    <br />
+  );
 }

@@ -40,10 +40,15 @@ export default function EclecticQbit() {
       <div className="realtive w-full h-full flex items-center justify-center gap-2 text-center">
         <div className="w-2/3">
           <P1
+            style={{ textShadow: "1px 1px 1px white" }}
             translationPath="eclecticQbit/h1"
-            className="text-orange uppercase font-bold mt-[2.5%]"
+            className="text-purple uppercase font-bold mt-[2.5%]"
           />
-          <P2 translationPath="eclecticQbit/p1" />
+          <P2
+            style={{ textShadow: "2px 2px 2px black" }}
+            translationPath="eclecticQbit/p1"
+            className="text-yellow font-bold"
+          />
         </div>
       </div>
     </div>
