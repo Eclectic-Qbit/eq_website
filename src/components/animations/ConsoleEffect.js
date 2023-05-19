@@ -16,14 +16,25 @@ export default function ConsoleEffect({
 }) {
   /* Fix the ghost cancellation - first noticed after lang translation */
   const { lang, setLang } = useContext(LanguageContext);
-  const text = translateText(content.content, lang);
-  const parsedContent = useMemo(() => {
-    return content.type === "raw"
+  const text = useMemo(() => {
+    return translateText(content.content, lang);
+  }, [content.content, lang]);
+  let parsedContent =
+    content.type === "raw"
       ? content.content
       : typeof text === "string"
       ? text
       : text.props.children;
-  }, [content.content, content.type, text]);
+  if (typeof parsedContent !== "string") {
+    parsedContent = parsedContent.filter((el) => {
+      if (typeof el === "string") {
+        return el;
+      } else {
+        return "";
+      }
+    });
+    parsedContent = parsedContent.join(" ");
+  }
   const [parsedChar, setParsedChar] = useState(additionalChar);
   const parsedPlaceholderChar = placeholderChar ? placeholderChar : "";
   const [value, setValue] = useState(parsedPlaceholderChar);
@@ -80,9 +91,9 @@ export default function ConsoleEffect({
     parsedPlaceholderChar.length,
   ]);
   return value.length > 0 ? (
-    <P4 style={style} className={className}>
-      {value}
-    </P4>
+    <div className={className}>
+      <P4 style={style}>{value}</P4>
+    </div>
   ) : (
     <br />
   );
