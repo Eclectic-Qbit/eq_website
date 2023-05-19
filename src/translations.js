@@ -76,9 +76,10 @@ const translations = {
           about the technical side of web3 whether you&apos;re a blockchain
           newbie or a defi pro, our technical wizards are ready to help you
           navigate the complex web of protocols, platforms, and technologies
-          that make up the decentralized web revolution we&apos;re into our.{" "}
-          <br /> squad of techie troublemakers is armed with the latest tools
-          and frameworks to help you smash your tech goals out of the park
+          that make up the decentralized web revolution we&apos;re into.
+          <br />
+          our squad of techie troublemakers is armed with the latest tools and
+          frameworks to help you smash your tech goals out of the park
           we&apos;re not afraid to roll up our sleeves and get our hands dirty
           with smart contracts, decentralized storage, and all the other nerdy
           bits and bobs that power the decentralized web 🎮🚀🕹️🌐
