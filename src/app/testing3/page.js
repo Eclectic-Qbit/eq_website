@@ -11,6 +11,7 @@ import PaintEarnFirst from "@/components/index/PaintEarnFirst";
 import PaintEarnSecond from "@/components/index/PaintEarnSecond";
 import WhatWeDoFirst from "@/components/index/WhatWeDoFirst";
 import WhatWeDoSecond from "@/components/index/WhatWeDoSecond";
+import TestingCanvas from "@/components/testing/TestingCanvas";
 import { H3, H4 } from "@/components/text/Headers";
 import { P2 } from "@/components/text/Paragraphs";
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
     <>
       <div className="relative flex flex-col pt-[17.5vh]">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <DottedCanvas />
+          <TestingCanvas />
         </div>
         {/* Content */}
         <div>
