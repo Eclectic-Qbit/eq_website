@@ -146,6 +146,28 @@ export default function Testing() {
                   0,
                   color
                 );
+                setTimeout(() => {
+                  drawCircle(
+                    ctx,
+                    items.current[i][0],
+                    items.current[i][1],
+                    w + 1,
+                    1,
+                    1,
+                    0,
+                    "black"
+                  );
+                  drawCircle(
+                    ctx,
+                    items.current[i][0],
+                    items.current[i][1],
+                    w,
+                    1,
+                    1,
+                    0,
+                    "white"
+                  );
+                }, 5000);
                 //items.current.splice(i, 1);
                 //items.current.push([x, y, w, date]);
               }
