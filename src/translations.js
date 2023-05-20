@@ -1,7 +1,7 @@
 const translations = {
   menu: {
     home: { en: <span>home</span>, it: <span>home</span> },
-    brojects: { en: <span>brojects</span>, it: <span>proggetti</span> },
+    brojects: { en: <span>brojects</span>, it: <span>progetti</span> },
     collabs: { en: <span>collabs</span>, it: <span>collaborazioni</span> },
     team: { en: <span>team</span>, it: <span>team</span> },
     contacts: { en: <span>contacts</span>, it: <span>contatti</span> },
