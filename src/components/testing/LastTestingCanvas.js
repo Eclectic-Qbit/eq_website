@@ -3,20 +3,26 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export default function LastTestingCanvas() {
-  const [doneLoading, setDoneLoading] = useState(0);
-  const canvasRef = useRef(null);
-  const items = useRef([]);
-  const lastTime = useRef(0);
-  const timeouts = useRef([]);
-  const lastResizeTimeout = useRef(null);
-  const context = useRef(null);
-  const lastWidth = useRef(0);
-  const TIMEOUT = 25;
-  const CIRCLE = 30;
-  const DENSITY = 1 / 1600;
-  const colors = useMemo(() => {
-    return ["#CCFF00", "#FF6600", "#00BFFF", "#00FF00", "#FF007F", "#9500E9"];
-  }, []);
+  const [doneLoading, setDoneLoading] = useState(0); // Time used for loading the canvas
+  const canvasRef = useRef(null); // Canvas ref
+  const items = useRef([]); // Stars rendered
+  const lastTime = useRef(0); // Needed for sampling of the mouse
+  const timeouts = useRef([]); // Stars timeouts
+  const lastResizeTimeout = useRef(null); // Need for sampling of the resize
+  const context = useRef(null); // Canvas 2d context
+  const lastWidth = useRef(0); // Need for checking if the resize event made the screen larger or smaller
+  const TIMEOUT = 25; // Timeout for sampling of the mouse
+  const CIRCLE = 30; // Radius of the circle around the mouse
+  const DENSITY = 1 / 1600; // Density of stars per row - modified by a costant in the for loops
+  const colors = useRef([
+    "#CCFF00",
+    "#FF6600",
+    "#00BFFF",
+    "#00FF00",
+    "#FF007F",
+    "#9500E9",
+  ]); // Random stars colors to choose
+  // Draw a circle given some specs
   const drawCircle = useCallback((x, y, r, fill, blur, w, color, shadow) => {
     context.current.beginPath();
     context.current.filter = `blur(${blur}px)`;
@@ -61,6 +67,7 @@ export default function LastTestingCanvas() {
     },
     [drawCircle]
   );
+  // Posticipate the draw-to-white stars timeout
   const posticipateTimeouts = useCallback(() => {
     const newTimeouts = [];
     timeouts.current.map((el, i) => {
@@ -80,12 +87,16 @@ export default function LastTestingCanvas() {
   const handleMouseMove = useCallback(
     (e) => {
       const date = Date.now();
+      // For performances
       if (date - lastTime.current > TIMEOUT) {
         posticipateTimeouts();
         const x = e.clientX;
         const y = e.clientY;
+        // Check which star is in range
         for (let i = 0; i < items.current.length; i++) {
+          // If it wasn't updated in the recent past
           if (date - items.current[i][3] > 2 * TIMEOUT) {
+            // If it is in range
             if (
               items.current[i][0] + CIRCLE > x &&
               items.current[i][0] - CIRCLE < x
@@ -94,6 +105,7 @@ export default function LastTestingCanvas() {
                 items.current[i][1] + CIRCLE > y &&
                 items.current[i][1] - CIRCLE < y
               ) {
+                // Draw back and paint again on it
                 const w = items.current[i][2];
                 drawCircle(
                   items.current[i][0],
@@ -131,6 +143,7 @@ export default function LastTestingCanvas() {
   const generateLayer = useCallback(
     (fromY, toY, fromX, toX, ySpacing, density, w) => {
       for (let i = fromY; i < toY - ySpacing; i += ySpacing) {
+        // If the number of pixels is lower than zero, draw pixels outside the canvas. This won't change the final density of pixels
         let nStars = density * (toX - fromX);
         let coeff = 1;
         while (nStars < 1) {
@@ -151,19 +164,23 @@ export default function LastTestingCanvas() {
   const handleResize = useCallback(() => {
     const fraction = canvasRef.current.parentNode.clientHeight / 100;
     const currentW = canvasRef.current.parentNode.clientWidth;
+    // Proceed with the resizing only when it's the last resize event fired
     if (lastResizeTimeout.current) {
       clearTimeout(lastResizeTimeout.current);
     }
+    // If the screen was resized more than before
     if (lastWidth.current < currentW) {
       lastResizeTimeout.current = setTimeout(() => {
         const w = canvasRef.current.width;
         const h = canvasRef.current.height;
+        // Save and set again the current stars
         const canvasData = context.current.getImageData(0, 0, w, h);
         canvasRef.current.width = currentW;
         context.current.putImageData(canvasData, 0, 0);
+        // Loop for height
         for (let w = 1; w <= 3; w++) {
           let counterHeight = 7;
-
+          // Loop for the delta width
           for (let i = 1; i * fraction <= canvasRef.current.height - 7; i++) {
             setTimeout(() => {
               generateLayer(
@@ -186,17 +203,17 @@ export default function LastTestingCanvas() {
     }
   }, [DENSITY, generateLayer]);
   useEffect(() => {
+    // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
-    context.current = canvasRef.current.getContext("2d", {
-      willReadFrequently: true,
-    });
-
+    context.current = canvasRef.current.getContext("2d"); // Do not set willReadFrequently to true. It will make everything slower
     const startingDate = Date.now();
     const fraction = canvasRef.current.parentNode.clientHeight / 100;
     lastWidth.current = canvasRef.current.width;
+    // Loop for height
     for (let w = 1; w <= 7; w++) {
       let counterHeight = 7;
+      // Choose random numbers for width
       for (let i = 1; i * fraction <= canvasRef.current.height - 7; i++) {
         setTimeout(() => {
           generateLayer(
@@ -205,7 +222,7 @@ export default function LastTestingCanvas() {
             0,
             canvasRef.current.parentNode.clientWidth,
             7,
-            DENSITY * (10 - w * w),
+            DENSITY * (10 - w * w), // Density that decrased by square for dimension
             w
           );
           counterHeight += fraction;
@@ -217,6 +234,7 @@ export default function LastTestingCanvas() {
     }
   }, [DENSITY, drawCircle, generateLayer]);
   useEffect(() => {
+    // If the canvas was loaded in a normal amount of time proceed to listening for mouse move
     if (doneLoading > 0 && doneLoading < 2500) {
       canvasRef.current.addEventListener("mousemove", (e) =>
         handleMouseMove(e)
@@ -230,6 +248,7 @@ export default function LastTestingCanvas() {
     };
   }, [doneLoading, handleMouseMove]);
   useEffect(() => {
+    // Resize handler. Draws the stars only in the new part of the screen
     window.addEventListener("resize", handleResize);
   }, [handleResize]);
   return (
