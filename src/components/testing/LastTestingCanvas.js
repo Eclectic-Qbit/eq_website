@@ -130,7 +130,6 @@ export default function LastTestingCanvas() {
   );
   const generateLayer = useCallback(
     (fromY, toY, fromX, toX, ySpacing, density, w) => {
-      // Costants for optimization and readability
       for (let i = fromY; i < toY - ySpacing; i += ySpacing) {
         let nStars = density * (toX - fromX);
         let coeff = 1;
@@ -162,9 +161,6 @@ export default function LastTestingCanvas() {
         const canvasData = context.current.getImageData(0, 0, w, h);
         canvasRef.current.width = currentW;
         context.current.putImageData(canvasData, 0, 0);
-
-        // CALCOLA PER PROX INTERO ANCHE SE SPOSTAMENTO PICCOLO
-
         for (let w = 1; w <= 3; w++) {
           let counterHeight = 7;
 
