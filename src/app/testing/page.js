@@ -210,14 +210,15 @@ export default function Testing() {
     }
   }, [drawCircle, generateLayer]);
   useEffect(() => {
-    if (doneLoading > 0 && doneLoading < 10000) {
+    console.log(doneLoading);
+    if (doneLoading > 0 && doneLoading < 5000) {
       canvasRef.current.addEventListener("mousemove", (e) =>
         handleMouseMove(e)
       );
     }
     const parsedRef = canvasRef.current;
     return () => {
-      if (doneLoading > 0 && doneLoading < 10000) {
+      if (doneLoading > 0 && doneLoading < 5000) {
         parsedRef.removeEventListener("mousemove", handleMouseMove);
       }
     };
