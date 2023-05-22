@@ -152,43 +152,25 @@ export default function Testing() {
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
     const context = canvasRef.current.getContext("2d");
 
-    let counterHeight = 0;
     const fraction = canvasRef.current.parentNode.clientHeight / 100;
-    for (let i = 0; i * fraction < canvasRef.current.height; i++) {
-      setTimeout(() => {
-        generateLayer(
-          context,
-          counterHeight,
-          counterHeight + fraction,
-          0,
-          window.innerWidth,
-          7,
-          150,
-          1
-        );
-        counterHeight += fraction;
-      }, 10 * i);
+    for (let w = 1; w <= 3; w++) {
+      let counterHeight = 0;
+      for (let i = 1; i * fraction <= canvasRef.current.height; i++) {
+        setTimeout(() => {
+          generateLayer(
+            context,
+            counterHeight,
+            counterHeight + fraction,
+            0,
+            window.innerWidth,
+            7,
+            175 * w,
+            w
+          );
+          counterHeight += fraction;
+        }, 10 * i * w);
+      }
     }
-    generateLayer(
-      context,
-      0,
-      window.innerHeight,
-      3,
-      window.innerWidth - 3,
-      13,
-      300,
-      2
-    );
-    generateLayer(
-      context,
-      0,
-      window.innerHeight,
-      0,
-      window.innerWidth,
-      41,
-      500,
-      3
-    );
     canvasRef.current.addEventListener("mousemove", (e) =>
       handleMouseMove(e, context)
     );
