@@ -138,7 +138,7 @@ export default function Testing() {
     const context = canvasRef.current.getContext("2d");
     // Costants for optimization and readability
     const xSpacing = 7;
-    const yFactor = 150;
+    const yFactor = 160;
     const width = window.innerWidth;
     const height = window.innerHeight;
     for (let i = xSpacing; i < width - xSpacing; i += xSpacing) {
@@ -147,7 +147,7 @@ export default function Testing() {
           Math.random() * (height - xSpacing + 1) + xSpacing
         );
         const randomW = Math.floor(Math.random() * 100 + 1);
-        const w = randomW > 98 ? 3 : randomW > 80 ? 2 : 1;
+        const w = randomW > 98 ? 3 : randomW > 75 ? 2 : 1;
         drawCircle(context, i, randomY, w, 1, 1, 0, "white");
         items.current.push([i, randomY, w, 0]);
       }
