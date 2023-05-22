@@ -1,36 +1,38 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export default function Testing() {
+  const [doneLoading, setDoneLoading] = useState(0);
   const canvasRef = useRef(null);
   const items = useRef([]);
   const lastTime = useRef(0);
   const timeouts = useRef([]);
-  const TIMEOUT = 15;
+  const lastResizeTimeout = useRef(null);
+  const context = useRef(null);
+  const lastWidth = useRef(0);
+  const TIMEOUT = 25;
   const CIRCLE = 30;
   const colors = useMemo(() => {
     return ["#CCFF00", "#FF6600", "#00BFFF", "#00FF00", "#FF007F", "#9500E9"];
   }, []);
-  const drawCircle = useCallback(
-    (ctx, x, y, r, fill, blur, w, color, shadow) => {
-      ctx.beginPath();
-      ctx.filter = `blur(${blur}px)`;
-      shadow && shadow.blur && (ctx.shadowBlur = shadow.blur);
-      shadow && shadow.color && (ctx.shadowColor = shadow.color);
-      ctx.lineWidth = w;
-      fill === 1 ? (ctx.fillStyle = color) : (ctx.strokeStyle = color);
-      ctx.arc(x, y, r, 0, 2 * Math.PI);
-      fill === 1 ? ctx.fill() : ctx.stroke();
-      ctx.filter = "none";
-    },
-    []
-  );
+  const drawCircle = useCallback((x, y, r, fill, blur, w, color, shadow) => {
+    context.current.beginPath();
+    context.current.filter = `blur(${blur}px)`;
+    shadow && shadow.blur && (context.current.shadowBlur = shadow.blur);
+    shadow && shadow.color && (context.current.shadowColor = shadow.color);
+    context.current.lineWidth = w;
+    fill === 1
+      ? (context.current.fillStyle = color)
+      : (context.current.strokeStyle = color);
+    context.current.arc(x, y, r, 0, 2 * Math.PI);
+    fill === 1 ? context.current.fill() : context.current.stroke();
+    context.current.filter = "none";
+  }, []);
   const createTimeout = useCallback(
-    (ctx, i, w, creationDate) => {
+    (i, w, creationDate) => {
       const newTimeout = setTimeout(() => {
         drawCircle(
-          ctx,
           items.current[i][0],
           items.current[i][1],
           w + 1,
@@ -40,7 +42,6 @@ export default function Testing() {
           "black"
         );
         drawCircle(
-          ctx,
           items.current[i][0],
           items.current[i][1],
           w,
@@ -50,11 +51,7 @@ export default function Testing() {
           "white"
         );
         timeouts.current = timeouts.current.filter((el) => {
-          if (
-            el.params[0] !== ctx ||
-            el.params[1] !== i ||
-            el.params[2 !== w]
-          ) {
+          if (el.params[0] !== i || el.params[1 !== w]) {
             return el;
           }
         });
@@ -80,7 +77,7 @@ export default function Testing() {
     timeouts.current = newTimeouts;
   }, [createTimeout]);
   const handleMouseMove = useCallback(
-    (e, ctx) => {
+    (e) => {
       const date = Date.now();
       if (date - lastTime.current > TIMEOUT) {
         posticipateTimeouts();
@@ -98,7 +95,6 @@ export default function Testing() {
               ) {
                 const w = items.current[i][2];
                 drawCircle(
-                  ctx,
                   items.current[i][0],
                   items.current[i][1],
                   w + 1, // consider the border (1) too!
@@ -110,7 +106,6 @@ export default function Testing() {
                 const number = Math.floor(Math.random() * (5 - 0 + 1) + 0);
                 const color = colors[number];
                 drawCircle(
-                  ctx,
                   items.current[i][0],
                   items.current[i][1],
                   w,
@@ -120,8 +115,8 @@ export default function Testing() {
                   color
                 );
                 timeouts.current.push({
-                  timeout: createTimeout(ctx, i, w, 0),
-                  params: [ctx, i, w, Date.now()],
+                  timeout: createTimeout(i, w, 0),
+                  params: [i, w, Date.now()],
                 });
               }
             }
@@ -133,54 +128,107 @@ export default function Testing() {
     [colors, createTimeout, drawCircle, posticipateTimeouts]
   );
   const generateLayer = useCallback(
-    (context, fromY, toY, fromX, toX, ySpacing, xFactor, w) => {
+    (fromY, toY, fromX, toX, ySpacing, xFactor, w) => {
       // Costants for optimization and readability
       for (let i = fromY; i < toY - ySpacing; i += ySpacing) {
-        for (let j = fromX; j < toX / xFactor; j++) {
+        for (let j = 0; j < (toX - fromX) / xFactor; j++) {
           const randomX = Math.floor(
-            Math.random() * (toX - fromX - ySpacing + 1) + ySpacing
+            Math.random() * (toX - fromX - ySpacing + 1) + fromX
           );
-          drawCircle(context, randomX, i, w, 1, 1, 0, "white");
+          drawCircle(randomX, i, w, 1, 1, 0, "white");
           items.current.push([randomX, i, w, 0]);
         }
       }
     },
     [drawCircle]
   );
+  const handleResize = useCallback(() => {
+    const fraction = canvasRef.current.parentNode.clientHeight / 100;
+    const currentW = canvasRef.current.parentNode.clientWidth;
+    if (lastResizeTimeout.current) {
+      clearTimeout(lastResizeTimeout.current);
+    }
+    if (lastWidth.current < currentW) {
+      lastResizeTimeout.current = setTimeout(() => {
+        const w = canvasRef.current.width;
+        const h = canvasRef.current.height;
+        const canvasData = context.current.getImageData(0, 0, w, h);
+        canvasRef.current.width = currentW;
+        context.current.putImageData(canvasData, 0, 0);
+        const startingDate = Date.now();
+        for (let w = 1; w <= 3; w++) {
+          let counterHeight = 7;
+          for (let i = 1; i * fraction <= canvasRef.current.height - 7; i++) {
+            setTimeout(() => {
+              generateLayer(
+                counterHeight,
+                counterHeight + fraction,
+                lastWidth.current,
+                currentW,
+                7,
+                125 * (w * 1.5),
+                w
+              );
+              counterHeight += fraction;
+              if (w === 3 && (i + 1) * fraction >= canvasRef.current.height) {
+                lastWidth.current = currentW;
+                setDoneLoading(Date.now() - startingDate);
+              }
+            }, 5 * i * w);
+          }
+        }
+      }, 500);
+    }
+  }, [generateLayer]);
   useEffect(() => {
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
-    const context = canvasRef.current.getContext("2d");
+    context.current = canvasRef.current.getContext("2d");
 
+    const startingDate = Date.now();
     const fraction = canvasRef.current.parentNode.clientHeight / 100;
+    lastWidth.current = canvasRef.current.width;
     for (let w = 1; w <= 3; w++) {
-      let counterHeight = 0;
-      for (let i = 1; i * fraction <= canvasRef.current.height; i++) {
+      let counterHeight = 7;
+      for (let i = 1; i * fraction <= canvasRef.current.height - 7; i++) {
         setTimeout(() => {
           generateLayer(
-            context,
             counterHeight,
             counterHeight + fraction,
             0,
-            window.innerWidth,
+            canvasRef.current.parentNode.clientWidth - 7,
             7,
-            175 * w,
+            125 * (w * 1.5),
             w
           );
           counterHeight += fraction;
-        }, 10 * i * w);
+          if (w === 3 && (i + 1) * fraction >= canvasRef.current.height) {
+            setDoneLoading(Date.now() - startingDate);
+          }
+        }, 5 * i * w);
       }
     }
-    canvasRef.current.addEventListener("mousemove", (e) =>
-      handleMouseMove(e, context)
-    );
+  }, [drawCircle, generateLayer]);
+  useEffect(() => {
+    if (doneLoading > 0 && doneLoading < 10000) {
+      canvasRef.current.addEventListener("mousemove", (e) =>
+        handleMouseMove(e)
+      );
+    }
     const parsedRef = canvasRef.current;
-    return () => parsedRef.removeEventListener("mousemove", handleMouseMove);
-  }, [drawCircle, generateLayer, handleMouseMove]);
+    return () => {
+      if (doneLoading > 0 && doneLoading < 10000) {
+        parsedRef.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, [doneLoading, handleMouseMove]);
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  }, [handleResize]);
   return (
     <div>
       <div className="realtive w-full h-full">
-        <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-0 left-0 w-full max-w-screen h-full overflow-hidden">
           <canvas ref={canvasRef} className="rounded-xl"></canvas>
         </div>
       </div>
