@@ -206,7 +206,9 @@ export default function LastTestingCanvas() {
     // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
-    context.current = canvasRef.current.getContext("2d"); // Do not set willReadFrequently to true. It will make everything slower
+    context.current = canvasRef.current.getContext("2d", {
+      willReadFrequently: false,
+    }); // Do not set willReadFrequently to true. It will make everything slower
     const startingDate = Date.now();
     const fraction = canvasRef.current.parentNode.clientHeight / 100;
     lastWidth.current = canvasRef.current.width;
