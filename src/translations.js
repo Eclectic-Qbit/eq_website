@@ -3,7 +3,7 @@ const translations = {
     home: { en: <span>home</span>, it: <span>home</span> },
     brojects: { en: <span>brojects</span>, it: <span>progetti</span> },
     collabs: { en: <span>collabs</span>, it: <span>collaborazioni</span> },
-    team: { en: <span>team</span>, it: <span>team</span> },
+    squad: { en: <span>squad</span>, it: <span>squadra</span> },
     contacts: { en: <span>contacts</span>, it: <span>contatti</span> },
   },
   eclecticQbit: {
@@ -12,10 +12,10 @@ const translations = {
     p1: {
       en: (
         <span>
-          &quot;eclectic qbit, it&apos;s all about bringing the modus operandi
-          of qbits, into web3, with a it&apos;s a me twist with nature as our
-          main inspiration, just like fungi, we exchange nutrients and other
-          resources within & beyond web3 space&quot;
+          eclectic qbit, it&apos;s all about bringing the modus operandi of
+          qbits, into web3, with a it&apos;s a me twist with nature as our main
+          inspiration, just like fungi, we exchange nutrients and other
+          resources within & beyond web3 space
         </span>
       ),
     },
@@ -109,15 +109,15 @@ const translations = {
     p1: {
       en: (
         <span>
-          we build a discord server that provides a space for eclectic Koopas to
-          connect, share ideas, and provide feedback on your project
+          we build a discord server that provides a space for eclectic troopas
+          to connect, share ideas, and provide feedback on your project
         </span>
       ),
       it: (
         <span>
           costruiamo un server discord che mette a disposizione uno spazio per
-          gli eclectic Koopas per connettersi, condividere idee e darsi feedback
-          sui progetti
+          gli eclectic troopas per connettersi, condividere idee e darsi
+          feedback sui progetti
         </span>
       ),
     },
@@ -125,7 +125,7 @@ const translations = {
     p2: {
       en: (
         <span>
-          we organize regular contests that allow eclectic Koopas to show off
+          we organize regular contests that allow eclectic troopas to show off
           their skills and earn prizes
         </span>
       ),
@@ -143,7 +143,7 @@ const translations = {
     p4: {
       en: (
         <span>
-          we track and celebrate the achievements of our eclectic koopas, from
+          we track and celebrate the achievements of our eclectic troopas, from
           the number of piece of art created to the amount of poaps collected &
           beyond
         </span>
@@ -153,8 +153,8 @@ const translations = {
     p5: {
       en: (
         <span>
-          we help our eclectic Koopas form partnerships with other web3 projects
-          & beyond, expanding their reach and building new connections
+          we help our eclectic troopas form partnerships with other web3
+          projects & beyond, expanding their reach and building new connections
         </span>
       ),
     },
@@ -162,7 +162,7 @@ const translations = {
     p6: {
       en: (
         <span>
-          our eclectic Koopas can showcase their creativity and love for your
+          our eclectic troopas can showcase their creativity and love for your
           project through fan art contests, where winners are rewarded with nft
           and prizes
         </span>
@@ -172,8 +172,8 @@ const translations = {
     p7: {
       en: (
         <span>
-          we organize fun game nights where eclectic Koopas can play&earn games,
-          compete with each other, and build strong relationships
+          we organize fun game nights where eclectic troopas can play&earn
+          games, compete with each other, and build strong relationships
         </span>
       ),
     },
@@ -192,7 +192,7 @@ const translations = {
       en: (
         <span>
           our team coordinates global irl events, as online voice channels &
-          activities to bring together eclectic Koopas from around the world
+          activities to bring together eclectic troopas from around the world
         </span>
       ),
     },
@@ -201,7 +201,7 @@ const translations = {
       en: (
         <span>
           inspired by quantum mechanics&apos;s principles, we&apos;ll create
-          prediction markets where eclectic Koopas can use their knowledge and
+          prediction markets where eclectic troopas can use their knowledge and
           intuition to predict the future of the project
         </span>
       ),

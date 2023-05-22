@@ -59,8 +59,8 @@ export default function Menu() {
           <CustomLink href="/collabs">
             <P3 translationPath="menu/collabs" />
           </CustomLink>
-          <CustomLink href="/team">
-            <P3 translationPath="menu/team" />
+          <CustomLink href="/squad">
+            <P3 translationPath="menu/squad" />
           </CustomLink>
           <CustomLink href="/contacts">
             <P3 translationPath="menu/contacts" />
