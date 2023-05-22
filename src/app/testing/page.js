@@ -192,7 +192,9 @@ export default function Testing() {
   useEffect(() => {
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
-    context.current = canvasRef.current.getContext("2d");
+    context.current = canvasRef.current.getContext("2d", {
+      willReadFrequently: true,
+    });
 
     const startingDate = Date.now();
     const fraction = canvasRef.current.parentNode.clientHeight / 100;
