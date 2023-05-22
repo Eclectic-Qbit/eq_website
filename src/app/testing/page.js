@@ -13,6 +13,7 @@ export default function Testing() {
   const lastWidth = useRef(0);
   const TIMEOUT = 25;
   const CIRCLE = 30;
+  const DENSITY = 1 / 1600;
   const colors = useMemo(() => {
     return ["#CCFF00", "#FF6600", "#00BFFF", "#00FF00", "#FF007F", "#9500E9"];
   }, []);
@@ -128,12 +129,18 @@ export default function Testing() {
     [colors, createTimeout, drawCircle, posticipateTimeouts]
   );
   const generateLayer = useCallback(
-    (fromY, toY, fromX, toX, ySpacing, xFactor, w) => {
+    (fromY, toY, fromX, toX, ySpacing, density, w) => {
       // Costants for optimization and readability
       for (let i = fromY; i < toY - ySpacing; i += ySpacing) {
-        for (let j = 0; j < (toX - fromX) / xFactor; j++) {
+        let nStars = density * (toX - fromX);
+        let coeff = 1;
+        while (nStars < 1) {
+          nStars *= 10;
+          coeff *= 10;
+        }
+        for (let j = 0; j < nStars; j++) {
           const randomX = Math.floor(
-            Math.random() * (toX - fromX - ySpacing + 1) + fromX
+            Math.random() * ((toX - fromX) * coeff - ySpacing + 1) + fromX
           );
           drawCircle(randomX, i, w, 1, 1, 0, "white");
           items.current.push([randomX, i, w, 0]);
@@ -155,9 +162,12 @@ export default function Testing() {
         const canvasData = context.current.getImageData(0, 0, w, h);
         canvasRef.current.width = currentW;
         context.current.putImageData(canvasData, 0, 0);
-        const startingDate = Date.now();
+
+        // CALCOLA PER PROX INTERO ANCHE SE SPOSTAMENTO PICCOLO
+
         for (let w = 1; w <= 3; w++) {
           let counterHeight = 7;
+
           for (let i = 1; i * fraction <= canvasRef.current.height - 7; i++) {
             setTimeout(() => {
               generateLayer(
@@ -166,20 +176,19 @@ export default function Testing() {
                 lastWidth.current,
                 currentW,
                 7,
-                125 * (w * 1.5),
+                DENSITY * (10 - w * w),
                 w
               );
               counterHeight += fraction;
               if (w === 3 && (i + 1) * fraction >= canvasRef.current.height) {
                 lastWidth.current = currentW;
-                setDoneLoading(Date.now() - startingDate);
               }
             }, 5 * i * w);
           }
         }
       }, 500);
     }
-  }, [generateLayer]);
+  }, [DENSITY, generateLayer]);
   useEffect(() => {
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
@@ -196,9 +205,9 @@ export default function Testing() {
             counterHeight,
             counterHeight + fraction,
             0,
-            canvasRef.current.parentNode.clientWidth - 7,
+            canvasRef.current.parentNode.clientWidth,
             7,
-            125 * (w * 1.5),
+            DENSITY * (10 - w * w),
             w
           );
           counterHeight += fraction;
@@ -208,17 +217,16 @@ export default function Testing() {
         }, 5 * i * w);
       }
     }
-  }, [drawCircle, generateLayer]);
+  }, [DENSITY, drawCircle, generateLayer]);
   useEffect(() => {
-    console.log(doneLoading);
-    if (doneLoading > 0 && doneLoading < 5000) {
+    if (doneLoading > 0 && doneLoading < 2500) {
       canvasRef.current.addEventListener("mousemove", (e) =>
         handleMouseMove(e)
       );
     }
     const parsedRef = canvasRef.current;
     return () => {
-      if (doneLoading > 0 && doneLoading < 5000) {
+      if (doneLoading > 0 && doneLoading < 2500) {
         parsedRef.removeEventListener("mousemove", handleMouseMove);
       }
     };
