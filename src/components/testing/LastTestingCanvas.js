@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef } from "react";
 
-export default function Testing() {
+export default function LastTestingCanvas() {
   const canvasRef = useRef(null);
   const items = useRef([]);
   const lastTime = useRef(0);
@@ -136,20 +136,16 @@ export default function Testing() {
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
     const context = canvasRef.current.getContext("2d");
-    // Costants for optimization and readability
-    const xSpacing = 7;
-    const yFactor = 150;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    for (let i = xSpacing; i < width - xSpacing; i += xSpacing) {
-      for (let j = 0; j < height / yFactor; j++) {
+    for (let i = 7; i < window.innerWidth - 7; i += 7) {
+      for (let j = 0; j < window.innerHeight / 15; j++) {
         const randomY = Math.floor(
-          Math.random() * (height - xSpacing + 1) + xSpacing
+          Math.random() * (window.innerHeight - 7 + 1) + 7
         );
-        const randomW = Math.floor(Math.random() * 100 + 1);
-        const w = randomW > 98 ? 3 : randomW > 80 ? 2 : 1;
-        drawCircle(context, i, randomY, w, 1, 1, 0, "white");
-        items.current.push([i, randomY, w, 0]);
+        const num = Math.floor(Math.random() * (1000 - 0 + 1) + 0);
+        if (num > 950) {
+          drawCircle(context, i, randomY, num > 990 ? 2 : 1, 1, 1, 0, "white");
+          items.current.push([i, randomY, num > 985 ? 2 : 1, 0]);
+        }
       }
     }
     canvasRef.current.addEventListener("mousemove", (e) =>
