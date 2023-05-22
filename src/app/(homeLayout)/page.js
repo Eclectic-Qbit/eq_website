@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <div className="relative flex flex-col pt-[17.5vh]">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <DottedCanvas />
+          <LastTestingCanvas />
         </div>
         {/* Content */}
         <div>
