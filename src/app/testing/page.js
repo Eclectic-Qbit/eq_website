@@ -7,8 +7,8 @@ export default function Testing() {
   const items = useRef([]);
   const lastTime = useRef(0);
   const timeouts = useRef([]);
-  const TIMEOUT = 20;
-  const CIRCLE = 40;
+  const TIMEOUT = 15;
+  const CIRCLE = 30;
   const colors = useMemo(() => {
     return ["#CCFF00", "#FF6600", "#00BFFF", "#00FF00", "#FF007F", "#9500E9"];
   }, []);
@@ -132,32 +132,69 @@ export default function Testing() {
     },
     [colors, createTimeout, drawCircle, posticipateTimeouts]
   );
+  const generateLayer = useCallback(
+    (context, fromY, toY, fromX, toX, ySpacing, xFactor, w) => {
+      // Costants for optimization and readability
+      for (let i = fromY; i < toY - ySpacing; i += ySpacing) {
+        for (let j = fromX; j < toX / xFactor; j++) {
+          const randomX = Math.floor(
+            Math.random() * (toX - fromX - ySpacing + 1) + ySpacing
+          );
+          drawCircle(context, randomX, i, w, 1, 1, 0, "white");
+          items.current.push([randomX, i, w, 0]);
+        }
+      }
+    },
+    [drawCircle]
+  );
   useEffect(() => {
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
     const context = canvasRef.current.getContext("2d");
-    // Costants for optimization and readability
-    const xSpacing = 7;
-    const yFactor = 160;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    for (let i = xSpacing; i < width - xSpacing; i += xSpacing) {
-      for (let j = 0; j < height / yFactor; j++) {
-        const randomY = Math.floor(
-          Math.random() * (height - xSpacing + 1) + xSpacing
+
+    let counterHeight = 0;
+    const fraction = canvasRef.current.parentNode.clientHeight / 100;
+    for (let i = 0; i * fraction < canvasRef.current.height; i++) {
+      setTimeout(() => {
+        generateLayer(
+          context,
+          counterHeight,
+          counterHeight + fraction,
+          0,
+          window.innerWidth,
+          7,
+          150,
+          1
         );
-        const randomW = Math.floor(Math.random() * 100 + 1);
-        const w = randomW > 98 ? 3 : randomW > 75 ? 2 : 1;
-        drawCircle(context, i, randomY, w, 1, 1, 0, "white");
-        items.current.push([i, randomY, w, 0]);
-      }
+        counterHeight += fraction;
+      }, 10 * i);
     }
+    generateLayer(
+      context,
+      0,
+      window.innerHeight,
+      3,
+      window.innerWidth - 3,
+      13,
+      300,
+      2
+    );
+    generateLayer(
+      context,
+      0,
+      window.innerHeight,
+      0,
+      window.innerWidth,
+      41,
+      500,
+      3
+    );
     canvasRef.current.addEventListener("mousemove", (e) =>
       handleMouseMove(e, context)
     );
     const parsedRef = canvasRef.current;
     return () => parsedRef.removeEventListener("mousemove", handleMouseMove);
-  }, [drawCircle, handleMouseMove]);
+  }, [drawCircle, generateLayer, handleMouseMove]);
   return (
     <div>
       <div className="realtive w-full h-full">
