@@ -142,7 +142,7 @@ export default function LastTestingCanvas() {
   );
   const generateLayer = useCallback(
     (fromY, toY, fromX, toX, ySpacing, density, w) => {
-      for (let i = fromY; i < toY - ySpacing; i += ySpacing) {
+      for (let i = fromY + ySpacing; i < toY - ySpacing; i += ySpacing) {
         // If the number of pixels is lower than zero, draw pixels outside the canvas. This won't change the final density of pixels
         let nStars = density * (toX - fromX);
         let coeff = 1;
@@ -162,7 +162,7 @@ export default function LastTestingCanvas() {
     [drawCircle]
   );
   const handleResize = useCallback(() => {
-    const fraction = canvasRef.current.parentNode.clientHeight / 100;
+    const fraction = 100;
     const currentW = canvasRef.current.parentNode.clientWidth;
     // Proceed with the resizing only when it's the last resize event fired
     if (lastResizeTimeout.current) {
@@ -181,7 +181,7 @@ export default function LastTestingCanvas() {
         for (let w = 1; w <= 3; w++) {
           let counterHeight = 7;
           // Loop for the delta width
-          for (let i = 1; i * fraction <= canvasRef.current.height - 7; i++) {
+          for (let i = 1; i * fraction <= canvasRef.current.height; i++) {
             setTimeout(() => {
               generateLayer(
                 counterHeight,
@@ -210,13 +210,13 @@ export default function LastTestingCanvas() {
       willReadFrequently: false,
     }); // Do not set willReadFrequently to true. It will make everything slower
     const startingDate = Date.now();
-    const fraction = canvasRef.current.parentNode.clientHeight / 100;
+    const fraction = 100;
     lastWidth.current = canvasRef.current.width;
-    // Loop for height
-    for (let w = 1; w <= 7; w++) {
+    // Generate different w
+    for (let w = 1; w <= 3; w++) {
       let counterHeight = 7;
-      // Choose random numbers for width
-      for (let i = 1; i * fraction <= canvasRef.current.height - 7; i++) {
+      // Choose random numbers for width and loop for height
+      for (let i = 1; i * fraction <= canvasRef.current.height; i++) {
         setTimeout(() => {
           generateLayer(
             counterHeight,
