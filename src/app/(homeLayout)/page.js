@@ -26,7 +26,7 @@ export default function Home() {
           </div>
           <EclecticQbit />
         </div>
-        <div className="relative flex flex-col gap-20">
+        <div className="relative flex flex-col">
           <div className="absolute top-[20vh] right-[0vw] w-min h-min overflow-hidden">
             <SinusoidalCanvas w={400} h={30} freq={0.03} />
           </div>

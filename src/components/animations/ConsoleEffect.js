@@ -64,7 +64,7 @@ export default function ConsoleEffect({
           parsedChar;
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => setValue(newStr), 25);
+        lastTimeout.current = setTimeout(() => setValue(newStr), 20);
       } else if (parsedChar) {
         const newStr =
           value.charAt(value.length - 1) === parsedChar
@@ -79,7 +79,7 @@ export default function ConsoleEffect({
         const newStr = value.substring(0, value.length - 1);
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => setValue(newStr), 10);
+        lastTimeout.current = setTimeout(() => setValue(newStr), 8);
       }
     }
   }, [
@@ -91,8 +91,13 @@ export default function ConsoleEffect({
     parsedPlaceholderChar.length,
   ]);
   return value.length > 0 ? (
-    <div className={className}>
-      <P4 style={style}>{value}</P4>
+    <div className={`relative ${className}`}>
+      <P4 className="relative invisible" style={style}>
+        {parsedContent}
+      </P4>
+      <P4 className="absolute top-0 left-0" style={style}>
+        {value}
+      </P4>
     </div>
   ) : (
     <br />
