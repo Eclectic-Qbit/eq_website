@@ -90,7 +90,7 @@ export default function OptimizedDottedCanvas() {
       if (date - lastTime.current > TIMEOUT) {
         posticipateTimeouts();
         const x = e.clientX;
-        const y = e.clientY;
+        const y = e.clientY + window.scrollY;
         // Check which star is in range
         for (let i = 0; i < canvasItems.current.length; i++) {
           // If it wasn't updated in the recent past
@@ -187,13 +187,13 @@ export default function OptimizedDottedCanvas() {
   useEffect(() => {
     // Event listeners
     window.addEventListener("resize", handleResize);
-    document.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     canvasContext.current = canvasRef.current.getContext("2d");
     handleResize();
     // Remove event listeners
     return () => {
       window.removeEventListener("resize", handleResize);
-      document.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [handleMouseMove, handleResize]);
   return <canvas ref={canvasRef} />;

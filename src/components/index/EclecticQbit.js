@@ -25,8 +25,8 @@ export default function EclecticQbit() {
             <Image
               src={
                 true
-                  ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat - latest.jpg"
-                  : "/images/proudCat - latest.jpg"
+                  ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat_theThird.jpg"
+                  : "/images/proudCat_theThird.jpg"
               }
               fill
               sizes="100%"

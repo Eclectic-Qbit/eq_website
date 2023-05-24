@@ -6,6 +6,7 @@ import CustomLink from "./CustomLink";
 import Magnifier from "../logos/Magnifier";
 import { H4, H6, H8, H9 } from "../text/Headers";
 import { P1, P2, P3 } from "../text/Paragraphs";
+import Image from "next/image";
 
 export default function Menu() {
   const lastScroll = useRef(0);
@@ -25,21 +26,20 @@ export default function Menu() {
   }, []);
   return (
     <div
-      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl py-[1vh] px-[2%] ${
+      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl px-[2%] ${
         !show && "-translate-y-full"
       } transition ease-out duration-300 border-b-2 border-solid border-white`}
     >
-      <div className="flex items-center">
-        <EclicticLogo
-          className="w-20 aspect-square transition-all duration-150 ease-in"
-          height={"100%"}
-          width={"100%"}
-          fill="white"
+      <div className="relative flex items-center h-[7.5vh] aspect-[35/12]">
+        <Image
+          src={
+            true
+              ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/fullIcon_white.jpg"
+              : "/images/fullIcon_white.jpg"
+          }
+          alt="Logo"
+          fill
         />
-        <div>
-          <P2>eclectic</P2>
-          <P2>qbit</P2>
-        </div>
       </div>
       <div className="flex uppercase items-center justify-end w-full lg:gap-4 sm:gap-3-auto text-center">
         {/* NOT NECESSARY
@@ -49,7 +49,7 @@ export default function Menu() {
           <div className="w-12 h-1 bg-white rounded-xl" />
         </button>
         */}
-        <div className="grid gap-0.5 md:flex md:gap-3">
+        <div className="grid gap-0.5 md:flex md:gap-3 py-[1vh]">
           <CustomLink href="/">
             <P3 translationPath="menu/home" />
           </CustomLink>
