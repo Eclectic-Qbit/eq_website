@@ -158,8 +158,10 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
           const randomX = Math.floor(
             Math.random() * ((toX - fromX) * coeff - ySpacing + 1) + fromX
           );
-          drawCircle(randomX, i, w, 1, 1, 0, "white");
-          items.current.push([randomX, i, w, 0]);
+          if (randomX < canvasRef.current.width) {
+            drawCircle(randomX, i, w, 1, 1, 0, "white");
+            items.current.push([randomX, i, w, 0]);
+          }
         }
       }
     },
@@ -186,6 +188,27 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
             counterHeight += FRACTION;
             if (w === 3 && (i + 1) * FRACTION >= canvasRef.current.height) {
               callback();
+              const canvasData = context.current.getImageData(
+                0,
+                0,
+                canvasRef.current.width,
+                canvasRef.current.height
+              );
+              // Saving the data
+              const parsedObj = {
+                height: canvasData.height,
+                width: canvasData.width,
+                colorSpace: canvasData.colorSpace,
+                data: canvasData.data,
+              };
+              const json = JSON.stringify(parsedObj);
+              const blob = new Blob([json], { type: "application/json" });
+              downloadFile(blob);
+              downloadFile(
+                new Blob([JSON.stringify(items.current)], {
+                  type: "application/json",
+                })
+              );
             }
           }, 1 * i * w);
         }
@@ -206,25 +229,10 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
         const h = canvasRef.current.height;
         // Save and set again the current stars
         const canvasData = context.current.getImageData(0, 0, w, h);
-        // Saving the data
-        const parsedObj = {
-          height: canvasData.height,
-          width: canvasData.width,
-          colorSpace: canvasData.colorSpace,
-          data: canvasData.data,
-        };
-        const json = JSON.stringify(parsedObj);
-        const blob = new Blob([json], { type: "application/json" });
-        downloadFile(blob);
         canvasRef.current.width = currentW;
         context.current.putImageData(canvasData, 0, 0);
         callGenerateLayer(() => {
           lastWidth.current = currentW;
-          downloadFile(
-            new Blob([JSON.stringify(items.current)], {
-              type: "application/json",
-            })
-          );
         });
       }, 500);
     }
