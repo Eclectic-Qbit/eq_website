@@ -143,47 +143,45 @@ export default function OptimizedDottedCanvas() {
     // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
-    // Resize if necessary
     const newW = window.innerWidth;
-    if (newW > lastW.current) {
-      // Parse "texture" and logic points
-      const parsedCanvasData = JSON.parse(JSON.stringify(canvasData));
-      const parsedCanvasItems = JSON.parse(JSON.stringify(baseCanvasItems));
-      const imageData = canvasContext.current.createImageData(
-        parsedCanvasData.width,
-        parsedCanvasData.height
-      );
-      const pixelData = new Uint8ClampedArray(
-        Object.values(parsedCanvasData.data)
-      );
-      imageData.data.set(pixelData);
-      // Repeat the texture and logic points until the screen is covered
+    // Parse "texture" and logic points
+    const parsedCanvasData = JSON.parse(JSON.stringify(canvasData));
+    const parsedCanvasItems = JSON.parse(JSON.stringify(baseCanvasItems));
+    const imageData = canvasContext.current.createImageData(
+      parsedCanvasData.width,
+      parsedCanvasData.height
+    );
+    const pixelData = new Uint8ClampedArray(
+      Object.values(parsedCanvasData.data)
+    );
+    imageData.data.set(pixelData);
+    // Repeat the texture and logic points until the screen is covered
+    for (
+      let i = 0;
+      i * parsedCanvasData.height < canvasRef.current.height;
+      i++
+    ) {
       for (
-        let i = 0;
-        i * parsedCanvasData.height < canvasRef.current.height;
-        i++
+        let j = 0;
+        j * parsedCanvasData.width < canvasRef.current.width;
+        j++
       ) {
-        for (
-          let j = 0;
-          j * parsedCanvasData.width < canvasRef.current.width;
-          j++
-        ) {
-          canvasContext.current.putImageData(
-            imageData,
-            j * parsedCanvasData.width,
-            i * parsedCanvasData.height
-          );
-          for (let k = 0; k < parsedCanvasItems.length; k++) {
-            canvasItems.current.push([
-              parsedCanvasItems[k][0] + j * parsedCanvasData.width,
-              parsedCanvasItems[k][1] + i * parsedCanvasData.height,
-              parsedCanvasItems[k][2],
-              parsedCanvasItems[k][3],
-            ]);
-          }
+        canvasContext.current.putImageData(
+          imageData,
+          j * parsedCanvasData.width,
+          i * parsedCanvasData.height
+        );
+        for (let k = 0; k < parsedCanvasItems.length; k++) {
+          canvasItems.current.push([
+            parsedCanvasItems[k][0] + j * parsedCanvasData.width,
+            parsedCanvasItems[k][1] + i * parsedCanvasData.height,
+            parsedCanvasItems[k][2],
+            parsedCanvasItems[k][3],
+          ]);
         }
       }
     }
+
     lastW.current = newW;
   }, []);
   useEffect(() => {
