@@ -13,9 +13,9 @@ const translations = {
       en: (
         <span>
           eclectic qbit, it&apos;s all about bringing the modus operandi of
-          qbits, into web3, with a it&apos;s a me twist with nature as our main
-          inspiration, just like fungi, we exchange nutrients and other
-          resources within & beyond web3 space
+          qbits, into web3, with a it&apos;s a me twist.
+          <br /> with nature as our main inspiration, just like fungi, we
+          exchange nutrients and other resources within & beyond web3 space
         </span>
       ),
     },

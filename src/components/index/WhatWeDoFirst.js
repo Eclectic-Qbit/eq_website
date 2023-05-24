@@ -4,6 +4,8 @@ import { H2, H3, H4, H9 } from "../text/Headers";
 import { P1, P2, P3, P4 } from "../text/Paragraphs";
 import FirstCanvas from "../backgrounds/WhatWeDoCanvas";
 import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
+import ShowOnHover from "../animations/ShowOnHover";
+import ConsoleEffect from "../animations/ConsoleEffect";
 
 export default function WhatWeDoFirst() {
   return (
@@ -20,18 +22,20 @@ export default function WhatWeDoFirst() {
               <H3 translationPath="whatWeDo/title/p2" />
             </MouseMoveGradient>
             <div className="flex flex-wrap gap-3 lowercase w-full">
-              <div className="grid gap-2">
+              <ShowOnHover>
                 <P2
                   style={{ textShadow: "1px 1px 2px white" }}
                   translationPath="whatWeDo/h2"
                   className="text-purple font-bold uppercase"
                 />
-                <P4
+                <ConsoleEffect
                   style={{ textShadow: "2px 2px 2px black" }}
-                  translationPath="whatWeDo/p2"
                   className="text-yellow font-bold"
+                  additionalChar="_"
+                  placeholderChar="$ "
+                  content={{ content: "whatWeDo/p2", type: "ref" }}
                 />
-              </div>
+              </ShowOnHover>
             </div>
           </div>
         </div>

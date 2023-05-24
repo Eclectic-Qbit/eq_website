@@ -34,8 +34,8 @@ export default function Menu() {
         <Image
           src={
             true
-              ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/fullIcon_white.jpg"
-              : "/images/fullIcon_white.jpg"
+              ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/fullIcon_white.png"
+              : "/images/fullIcon_white.png"
           }
           alt="Logo"
           fill
