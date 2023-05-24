@@ -1,3 +1,5 @@
+"use client";
+
 import CircleCanvas from "@/components/backgrounds/CirlceCanvas";
 import DottedCanvas from "@/components/backgrounds/DottedCanvas";
 import GridCanvas from "@/components/backgrounds/GridCanvas";
@@ -9,12 +11,13 @@ import PaintEarnSecond from "@/components/index/PaintEarnSecond";
 import WhatWeDoFirst from "@/components/index/WhatWeDoFirst";
 import WhatWeDoSecond from "@/components/index/WhatWeDoSecond";
 import LastTestingCanvas from "@/components/testing/LastTestingCanvas";
+import OptimizedDottedCanvas from "@/components/testing/OptimizedDottedCanvas";
 export default function Home() {
   return (
     <>
       <div className="relative flex flex-col pt-[17.5vh]">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <LastTestingCanvas />
+          <OptimizedDottedCanvas />
         </div>
         {/* Content */}
         <div>
