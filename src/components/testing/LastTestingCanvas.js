@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { downloadFile } from "@/commonFrontend";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-export default function LastTestingCanvas() {
+export default function LastTestingCanvas({ mouseListenerRef }) {
   const [doneLoading, setDoneLoading] = useState(0); // Time used for loading the canvas
   const canvasRef = useRef(null); // Canvas ref
   const items = useRef([]); // Stars rendered
@@ -11,8 +12,10 @@ export default function LastTestingCanvas() {
   const lastResizeTimeout = useRef(null); // Need for sampling of the resize
   const context = useRef(null); // Canvas 2d context
   const lastWidth = useRef(0); // Need for checking if the resize event made the screen larger or smaller
+  const FRACTION = 15; // Block of pixels where to instance a drawLayer
   const TIMEOUT = 25; // Timeout for sampling of the mouse
   const CIRCLE = 30; // Radius of the circle around the mouse
+  const YSPACING = 7; // Distance between two stars in vertical
   const DENSITY = 1 / 1600; // Density of stars per row - modified by a costant in the for loops
   const colors = useRef([
     "#CCFF00",
@@ -117,7 +120,7 @@ export default function LastTestingCanvas() {
                   "black"
                 );
                 const number = Math.floor(Math.random() * (5 - 0 + 1) + 0);
-                const color = colors[number];
+                const color = colors.current[number];
                 drawCircle(
                   items.current[i][0],
                   items.current[i][1],
@@ -150,6 +153,7 @@ export default function LastTestingCanvas() {
           nStars *= 10;
           coeff *= 10;
         }
+        nStars = Math.floor(nStars);
         for (let j = 0; j < nStars; j++) {
           const randomX = Math.floor(
             Math.random() * ((toX - fromX) * coeff - ySpacing + 1) + fromX
@@ -161,8 +165,35 @@ export default function LastTestingCanvas() {
     },
     [drawCircle]
   );
+  const callGenerateLayer = useCallback(
+    (callback) => {
+      const currentW = canvasRef.current.parentNode.clientWidth;
+      // Loop for height
+      for (let w = 1; w <= 3; w++) {
+        let counterHeight = YSPACING;
+        // Loop for the delta width
+        for (let i = 1; i * FRACTION <= canvasRef.current.height; i++) {
+          setTimeout(() => {
+            generateLayer(
+              counterHeight,
+              counterHeight + FRACTION,
+              lastWidth.current,
+              currentW,
+              YSPACING,
+              DENSITY * (10 - w * w),
+              w
+            );
+            counterHeight += FRACTION;
+            if (w === 3 && (i + 1) * FRACTION >= canvasRef.current.height) {
+              callback();
+            }
+          }, 1 * i * w);
+        }
+      }
+    },
+    [DENSITY, generateLayer]
+  );
   const handleResize = useCallback(() => {
-    const fraction = 100;
     const currentW = canvasRef.current.parentNode.clientWidth;
     // Proceed with the resizing only when it's the last resize event fired
     if (lastResizeTimeout.current) {
@@ -175,34 +206,35 @@ export default function LastTestingCanvas() {
         const h = canvasRef.current.height;
         // Save and set again the current stars
         const canvasData = context.current.getImageData(0, 0, w, h);
+        // Saving the data
+        const parsedObj = {
+          height: canvasData.height,
+          width: canvasData.width,
+          colorSpace: canvasData.colorSpace,
+          data: canvasData.data,
+        };
+        const json = JSON.stringify(parsedObj);
+        const blob = new Blob([json], { type: "application/json" });
+        downloadFile(blob);
         canvasRef.current.width = currentW;
         context.current.putImageData(canvasData, 0, 0);
-        // Loop for height
-        for (let w = 1; w <= 3; w++) {
-          let counterHeight = 7;
-          // Loop for the delta width
-          for (let i = 1; i * fraction <= canvasRef.current.height; i++) {
-            setTimeout(() => {
-              generateLayer(
-                counterHeight,
-                counterHeight + fraction,
-                lastWidth.current,
-                currentW,
-                7,
-                DENSITY * (10 - w * w),
-                w
-              );
-              counterHeight += fraction;
-              if (w === 3 && (i + 1) * fraction >= canvasRef.current.height) {
-                lastWidth.current = currentW;
-              }
-            }, 5 * i * w);
-          }
-        }
+        callGenerateLayer(() => {
+          lastWidth.current = currentW;
+          downloadFile(
+            new Blob([JSON.stringify(items.current)], {
+              type: "application/json",
+            })
+          );
+        });
       }, 500);
     }
-  }, [DENSITY, generateLayer]);
+  }, [callGenerateLayer]);
   useEffect(() => {
+    // Reset last parameters
+    items.current = [];
+    lastTime.current = 0;
+    timeouts.current = [];
+    lastResizeTimeout.current = null;
     // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
@@ -210,45 +242,19 @@ export default function LastTestingCanvas() {
       willReadFrequently: false,
     }); // Do not set willReadFrequently to true. It will make everything slower
     const startingDate = Date.now();
-    const fraction = 100;
-    lastWidth.current = canvasRef.current.width;
-    // Generate different w
-    for (let w = 1; w <= 3; w++) {
-      let counterHeight = 7;
-      // Choose random numbers for width and loop for height
-      for (let i = 1; i * fraction <= canvasRef.current.height; i++) {
-        setTimeout(() => {
-          generateLayer(
-            counterHeight,
-            counterHeight + fraction,
-            0,
-            canvasRef.current.parentNode.clientWidth,
-            7,
-            DENSITY * (10 - w * w), // Density that decrased by square for dimension
-            w
-          );
-          counterHeight += fraction;
-          if (w === 3 && (i + 1) * fraction >= canvasRef.current.height) {
-            setDoneLoading(Date.now() - startingDate);
-          }
-        }, 10 * i * w);
-      }
-    }
-  }, [DENSITY, drawCircle, generateLayer]);
+    callGenerateLayer(() => {
+      setDoneLoading(Date.now() - startingDate);
+      lastWidth.current = canvasRef.current.width;
+    });
+  }, [DENSITY, callGenerateLayer, drawCircle, generateLayer]);
   useEffect(() => {
+    const listenTo = mouseListenerRef ? mouseListenerRef : document;
     // If the canvas was loaded in a normal amount of time proceed to listening for mouse move
-    if (doneLoading > 0 && doneLoading < 2500) {
-      canvasRef.current.addEventListener("mousemove", (e) =>
-        handleMouseMove(e)
-      );
-    }
-    const parsedRef = canvasRef.current;
+    listenTo.addEventListener("mousemove", (e) => handleMouseMove(e));
     return () => {
-      if (doneLoading > 0 && doneLoading < 2500) {
-        parsedRef.removeEventListener("mousemove", handleMouseMove);
-      }
+      listenTo.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [doneLoading, handleMouseMove]);
+  }, [doneLoading, handleMouseMove, mouseListenerRef]);
   useEffect(() => {
     // Resize handler. Draws the stars only in the new part of the screen
     window.addEventListener("resize", handleResize);
@@ -257,7 +263,7 @@ export default function LastTestingCanvas() {
     <div>
       <div className="realtive w-full h-full">
         <div className="absolute top-0 left-0 w-full max-w-screen h-full overflow-hidden">
-          <canvas ref={canvasRef} className="rounded-xl"></canvas>
+          <canvas ref={canvasRef} className="rounded-xl" />
         </div>
       </div>
     </div>
