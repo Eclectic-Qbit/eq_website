@@ -9,3 +9,9 @@ export function translateText(translationPath, lang) {
   }
   return lastVal[lang] ? lastVal[lang] : lastVal[settings.defaultLang];
 }
+export function downloadFile(file) {
+  var downloadLink = document.createElement("a");
+  downloadLink.href = URL.createObjectURL(file);
+  downloadLink.download = "image.json";
+  downloadLink.click();
+}
