@@ -1,14 +1,15 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useContext, useEffect, useRef } from "react";
 import canvasData from "./canvas.json";
 import baseCanvasItems from "./canvasItems.json";
+import MouseContext from "@/contexts/MouseContext";
 
 export default function OptimizedDottedCanvas() {
+  const { position, setPosition, samplingDelta } = useContext(MouseContext);
   const canvasRef = useRef(null);
   const canvasContext = useRef(null);
   const canvasItems = useRef([]);
   const timeouts = useRef([]);
   const lastW = useRef(0);
-  const lastTime = useRef(0);
   const COLORS = useRef([
     "#CCFF00",
     "#FF6600",
@@ -18,7 +19,6 @@ export default function OptimizedDottedCanvas() {
     "#9500E9",
   ]);
   const CIRCLE = 30;
-  const TIMEOUT = 20;
   // Draw a circle given some specs
   const drawCircle = useCallback((x, y, r, fill, blur, w, color, shadow) => {
     canvasContext.current.beginPath();
@@ -61,10 +61,10 @@ export default function OptimizedDottedCanvas() {
             return el;
           }
         });
-      }, 5 * TIMEOUT + Date.now() - creationDate);
+      }, 5 * samplingDelta + Date.now() - creationDate);
       return newTimeout;
     },
-    [drawCircle]
+    [drawCircle, samplingDelta]
   );
   // Posticipate the draw-to-white stars timeout
   const posticipateTimeouts = useCallback(() => {
@@ -83,62 +83,6 @@ export default function OptimizedDottedCanvas() {
     });
     timeouts.current = newTimeouts;
   }, [createTimeout]);
-  const handleMouseMove = useCallback(
-    (e) => {
-      const date = Date.now();
-      // For performances
-      if (date - lastTime.current > TIMEOUT) {
-        posticipateTimeouts();
-        const x = e.clientX;
-        const y = e.clientY + window.scrollY;
-        // Check which star is in range
-        for (let i = 0; i < canvasItems.current.length; i++) {
-          // If it wasn't updated in the recent past
-          if (date - canvasItems.current[i][3] > 2 * TIMEOUT) {
-            // If it is in range
-            if (
-              canvasItems.current[i][0] + CIRCLE > x &&
-              canvasItems.current[i][0] - CIRCLE < x
-            ) {
-              if (
-                canvasItems.current[i][1] + CIRCLE > y &&
-                canvasItems.current[i][1] - CIRCLE < y
-              ) {
-                // Draw back and paint again on it
-                const w = canvasItems.current[i][2];
-                drawCircle(
-                  canvasItems.current[i][0],
-                  canvasItems.current[i][1],
-                  w + 1, // consider the border (1) too!
-                  1,
-                  1,
-                  0,
-                  "black"
-                );
-                const number = Math.floor(Math.random() * (5 - 0 + 1) + 0);
-                const color = COLORS.current[number];
-                drawCircle(
-                  canvasItems.current[i][0],
-                  canvasItems.current[i][1],
-                  w,
-                  1,
-                  1,
-                  0,
-                  color
-                );
-                timeouts.current.push({
-                  timeout: createTimeout(i, w, 0),
-                  params: [i, w, Date.now()],
-                });
-              }
-            }
-          }
-        }
-        lastTime.current = Date.now();
-      }
-    },
-    [COLORS, createTimeout, drawCircle, posticipateTimeouts]
-  );
   const handleResize = useCallback(() => {
     // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
@@ -185,16 +129,70 @@ export default function OptimizedDottedCanvas() {
     lastW.current = newW;
   }, []);
   useEffect(() => {
+    const date = Date.now();
+    posticipateTimeouts();
+    const x = position.clientX;
+    const y = position.clientY + window.scrollY;
+    // Check which star is in range
+    for (let i = 0; i < canvasItems.current.length; i++) {
+      // If it wasn't updated in the recent past
+      if (date - canvasItems.current[i][3] > 2 * samplingDelta) {
+        // If it is in range
+        if (
+          canvasItems.current[i][0] + CIRCLE > x &&
+          canvasItems.current[i][0] - CIRCLE < x
+        ) {
+          if (
+            canvasItems.current[i][1] + CIRCLE > y &&
+            canvasItems.current[i][1] - CIRCLE < y
+          ) {
+            // Draw back and paint again on it
+            const w = canvasItems.current[i][2];
+            drawCircle(
+              canvasItems.current[i][0],
+              canvasItems.current[i][1],
+              w + 1, // consider the border (1) too!
+              1,
+              1,
+              0,
+              "black"
+            );
+            const number = Math.floor(Math.random() * (5 - 0 + 1) + 0);
+            const color = COLORS.current[number];
+            drawCircle(
+              canvasItems.current[i][0],
+              canvasItems.current[i][1],
+              w,
+              1,
+              1,
+              0,
+              color
+            );
+            timeouts.current.push({
+              timeout: createTimeout(i, w, 0),
+              params: [i, w, date],
+            });
+          }
+        }
+      }
+    }
+  }, [
+    COLORS,
+    position,
+    createTimeout,
+    drawCircle,
+    posticipateTimeouts,
+    samplingDelta,
+  ]);
+  useEffect(() => {
     // Event listeners
     window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
     canvasContext.current = canvasRef.current.getContext("2d");
     handleResize();
     // Remove event listeners
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [handleMouseMove, handleResize]);
+  }, [handleResize]);
   return <canvas ref={canvasRef} />;
 }

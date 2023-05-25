@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { H1, H2, H3, H4, H5, H6 } from "../text/Headers";
 import frontendSettings from "@/frontendSettings";
+import MouseContext from "@/contexts/MouseContext";
 
 export default function LoadingAnimation() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -13,12 +14,7 @@ export default function LoadingAnimation() {
     temp: false,
     perma: false,
   });
-  const handleMouse = useCallback((e) => {
-    setMouse({
-      x: -(document.body.offsetWidth / 2 - e.clientX) * 0.25,
-      y: -(window.screen.height / 2 - e.clientY) * 0.25,
-    });
-  }, []);
+  const { position, setPosition } = useContext(MouseContext);
   function handleScroll() {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
@@ -32,11 +28,18 @@ export default function LoadingAnimation() {
     }
   }, []);
   useEffect(() => {
+    if (!hide.perma) {
+      setMouse({
+        x: -(document.body.offsetWidth / 2 - position.clientX) * 0.25,
+        y: -(window.screen.height / 2 - position.clientY) * 0.25,
+      });
+    }
+  }, [hide.perma, position]);
+  useEffect(() => {
     const loaded = sessionStorage.getItem("loaded");
     if (loaded) {
       handleScroll();
     } else {
-      document.addEventListener("mousemove", handleMouse);
       document.addEventListener("scroll", handleScroll);
       document.addEventListener("resize", handleResize);
       handleResize();
@@ -51,11 +54,10 @@ export default function LoadingAnimation() {
       }, 1000);
     }
     return () => {
-      document.removeEventListener("mousemove", handleMouse);
       document.removeEventListener("scroll", handleScroll);
       document.removeEventListener("resize", handleResize);
     };
-  }, [handleMouse, handleResize]);
+  }, [handleResize]);
   return (
     <>
       {!hide.perma && (
