@@ -16,7 +16,7 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
   const TIMEOUT = 25; // Timeout for sampling of the mouse
   const CIRCLE = 30; // Radius of the circle around the mouse
   const YSPACING = 7; // Distance between two stars in vertical
-  const DENSITY = 1 / 1600; // Density of stars per row - modified by a costant in the for loops
+  const DENSITY = 1 / 2500; // Density of stars per row - modified by a costant in the for loops
   const colors = useRef([
     "#CCFF00",
     "#FF6600",
