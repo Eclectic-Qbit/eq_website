@@ -1,19 +1,18 @@
 "use client";
 
 import { downloadFile } from "@/commonFrontend";
-import { useCallback, useEffect, useRef, useState } from "react";
+import MouseContext from "@/contexts/MouseContext";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 
 export default function LastTestingCanvas({ mouseListenerRef }) {
-  const [doneLoading, setDoneLoading] = useState(0); // Time used for loading the canvas
+  const { position, setPosition, samplingDelta } = useContext(MouseContext);
   const canvasRef = useRef(null); // Canvas ref
   const items = useRef([]); // Stars rendered
-  const lastTime = useRef(0); // Needed for sampling of the mouse
   const timeouts = useRef([]); // Stars timeouts
   const lastResizeTimeout = useRef(null); // Need for sampling of the resize
   const context = useRef(null); // Canvas 2d context
   const lastWidth = useRef(0); // Need for checking if the resize event made the screen larger or smaller
   const FRACTION = 15; // Block of pixels where to instance a drawLayer
-  const TIMEOUT = 25; // Timeout for sampling of the mouse
   const CIRCLE = 30; // Radius of the circle around the mouse
   const YSPACING = 7; // Distance between two stars in vertical
   const DENSITY = 1 / 2500; // Density of stars per row - modified by a costant in the for loops
@@ -65,10 +64,10 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
             return el;
           }
         });
-      }, 5 * TIMEOUT + Date.now() - creationDate);
+      }, 5 * samplingDelta + Date.now() - creationDate);
       return newTimeout;
     },
-    [drawCircle]
+    [drawCircle, samplingDelta]
   );
   // Posticipate the draw-to-white stars timeout
   const posticipateTimeouts = useCallback(() => {
@@ -87,62 +86,6 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
     });
     timeouts.current = newTimeouts;
   }, [createTimeout]);
-  const handleMouseMove = useCallback(
-    (e) => {
-      const date = Date.now();
-      // For performances
-      if (date - lastTime.current > TIMEOUT) {
-        posticipateTimeouts();
-        const x = e.clientX;
-        const y = e.clientY;
-        // Check which star is in range
-        for (let i = 0; i < items.current.length; i++) {
-          // If it wasn't updated in the recent past
-          if (date - items.current[i][3] > 2 * TIMEOUT) {
-            // If it is in range
-            if (
-              items.current[i][0] + CIRCLE > x &&
-              items.current[i][0] - CIRCLE < x
-            ) {
-              if (
-                items.current[i][1] + CIRCLE > y &&
-                items.current[i][1] - CIRCLE < y
-              ) {
-                // Draw back and paint again on it
-                const w = items.current[i][2];
-                drawCircle(
-                  items.current[i][0],
-                  items.current[i][1],
-                  w + 1, // consider the border (1) too!
-                  1,
-                  1,
-                  0,
-                  "black"
-                );
-                const number = Math.floor(Math.random() * (5 - 0 + 1) + 0);
-                const color = colors.current[number];
-                drawCircle(
-                  items.current[i][0],
-                  items.current[i][1],
-                  w,
-                  1,
-                  1,
-                  0,
-                  color
-                );
-                timeouts.current.push({
-                  timeout: createTimeout(i, w, 0),
-                  params: [i, w, Date.now()],
-                });
-              }
-            }
-          }
-        }
-        lastTime.current = Date.now();
-      }
-    },
-    [colors, createTimeout, drawCircle, posticipateTimeouts]
-  );
   const generateLayer = useCallback(
     (fromY, toY, fromX, toX, ySpacing, density, w) => {
       for (let i = fromY + ySpacing; i < toY - ySpacing; i += ySpacing) {
@@ -238,11 +181,6 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
     }
   }, [callGenerateLayer]);
   useEffect(() => {
-    // Reset last parameters
-    items.current = [];
-    lastTime.current = 0;
-    timeouts.current = [];
-    lastResizeTimeout.current = null;
     // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
@@ -256,13 +194,54 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
     });
   }, [DENSITY, callGenerateLayer, drawCircle, generateLayer]);
   useEffect(() => {
-    const listenTo = mouseListenerRef ? mouseListenerRef : document;
-    // If the canvas was loaded in a normal amount of time proceed to listening for mouse move
-    listenTo.addEventListener("mousemove", (e) => handleMouseMove(e));
-    return () => {
-      listenTo.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [doneLoading, handleMouseMove, mouseListenerRef]);
+    const date = Date.now();
+    posticipateTimeouts();
+    const x = position.clientX;
+    const y = position.clientY;
+    // Check which star is in range
+    for (let i = 0; i < items.current.length; i++) {
+      // If it wasn't updated in the recent past
+      if (date - items.current[i][3] > 2 * samplingDelta) {
+        // If it is in range
+        if (
+          items.current[i][0] + CIRCLE > x &&
+          items.current[i][0] - CIRCLE < x
+        ) {
+          if (
+            items.current[i][1] + CIRCLE > y &&
+            items.current[i][1] - CIRCLE < y
+          ) {
+            // Draw back and paint again on it
+            const w = items.current[i][2];
+            drawCircle(
+              items.current[i][0],
+              items.current[i][1],
+              w + 1, // consider the border (1) too!
+              1,
+              1,
+              0,
+              "black"
+            );
+            const number = Math.floor(Math.random() * (5 - 0 + 1) + 0);
+            const color = colors.current[number];
+            drawCircle(
+              items.current[i][0],
+              items.current[i][1],
+              w,
+              1,
+              1,
+              0,
+              color
+            );
+            timeouts.current.push({
+              timeout: createTimeout(i, w, 0),
+              params: [i, w, date],
+            });
+          }
+        }
+      }
+    }
+  }, [createTimeout, drawCircle, position, posticipateTimeouts, samplingDelta]);
   useEffect(() => {
     // Resize handler. Draws the stars only in the new part of the screen
     window.addEventListener("resize", handleResize);
