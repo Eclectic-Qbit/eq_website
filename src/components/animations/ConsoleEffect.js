@@ -16,29 +16,29 @@ export default function ConsoleEffect({
 }) {
   /* Fix the ghost cancellation - first noticed after lang translation */
   const { lang, setLang } = useContext(LanguageContext);
-  const text = useMemo(() => {
-    return translateText(content.content, lang);
-  }, [content.content, lang]);
-  let parsedContent =
-    content.type === "raw"
-      ? content.content
-      : typeof text === "string"
-      ? text
-      : text.props.children;
-  if (typeof parsedContent !== "string") {
-    parsedContent = parsedContent.filter((el) => {
-      if (typeof el === "string") {
-        return el;
-      } else {
-        return "";
-      }
-    });
-    parsedContent = parsedContent.join(" ");
-  }
-  const [parsedChar, setParsedChar] = useState(additionalChar);
+  const [parsedChar, setParsedChar] = useState(
+    additionalChar ? additionalChar : ""
+  );
   const parsedPlaceholderChar = placeholderChar ? placeholderChar : "";
   const [value, setValue] = useState(parsedPlaceholderChar);
   const lastTimeout = useRef(null);
+  const parsedContent = useMemo(() => {
+    clearTimeout(lastTimeout.current);
+    setValue(parsedPlaceholderChar);
+    if (content.type === "raw") {
+      return content.content;
+    }
+    let translation = translateText(content.content, lang);
+    translation =
+      typeof translation === "string"
+        ? translation
+        : translation.props.children;
+    if (typeof translation !== "string") {
+      translation = translation.filter((el) => typeof el === "string");
+      translation = translation.join("\n");
+    }
+    return translation;
+  }, [content, lang, parsedPlaceholderChar]);
   useEffect(() => {
     if (window.innerWidth < settings.mobileView) {
       setParsedChar("");
@@ -50,6 +50,7 @@ export default function ConsoleEffect({
         value.length <
         parsedContent.length + parsedChar.length + parsedPlaceholderChar.length
       ) {
+        // Remove spacing char if exists
         const parsedValue = parsedChar
           ? value.replace(
               parsedChar,
@@ -58,10 +59,11 @@ export default function ConsoleEffect({
               )
             )
           : value;
-        const newStr =
-          parsedValue +
-          parsedContent.charAt(value.length - parsedPlaceholderChar.length) +
-          parsedChar;
+        // Add a new char
+        const newChar = parsedContent.charAt(
+          value.length - parsedPlaceholderChar.length
+        );
+        const newStr = parsedValue + newChar + parsedChar;
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
         lastTimeout.current = setTimeout(() => setValue(newStr), 20);
@@ -72,7 +74,7 @@ export default function ConsoleEffect({
             : value.slice(0, -1) + parsedChar;
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        setTimeout(() => setValue(newStr), 500);
+        lastTimeout.current = setTimeout(() => setValue(newStr), 500);
       }
     } else {
       if (value.length > parsedPlaceholderChar.length) {
@@ -90,16 +92,21 @@ export default function ConsoleEffect({
     additionalChar,
     parsedPlaceholderChar.length,
   ]);
-  return value.length > 0 ? (
+  return (
     <div className={`relative ${className}`}>
       <P4 className="relative invisible" style={style}>
         {parsedContent}
       </P4>
       <P4 className="absolute top-0 left-0" style={style}>
-        {value}
+        {value.split("\n").map((el, i) => {
+          return (
+            <span key={i}>
+              {el}
+              <br />
+            </span>
+          );
+        })}
       </P4>
     </div>
-  ) : (
-    <br />
   );
 }
