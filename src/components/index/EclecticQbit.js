@@ -18,7 +18,7 @@ export default function EclecticQbit() {
   }, [scroll]);
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      <div className="flex flex-wrap items-center justify-center font-extrabold uppercase w-full gap-y-10 mb-8">
+      <div className="flex flex-wrap items-center justify-center font-extrabold uppercase w-full gap-y-10 mb-4">
         <MouseMoveGradient
           className="w-auto text-center mx-auto"
           from="#9500E9"

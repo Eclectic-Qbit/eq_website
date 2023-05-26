@@ -6,7 +6,7 @@ import { P1, P2, P4 } from "../text/Paragraphs";
 
 export default function WhatWeDo() {
   return (
-    <div>
+    <div className="relative">
       <div className="ml-[5%] mr-[25%] max-w-[130rem] grid gap-6">
         <MouseMoveGradient
           className="font-extrabold uppercase w-full"
