@@ -5,6 +5,7 @@ import { P1, P2, P3, P4 } from "../text/Paragraphs";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "@/contexts/ScrollContext";
+import { finalMediaLink } from "@/commonFrontend";
 
 export default function EclecticQbit() {
   const parentRef = useRef(null);
@@ -33,11 +34,7 @@ export default function EclecticQbit() {
             target="_blank"
           >
             <Image
-              src={
-                true
-                  ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/proudCat_theThird.jpg"
-                  : "/images/proudCat_theThird.jpg"
-              }
+              src={finalMediaLink("images/proudCat_theThird.jpg")}
               fill
               sizes="100%"
               priority

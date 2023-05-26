@@ -4,6 +4,7 @@ import { H3, H4, H6, H8 } from "../text/Headers";
 import { P1, P2 } from "../text/Paragraphs";
 import ConsoleEffect from "../animations/ConsoleEffect";
 import Image from "next/image";
+import { finalMediaLink } from "@/commonFrontend";
 
 export default function PaintEarn() {
   const [selected, setSelected] = useState(null);
@@ -39,7 +40,7 @@ export default function PaintEarn() {
               <div className="relative w-full aspect-square transition-all duration-150">
                 <Image
                   className="rounded-full"
-                  src="/images/proudCat_artist_squared.jpg"
+                  src={finalMediaLink("images/proudCat_artist_squared.jpg")}
                   alt="Artist"
                   fill
                   onClick={() => setSelected("artist")}
@@ -56,7 +57,9 @@ export default function PaintEarn() {
               <div className="relative w-full aspect-square">
                 <Image
                   className="rounded-full"
-                  src="/images/proudCat_enterpreneur_squared.jpg"
+                  src={finalMediaLink(
+                    "images/proudCat_enterpreneur_squared.jpg"
+                  )}
                   alt="Startupper"
                   fill
                   onClick={() => setSelected("startupper")}
