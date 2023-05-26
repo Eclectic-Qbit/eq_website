@@ -1,29 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import EclicticLogo from "../logos/EclicticLogo";
 import CustomLink from "./CustomLink";
 import Magnifier from "../logos/Magnifier";
 import { H4, H6, H8, H9 } from "../text/Headers";
 import { P1, P2, P3 } from "../text/Paragraphs";
 import Image from "next/image";
+import ScrollContext from "@/contexts/ScrollContext";
 
 export default function Menu() {
   const lastScroll = useRef(0);
   const [show, setShow] = useState(true);
+  const { scroll } = useContext(ScrollContext);
   //const [searchbarText, setSearchbarText] = useState("");
-  function handleScroll() {
-    if (scrollY > lastScroll.current) {
+  useEffect(() => {
+    if (scroll > lastScroll.current) {
       setShow(false);
     } else {
       setShow(true);
     }
-    lastScroll.current = scrollY;
-  }
-  useEffect(() => {
-    document.addEventListener("scroll", handleScroll);
-    return () => document.removeEventListener("scroll", handleScroll);
-  }, []);
+    lastScroll.current = scroll;
+  }, [scroll]);
   return (
     <div
       className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl px-[2%] ${
