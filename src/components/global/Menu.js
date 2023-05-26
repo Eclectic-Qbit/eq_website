@@ -8,6 +8,7 @@ import { H4, H6, H8, H9 } from "../text/Headers";
 import { P1, P2, P3 } from "../text/Paragraphs";
 import Image from "next/image";
 import ScrollContext from "@/contexts/ScrollContext";
+import { finalMediaLink } from "@/commonFrontend";
 
 export default function Menu() {
   const lastScroll = useRef(0);
@@ -30,11 +31,7 @@ export default function Menu() {
     >
       <div className="relative flex items-center h-[7.5vh] aspect-[35/12]">
         <Image
-          src={
-            true
-              ? "https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/images/fullIcon_white.png"
-              : "/images/fullIcon_white.png"
-          }
+          src={finalMediaLink("images/fullIcon_white.png")}
           alt="Logo"
           fill
         />
