@@ -1,6 +1,12 @@
 import settings from "./frontendSettings";
 import translations from "./translations";
 
+export function shouldTranslate(string) {
+  if (string === null || string === undefined) {
+    return true;
+  }
+  return false;
+}
 export function translateText(translationPath, lang) {
   let lastVal = translations;
   const splitted = translationPath.split("/");
