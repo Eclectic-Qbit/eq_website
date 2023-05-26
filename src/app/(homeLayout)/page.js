@@ -5,11 +5,9 @@ import GridCanvas from "@/components/backgrounds/GridCanvas";
 import SinusoidalCanvas from "@/components/backgrounds/SinusoidalCanvas";
 import EclecticQbit from "@/components/index/EclecticQbit";
 import HowWeDo from "@/components/index/HowWeDo";
-import PaintEarnFirst from "@/components/index/PaintEarnFirst";
-import PaintEarnSecond from "@/components/index/PaintEarnSecond";
-import WhatWeDoFirst from "@/components/index/WhatWeDoFirst";
-import WhatWeDoSecond from "@/components/index/WhatWeDoSecond";
 import OptimizedDottedCanvas from "@/components/testing/OptimizedDottedCanvas";
+import WhatWeDo from "@/components/index/WhatWeDo";
+import PaintEarn from "@/components/index/PaintEarn";
 export default function Home() {
   return (
     <>
@@ -28,8 +26,7 @@ export default function Home() {
           <div className="absolute top-[20vh] right-[0vw] w-min h-min overflow-hidden">
             <SinusoidalCanvas w={400} h={30} freq={0.03} />
           </div>
-          <WhatWeDoFirst />
-          <WhatWeDoSecond />
+          <WhatWeDo />
         </div>
         <div className="relative">
           <div className="absolute bottom-0 right-[0vw] w-min h-min overflow-hidden">
@@ -38,10 +35,7 @@ export default function Home() {
           <HowWeDo />
         </div>
         <div>
-          {/* NOT READY 
-          <PaintEarnFirst />
-          <PaintEarnSecond />
-          */}
+          <PaintEarn />
         </div>
       </div>
     </>
