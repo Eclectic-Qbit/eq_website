@@ -207,5 +207,77 @@ const translations = {
       ),
     },
   },
+  paintEarn: {
+    title: {
+      p1: { en: <span>This is</span> },
+      p2: { en: <span>Paint&Earn</span> },
+    },
+    h1: {
+      en: (
+        <span>🍄Community building: joining forces with eclectic regens🎮</span>
+      ),
+    },
+    h2: {
+      en: <span>Today I vibe like:</span>,
+    },
+    p1: { en: <span>🎨Artist</span> },
+    p2: { en: <span>💼Startupper</span> },
+    artist: {
+      en: (
+        <span>
+          <br />
+          👨‍🎨🙄💰🍅Are you tired of seeing talented street artists being hindered
+          in their creative expression due to economic constraints? 🤑💸🎨🙅‍♂️
+          <br />
+          <br />
+          Are you sick of hearing stories of artists struggling to make ends
+          meet?
+          <br />
+          <br />
+          🎉💻💰💪Well, we&apos;ve got you covered - with
+          &quot;Paint&Earn&quot;!
+          <br />
+          <br />
+          Paint&Earn provides street artists like yourself with the sustainable
+          tools they need to create stunning works of art, while also giving
+          them the opportunity to earn crypto by painting their interpretation
+          of specific NFTs around their cities.
+          <br />
+          <br />
+          No more bucks-related blues - just quality time, good art, and a
+          chance to turn your passion into a sustainable career, while leveling
+          up your web3 knowledge. 🙅‍♂️🍅👋🎨👉💼
+        </span>
+      ),
+    },
+    startupper: {
+      en: (
+        <span>
+          <br />
+          🎨💻🎨🌆 Looking for a dynamic and tech-savvy marketing campaign
+          that&apos;ll make a lasting impression?
+          <br />
+          <br />
+          &quot;Paint&earn&quot; is the street marketing solution you&apos;ve
+          been searching for!
+          <br />
+          <br />
+          With &quot;Paint&Earn&quot;, you&apos;ll not only grab attention for
+          your brand or project, but you&apos;ll also help the street art
+          community thrive and make a positive impact in their city.
+          <br />
+          <br />
+          By teaming up with us, you&apos;ll show that you value innovation,
+          creativity, and social responsibility 💻🎨🌆 So, why settle for
+          cookie-cutter marketing when you can make a statement with a unique
+          campaign that&apos;s as bold as you are?
+          <br />
+          <br />
+          🤔 Join us in creating a future that&apos;s both sustainable and
+          unforgettable for street artists and the web3 ecosystems! 🌟💰👩‍🎨
+        </span>
+      ),
+    },
+  },
 };
 export default translations;
