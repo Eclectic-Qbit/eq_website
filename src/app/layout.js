@@ -1,6 +1,7 @@
 import MouseProvider from "@/components/global/MouseProvider";
 import "./globals.css";
 import LanguageProvider from "@/components/global/LanguageProvider";
+import ScrollProvider from "@/components/global/ScrollProvider";
 
 export const metadata = {
   title: "Barrio Buidlers",
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className="min-h-screen min-w-screen bg-black text-white">
       <body>
         <LanguageProvider>
-          <MouseProvider>{children}</MouseProvider>
+          <MouseProvider>
+            <ScrollProvider>{children}</ScrollProvider>
+          </MouseProvider>
         </LanguageProvider>
       </body>
     </html>

@@ -4,8 +4,10 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { H1, H2, H3, H4, H5, H6 } from "../text/Headers";
 import frontendSettings from "@/frontendSettings";
 import MouseContext from "@/contexts/MouseContext";
+import ScrollContext from "@/contexts/ScrollContext";
 
 export default function LoadingAnimation() {
+  const FADE_DURATION = 2000;
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [first, setFirst] = useState("-translate-x-full -translate-y-full");
   const [second, setSecond] = useState("-translate-x-full translate-y-0");
@@ -15,16 +17,16 @@ export default function LoadingAnimation() {
     perma: false,
   });
   const { position, setPosition } = useContext(MouseContext);
-  function handleScroll() {
+  function fade() {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
       setHide({ temp: true, perma: true });
       sessionStorage.setItem("loaded", true);
-    }, [1000]);
+    }, [FADE_DURATION]);
   }
   const handleResize = useCallback(() => {
     if (window.innerWidth <= frontendSettings.mobileView) {
-      handleScroll();
+      fade();
     }
   }, []);
   useEffect(() => {
@@ -38,23 +40,21 @@ export default function LoadingAnimation() {
   useEffect(() => {
     const loaded = sessionStorage.getItem("loaded");
     if (loaded) {
-      handleScroll();
+      fade();
     } else {
-      document.addEventListener("scroll", handleScroll);
       document.addEventListener("resize", handleResize);
       handleResize();
       setTimeout(() => {
         setFirst("translate-x-0 -translate-y-0");
-      }, 0);
+      }, (FADE_DURATION * 1) / 3);
       setTimeout(() => {
         setSecond("translate-x-0 -translate-y-0");
-      }, 500);
+      }, (FADE_DURATION * 2) / 3);
       setTimeout(() => {
         setThird("translate-x-0 -translate-y-0");
-      }, 1000);
+      }, FADE_DURATION);
     }
     return () => {
-      document.removeEventListener("scroll", handleScroll);
       document.removeEventListener("resize", handleResize);
     };
   }, [handleResize]);
@@ -62,7 +62,7 @@ export default function LoadingAnimation() {
     <>
       {!hide.perma && (
         <div
-          onClick={handleScroll}
+          onClick={fade}
           className={`${
             hide.temp ? "opacity-0" : "opacity-1"
           } z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center transition-all duration-1000 ease-in cursor-pointer text-black sm:text-white`}

@@ -3,11 +3,21 @@ import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
 import { H1, H2, H3, H5, H6, H7, H8, H9 } from "../text/Headers";
 import { P1, P2, P3, P4 } from "../text/Paragraphs";
 import Image from "next/image";
+import { useContext, useEffect, useRef, useState } from "react";
+import ScrollContext from "@/contexts/ScrollContext";
 
 export default function EclecticQbit() {
+  const parentRef = useRef(null);
+  const [translateY, setTranslateY] = useState(0);
+  const { scroll } = useContext(ScrollContext);
+  useEffect(() => {
+    const parentDistance =
+      window.innerHeight / 2 - parentRef.current.getBoundingClientRect().y;
+    setTranslateY(parentDistance * 0.15);
+  }, [scroll]);
   return (
-    <div className="relative w-full min-h-screen">
-      <div className="flex flex-wrap items-center justify-center font-extrabold uppercase w-full gap-y-10">
+    <div className="relative w-full min-h-screen overflow-hidden">
+      <div className="flex flex-wrap items-center justify-center font-extrabold uppercase w-full gap-y-10 mb-8">
         <MouseMoveGradient
           className="w-auto text-center mx-auto"
           from="#9500E9"
@@ -37,8 +47,15 @@ export default function EclecticQbit() {
           </Link>
         </div>
       </div>
-      <div className="realtive w-full h-full flex items-center justify-center gap-2 text-center">
-        <div className="w-2/3">
+      <div
+        ref={parentRef}
+        style={{ transform: "perspective(300px) rotateX(20deg)" }}
+        className="realtive w-full h-full flex items-center justify-center gap-2 text-center"
+      >
+        <div
+          style={{ transform: `translateY(${translateY}px)` }}
+          className="w-2/3"
+        >
           <P1
             style={{ textShadow: "1px 1px 1px white" }}
             translationPath="eclecticQbit/h1"
