@@ -7,6 +7,7 @@ import LanguageContext from "@/contexts/LanguageContext";
 import { translateText } from "@/commonFrontend";
 
 export default function ConsoleEffect({
+  delta,
   style,
   className,
   content,
@@ -22,6 +23,7 @@ export default function ConsoleEffect({
   const parsedPlaceholderChar = placeholderChar ? placeholderChar : "";
   const [value, setValue] = useState(parsedPlaceholderChar);
   const lastTimeout = useRef(null);
+  const parsedDelta = useRef(delta ? delta : 20);
   const parsedContent = useMemo(() => {
     clearTimeout(lastTimeout.current);
     setValue(parsedPlaceholderChar);
@@ -66,7 +68,10 @@ export default function ConsoleEffect({
         const newStr = parsedValue + newChar + parsedChar;
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => setValue(newStr), 20);
+        lastTimeout.current = setTimeout(
+          () => setValue(newStr),
+          parsedDelta.current
+        );
       } else if (parsedChar) {
         const newStr =
           value.charAt(value.length - 1) === parsedChar
@@ -81,7 +86,10 @@ export default function ConsoleEffect({
         const newStr = value.substring(0, value.length - 1);
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => setValue(newStr), 8);
+        lastTimeout.current = setTimeout(
+          () => setValue(newStr),
+          parsedDelta.current / 2
+        );
       }
     }
   }, [

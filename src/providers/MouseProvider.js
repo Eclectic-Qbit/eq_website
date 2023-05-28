@@ -11,15 +11,23 @@ export default function MouseProvider({ children }) {
     setPosition({ clientX: e.clientX, clientY: e.clientY });
   }
   function throttle(fn, delay) {
+    let lastArgs;
     let timeoutId;
     return function (...args) {
       if (isThrottled.current) {
+        lastArgs = arguments;
         return;
       }
       fn(...args);
       isThrottled.current = true;
       timeoutId = setTimeout(() => {
         isThrottled.current = false;
+        if (lastArgs) {
+          fn.apply(this, lastArgs);
+          lastArgs = null;
+          clearTimeout(timeoutId);
+          timeoutId = null;
+        }
       }, delay);
     };
   }

@@ -39,7 +39,7 @@ export default function EclecticQbit() {
               sizes="100%"
               priority
               alt="Cat Logo"
-              className="scale-100 hover:scale-105 transition rounded-xl"
+              className="scale-100 hover:scale-105 transition rounded-xl cursor-none"
             />
           </Link>
         </div>

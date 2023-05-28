@@ -65,7 +65,7 @@ export default function LoadingAnimation() {
           onClick={fade}
           className={`${
             hide.temp ? "opacity-0" : "opacity-1"
-          } z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center transition-all duration-1000 ease-in cursor-pointer text-black sm:text-white`}
+          } z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center transition-all duration-1000 ease-in text-black sm:text-white`}
         >
           <div className="flex flex-col gap-16 sm:gap-0 w-full">
             <div

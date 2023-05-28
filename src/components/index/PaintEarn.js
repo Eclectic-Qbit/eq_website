@@ -3,8 +3,7 @@ import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
 import { H3, H4, H6, H8 } from "../text/Headers";
 import { P1, P2 } from "../text/Paragraphs";
 import ConsoleEffect from "../animations/ConsoleEffect";
-import Image from "next/image";
-import { finalMediaLink } from "@/commonFrontend";
+import PaintEarnImgs from "../specific/paintEarn/PaintEarnImgs";
 
 export default function PaintEarn() {
   const [selected, setSelected] = useState(null);
@@ -21,56 +20,21 @@ export default function PaintEarn() {
         </MouseMoveGradient>
         <P2
           style={{ textShadow: "1px 1px 2px white" }}
-          translationPath="paintEarn/h1"
-          className="text-purple text-center font-bold uppercase"
-        />
-        <P2
-          style={{ textShadow: "1px 1px 2px white" }}
           translationPath="paintEarn/h2"
           className="text-purple text-center font-bold uppercase"
         />
         <div className="flex justify-center items-center gap-10 uppercase font-extrabold text-center ">
           <div className="relative w-full max-w-[15rem] sm:max-w-[40rem] flex flex-col gap-10 sm:grid sm:grid-cols-2">
-            <div
-              onClick={() => setSelected("artist")}
-              className={`flex flex-col gap-5 justify-center items-center ${
-                selected === "artist" ? "text-yellow" : "grayscale"
-              } hover:grayscale-0 hover:text-yellow cursor-pointer`}
-            >
-              <div className="relative w-full aspect-square transition-all duration-150">
-                <Image
-                  className="rounded-full"
-                  src={finalMediaLink("images/proudCat_artist_squared.jpg")}
-                  alt="Artist"
-                  fill
-                  onClick={() => setSelected("artist")}
-                />
-              </div>
-              <P1 translationPath="paintEarn/p1" />
-            </div>
-            <div
-              onClick={() => setSelected("startupper")}
-              className={`flex flex-col gap-5 justify-center items-center ${
-                selected === "startupper" ? "text-yellow" : "grayscale"
-              } hover:grayscale-0 hover:text-yellow cursor-pointer transition-all duration-150`}
-            >
-              <div className="relative w-full aspect-square">
-                <Image
-                  className="rounded-full"
-                  src={finalMediaLink(
-                    "images/proudCat_enterpreneur_squared.jpg"
-                  )}
-                  alt="Startupper"
-                  fill
-                  onClick={() => setSelected("startupper")}
-                />
-              </div>
-              <P1 translationPath="paintEarn/p2" />
-            </div>
+            <PaintEarnImgs selected={selected} setSelected={setSelected} />
           </div>
         </div>
         <ConsoleEffect
-          style={{ textShadow: "2px 2px 2px black" }}
+          delta={15}
+          style={{
+            textShadow: "2px 2px 2px black",
+            textAlign: "center",
+            width: "100%",
+          }}
           className="text-yellow font-bold"
           content={{
             content: `paintEarn/${selected ? selected : "artist"}`,

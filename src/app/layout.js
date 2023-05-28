@@ -1,7 +1,7 @@
-import MouseProvider from "@/components/global/MouseProvider";
 import "./globals.css";
-import LanguageProvider from "@/components/global/LanguageProvider";
-import ScrollProvider from "@/components/global/ScrollProvider";
+import LanguageProvider from "@/providers/LanguageProvider";
+import MouseProvider from "@/providers/MouseProvider";
+import ScrollProvider from "@/providers/ScrollProvider";
 
 export const metadata = {
   title: "Barrio Buidlers",

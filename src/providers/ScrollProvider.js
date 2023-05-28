@@ -4,7 +4,7 @@ import ScrollContext from "@/contexts/ScrollContext";
 import { useEffect, useState } from "react";
 
 export default function ScrollProvider({ children }) {
-  const [scroll, setScroll] = useState();
+  const [scroll, setScroll] = useState(0);
   function handleScroll() {
     setScroll(window.scrollY);
   }
