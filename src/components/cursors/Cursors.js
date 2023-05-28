@@ -13,7 +13,11 @@ export function HomepageCursor() {
   }, []);
   return (
     <div
-      className="fixed z-50 transition-none pointer-events-none	"
+      className={`fixed invisible sm:visible ${
+        position.clientY !== 0 || position.clientX !== 0
+          ? "opacity-1"
+          : "opacity-0"
+      } z-50 transition-none pointer-events-none transition-all duration-150 ease-in`}
       ref={ref}
       style={{
         top: position.clientY - side / 2,
