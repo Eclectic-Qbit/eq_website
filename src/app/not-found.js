@@ -10,7 +10,12 @@ export default function NotFound() {
       <div className="relative aspect-square w-[40rem]">
         <div className="absolute top-5 left-5 text-6xl z-10">🦖</div>
         <Link href="/" onClick={() => refresh()}>
-          <Image src={finalMediaLink("images/404.png")} alt="404" fill />
+          <Image
+            className="cursor-none"
+            src={finalMediaLink("images/404.png")}
+            alt="404"
+            fill
+          />
         </Link>
       </div>
     </div>

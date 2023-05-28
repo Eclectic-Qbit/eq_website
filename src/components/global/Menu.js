@@ -1,10 +1,7 @@
 "use client";
 
 import { useContext, useEffect, useRef, useState } from "react";
-import EclicticLogo from "../logos/EclicticLogo";
 import CustomLink from "./CustomLink";
-import Magnifier from "../logos/Magnifier";
-import { H4, H6, H8, H9 } from "../text/Headers";
 import { P1, P2, P3 } from "../text/Paragraphs";
 import Image from "next/image";
 import ScrollContext from "@/contexts/ScrollContext";
@@ -27,7 +24,7 @@ export default function Menu() {
     <div
       className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl px-[2%] ${
         !show && "-translate-y-full"
-      } transition ease-out duration-300 border-b-2 border-solid border-white`}
+      } transition ease-out duration-300 border-b-2 border-solid border-white cursor-none`}
     >
       <div className="relative flex items-center h-[7.5vh] aspect-[35/12]">
         <Image
@@ -60,6 +57,10 @@ export default function Menu() {
           <CustomLink href="/contacts">
             <P3 translationPath="menu/contacts" />
           </CustomLink>
+          <div>
+            <div>currentLang</div>
+            <div>otherlangs</div>
+          </div>
         </div>
 
         {/* NOT NECESSARY:

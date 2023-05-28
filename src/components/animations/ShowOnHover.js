@@ -26,7 +26,7 @@ export default function ShowOnHover({ children }) {
       onMouseLeave={() =>
         setActive(window.innerWidth < settings.mobileView ? true : false)
       }
-      className="cursor-pointer w-full flex flex-col"
+      className="w-full flex flex-col"
     >
       {children[0]}
       {child}

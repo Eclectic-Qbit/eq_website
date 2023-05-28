@@ -4,7 +4,7 @@ export default function CustomLink({ className, children, href, blank }) {
   return (
     <div className="relative group">
       <Link
-        className={className}
+        className={`${className ? className : ""} cursor-none`}
         href={href}
         target={blank ? "_blank" : "_self"}
       >
