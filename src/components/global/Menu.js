@@ -6,11 +6,15 @@ import { P1, P2, P3 } from "../text/Paragraphs";
 import Image from "next/image";
 import ScrollContext from "@/contexts/ScrollContext";
 import { finalMediaLink } from "@/commonFrontend";
+import LanguageContext from "@/contexts/LanguageContext";
 
 export default function Menu() {
   const lastScroll = useRef(0);
   const [show, setShow] = useState(true);
+  const [openLang, setOpenLang] = useState(false);
   const { scroll } = useContext(ScrollContext);
+  const { lang, setLang } = useContext(LanguageContext);
+  const languages = useRef({ en: "🍔", es: "🌮", it: "🍝", fr: "🥐" });
   //const [searchbarText, setSearchbarText] = useState("");
   useEffect(() => {
     if (scroll > lastScroll.current) {
@@ -57,9 +61,25 @@ export default function Menu() {
           <CustomLink href="/contacts">
             <P3 translationPath="menu/contacts" />
           </CustomLink>
-          <div>
-            <div>currentLang</div>
-            <div>otherlangs</div>
+          <div className="relative flex flex-row sm:flex-col flex-wrap">
+            <div onClick={() => setOpenLang(!openLang)}>
+              <P3>{languages.current[lang]}</P3>
+            </div>
+            <div
+              className={`absolute ${
+                openLang ? "opacity-1" : "opacity-0"
+              } bottom-0 left-0 flex bg-black sm:flex-col translate-x-[33%] sm:translate-x-0 sm:translate-y-full transition-all duration-[500ms] ease-in overflow-hidden`}
+            >
+              {Object.keys(languages.current).map((e, i) => {
+                if (e !== lang) {
+                  return (
+                    <div key={i} onClick={() => setLang(e)}>
+                      <P3>{languages.current[e]}</P3>
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
         </div>
 
