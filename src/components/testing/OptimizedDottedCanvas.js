@@ -18,7 +18,7 @@ export default function OptimizedDottedCanvas() {
     "#FF007F",
     "#9500E9",
   ]);
-  const CIRCLE = 30;
+  const CIRCLE = 20;
   // Draw a circle given some specs
   const drawCircle = useCallback((x, y, r, fill, blur, w, color, shadow) => {
     canvasContext.current.beginPath();
