@@ -16,23 +16,23 @@ export default function WhatWeDo() {
           <H4 translationPath="whatWeDo/title/p1" />
           <H3 translationPath="whatWeDo/title/p2" />
         </MouseMoveGradient>
-        <ShowOnHover>
-          <P2
-            style={{ textShadow: "1px 1px 2px white" }}
-            translationPath="whatWeDo/h2"
-            className="text-purple font-bold uppercase"
-          />
-          <ConsoleEffect
-            style={{ textShadow: "2px 2px 2px black" }}
-            className="text-yellow font-bold"
-            additionalChar="_"
-            placeholderChar="$ "
-            content={{ content: "whatWeDo/p2", type: "ref" }}
-          />
-        </ShowOnHover>
       </div>
       <div className="relative flex justify-center">
         <div className="flex flex-wrap gap-3 mt-3 mx-[15%] max-w-[130rem] lowercase">
+          <ShowOnHover>
+            <P2
+              style={{ textShadow: "1px 1px 2px white" }}
+              translationPath="whatWeDo/h2"
+              className="text-purple font-bold uppercase"
+            />
+            <ConsoleEffect
+              style={{ textShadow: "2px 2px 2px black" }}
+              className="text-yellow font-bold"
+              additionalChar="_"
+              placeholderChar="$ "
+              content={{ content: "whatWeDo/p2", type: "ref" }}
+            />
+          </ShowOnHover>
           <ShowOnHover>
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
