@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
-import { H3, H4, H6, H8 } from "../text/Headers";
-import { P1, P2 } from "../text/Paragraphs";
+import { H3, H4 } from "../text/Headers";
+import { P2 } from "../text/Paragraphs";
 import ConsoleEffect from "../animations/ConsoleEffect";
 import PaintEarnImgs from "../specific/paintEarn/PaintEarnImgs";
 
@@ -34,6 +34,7 @@ export default function PaintEarn() {
             textShadow: "2px 2px 2px black",
             textAlign: "center",
             width: "100%",
+            height: "100%",
           }}
           className="text-yellow font-bold"
           content={{
@@ -41,6 +42,7 @@ export default function PaintEarn() {
             type: "ref",
           }}
           active={selected}
+          spanStyling={{ backgroundColor: "#9500E9", lineHeight: "24px" }}
         />
       </div>
     </div>

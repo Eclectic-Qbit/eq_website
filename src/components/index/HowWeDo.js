@@ -145,20 +145,6 @@ export default function HowWeDo() {
               content={{ content: "howWeDo/p9", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
-            <P2
-              style={{ textShadow: "1px 1px 1px white" }}
-              translationPath="howWeDo/h10"
-              className="text-purple font-bold uppercase"
-            />
-            <ConsoleEffect
-              style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
-              additionalChar="_"
-              placeholderChar="$ "
-              content={{ content: "howWeDo/p10", type: "ref" }}
-            />
-          </ShowOnHover>
         </div>
       </div>
     </div>
