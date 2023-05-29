@@ -1,22 +1,25 @@
 "use client";
 
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { H1, H2, H3, H4, H5, H6 } from "../text/Headers";
 import frontendSettings from "@/frontendSettings";
 import MouseContext from "@/contexts/MouseContext";
-import ScrollContext from "@/contexts/ScrollContext";
 
 export default function LoadingAnimation() {
   const FADE_DURATION = 2000;
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const [first, setFirst] = useState("-translate-x-full -translate-y-full");
-  const [second, setSecond] = useState("-translate-x-full translate-y-0");
-  const [third, setThird] = useState("-translate-x-full translate-y-full");
+  const biggerRef = useRef(null);
+  const mouseEntered = useRef(false);
   const [hide, setHide] = useState({
     temp: false,
     perma: false,
   });
-  const { position, setPosition } = useContext(MouseContext);
+  const [pp, setPp] = useState({ x: 0, y: 0 });
+  const [offset, setOffset] = useState([
+    { x: -10000, y: -10000 },
+    { x: -10000, y: -10000 },
+    { x: -10000, y: -10000 },
+  ]);
+  const { position } = useContext(MouseContext);
   function fade() {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
@@ -30,13 +33,27 @@ export default function LoadingAnimation() {
     }
   }, []);
   useEffect(() => {
-    if (!hide.perma) {
-      setMouse({
-        x: -(document.body.offsetWidth / 2 - position.clientX) * 0.25,
-        y: -(window.screen.height / 2 - position.clientY) * 0.25,
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const px =
+      width > biggerRef.current.offsetWidth
+        ? width * -1
+        : biggerRef.current.offsetWidth * -1;
+    const newArr = [
+      { x: px, y: (height / 2) * -1 },
+      { x: px, y: 0 },
+      { x: px, y: height / 2 },
+    ];
+    setOffset(newArr);
+  }, []);
+  useEffect(() => {
+    if (mouseEntered.current) {
+      setPp({
+        x: (position.clientX - window.innerWidth / 2) * 0.1,
+        y: (position.clientY - window.innerHeight / 2) * 0.1,
       });
     }
-  }, [hide.perma, position]);
+  }, [position]);
   useEffect(() => {
     const loaded = sessionStorage.getItem("loaded");
     if (loaded) {
@@ -45,23 +62,33 @@ export default function LoadingAnimation() {
       document.addEventListener("resize", handleResize);
       handleResize();
       setTimeout(() => {
-        setFirst("translate-x-0 -translate-y-0");
+        const newOff = [...offset];
+        newOff[0].x = 0;
+        newOff[0].y = 0;
+        setOffset(newOff);
       }, (FADE_DURATION * 1) / 3);
       setTimeout(() => {
-        setSecond("translate-x-0 -translate-y-0");
+        const newOff = [...offset];
+        newOff[1].x = 0;
+        newOff[1].y = 0;
+        setOffset(newOff);
       }, (FADE_DURATION * 2) / 3);
       setTimeout(() => {
-        setThird("translate-x-0 -translate-y-0");
+        const newOff = [...offset];
+        newOff[2].x = 0;
+        newOff[2].y = 0;
+        setOffset(newOff);
       }, FADE_DURATION);
     }
     return () => {
       document.removeEventListener("resize", handleResize);
     };
-  }, [handleResize]);
+  }, [handleResize, offset]);
   return (
     <>
       {!hide.perma && (
         <div
+          onMouseEnter={() => (mouseEntered.current = true)}
           onClick={fade}
           className={`${
             hide.temp ? "opacity-0" : "opacity-1"
@@ -70,37 +97,43 @@ export default function LoadingAnimation() {
           <div className="flex flex-col gap-16 sm:gap-0 w-full">
             <div
               style={{
-                transform: `translate3d(${mouse.x}px, ${mouse.y}px, 0)`,
+                transform: `translate3d(${pp.x}px, ${pp.y}px, 0)`,
               }}
             >
               <H3
-                className={`relative ${first} text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
+                style={{
+                  transform: `translate3d(${offset[0].x}px, ${offset[0].y}px,0px)`,
+                }}
+                className={`relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
               >
                 Interdependence
               </H3>
             </div>
             <div
+              ref={biggerRef}
               style={{
-                transform: `translate3d(${mouse.x * 1.3}px, ${
-                  mouse.y * 1.5
-                }px, 0)`,
+                transform: `translate3d(${pp.x * 1.3}px, ${pp.y * 1.5}px, 0)`,
               }}
             >
               <H4
-                className={`relative ${second} text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
+                style={{
+                  transform: `translate3d(${offset[1].x}px, ${offset[1].y}px,0px)`,
+                }}
+                className={`relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
               >
                 is the new
               </H4>
             </div>
             <div
               style={{
-                transform: `translate3d(${mouse.x * 1.6}px, ${
-                  mouse.y * 2
-                }px, 0)`,
+                transform: `translate3d(${pp.x * 1.6}px, ${pp.y * 2}px, 0)`,
               }}
             >
               <H3
-                className={`relative ${third} text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
+                style={{
+                  transform: `translate3d(${offset[2].x}px, ${offset[2].y}px,0px)`,
+                }}
+                className={`relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
               >
                 independence
               </H3>
