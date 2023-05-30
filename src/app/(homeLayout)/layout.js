@@ -1,5 +1,4 @@
 import Menu from "@/components/global/Menu";
-import LoadingAnimation from "@/components/animations/LoadingAnimation";
 import LogoLink from "@/components/global/LogoLink";
 import {
   DiscordLogo,
@@ -8,12 +7,13 @@ import {
 } from "@/components/logos/FullLogo";
 import { InstagramLogo, TwitterLogo } from "@/components/logos/BorderLogo";
 import { HomepageCursor } from "@/components/cursors/Cursors";
+import LoadingScreen from "@/components/global/LoadingScreen";
 
 export default function RootLayout({ children }) {
   return (
     <div className="cursor-none">
       <HomepageCursor />
-      <LoadingAnimation />
+      <LoadingScreen />
       <Menu />
       <div>
         <div className="absolute z-10 top-[50%] -translate-y-[50%] right-[2%] flex flex-col gap-3">
