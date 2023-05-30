@@ -16,9 +16,9 @@ export default function LoadingScreen() {
   return (
     <LoadingAnimation
       elements={[
-        <H4>Interdependence</H4>,
-        <H3>Is the new</H3>,
-        <H4>Independence</H4>,
+        <H4 key={0}>Interdependence</H4>,
+        <H3 key={1}>Is the new</H3>,
+        <H4 key={2}>Independence</H4>,
       ]}
       coeffs={[1, 1.5, 2.25]}
       delay={2000}
