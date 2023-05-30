@@ -86,7 +86,9 @@ export default function Menu() {
                         } else {
                           setErrorMsg(
                             <LoadingAnimation
-                              elements={[<H4>{translations.notFound[e]}</H4>]}
+                              elements={[
+                                <H4 key={0}>{translations.notFound[e]}</H4>,
+                              ]}
                               coeffs={[1]}
                               delay={500}
                             />
