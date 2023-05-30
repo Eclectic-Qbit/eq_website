@@ -42,23 +42,23 @@ export default function LoadingAnimation({
     })
   );
   const { position } = useContext(MouseContext);
-  function fade() {
+  const fade = useCallback(() => {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
       setHide({ temp: true, perma: true });
       onFade && onFade();
     }, [FADE_DURATION]);
-  }
+  }, [FADE_DURATION, onFade]);
   const handleResize = useCallback(() => {
     if (window.innerWidth <= settings.mobileView) {
       fade();
     }
-  }, []);
+  }, [fade]);
   useEffect(() => {
     setTimeout(() => {
       setView(true);
     }, FADE_DURATION);
-  }, []);
+  }, [FADE_DURATION]);
   useEffect(() => {
     if (forceFade) {
       fade();
@@ -69,46 +69,55 @@ export default function LoadingAnimation({
     return () => {
       document.removeEventListener("resize", handleResize);
     };
-  }, [handleResize, forceFade]);
+  }, [handleResize, fade, forceFade]);
   useEffect(() => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const px =
-      width > ref.current.offsetWidth
-        ? width * -1
-        : ref.current.offsetWidth * -1;
-    const interval = height / elements.length;
-    let newArr = [];
-    newArr = elements.map((el, i) => {
-      return { x: px, y: Math.floor(interval * i - height / 2 + interval / 2) };
-    });
-    setOffset(newArr);
-  }, []);
-  useEffect(() => {
-    for (let i = 0; i < currentTimeouts.current.length; i++) {
-      clearTimeout(currentTimeouts.current[i]);
-    }
-    const newArr = [...offset];
-    for (let i = 1; i <= newArr.length; i++) {
-      const newTimeout = setTimeout(
-        () => {
-          setOffset((prevOffset) => {
-            const updatedOffset = [...prevOffset];
-            updatedOffset[i - 1] = { x: 0, y: 0 };
-            return updatedOffset;
-          });
-        },
-        view ? (FADE_DURATION * i - 1) / newArr.length : 99999
-      );
-      currentTimeouts.current.push(newTimeout);
-    }
-  }, [view]);
-  useEffect(() => {
-    if (mouseEntered.current) {
-      setPp({
-        x: (position.clientX - window.innerWidth / 2) * 0.1,
-        y: (position.clientY - window.innerHeight / 2) * 0.1,
+    if (!forceFade) {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const px =
+        width > ref.current.offsetWidth
+          ? width * -1
+          : ref.current.offsetWidth * -1;
+      const interval = height / elements.length;
+      let newArr = [];
+      newArr = elements.map((el, i) => {
+        return {
+          x: px,
+          y: Math.floor(interval * i - height / 2 + interval / 2),
+        };
       });
+      setOffset(newArr);
+    }
+  }, [elements]);
+  useEffect(() => {
+    if (!forceFade) {
+      for (let i = 0; i < currentTimeouts.current.length; i++) {
+        clearTimeout(currentTimeouts.current[i]);
+      }
+      const newArr = [...offset];
+      for (let i = 1; i <= newArr.length; i++) {
+        const newTimeout = setTimeout(
+          () => {
+            setOffset((prevOffset) => {
+              const updatedOffset = [...prevOffset];
+              updatedOffset[i - 1] = { x: 0, y: 0 };
+              return updatedOffset;
+            });
+          },
+          view ? (FADE_DURATION * i - 1) / newArr.length : 99999
+        );
+        currentTimeouts.current.push(newTimeout);
+      }
+    }
+  }, [view, FADE_DURATION, offset]);
+  useEffect(() => {
+    if (!forceFade) {
+      if (mouseEntered.current) {
+        setPp({
+          x: (position.clientX - window.innerWidth / 2) * 0.1,
+          y: (position.clientY - window.innerHeight / 2) * 0.1,
+        });
+      }
     }
   }, [position]);
   return (

@@ -50,7 +50,7 @@ export default function Menu() {
         />
       </div>
       <div className="flex uppercase items-center justify-end w-full lg:gap-4 sm:gap-3-auto text-center">
-        <div className="grid gap-0.5 md:flex md:gap-3 py-[1vh]">
+        <div className="grid gap-0.5 md:flex md:gap-3 py-[1vh] pr-[5%] sm:pr-[1vh]">
           <CustomLink href="/">
             <P3 translationPath="menu/home" />
           </CustomLink>
@@ -62,9 +62,6 @@ export default function Menu() {
           </CustomLink>
           <CustomLink href="/squad">
             <P3 translationPath="menu/squad" />
-          </CustomLink>
-          <CustomLink href="/contacts">
-            <P3 translationPath="menu/contacts" />
           </CustomLink>
           <div className="relative flex flex-row sm:flex-col flex-wrap">
             <div onClick={() => setOpenLang(!openLang)}>

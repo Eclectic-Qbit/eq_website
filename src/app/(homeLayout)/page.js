@@ -12,30 +12,33 @@ export default function Home() {
   return (
     <>
       <div className="relative flex flex-col pt-[17.5vh]">
+        {/* Background */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
           <OptimizedDottedCanvas />
         </div>
         {/* Content */}
-        <div>
-          <div className="absolute top-[50vh] -left-[150px] w-min h-min">
-            <CircleCanvas x={150} y={150} r={150} />
+        <div className="grid gap-5">
+          <div>
+            <div className="absolute top-[50vh] -left-[150px] w-min h-min">
+              <CircleCanvas x={150} y={150} r={150} />
+            </div>
+            <EclecticQbit />
           </div>
-          <EclecticQbit />
-        </div>
-        <div className="relative flex flex-col">
-          <div className="absolute top-[20vh] right-[0vw] w-min h-min overflow-hidden">
-            <SinusoidalCanvas w={400} h={30} freq={0.03} />
+          <div className="relative flex flex-col">
+            <div className="absolute top-[20vh] right-[0vw] w-min h-min overflow-hidden">
+              <SinusoidalCanvas w={400} h={30} freq={0.03} />
+            </div>
+            <WhatWeDo />
           </div>
-          <WhatWeDo />
-        </div>
-        <div className="relative">
-          <div className="absolute bottom-0 right-[0vw] w-min h-min overflow-hidden">
-            <GridCanvas w={400} h={400} cols={10} rows={10} />
+          <div className="relative">
+            <div className="absolute bottom-0 right-[0vw] w-min h-min overflow-hidden">
+              <GridCanvas w={400} h={400} cols={10} rows={10} />
+            </div>
+            <HowWeDo />
           </div>
-          <HowWeDo />
-        </div>
-        <div>
-          <PaintEarn />
+          <div>
+            <PaintEarn />
+          </div>
         </div>
       </div>
     </>

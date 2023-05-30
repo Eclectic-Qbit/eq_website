@@ -8,6 +8,7 @@ import {
 import { InstagramLogo, TwitterLogo } from "@/components/logos/BorderLogo";
 import { HomepageCursor } from "@/components/cursors/Cursors";
 import LoadingScreen from "@/components/global/LoadingScreen";
+import Footer from "@/components/global/Footer";
 
 export default function RootLayout({ children }) {
   return (
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         </div>
         <div>{children}</div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function PaintEarn() {
   const [selected, setSelected] = useState(null);
   return (
     <div className="relative flex items-center justify-center pb-[10vh]">
-      <div className="grid gap-6 mx-[15%]">
+      <div className="grid gap-10 mx-[15%]">
         <MouseMoveGradient
           className="font-extrabold uppercase w-full text-center"
           from="#9500E9"
