@@ -1,5 +1,5 @@
 const settings = {
   mobileView: 640,
-  defaultLang: "en",
+  languages: { default: "en", ready: ["en", "es"] },
 };
 export default settings;

@@ -21,7 +21,7 @@ export function translateText(translationPath, lang) {
   for (let i = 0; i < splitted.length; i++) {
     lastVal = lastVal[splitted[i]];
   }
-  return lastVal[lang] ? lastVal[lang] : lastVal[settings.defaultLang];
+  return lastVal[lang] ? lastVal[lang] : lastVal[settings.languages.default];
 }
 export function downloadFile(file) {
   var downloadLink = document.createElement("a");

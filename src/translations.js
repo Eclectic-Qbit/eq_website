@@ -1,4 +1,8 @@
 const translations = {
+  notFound: {
+    it: <span>Niente panico, italiano in arrivo!</span>,
+    fr: <span>Pas de panique, le français arrive!</span>,
+  },
   menu: {
     home: { en: <span>home</span>, it: <span>home</span> },
     brojects: { en: <span>brojects</span>, it: <span>progetti</span> },

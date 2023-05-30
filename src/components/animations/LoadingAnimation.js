@@ -1,51 +1,108 @@
 "use client";
 
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
-import { H1, H2, H3, H4, H5, H6 } from "../text/Headers";
-import frontendSettings from "@/frontendSettings";
+import {
+  cloneElement,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import MouseContext from "@/contexts/MouseContext";
+import settings from "@/frontendSettings";
 
-export default function LoadingAnimation() {
-  const FADE_DURATION = 2000;
-  const biggerRef = useRef(null);
+export default function LoadingAnimation({
+  className,
+  delay,
+  elements,
+  coeffs,
+  forceFade,
+  onFade,
+}) {
+  const FADE_DURATION = delay ? delay : 2000;
+  const ref = useRef(null);
   const mouseEntered = useRef(false);
+  const parsedCoeffs = useRef(
+    coeffs
+      ? coeffs
+      : elements.map(() => {
+          return 1;
+        })
+  );
+  const currentTimeouts = useRef([]);
+  const [pp, setPp] = useState({ x: 0, y: 0 });
+  const [view, setView] = useState(false);
   const [hide, setHide] = useState({
     temp: false,
     perma: false,
   });
-  const [pp, setPp] = useState({ x: 0, y: 0 });
-  const [offset, setOffset] = useState([
-    { x: -10000, y: -10000 },
-    { x: -10000, y: -10000 },
-    { x: -10000, y: -10000 },
-  ]);
+  const [offset, setOffset] = useState(
+    elements.map(() => {
+      return { x: -10000, y: 10000 };
+    })
+  );
   const { position } = useContext(MouseContext);
   function fade() {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
       setHide({ temp: true, perma: true });
-      sessionStorage.setItem("loaded", true);
+      onFade && onFade();
     }, [FADE_DURATION]);
   }
   const handleResize = useCallback(() => {
-    if (window.innerWidth <= frontendSettings.mobileView) {
+    if (window.innerWidth <= settings.mobileView) {
       fade();
     }
   }, []);
   useEffect(() => {
+    setTimeout(() => {
+      setView(true);
+    }, FADE_DURATION);
+  }, []);
+  useEffect(() => {
+    if (forceFade) {
+      fade();
+    } else {
+      document.addEventListener("resize", handleResize);
+      handleResize();
+    }
+    return () => {
+      document.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize, forceFade]);
+  useEffect(() => {
     const width = window.innerWidth;
     const height = window.innerHeight;
     const px =
-      width > biggerRef.current.offsetWidth
+      width > ref.current.offsetWidth
         ? width * -1
-        : biggerRef.current.offsetWidth * -1;
-    const newArr = [
-      { x: px, y: (height / 2) * -1 },
-      { x: px, y: 0 },
-      { x: px, y: height / 2 },
-    ];
+        : ref.current.offsetWidth * -1;
+    const interval = height / elements.length;
+    let newArr = [];
+    newArr = elements.map((el, i) => {
+      return { x: px, y: Math.floor(interval * i - height / 2 + interval / 2) };
+    });
     setOffset(newArr);
   }, []);
+  useEffect(() => {
+    for (let i = 0; i < currentTimeouts.current.length; i++) {
+      clearTimeout(currentTimeouts.current[i]);
+    }
+    const newArr = [...offset];
+    for (let i = 1; i <= newArr.length; i++) {
+      const newTimeout = setTimeout(
+        () => {
+          setOffset((prevOffset) => {
+            const updatedOffset = [...prevOffset];
+            updatedOffset[i - 1] = { x: 0, y: 0 };
+            return updatedOffset;
+          });
+        },
+        view ? (FADE_DURATION * i - 1) / newArr.length : 99999
+      );
+      currentTimeouts.current.push(newTimeout);
+    }
+  }, [view]);
   useEffect(() => {
     if (mouseEntered.current) {
       setPp({
@@ -54,89 +111,34 @@ export default function LoadingAnimation() {
       });
     }
   }, [position]);
-  useEffect(() => {
-    const loaded = sessionStorage.getItem("loaded");
-    if (loaded) {
-      fade();
-    } else {
-      document.addEventListener("resize", handleResize);
-      handleResize();
-      setTimeout(() => {
-        const newOff = [...offset];
-        newOff[0].x = 0;
-        newOff[0].y = 0;
-        setOffset(newOff);
-      }, (FADE_DURATION * 1) / 3);
-      setTimeout(() => {
-        const newOff = [...offset];
-        newOff[1].x = 0;
-        newOff[1].y = 0;
-        setOffset(newOff);
-      }, (FADE_DURATION * 2) / 3);
-      setTimeout(() => {
-        const newOff = [...offset];
-        newOff[2].x = 0;
-        newOff[2].y = 0;
-        setOffset(newOff);
-      }, FADE_DURATION);
-    }
-    return () => {
-      document.removeEventListener("resize", handleResize);
-    };
-  }, [handleResize, offset]);
   return (
     <>
       {!hide.perma && (
         <div
-          onMouseEnter={() => (mouseEntered.current = true)}
           onClick={fade}
-          className={`${
-            hide.temp ? "opacity-0" : "opacity-1"
-          } z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center transition-all duration-1000 ease-in text-black sm:text-white`}
+          className={`${hide.temp ? "opacity-0" : "opacity-1"} ${className}`}
         >
           <div className="flex flex-col gap-16 sm:gap-0 w-full">
-            <div
-              style={{
-                transform: `translate3d(${pp.x}px, ${pp.y}px, 0)`,
-              }}
-            >
-              <H3
-                style={{
-                  transform: `translate3d(${offset[0].x}px, ${offset[0].y}px,0px)`,
-                }}
-                className={`relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
-              >
-                Interdependence
-              </H3>
-            </div>
-            <div
-              ref={biggerRef}
-              style={{
-                transform: `translate3d(${pp.x * 1.3}px, ${pp.y * 1.5}px, 0)`,
-              }}
-            >
-              <H4
-                style={{
-                  transform: `translate3d(${offset[1].x}px, ${offset[1].y}px,0px)`,
-                }}
-                className={`relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
-              >
-                is the new
-              </H4>
-            </div>
-            <div
-              style={{
-                transform: `translate3d(${pp.x * 1.6}px, ${pp.y * 2}px, 0)`,
-              }}
-            >
-              <H3
-                style={{
-                  transform: `translate3d(${offset[2].x}px, ${offset[2].y}px,0px)`,
-                }}
-                className={`relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`}
-              >
-                independence
-              </H3>
+            <div ref={ref} onMouseEnter={() => (mouseEntered.current = true)}>
+              {elements.map((el, i) => {
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      transform: `translate3d(${
+                        pp.x * parsedCoeffs.current[i]
+                      }px, ${pp.y * parsedCoeffs.current[i]}px, 0)`,
+                    }}
+                  >
+                    {cloneElement(elements[i], {
+                      style: {
+                        transform: `translate3d(${offset[i].x}px, ${offset[i].y}px,0px)`,
+                      },
+                      className: `relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`,
+                    })}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
