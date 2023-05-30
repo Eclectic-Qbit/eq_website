@@ -25,7 +25,7 @@ const translations = {
         <span>
           eclectic qbit, it&apos;s all about bringing the modus operandi of
           qbits, into web3, with a it&apos;s a me twist
-          <br /> with nature as our main inspiration, just like fungi🍄, we
+          <br /> with nature as our main inspiration, just like fungi 🍄, we
           exchange nutrients and other resources within & beyond web3 space
         </span>
       ),
@@ -109,7 +109,7 @@ const translations = {
           entre la multitud y se conviertan en jugadores estrella nuestra sólida
           red te conectará con las comunidades y recursos adecuados para
           alcanzar un estado de superposición, interactuando con las comunidades
-          de formas que desafían al web3 clásico🔥🕹️🚀
+          de formas que desafían al web3 clásico 🔥🕹️🚀
         </span>
       ),
     },
@@ -264,7 +264,7 @@ const translations = {
         </span>
       ),
     },
-    h5: { en: <span>🧑‍🤝‍🧑 partnerships</span>, es: <span>🧑‍🤝‍🧑 Alianzas</span> },
+    h5: { en: <span>🧑‍🤝‍🧑 Partnerships</span>, es: <span>🧑‍🤝‍🧑 Alianzas</span> },
     p5: {
       en: (
         <span>
@@ -280,7 +280,7 @@ const translations = {
       ),
     },
     h6: {
-      en: <span>🎨 fan art contests</span>,
+      en: <span>🎨 Fan art contests</span>,
       es: <span>🎨 Concursos de Arte de Fans</span>,
     },
     p6: {
@@ -300,7 +300,7 @@ const translations = {
       ),
     },
     h7: {
-      en: <span>🕹️ game nights</span>,
+      en: <span>🕹️ Game nights</span>,
       es: <span>🕹️ Noches de Juego</span>,
     },
     p7: {
@@ -319,7 +319,7 @@ const translations = {
       ),
     },
     h8: {
-      en: <span>🌟 launch parties</span>,
+      en: <span>🌟 Launch parties</span>,
       es: <span>🌟 Fiestas de Lanzamiento</span>,
     },
     p8: {
@@ -339,7 +339,7 @@ const translations = {
       ),
     },
     h9: {
-      en: <span>🌎 global events</span>,
+      en: <span>🌎 Global events</span>,
       es: <span>🌎 Eventos Globales</span>,
     },
     p9: {
@@ -360,53 +360,59 @@ const translations = {
   },
   paintEarn: {
     title: {
-      p1: { en: <span>This is</span>, es: <span>¡Esto es</span> },
+      p1: { en: <span>This is</span>, es: <span>Esto es</span> },
       p2: { en: <span>Paint&Earn</span>, es: <span>Pinta&Gana!</span> },
     },
     h1: {
       en: (
-        <span>🍄Community building: joining forces with eclectic regens🎮</span>
+        <span>
+          🍄 Community building: joining forces with eclectic regens 🎮
+        </span>
       ),
     },
     h2: {
-      en: <span>😎Today I vibe like</span>,
+      en: <span>😎 Today I vibe like</span>,
       es: <span>HOY VIBRO COMO</span>,
     },
-    p1: { en: <span>🎨Artist</span>, es: <span>ARTISTA</span> },
-    p2: { en: <span>💼Startupper</span>, es: <span>MARKETING CALLEJERO</span> },
+    p1: { en: <span>🎨 Artist</span>, es: <span>Artista</span> },
+    p2: {
+      en: <span>💼 Startupper</span>,
+      es: <span>Marketing Callejero</span>,
+    },
     artist: {
       en: (
         <span>
-          👨‍🎨🙄💰🍅Are you tired of seeing talented street artists being hindered
-          in their creative expression due to economic constraints?
+          👨‍🎨🙄💰🍅 Are you tired of seeing talented street artists being
+          hindered in their creative expression due to economic constraints?
           <br />
           <br />
-          🤑💸🎨🙅‍♂️Are you sick of hearing stories of artists struggling to make
+          🤑💸🎨🙅‍♂️ Are you sick of hearing stories of artists struggling to make
           ends meet?
           <br />
           <br />
-          🎉💻💰💪Well, we&apos;ve got you covered - with Paint&Earn, we provide
-          street artists like yourself with sustainable tools needed to create
-          stunning works of art, while also offering the opportunity to earn
-          crypto by painting their interpretation of specific NFTs around the 🌎
+          🎉💻💰💪 Well, we&apos;ve got you covered - with Paint&Earn, we
+          provide street artists like yourself with sustainable tools needed to
+          create stunning works of art, while also offering the opportunity to
+          earn crypto by painting their interpretation of specific NFTs around
+          the 🌎
           <br />
           <br />
-          No more bucks-related blues – just quality time, good art, and a
+          No more bucks-related blues - just quality time, good art, and a
           chance to turn your passion into a sustainable career, while leveling
           up your web3 knowledge. 🙅‍♂️🍅👋🎨👉💼
         </span>
       ),
       es: (
         <span>
-          👨‍🎨🙄💰🍅¿Estás cansado de ver a talentosos artistas urbanos impedidos
+          👨‍🎨🙄💰🍅 Estás cansado de ver a talentosos artistas urbanos impedidos
           en su expresión creativa debido a limitaciones económicas?
           <br />
           <br />
-          🤑💸🎨🙅‍♂️¿Estás harto de escuchar historias de artistas luchando por
+          🤑💸🎨🙅‍♂️ Estás harto de escuchar historias de artistas luchando por
           llegar a fin de mes?
           <br />
           <br />
-          🎉💻💰💪¡Pues tenemos la solución para ti: con PintaYGana,
+          🎉💻💰💪 Pues tenemos la solución para ti: con PintaYGana,
           proporcionamos a los artistas urbanos las herramientas sostenibles que
           necesitan para crear obras de arte impresionantes. Además, les brinda
           la oportunidad de ganar criptomonedas al pintar su interpretación de

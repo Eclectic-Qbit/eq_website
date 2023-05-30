@@ -2,7 +2,7 @@
 
 import MouseContext from "@/contexts/MouseContext";
 import { useContext, useEffect, useRef, useState } from "react";
-import { P2 } from "../text/Paragraphs";
+import { P2, P4 } from "../text/Paragraphs";
 
 export function HomepageCursor() {
   const ref = useRef(null);
@@ -24,7 +24,7 @@ export function HomepageCursor() {
         left: position.clientX - side / 2,
       }}
     >
-      <P2>👾</P2>
+      <P4>👾</P4>
     </div>
   );
 }
