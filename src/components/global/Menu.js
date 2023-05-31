@@ -23,6 +23,7 @@ export default function Menu() {
   useEffect(() => {
     if (scroll > lastScroll.current) {
       setShow(false);
+      setOpenLang(false);
     } else {
       setShow(true);
     }
