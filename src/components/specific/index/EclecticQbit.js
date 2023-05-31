@@ -6,15 +6,18 @@ import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "@/contexts/ScrollContext";
 import { finalMediaLink } from "@/commonFrontend";
+import settings from "@/frontendSettings";
 
 export default function EclecticQbit() {
   const parentRef = useRef(null);
   const [translateY, setTranslateY] = useState(0);
   const { scroll } = useContext(ScrollContext);
   useEffect(() => {
-    const parentDistance =
-      window.innerHeight / 2 - parentRef.current.getBoundingClientRect().y;
-    setTranslateY(parentDistance * 0.15);
+    if (window.innerWidth > settings.mobileView) {
+      const parentDistance =
+        window.innerHeight / 2 - parentRef.current.getBoundingClientRect().y;
+      setTranslateY(parentDistance * 0.15);
+    }
   }, [scroll]);
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
