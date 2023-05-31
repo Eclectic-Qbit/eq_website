@@ -1,27 +1,47 @@
 "use client";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-export default function SinusoidalCanvas({ w, h, freq }) {
+export default function SinusoidalCanvas({ w, h, freq, animate }) {
   const canvasRef = useRef(null);
-  const drawSinusoidal = useCallback(
-    (ctx) => {
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = "rgba(0,255,0,1)";
-      ctx.moveTo(0, 0);
-      ctx.beginPath();
-      for (let i = 0; i < window.innerWidth; i++) {
-        const y = h * Math.sin(i * freq * Math.PI + 10) + h + 5;
-        ctx.lineTo(i, y);
-      }
-      ctx.stroke();
-    },
-    [freq, h]
-  );
+  const fase = useRef(10);
+  const context = useRef(null);
+  const interval = useRef(null);
+  const drawSinusoidal = useCallback(() => {
+    if (!context.current) {
+      context.current = canvasRef.current.getContext("2d");
+    }
+    // Cancel previous draw
+    context.current.clearRect(
+      0,
+      0,
+      canvasRef.current.width,
+      canvasRef.current.height
+    );
+    // New draw
+    context.current.lineWidth = 4;
+    context.current.strokeStyle = "rgba(0,255,0,1)";
+    context.current.moveTo(0, 0);
+    context.current.beginPath();
+    for (let i = 0; i < window.innerWidth; i++) {
+      const y = h * Math.sin(i * freq * Math.PI + fase.current) + h + 5;
+      context.current.lineTo(i, y);
+    }
+    context.current.stroke();
+  }, [freq, h]);
+  useEffect(() => {
+    if (animate) {
+      interval.current = setInterval(() => {
+        fase.current += 0.1;
+        drawSinusoidal();
+      }, 15);
+    } else {
+      clearInterval(interval.current);
+    }
+  }, [animate]);
   useEffect(() => {
     canvasRef.current.width = w + 10;
     canvasRef.current.height = h * 2 + 10;
-    const context = canvasRef.current.getContext("2d");
-    drawSinusoidal(context);
+    drawSinusoidal();
   }, [drawSinusoidal, h, w]);
   return <canvas ref={canvasRef} />;
 }
