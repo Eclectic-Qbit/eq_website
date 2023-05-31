@@ -2,6 +2,7 @@
 
 import { finalMediaLink } from "@/commonFrontend";
 import { P1 } from "@/components/text/Paragraphs";
+import settings from "@/frontendSettings";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -10,7 +11,11 @@ export default function PaintEarnImgs({ selected, setSelected }) {
   return (
     <>
       <div
-        onMouseEnter={() => setHovering("artist")}
+        onMouseEnter={() => {
+          if (window.innerWidth > settings.mobileView) {
+            setHovering("artist");
+          }
+        }}
         onMouseLeave={() => setHovering(null)}
         onClick={() => {
           if (selected !== "artist") {
@@ -38,7 +43,12 @@ export default function PaintEarnImgs({ selected, setSelected }) {
         <P1 translationPath="paintEarn/p1" />
       </div>
       <div
-        onMouseEnter={() => setHovering("startupper")}
+        onMouseEnter={() => {
+          if (window.innerWidth > settings.mobileView) {
+            console.log("S");
+            setHovering("startupper");
+          }
+        }}
         onMouseLeave={() => setHovering(null)}
         onClick={() => {
           if (selected !== "startupper") {

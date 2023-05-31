@@ -361,7 +361,7 @@ const translations = {
   paintEarn: {
     title: {
       p1: { en: <span>This is</span>, es: <span>Esto es</span> },
-      p2: { en: <span>Paint&Earn</span>, es: <span>Pinta&Gana!</span> },
+      p2: { en: <span>Paint & Earn</span>, es: <span>Pinta & Gana!</span> },
     },
     h1: {
       en: (

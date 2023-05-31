@@ -1,8 +1,8 @@
-import ConsoleEffect from "../animations/ConsoleEffect";
-import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
-import ShowOnHover from "../animations/ShowOnHover";
-import { H3, H4 } from "../text/Headers";
-import { P1, P2, P4 } from "../text/Paragraphs";
+import ConsoleEffect from "../../animations/ConsoleEffect";
+import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
+import ShowOnHover from "../../animations/ShowOnHover";
+import { H3, H4 } from "../../text/Headers";
+import { P1, P2, P4 } from "../../text/Paragraphs";
 
 export default function WhatWeDo() {
   return (

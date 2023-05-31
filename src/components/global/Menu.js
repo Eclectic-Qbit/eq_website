@@ -36,7 +36,11 @@ export default function Menu() {
     >
       {errorMsg && (
         <div
-          onClick={() => setErrorMsg(null)}
+          onClick={() => {
+            if (window.innerWidth > settings.mobileView) {
+              setErrorMsg(null);
+            }
+          }}
           className="absolute top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-50"
         >
           {errorMsg}
@@ -50,7 +54,7 @@ export default function Menu() {
         />
       </div>
       <div className="flex uppercase items-center justify-end w-full lg:gap-4 sm:gap-3-auto text-center">
-        <div className="grid gap-0.5 md:flex md:gap-3 py-[1vh] pr-[5%] sm:pr-[1vh]">
+        <div className="grid gap-0.5 md:flex md:gap-3 py-[1vh]">
           <CustomLink href="/">
             <P3 translationPath="menu/home" />
           </CustomLink>
@@ -63,33 +67,49 @@ export default function Menu() {
           <CustomLink href="/squad">
             <P3 translationPath="menu/squad" />
           </CustomLink>
-          <div className="relative flex flex-row sm:flex-col flex-wrap">
-            <div onClick={() => setOpenLang(!openLang)}>
-              <P3>{languages.current[lang]}</P3>
+          <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
+            <div
+              className={`relative z-10 flex items-center w-full ${
+                !openLang
+                  ? "translate-x-[33%] sm:translate-x-[0%]"
+                  : "-translate-x-[33%] sm:translate-x-[0%]"
+              } transition-all duration-[500ms] ease-in`}
+              onClick={() => setOpenLang(!openLang)}
+            >
+              <P3 className="flex hover:scale-[1.15] transition-all duration-150">
+                {languages.current[lang]}
+              </P3>
             </div>
             <div
-              className={`absolute ${
-                openLang ? "opacity-1" : "opacity-0"
-              } bottom-0 left-0 flex bg-black sm:flex-col translate-x-[33%] sm:translate-x-0 sm:translate-y-full transition-all duration-[500ms] ease-in overflow-hidden`}
+              className={`absolute flex ${
+                openLang ? "opacity-1 visible z-20" : "opacity-0"
+              } bottom-0 sm:-bottom-1 left-0 flex bg-black sm:flex-col sm:gap-3 sm:translate-x-0 sm:translate-y-full transition-all duration-[500ms] ease-in`}
             >
               {Object.keys(languages.current).map((e, i) => {
                 if (e !== lang) {
                   return (
                     <div
                       key={i}
+                      className="hover:scale-[1.25] transition-all duration-150"
                       onClick={() => {
                         if (settings.languages.ready.includes(e)) {
                           setLang(e);
+                          localStorage.setItem("lang", e);
                         } else {
-                          setErrorMsg(
-                            <LoadingAnimation
-                              elements={[
-                                <H4 key={0}>{translations.notFound[e]}</H4>,
-                              ]}
-                              coeffs={[1]}
-                              delay={500}
-                            />
-                          );
+                          if (
+                            window.innerWidth > settings.mobileView &&
+                            openLang
+                          ) {
+                            setErrorMsg(
+                              <LoadingAnimation
+                                elements={[
+                                  <H4 key={0}>{translations.notFound[e]}</H4>,
+                                ]}
+                                coeffs={[1]}
+                                delay={500}
+                              />
+                            );
+                          }
                         }
                       }}
                     >
