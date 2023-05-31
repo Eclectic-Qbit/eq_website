@@ -8,7 +8,6 @@ import { useState } from "react";
 
 export default function PaintEarnImgs({ selected, setSelected }) {
   const [hovering, setHovering] = useState(null);
-  console.log(selected, hovering);
   return (
     <>
       <div
@@ -46,7 +45,6 @@ export default function PaintEarnImgs({ selected, setSelected }) {
       <div
         onMouseEnter={() => {
           if (window.innerWidth > settings.mobileView) {
-            console.log("S");
             setHovering("startupper");
           }
         }}
