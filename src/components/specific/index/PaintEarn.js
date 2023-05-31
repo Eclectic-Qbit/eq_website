@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
-import { H3, H4 } from "../text/Headers";
-import { P2 } from "../text/Paragraphs";
-import ConsoleEffect from "../animations/ConsoleEffect";
-import PaintEarnImgs from "../specific/paintEarn/PaintEarnImgs";
+import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
+import { H3, H4 } from "../../text/Headers";
+import { P2 } from "../../text/Paragraphs";
+import ConsoleEffect from "../../animations/ConsoleEffect";
+import PaintEarnImgs from "./PaintEarnImgs";
 
 export default function PaintEarn() {
   const [selected, setSelected] = useState(null);
@@ -36,7 +36,7 @@ export default function PaintEarn() {
             width: "100%",
             height: "100%",
           }}
-          className="text-yellow font-bold"
+          className="relative text-yellow font-bold w-full h-full"
           content={{
             content: `paintEarn/${selected ? selected : "artist"}`,
             type: "ref",

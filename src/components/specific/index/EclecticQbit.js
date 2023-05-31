@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
-import { H1, H2, H3, H5, H6, H7, H8, H9 } from "../text/Headers";
-import { P1, P2, P3, P4 } from "../text/Paragraphs";
+import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
+import { H1, H2, H3, H5, H6, H7, H8, H9 } from "../../text/Headers";
+import { P1, P2, P3, P4 } from "../../text/Paragraphs";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "@/contexts/ScrollContext";

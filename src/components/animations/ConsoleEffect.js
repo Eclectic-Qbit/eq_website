@@ -104,7 +104,14 @@ export default function ConsoleEffect({
   return (
     <div className={`relative ${className}`}>
       <P4 className="relative invisible" style={style}>
-        {parsedContent}
+        {parsedContent.split("\n").map((el, i) => {
+          return (
+            <span key={i} style={spanStyling}>
+              {el}
+              <br />
+            </span>
+          );
+        })}
       </P4>
       <P4 className="absolute top-0 left-0" style={style}>
         {value.split("\n").map((el, i) => {

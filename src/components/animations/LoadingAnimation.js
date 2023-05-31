@@ -19,7 +19,7 @@ export default function LoadingAnimation({
   forceFade,
   onFade,
 }) {
-  const FADE_DURATION = delay ? delay : 2000;
+  const FADE_DURATION = delay ? delay : 1000;
   const ref = useRef(null);
   const mouseEntered = useRef(false);
   const parsedCoeffs = useRef(
@@ -57,7 +57,7 @@ export default function LoadingAnimation({
   useEffect(() => {
     setTimeout(() => {
       setView(true);
-    }, FADE_DURATION);
+    }, FADE_DURATION / 2);
   }, [FADE_DURATION]);
   useEffect(() => {
     if (forceFade) {
@@ -104,12 +104,12 @@ export default function LoadingAnimation({
               return updatedOffset;
             });
           },
-          view ? (FADE_DURATION * i - 1) / newArr.length : 99999
+          view ? (FADE_DURATION * i) / newArr.length : 99999
         );
         currentTimeouts.current.push(newTimeout);
       }
     }
-  }, [view, FADE_DURATION, offset]);
+  }, [view, FADE_DURATION]);
   useEffect(() => {
     if (!forceFade) {
       if (mouseEntered.current) {

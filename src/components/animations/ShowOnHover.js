@@ -1,27 +1,34 @@
 "use client";
 
+import ScrollContext from "@/contexts/ScrollContext";
 import settings from "@/frontendSettings";
-import { cloneElement, useEffect, useState } from "react";
+import { cloneElement, useContext, useEffect, useRef, useState } from "react";
 
 export default function ShowOnHover({ children }) {
+  const ref = useRef(null);
   const [active, setActive] = useState(false);
   const [child, setChild] = useState(
     cloneElement(children[1], {
-      active: false,
+      active: active,
     })
   );
+  const { scroll } = useContext(ScrollContext);
   useEffect(() => {
-    setChild(
-      cloneElement(children[1], {
-        active: active,
-      })
-    );
     if (window.innerWidth < settings.mobileView) {
-      setActive(true);
+      if (
+        ref.current.getBoundingClientRect().y <
+        window.innerHeight - window.innerHeight * 0.1
+      ) {
+        setActive(true);
+      }
     }
+  }, [scroll]);
+  useEffect(() => {
+    setChild(cloneElement(children[1], { active: active }));
   }, [active, children]);
   return (
     <div
+      ref={ref}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() =>
         setActive(window.innerWidth < settings.mobileView ? true : false)

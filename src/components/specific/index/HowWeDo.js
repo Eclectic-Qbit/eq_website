@@ -1,10 +1,10 @@
 "use client";
 
-import ConsoleEffect from "../animations/ConsoleEffect";
-import { MouseMoveGradient } from "../animations/MouseMoveAnimations";
-import ShowOnHover from "../animations/ShowOnHover";
-import { H2, H3, H4, H9 } from "../text/Headers";
-import { P1, P2 } from "../text/Paragraphs";
+import ConsoleEffect from "../../animations/ConsoleEffect";
+import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
+import ShowOnHover from "../../animations/ShowOnHover";
+import { H2, H3, H4, H9 } from "../../text/Headers";
+import { P1, P2 } from "../../text/Paragraphs";
 
 export default function HowWeDo() {
   return (
