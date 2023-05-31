@@ -26,22 +26,31 @@ export default function Footer() {
             <TelegramLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>
         </div>
-        <div className="flex flex-col justify-end gap-2">
-          <CustomLink href="/">
-            <P3 translationPath="menu/home" />
-          </CustomLink>
-          <CustomLink href="/brojects">
-            <P3 translationPath="menu/brojects" />
-          </CustomLink>
-          <CustomLink href="/collabs">
-            <P3 translationPath="menu/collabs" />
-          </CustomLink>
-          <CustomLink href="/squad">
-            <P3 translationPath="menu/squad" />
-          </CustomLink>
+        <div className="flex flex-col justify-end items-center gap-2">
+          <div className="w-min">
+            <CustomLink href="/">
+              <P3 translationPath="menu/home" />
+            </CustomLink>
+          </div>
+          <div className="w-min">
+            <CustomLink href="/brojects">
+              <P3 translationPath="menu/brojects" />
+            </CustomLink>
+          </div>
+          <div className="w-min">
+            <CustomLink href="/collabs">
+              <P3 translationPath="menu/collabs" />
+            </CustomLink>
+          </div>
+          <div className="w-min">
+            <CustomLink href="/squad">
+              <P3 translationPath="menu/squad" />
+            </CustomLink>
+          </div>
         </div>
-        <P3 className="font-extrabold border-b-2 border-solid border-white uppercase w-max -rotate-90 sm:rotate-0 -translate-x-[25%] sm:translate-x-[0%]">
-          Eclectic Qbit
+        <P3 className="font-extrabold uppercase w-max -rotate-90 sm:rotate-0 -translate-x-[25%] sm:translate-x-[0%]">
+          By <br /> <span className="underline">Eclectic Qbit</span> <br />
+          With Love
         </P3>
       </div>
       <div className="text-center">
