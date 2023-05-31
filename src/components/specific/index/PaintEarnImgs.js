@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export default function PaintEarnImgs({ selected, setSelected }) {
   const [hovering, setHovering] = useState(null);
+  console.log(selected, hovering);
   return (
     <>
       <div
@@ -28,7 +29,7 @@ export default function PaintEarnImgs({ selected, setSelected }) {
           selected === "artist" && (hovering === null || hovering === "artist")
             ? "text-yellow"
             : "grayscale"
-        } hover:grayscale-0 hover:text-yellow`}
+        } sm:hover:grayscale-0 sm:hover:text-yellow`}
       >
         <div className="relative w-full aspect-square transition-all duration-150">
           <Image
@@ -62,7 +63,7 @@ export default function PaintEarnImgs({ selected, setSelected }) {
           (hovering === null || hovering === "startupper")
             ? "text-yellow"
             : "grayscale"
-        } hover:grayscale-0 hover:text-yellow transition-all duration-150`}
+        } sm:hover:grayscale-0 sm:hover:text-yellow transition-all duration-150`}
       >
         <div className="relative w-full aspect-square">
           <Image
