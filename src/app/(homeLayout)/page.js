@@ -10,6 +10,7 @@ import WhatWeDo from "@/components/specific/index/WhatWeDo";
 import PaintEarn from "@/components/specific/index/PaintEarn";
 import { useState } from "react";
 import settings from "@/frontendSettings";
+import MemoryGame from "@/components/gamification/MemoryGame";
 export default function Home() {
   const [animateSinCanvas, setAnimateSinCanvas] = useState(false);
   const [animateCircCanvas, setAnimateCircCanvas] = useState(false);
