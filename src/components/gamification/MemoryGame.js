@@ -5,6 +5,15 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { H1, H5 } from "../text/Headers";
 import { P1 } from "../text/Paragraphs";
 
+/*
+    MISSING:
+    - Final random values for array
+    - Final images
+    - Backend
+    - Discord integration
+    - Translations
+*/
+
 function Card({ pos, active, onClick, won, reset }) {
   const [state, setState] = useState(!won ? "hidden" : "visible");
   const changeState = useCallback(() => {
@@ -52,6 +61,7 @@ function Card({ pos, active, onClick, won, reset }) {
   );
 }
 export default function MemoryGame() {
+  const streak = useRef(0); // Current user streak
   const started = useRef(0); // Starting date - from first click
   const duration = useRef(0); // Duration of the game rounded to second digit
   const [cards, setCards] = useState([0, 0, 1, 1]); // Array containing the random cards
@@ -60,6 +70,20 @@ export default function MemoryGame() {
   const [reset, setReset] = useState([]); // What cards were chosen wrongly by the user
   const [wait, setWait] = useState(false); // Wait before next interaction
   const [finalWin, setFinalWin] = useState(false); // True when the user will have won the game
+  function newGame() {
+    // Reset old the state of the game
+    started.current = 0;
+    setActivated([]);
+    setWon([]);
+    setReset([]);
+    setWait(false);
+    setFinalWin(false);
+    setCards([]);
+    setTimeout(() => {
+      const newCards = [1, 1, 0, 0];
+      setCards(newCards);
+    }, 100);
+  }
   function handleClick(pos) {
     if (started.current === 0) {
       started.current = Date.now();
@@ -73,18 +97,17 @@ export default function MemoryGame() {
         setActivated(newArr);
       } else if (activated.length === 1) {
         if (activated[0] !== pos) {
-          console.log(pos, activated[0], cards[activated[0]], cards[pos]);
           if (cards[activated[0]] === cards[pos]) {
             const newArr = [...won];
             newArr.push(cards[activated[0]]);
             setWon(newArr);
-            console.log("Won", newArr);
             if (newArr.length === cards.length / 2) {
               setFinalWin(true);
               duration.current =
                 Math.round(
                   (Date.now() - started.current) / 10 + Number.EPSILON
                 ) / 100;
+              streak.current += 1;
             }
           } else {
             const newArr = [activated[0], pos];
@@ -106,12 +129,17 @@ export default function MemoryGame() {
           <P1>
             you&apos;ve completed the memory in {duration.current + " "}
             seconds <br />
+            You&apos;re in a +{streak.current} streak!
+            <br />
             check your position into the rankings link-by score link-by games
           </P1>
           <P1>
             You got if less than 70 you&apos;ve got some points too!!! - obv
             this message will be better than this xD
           </P1>
+          <button onClick={newGame}>
+            <P1 className={"hover:underline"}>Wanna start a new game?</P1>
+          </button>
         </div>
       )}
       <div>
