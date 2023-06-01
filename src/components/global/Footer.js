@@ -10,7 +10,7 @@ export default function Footer() {
     <div className="px-4 pb-4 border-t-2 border-solid border-white">
       <div className="grid grid-cols-3 w-full h-full gap-[5%] items-center text-center">
         <div className="flex flex-col justify-start gap-2 scale-[0.8]">
-          <LogoLink href="https://discord.gg/n3gxVeqq">
+          <LogoLink href="https://discord.gg/8J3SXwUn7C">
             <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>
           <LogoLink href="https://twitter.com/EclecticQbit">
