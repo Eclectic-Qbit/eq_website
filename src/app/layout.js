@@ -6,6 +6,9 @@ import ScrollProvider from "@/providers/ScrollProvider";
 export const metadata = {
   title: "Barrio Buidlers",
   description: "Interdipendence is the new indipendence",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
