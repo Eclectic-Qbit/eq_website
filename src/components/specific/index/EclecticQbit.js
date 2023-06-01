@@ -37,7 +37,7 @@ export default function EclecticQbit() {
             target="_blank"
           >
             <Image
-              src={finalMediaLink("images/proudCat_theThird.jpg")}
+              src={finalMediaLink("images/latestDante.jpg")}
               fill
               sizes="100%"
               priority
