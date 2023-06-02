@@ -35,7 +35,7 @@ export default function PaintEarnImgs({ selected, setSelected }) {
             className={`rounded-full cursor-none ${
               selected === "artist" ? " border-4" : "border-0"
             } border-solid border-white transition-all duration-150`}
-            src={finalMediaLink("images/proudCat_artist_squared.jpg")}
+            src={finalMediaLink("images/danteArtist.png")}
             alt="Artist"
             fill
           />
@@ -65,10 +65,10 @@ export default function PaintEarnImgs({ selected, setSelected }) {
       >
         <div className="relative w-full aspect-square">
           <Image
-            className={`rounded-full cursor-none scale-x-[-1] ${
+            className={`rounded-full cursor-none ${
               selected === "startupper" ? " border-4" : "border-0"
             } border-solid border-white transition-all duration-150`}
-            src={finalMediaLink("images/proudCat_enterpreneur_squared.jpg")}
+            src={finalMediaLink("images/danteStartupper.png")}
             alt="Startupper"
             fill
           />
