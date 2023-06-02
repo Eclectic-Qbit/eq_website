@@ -10,13 +10,37 @@ import WhatWeDo from "@/components/specific/index/WhatWeDo";
 import PaintEarn from "@/components/specific/index/PaintEarn";
 import { useState } from "react";
 import settings from "@/frontendSettings";
-import MemoryGame from "@/components/gamification/MemoryGame";
+import LogoLink from "@/components/global/LogoLink";
+import {
+  DiscordLogo,
+  RedditLogo,
+  TelegramLogo,
+} from "@/components/logos/FullLogo";
+import { InstagramLogo, TwitterLogo } from "@/components/logos/BorderLogo";
 export default function Home() {
   const [animateSinCanvas, setAnimateSinCanvas] = useState(false);
   const [animateCircCanvas, setAnimateCircCanvas] = useState(false);
   return (
     <>
       <div className="relative flex flex-col pt-[17.5vh]">
+        {/* Socials */}
+        <div className="absolute z-10 top-[50vh] -translate-y-[50%] right-[2%] flex flex-col gap-3">
+          <LogoLink href="https://discord.gg/8J3SXwUn7C">
+            <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
+          </LogoLink>
+          <LogoLink href="https://twitter.com/EclecticQbit">
+            <TwitterLogo fill={"black"} width={"100%"} height={"100%"} />
+          </LogoLink>
+          <LogoLink href="https://www.reddit.com/user/Eclecticqbit/">
+            <RedditLogo fill={"black"} width={"100%"} height={"100%"} />
+          </LogoLink>
+          <LogoLink href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y=">
+            <InstagramLogo fill={"black"} width={"100%"} height={"100%"} />
+          </LogoLink>
+          <LogoLink href="https://t.me/eclecticqbit">
+            <TelegramLogo fill={"black"} width={"100%"} height={"100%"} />
+          </LogoLink>
+        </div>
         {/* Background */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
           <OptimizedDottedCanvas />

@@ -18,7 +18,7 @@ export default function WhatWeDo() {
         </MouseMoveGradient>
       </div>
       <div className="relative flex justify-center">
-        <div className="flex flex-wrap mt-4 gap-4 mx-[15%] max-w-[130rem] lowercase">
+        <div className="flex flex-wrap mt-4 gap-4 ml-[5%] mr-[10%] max-w-[130rem] lowercase">
           <ShowOnHover>
             <P2
               style={{ textShadow: "1px 1px 2px white" }}

@@ -4,7 +4,7 @@ import MouseProvider from "@/providers/MouseProvider";
 import ScrollProvider from "@/providers/ScrollProvider";
 
 export const metadata = {
-  title: "Barrio Buidlers",
+  title: "eclectic qbit",
   description: "Interdipendence is the new indipendence",
   icons: {
     icon: "/icon.png",
