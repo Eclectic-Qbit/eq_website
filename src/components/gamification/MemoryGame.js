@@ -14,7 +14,7 @@ import { P1 } from "../text/Paragraphs";
     - Translations
 */
 
-function Card({ pos, active, onClick, won, reset }) {
+function Card({ pos, val, active, onClick, won, reset }) {
   const [state, setState] = useState(!won ? "hidden" : "visible");
   const changeState = useCallback(() => {
     if (state === "hidden") {
@@ -36,7 +36,7 @@ function Card({ pos, active, onClick, won, reset }) {
           onClick(pos);
         }
       }}
-      className={`relative w-[16rem] aspect-square border-2 border-solid border-black transition-all duration-[500ms] ease-in`}
+      className={`relative w-[12rem] aspect-square border-2 border-solid border-black transition-all duration-[500ms] ease-in`}
       style={{
         transformStyle: "preserve-3d",
         transformOrigin: "center",
@@ -55,21 +55,53 @@ function Card({ pos, active, onClick, won, reset }) {
         } transition-all duration-150 ease-in`}
         style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
       >
-        <Image src={finalMediaLink("images/memory.png")} alt="" fill />
+        <Image
+          src={finalMediaLink(
+            val.type === "base" ? `images/team/${val.val}.png` : val.val
+          )}
+          alt=""
+          fill
+        />
       </div>
     </div>
   );
 }
 export default function MemoryGame() {
+  const SPEC_CARDS = ["/images/latestDante.jpg"]; // Special images
+  const N_CARDS = 9; // Number of (single) memory cards
   const streak = useRef(0); // Current user streak
   const started = useRef(0); // Starting date - from first click
   const duration = useRef(0); // Duration of the game rounded to second digit
-  const [cards, setCards] = useState([0, 0, 1, 1]); // Array containing the random cards
+  const [cards, setCards] = useState(generateCards()); // Array containing the random cards
   const [activated, setActivated] = useState([]); // Current selected card(s)
   const [won, setWon] = useState([]); // What cards were chosen correctly by the user
   const [reset, setReset] = useState([]); // What cards were chosen wrongly by the user
   const [wait, setWait] = useState(false); // Wait before next interaction
   const [finalWin, setFinalWin] = useState(false); // True when the user will have won the game
+  function generateCards() {
+    const arr = [];
+    for (let i = 0; i < N_CARDS; i++) {
+      arr.push(i);
+      arr.push(i);
+    }
+    const finalArr = [];
+    while (arr.length > 0) {
+      const rand = Math.floor(Math.random() * arr.length);
+      finalArr.push({ type: "base", val: arr[rand] });
+      arr.splice(rand, 1);
+    }
+    for (let i = 0; i < SPEC_CARDS.length; i++) {
+      finalArr.splice(Math.floor(Math.random() * finalArr.length), 0, {
+        type: "specific",
+        val: SPEC_CARDS[i],
+      });
+      finalArr.splice(Math.floor(Math.random() * finalArr.length), 0, {
+        type: "specific",
+        val: SPEC_CARDS[i],
+      });
+    }
+    return finalArr;
+  }
   function newGame() {
     // Reset old the state of the game
     started.current = 0;
@@ -80,7 +112,7 @@ export default function MemoryGame() {
     setFinalWin(false);
     setCards([]);
     setTimeout(() => {
-      const newCards = [1, 1, 0, 0];
+      const newCards = generateCards();
       setCards(newCards);
     }, 100);
   }
@@ -144,21 +176,24 @@ export default function MemoryGame() {
       )}
       <div>
         <H1>memory</H1>
-        <div
-          className={`flex flex-wrap max-w-[48rem] justify-center items-center`}
-        >
-          {cards.map((el, i) => {
-            return (
-              <Card
-                key={i}
-                pos={i}
-                won={won.includes(el) ? true : false}
-                reset={reset.includes(i) ? true : false}
-                active={activated.length < 2 && !wait ? true : false}
-                onClick={handleClick}
-              />
-            );
-          })}
+        <div className="w-full h-full flex items-center justify-center">
+          <div
+            className={`flex flex-wrap max-w-[60rem] justify-center items-center`}
+          >
+            {cards.map((el, i) => {
+              return (
+                <Card
+                  key={i}
+                  val={el}
+                  pos={i}
+                  won={won.includes(el) ? true : false}
+                  reset={reset.includes(i) ? true : false}
+                  active={activated.length < 2 && !wait ? true : false}
+                  onClick={handleClick}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
