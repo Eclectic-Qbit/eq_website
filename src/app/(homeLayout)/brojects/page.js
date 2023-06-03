@@ -46,7 +46,31 @@ export default function Brojects() {
               <H8>Stakeame</H8>
               <div className="relative w-64 aspect-[20/9]">
                 <Link href="https://stakea.me">
-                  <Image src="/images/stakeame.jpeg" alt="stameame" fill />
+                  <Image src="/images/stakeame.jpeg" alt="stakeame" fill />
+                </Link>
+              </div>
+              <div className="relative w-full h-full flex flex-wrap justify-center items-center gap-5">
+                <DiscordLogo width={"3rem"} height={"100%"} fill={"white"} />
+                <TwitterLogo width={"3rem"} height={"100%"} fill={"white"} />
+                <MediumLogo width={"3rem"} height={"100%"} fill={"white"} />
+                <RedditLogo width={"3rem"} height={"100%"} fill={"white"} />
+              </div>
+            </div>
+          </StickySection>
+          <StickySection
+            className="mt-[100vh]"
+            changeVisibility={changeVisibility}
+            texts={{
+              visible:
+                "stakeame is a very cool very nice project \n tab plz help c.c",
+              invisible: DEFAULT_TEXT,
+            }}
+          >
+            <div className="flex flex-col items-center justify-center gap-10">
+              <H8>Stakeame</H8>
+              <div className="relative w-64 aspect-[20/9]">
+                <Link href="https://stakea.me">
+                  <Image src="/images/stakeame.jpeg" alt="stakeame" fill />
                 </Link>
               </div>
               <div className="relative w-full h-full flex flex-wrap justify-center items-center gap-5">
