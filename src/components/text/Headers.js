@@ -129,3 +129,17 @@ export function H9({ style, className, children, translationPath }) {
     </h1>
   );
 }
+export function H10({ style, className, children, translationPath }) {
+  const { lang, setLang } = useContext(LanguageContext);
+  const props = className ? className : "";
+  return (
+    <h1
+      style={style}
+      className={`${props} text-[1.75rem] xl:text-[2.25rem] md:text-[2rem] leading-none transition-all duration-300 ease-in`}
+    >
+      {shouldTranslate(children)
+        ? translateText(translationPath, lang)
+        : children}
+    </h1>
+  );
+}
