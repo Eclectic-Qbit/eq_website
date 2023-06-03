@@ -60,7 +60,7 @@ export default function Brojects() {
         </div>
         <div className="sticky top-0 w-full h-full py-20 ">
           <div className=" m-10 p-10  border-2 border-solid border-white">
-            <H10>
+            <P1>
               <WritingEffect
                 defaultPhrase=""
                 phrases={[text]}
@@ -69,7 +69,7 @@ export default function Brojects() {
                 additionalChar={"_"}
                 stop={true}
               />
-            </H10>
+            </P1>
           </div>
         </div>
       </div>
