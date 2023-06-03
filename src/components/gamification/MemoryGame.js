@@ -67,20 +67,20 @@ function Card({ pos, val, active, onClick, won, reset }) {
   );
 }
 export default function MemoryGame() {
-  const SPEC_CARDS = ["/images/latestDante.jpg"]; // Special images
   const N_CARDS = 9; // Number of (single) memory cards
+  const SPEC_CARDS = useRef(["/images/squaredDante.jpg"]); // Special images
   const streak = useRef(0); // Current user streak
   const started = useRef(0); // Starting date - from first click
   const duration = useRef(0); // Duration of the game rounded to second digit
-  const [cards, setCards] = useState(generateCards()); // Array containing the random cards
+  const [cards, setCards] = useState([]); // Array containing the random cards
   const [activated, setActivated] = useState([]); // Current selected card(s)
   const [won, setWon] = useState([]); // What cards were chosen correctly by the user
   const [reset, setReset] = useState([]); // What cards were chosen wrongly by the user
   const [wait, setWait] = useState(false); // Wait before next interaction
   const [finalWin, setFinalWin] = useState(false); // True when the user will have won the game
-  function generateCards() {
+  const generateCards = useCallback(() => {
     const arr = [];
-    for (let i = 0; i < N_CARDS; i++) {
+    for (let i = 1; i <= N_CARDS; i++) {
       arr.push(i);
       arr.push(i);
     }
@@ -90,19 +90,19 @@ export default function MemoryGame() {
       finalArr.push({ type: "base", val: arr[rand] });
       arr.splice(rand, 1);
     }
-    for (let i = 0; i < SPEC_CARDS.length; i++) {
+    for (let i = 0; i < SPEC_CARDS.current.length; i++) {
       finalArr.splice(Math.floor(Math.random() * finalArr.length), 0, {
         type: "specific",
-        val: SPEC_CARDS[i],
+        val: SPEC_CARDS.current[i],
       });
       finalArr.splice(Math.floor(Math.random() * finalArr.length), 0, {
         type: "specific",
-        val: SPEC_CARDS[i],
+        val: SPEC_CARDS.current[i],
       });
     }
     return finalArr;
-  }
-  function newGame() {
+  }, []);
+  const newGame = useCallback(() => {
     // Reset old the state of the game
     started.current = 0;
     setActivated([]);
@@ -115,13 +115,14 @@ export default function MemoryGame() {
       const newCards = generateCards();
       setCards(newCards);
     }, 100);
-  }
+  }, [generateCards]);
   function handleClick(pos) {
     if (started.current === 0) {
       started.current = Date.now();
     }
     setWait(true);
     setTimeout(() => {
+      console.log(activated);
       if (activated.length === 0) {
         setReset([]);
         const newArr = [...activated];
@@ -129,7 +130,8 @@ export default function MemoryGame() {
         setActivated(newArr);
       } else if (activated.length === 1) {
         if (activated[0] !== pos) {
-          if (cards[activated[0]] === cards[pos]) {
+          console.log("CHECK", cards[activated[0]], cards[pos]);
+          if (cards[activated[0]].val === cards[pos].val) {
             const newArr = [...won];
             newArr.push(cards[activated[0]]);
             setWon(newArr);
@@ -153,6 +155,9 @@ export default function MemoryGame() {
       setWait(false);
     }, 500);
   }
+  useEffect(() => {
+    newGame();
+  }, [newGame]);
   return (
     <div className="relative bg-black">
       {finalWin && (
