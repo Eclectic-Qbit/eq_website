@@ -1,5 +1,5 @@
 "use client";
-import { finalMediaLink } from "@/commonFrontend";
+import { finalMediaLink, translateText } from "@/commonFrontend";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { H1, H5 } from "../text/Headers";
@@ -45,7 +45,9 @@ function Card({ pos, val, active, onClick, won, reset }) {
         className="absolute top-0 left-0 w-full h-full text-center bg-white backface-hidden"
         style={{ backfaceVisibility: "hidden" }}
       >
-        <P1>Front</P1>
+        <div className="relative w-32 aspect-square">
+          <Image src={finalMediaLink("images/whiteLogo.png")} alt="Logo" fill />
+        </div>
       </div>
       <div
         className={`absolute top-0 left-0 w-full h-full text-center  ${
