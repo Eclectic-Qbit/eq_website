@@ -7,8 +7,6 @@ import { P1 } from "../text/Paragraphs";
 
 /*
     MISSING:
-    - Final random values for array
-    - Final images
     - Backend
     - Discord integration
     - Translations
@@ -116,13 +114,20 @@ export default function MemoryGame() {
       setCards(newCards);
     }, 100);
   }, [generateCards]);
+  function containsValue(el) {
+    for (let i = 0; i < won.length; i++) {
+      if (won[i].val === el.val) {
+        return true;
+      }
+    }
+    return false;
+  }
   function handleClick(pos) {
     if (started.current === 0) {
       started.current = Date.now();
     }
     setWait(true);
     setTimeout(() => {
-      console.log(activated);
       if (activated.length === 0) {
         setReset([]);
         const newArr = [...activated];
@@ -130,7 +135,6 @@ export default function MemoryGame() {
         setActivated(newArr);
       } else if (activated.length === 1) {
         if (activated[0] !== pos) {
-          console.log("CHECK", cards[activated[0]], cards[pos]);
           if (cards[activated[0]].val === cards[pos].val) {
             const newArr = [...won];
             newArr.push(cards[activated[0]]);
@@ -191,7 +195,7 @@ export default function MemoryGame() {
                   key={i}
                   val={el}
                   pos={i}
-                  won={won.includes(el) ? true : false}
+                  won={containsValue(el)}
                   reset={reset.includes(i) ? true : false}
                   active={activated.length < 2 && !wait ? true : false}
                   onClick={handleClick}
