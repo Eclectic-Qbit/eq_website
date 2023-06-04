@@ -56,7 +56,7 @@ export default function Menu() {
       </div>
       <div className="flex uppercase items-center justify-end w-full lg:gap-4 sm:gap-3-auto text-center">
         <div className="grid gap-0.5 md:flex md:gap-3 py-[1vh]">
-          <CustomLink href="/">
+          <CustomLink href="./">
             <P3 translationPath="menu/home" />
           </CustomLink>
           <CustomLink href="/squad">
