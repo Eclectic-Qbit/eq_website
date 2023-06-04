@@ -61,7 +61,7 @@ export default function ConsoleEffect({
         ref.current.getBoundingClientRect().y <
         window.innerHeight - window.innerHeight * 0.1
       ) {
-        setActive(forceActive);
+        setActive(forceActive !== undefined ? forceActive : true);
       }
     }
   }, [forceActive, scroll]);
