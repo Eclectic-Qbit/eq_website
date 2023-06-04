@@ -61,10 +61,10 @@ export default function ConsoleEffect({
         ref.current.getBoundingClientRect().y <
         window.innerHeight - window.innerHeight * 0.1
       ) {
-        setActive(true);
+        setActive(forceActive);
       }
     }
-  }, [scroll]);
+  }, [forceActive, scroll]);
   useEffect(() => {
     if (active) {
       if (
