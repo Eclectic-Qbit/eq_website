@@ -28,7 +28,12 @@ function Card({ img, title, name, langs, social }) {
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="relative w-full aspect-square rounded-xl">
-            <Image src={finalMediaLink(`images/team/${img}`)} alt={name} fill />
+            <Image
+              priority
+              src={finalMediaLink(`images/team/${img}`)}
+              alt={name}
+              fill
+            />
           </div>
           <div className="text-black font-bold w-full h-[3rem] sm:h-[4rem] flex items-center justify-center border-[0.25rem] border-solid border-black rounded-b-xl">
             <P1 className="uppercase">{name}</P1>
