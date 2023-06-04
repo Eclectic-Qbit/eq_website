@@ -163,7 +163,7 @@ export default function Squad() {
       />
       <Card
         img="7.png"
-        name="Adytia"
+        name="Aditya"
         title="community spark & engagement virtuoso"
         social={[
           {
