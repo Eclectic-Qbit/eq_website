@@ -18,20 +18,19 @@ export default function WhatWeDo() {
       </div>
       <div className="relative flex justify-center">
         <div className="flex flex-wrap mt-4 gap-4 ml-[5%] mr-[10%] max-w-[130rem] lowercase">
-          <div className="grid gap-2">
+          <ConsoleEffect
+            style={{ textShadow: "2px 2px 2px black" }}
+            className="text-yellow grid gap-2"
+            additionalChar="_"
+            placeholderChar="$ "
+            content={{ content: "whatWeDo/p2", type: "ref" }}
+          >
             <P2
               style={{ textShadow: "1px 1px 2px white" }}
               translationPath="whatWeDo/h2"
               className="text-purple font-bold uppercase"
             />
-            <ConsoleEffect
-              style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow"
-              additionalChar="_"
-              placeholderChar="$ "
-              content={{ content: "whatWeDo/p2", type: "ref" }}
-            />
-          </div>
+          </ConsoleEffect>
           <div className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
