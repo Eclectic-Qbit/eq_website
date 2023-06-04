@@ -17,6 +17,8 @@ export default function EclecticQbit() {
       const parentDistance =
         window.innerHeight / 2 - parentRef.current.getBoundingClientRect().y;
       setTranslateY(parentDistance * 0.15);
+    } else {
+      setTranslateY(0);
     }
   }, [scroll]);
   return (
@@ -47,25 +49,27 @@ export default function EclecticQbit() {
           </Link>
         </div>
       </div>
-      <div
-        ref={parentRef}
-        style={{ transform: "perspective(300px) rotateX(20deg)" }}
-        className="realtive w-full h-full flex items-center justify-center gap-2 text-center"
-      >
+      <div className="mb-4">
         <div
-          style={{ transform: `translateY(${translateY}px)` }}
-          className="w-2/3"
+          ref={parentRef}
+          style={{ transform: "perspective(300px) rotateX(20deg)" }}
+          className="realtive w-full h-full flex items-center justify-center gap-2 text-center"
         >
-          <P1
-            style={{ textShadow: "1px 1px 1px white" }}
-            translationPath="eclecticQbit/h1"
-            className="text-purple uppercase font-bold mt-[2.5%]"
-          />
-          <P2
-            style={{ textShadow: "2px 2px 2px black" }}
-            translationPath="eclecticQbit/p1"
-            className="text-yellow"
-          />
+          <div
+            style={{ transform: `translateY(${translateY}px)` }}
+            className="w-2/3"
+          >
+            <P1
+              style={{ textShadow: "1px 1px 1px white" }}
+              translationPath="eclecticQbit/h1"
+              className="text-purple uppercase font-bold mt-[2.5%]"
+            />
+            <P2
+              style={{ textShadow: "2px 2px 2px black" }}
+              translationPath="eclecticQbit/p1"
+              className="text-yellow"
+            />
+          </div>
         </div>
       </div>
     </div>
