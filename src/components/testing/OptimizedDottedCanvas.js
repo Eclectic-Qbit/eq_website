@@ -169,7 +169,7 @@ export default function OptimizedDottedCanvas() {
               color
             );
             timeouts.current.push({
-              timeout: createTimeout(i, w, 0),
+              timeout: createTimeout(i, w, date),
               params: [i, w, date],
             });
           }
