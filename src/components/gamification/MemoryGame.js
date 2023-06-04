@@ -42,11 +42,11 @@ function Card({ pos, val, active, onClick, won, reset }) {
       }}
     >
       <div
-        className="absolute top-0 left-0 w-full h-full text-center bg-white backface-hidden"
+        className="absolute top-0 left-0 w-full h-full text-center bg-white backface-hidden flex items-center justify-center"
         style={{ backfaceVisibility: "hidden" }}
       >
-        <div className="relative w-32 aspect-square">
-          <Image src={finalMediaLink("images/whiteLogo.png")} alt="Logo" fill />
+        <div className="relative w-28 aspect-square">
+          <Image src={finalMediaLink("images/blackLogo.png")} alt="Logo" fill />
         </div>
       </div>
       <div

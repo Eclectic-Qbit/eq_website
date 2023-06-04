@@ -4,7 +4,7 @@ import ScrollContext from "@/contexts/ScrollContext";
 import settings from "@/frontendSettings";
 import { cloneElement, useContext, useEffect, useRef, useState } from "react";
 
-export default function ShowOnHover({ children }) {
+export default function ShowOnHover({ className, children }) {
   const ref = useRef(null);
   const [active, setActive] = useState(false);
   const [child, setChild] = useState(
@@ -33,7 +33,7 @@ export default function ShowOnHover({ children }) {
       onMouseLeave={() =>
         setActive(window.innerWidth < settings.mobileView ? true : false)
       }
-      className="w-full flex flex-col"
+      className={`${className ? className : ""} w-full flex flex-col`}
     >
       {children[0]}
       {child}
