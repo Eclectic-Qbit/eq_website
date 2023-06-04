@@ -36,7 +36,7 @@ export default function PaintEarn() {
             width: "100%",
             height: "100%",
           }}
-          className="relative text-yellow font-bold w-full h-full"
+          className="relative text-yellow w-full h-full"
           content={{
             content: `paintEarn/${selected ? selected : "artist"}`,
             type: "ref",

@@ -64,7 +64,7 @@ export default function EclecticQbit() {
           <P2
             style={{ textShadow: "2px 2px 2px black" }}
             translationPath="eclecticQbit/p1"
-            className="text-yellow font-bold"
+            className="text-yellow"
           />
         </div>
       </div>

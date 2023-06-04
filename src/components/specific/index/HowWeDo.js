@@ -18,8 +18,8 @@ export default function HowWeDo() {
           <H4 translationPath="howWeDo/title/p1" />
           <H3 translationPath="howWeDo/title/p2" />
         </MouseMoveGradient>
-        <div className="relative flex flex-col mx-[5%] items-center justify-center lowercase gap-1">
-          <ShowOnHover>
+        <div className="relative flex flex-col mx-[5%] items-center justify-center lowercase gap-2">
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h1"
@@ -27,13 +27,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p1", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h2"
@@ -41,13 +41,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p2", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h3"
@@ -55,13 +55,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p3", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h4"
@@ -69,13 +69,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p4", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h5"
@@ -83,13 +83,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p5", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h6"
@@ -97,13 +97,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p6", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h7"
@@ -111,13 +111,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p7", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h8"
@@ -125,13 +125,13 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p8", type: "ref" }}
             />
           </ShowOnHover>
-          <ShowOnHover>
+          <ShowOnHover className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="howWeDo/h9"
@@ -139,7 +139,7 @@ export default function HowWeDo() {
             />
             <ConsoleEffect
               style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow font-bold"
+              className="text-yellow"
               additionalChar="_"
               placeholderChar="$ "
               content={{ content: "howWeDo/p9", type: "ref" }}
