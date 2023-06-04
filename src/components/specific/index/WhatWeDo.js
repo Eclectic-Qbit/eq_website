@@ -1,6 +1,5 @@
 import ConsoleEffect from "../../animations/ConsoleEffect";
 import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
-import ShowOnHover from "../../animations/ShowOnHover";
 import { H3, H4 } from "../../text/Headers";
 import { P1, P2, P4 } from "../../text/Paragraphs";
 
@@ -19,7 +18,7 @@ export default function WhatWeDo() {
       </div>
       <div className="relative flex justify-center">
         <div className="flex flex-wrap mt-4 gap-4 ml-[5%] mr-[10%] max-w-[130rem] lowercase">
-          <ShowOnHover className="grid gap-2">
+          <div className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 2px white" }}
               translationPath="whatWeDo/h2"
@@ -32,8 +31,8 @@ export default function WhatWeDo() {
               placeholderChar="$ "
               content={{ content: "whatWeDo/p2", type: "ref" }}
             />
-          </ShowOnHover>
-          <ShowOnHover className="grid gap-2">
+          </div>
+          <div className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="whatWeDo/h3"
@@ -46,8 +45,8 @@ export default function WhatWeDo() {
               placeholderChar="$ "
               content={{ content: "whatWeDo/p3", type: "ref" }}
             />
-          </ShowOnHover>
-          <ShowOnHover className="grid gap-2">
+          </div>
+          <div className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="whatWeDo/h4"
@@ -60,8 +59,8 @@ export default function WhatWeDo() {
               placeholderChar="$ "
               content={{ content: "whatWeDo/p4", type: "ref" }}
             />
-          </ShowOnHover>
-          <ShowOnHover className="grid gap-2">
+          </div>
+          <div className="grid gap-2">
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="whatWeDo/h5"
@@ -74,7 +73,7 @@ export default function WhatWeDo() {
               placeholderChar="$ "
               content={{ content: "whatWeDo/p5", type: "ref" }}
             />
-          </ShowOnHover>
+          </div>
         </div>
       </div>
     </div>

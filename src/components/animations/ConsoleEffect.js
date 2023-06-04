@@ -5,16 +5,18 @@ import { P2, P3, P4 } from "../text/Paragraphs";
 import settings from "@/frontendSettings";
 import LanguageContext from "@/contexts/LanguageContext";
 import { translateText } from "@/commonFrontend";
+import ScrollContext from "@/contexts/ScrollContext";
 
 export default function ConsoleEffect({
+  forceActive,
   delta,
   style,
   className,
   content,
-  active,
   additionalChar,
   placeholderChar,
   spanStyling,
+  children,
 }) {
   /* Fix the ghost cancellation - first noticed after lang translation */
   const { lang, setLang } = useContext(LanguageContext);
@@ -23,8 +25,11 @@ export default function ConsoleEffect({
   );
   const parsedPlaceholderChar = placeholderChar ? placeholderChar : "";
   const [value, setValue] = useState(parsedPlaceholderChar);
+  const [active, setActive] = useState(forceActive);
+  const ref = useRef(null);
   const lastTimeout = useRef(null);
   const parsedDelta = useRef(delta ? delta : 20);
+  const { scroll } = useContext(ScrollContext);
   const parsedContent = useMemo(() => {
     clearTimeout(lastTimeout.current);
     setValue(parsedPlaceholderChar);
@@ -41,12 +46,25 @@ export default function ConsoleEffect({
       translation = translation.join("\n");
     }
     return translation;
-  }, [content, lang, parsedPlaceholderChar]);
+  }, [lang, parsedPlaceholderChar, content.content, content.type]);
   useEffect(() => {
     if (window.innerWidth < settings.mobileView) {
       setParsedChar("");
     }
   }, []);
+  useEffect(() => {
+    setActive(forceActive);
+  }, [forceActive]);
+  useEffect(() => {
+    if (window.innerWidth < settings.mobileView) {
+      if (
+        ref.current.getBoundingClientRect().y <
+        window.innerHeight - window.innerHeight * 0.1
+      ) {
+        setActive(true);
+      }
+    }
+  }, [scroll]);
   useEffect(() => {
     if (active) {
       if (
@@ -69,10 +87,9 @@ export default function ConsoleEffect({
         const newStr = parsedValue + newChar + parsedChar;
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        lastTimeout.current = setTimeout(
-          () => setValue(newStr),
-          parsedDelta.current
-        );
+        lastTimeout.current = setTimeout(() => {
+          setValue(newStr);
+        }, parsedDelta.current);
       } else if (parsedChar) {
         const newStr =
           value.charAt(value.length - 1) === parsedChar
@@ -80,17 +97,18 @@ export default function ConsoleEffect({
             : value.slice(0, -1) + parsedChar;
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => setValue(newStr), 500);
+        lastTimeout.current = setTimeout(() => {
+          setValue(newStr);
+        }, 500);
       }
     } else {
       if (value.length > parsedPlaceholderChar.length) {
         const newStr = value.substring(0, value.length - 1);
         lastTimeout.current && clearTimeout(lastTimeout.current);
         lastTimeout.current = null;
-        lastTimeout.current = setTimeout(
-          () => setValue(newStr),
-          parsedDelta.current / 2
-        );
+        lastTimeout.current = setTimeout(() => {
+          setValue(newStr);
+        }, parsedDelta.current / 2);
       }
     }
   }, [
@@ -102,27 +120,35 @@ export default function ConsoleEffect({
     parsedPlaceholderChar.length,
   ]);
   return (
-    <div className={`relative ${className}`}>
-      <P4 className="relative invisible" style={style}>
-        {parsedContent.split("\n").map((el, i) => {
-          return (
-            <span key={i} style={spanStyling}>
-              {el}
-              <br />
-            </span>
-          );
-        })}
-      </P4>
-      <P4 className="absolute top-0 left-0" style={style}>
-        {value.split("\n").map((el, i) => {
-          return (
-            <span key={i} style={spanStyling}>
-              {el}
-              <br />
-            </span>
-          );
-        })}
-      </P4>
+    <div
+      ref={ref}
+      className={`relative ${className}`}
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(forceActive)}
+    >
+      <div>{children}</div>
+      <div className="relative">
+        <P4 className="relative invisible" style={style}>
+          {parsedContent.split("\n").map((el, i) => {
+            return (
+              <span key={i} style={spanStyling}>
+                {el}
+                <br />
+              </span>
+            );
+          })}
+        </P4>
+        <P4 className="absolute top-0 left-0" style={style}>
+          {value.split("\n").map((el, i) => {
+            return (
+              <span key={i} style={spanStyling}>
+                {el}
+                <br />
+              </span>
+            );
+          })}
+        </P4>
+      </div>
     </div>
   );
 }
