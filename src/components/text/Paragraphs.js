@@ -18,7 +18,20 @@ export function P1({ style, className, children, translationPath }) {
     </div>
   );
 }
-
+export function P1SP({ style, className, children, translationPath }) {
+  const { lang, setLang } = useContext(LanguageContext);
+  const props = className ? className : "";
+  return (
+    <div
+      style={style}
+      className={`${props} text-[1.25rem] xl:text-[2.25rem] md:text-[2rem] leading-none transition-all duration-300 ease-in`}
+    >
+      {shouldTranslate(children)
+        ? translateText(translationPath, lang)
+        : children}
+    </div>
+  );
+}
 export function P2({ style, className, children, translationPath }) {
   const { lang, setLang } = useContext(LanguageContext);
   const props = className ? className : "";
