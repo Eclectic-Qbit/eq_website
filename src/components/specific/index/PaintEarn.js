@@ -41,7 +41,7 @@ export default function PaintEarn() {
             content: `paintEarn/${selected ? selected : "artist"}`,
             type: "ref",
           }}
-          active={selected}
+          forceActive={selected !== null}
           spanStyling={{ backgroundColor: "#9500E9", lineHeight: "24px" }}
         />
       </div>
