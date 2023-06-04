@@ -42,7 +42,7 @@ function Card({ pos, val, active, onClick, won, reset }) {
       }}
     >
       <div
-        className="absolute top-0 left-0 w-full h-full text-center bg-white backface-hidden flex items-center justify-center"
+        className="absolute top-0 left-0 w-full h-full text-center bg-white flex items-center justify-center"
         style={{ backfaceVisibility: "hidden" }}
       >
         <div className="relative w-28 aspect-square">

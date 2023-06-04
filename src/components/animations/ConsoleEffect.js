@@ -123,16 +123,16 @@ export default function ConsoleEffect({
     <div
       ref={ref}
       className={`relative ${className}`}
-      onMouseEnter={() => setActive(true)}
+      onMouseEnter={() => setActive(forceActive !== undefined ? false : true)}
       onMouseLeave={() => setActive(forceActive)}
     >
       <div>{children}</div>
       <div className="relative">
-        <P4 className="relative invisible" style={style}>
+        <P4 className="invisible relative" style={style}>
           {parsedContent.split("\n").map((el, i) => {
             return (
               <span key={i} style={spanStyling}>
-                {el}
+                {parsedPlaceholderChar + el}
                 <br />
               </span>
             );
