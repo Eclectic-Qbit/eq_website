@@ -59,12 +59,6 @@ export default function Menu() {
           <CustomLink href="/">
             <P3 translationPath="menu/home" />
           </CustomLink>
-          <CustomLink href="/brojects">
-            <P3 translationPath="menu/brojects" />
-          </CustomLink>
-          <CustomLink href="/collabs">
-            <P3 translationPath="menu/collabs" />
-          </CustomLink>
           <CustomLink href="/squad">
             <P3 translationPath="menu/squad" />
           </CustomLink>
