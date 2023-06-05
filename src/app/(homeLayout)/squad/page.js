@@ -1,10 +1,17 @@
 "use client";
 
-import { finalMediaLink } from "@/commonFrontend";
 import { InstagramLogo, TwitterLogo } from "@/components/logos/BorderLogo";
 import { LinkedinLogo } from "@/components/logos/FullLogo";
 import { P1, P1SP, P2, P4 } from "@/components/text/Paragraphs";
 import Image from "next/image";
+import ImgTab from "../../../../public/images/team/4.png";
+import ImgEnry from "../../../../public/images/team/3.png";
+import ImgPipo from "../../../../public/images/team/6.png";
+import ImgAdi from "../../../../public/images/team/7.png";
+import ImgAxel from "../../../../public/images/team/1.png";
+import ImgAbra from "../../../../public/images/team/5.png";
+import ImgPari from "../../../../public/images/team/8.png";
+import ImgMilena from "../../../../public/images/team/9.png";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -28,12 +35,7 @@ function Card({ img, title, name, langs, social }) {
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="relative w-full aspect-square rounded-xl">
-            <Image
-              priority
-              src={finalMediaLink(`images/team/${img}`)}
-              alt={name}
-              fill
-            />
+            <Image priority src={img} alt={name} fill />
           </div>
           <div className="text-black font-bold w-full h-[3rem] sm:h-[4rem] flex items-center justify-center border-[0.25rem] border-solid border-black rounded-b-xl">
             <P1 className="uppercase">{name}</P1>
@@ -126,7 +128,7 @@ export default function Squad() {
   return (
     <div className="relative pt-32 pb-4 sm:pt-28 sm:pb-12 top-0 left-0 w-full h-full min-h-screen flex flex-wrap items-center justify-center gap-5">
       <Card
-        img="4.png"
+        img={ImgTab}
         name="Tabata"
         title="web3 pathfinder & vanguard of gaming real realms"
         social={[
@@ -138,7 +140,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇮🇹", "🇪🇸", "🇫🇷"]}
       />
       <Card
-        img="3.png"
+        img={ImgEnry}
         name="Enrico"
         title="code alchemist of digital domination"
         social={[
@@ -150,7 +152,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇮🇹"]}
       />
       <Card
-        img="6.png"
+        img={ImgPipo}
         name="Pipo"
         title="master of art & design dynamo"
         social={[
@@ -162,7 +164,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇪🇸"]}
       />
       <Card
-        img="7.png"
+        img={ImgAdi}
         name="Aditya"
         title="community spark & engagement virtuoso"
         social={[
@@ -174,7 +176,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇮🇳"]}
       />
       <Card
-        img="1.png"
+        img={ImgAxel}
         name="Axel"
         title="gaming maven & community stalwart"
         social={[
@@ -186,14 +188,14 @@ export default function Squad() {
         langs={["🇬🇧", "🇪🇸", "🇫🇷", "🇩🇪"]}
       />
       <Card
-        img="5.png"
+        img={ImgAbra}
         name="Abrayad"
         title="discord dominator & guild commander"
         social={[]}
         langs={["🇬🇧"]}
       />
       <Card
-        img="8.png"
+        img={ImgPari}
         name="Pariyeksh"
         title="partnerships prodigy & biz dev ace"
         social={[
@@ -205,7 +207,7 @@ export default function Squad() {
         langs={["🇮🇳", "🇬🇧"]}
       />
       <Card
-        img="9.png"
+        img={ImgMilena}
         name="Milena"
         title="social media whiz & storytelling innovator"
         social={[
