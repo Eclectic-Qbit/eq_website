@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
 import { H3, H4 } from "../../text/Headers";
 import { P2 } from "../../text/Paragraphs";
@@ -84,6 +84,12 @@ function PaintEarnImgs({ selected, setSelected }) {
 
 export default function PaintEarn() {
   const [selected, setSelected] = useState(null);
+  const lastSelected = useRef("artist");
+  useEffect(() => {
+    if (selected !== null) {
+      lastSelected.current = selected;
+    }
+  }, [selected]);
   return (
     <div className="relative flex items-center justify-center pb-[10vh]">
       <div className="grid gap-10 mx-[15%]">
@@ -115,7 +121,7 @@ export default function PaintEarn() {
           }}
           className="relative text-yellow w-full h-full"
           content={{
-            content: `paintEarn/${selected ? selected : "artist"}`,
+            content: `paintEarn/${selected ? selected : lastSelected.current}`,
             type: "ref",
           }}
           forceActive={selected !== null}
