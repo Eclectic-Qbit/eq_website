@@ -32,7 +32,6 @@ export default function ConsoleEffect({
   const parsedDelta = useRef(delta ? delta : 20);
   const { scroll } = useContext(ScrollContext);
   const parsedContent = useMemo(() => {
-    console.log("triggered");
     clearTimeout(lastTimeout.current);
     setValue(parsedPlaceholderChar);
     if (content.type === "raw") {

@@ -189,7 +189,6 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
     }); // Do not set willReadFrequently to true. It will make everything slower
     const startingDate = Date.now();
     callGenerateLayer(() => {
-      setDoneLoading(Date.now() - startingDate);
       lastWidth.current = canvasRef.current.width;
     });
   }, [DENSITY, callGenerateLayer, drawCircle, generateLayer]);

@@ -56,7 +56,7 @@ export default function Footer() {
         </div> */}
       </div>
       <div className="text-center">
-        <P3>eclecticqbit@gmail.com</P3>
+        <P3>ama@eclecticqbit.art</P3>
       </div>
     </div>
   );

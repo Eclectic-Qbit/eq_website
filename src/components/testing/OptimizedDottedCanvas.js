@@ -1,7 +1,8 @@
 import { useCallback, useContext, useEffect, useRef } from "react";
-import canvasData from "./canvas.json";
+import canvasData from "./parsedCanvas.json";
 import baseCanvasItems from "./canvasItems.json";
 import MouseContext from "@/contexts/MouseContext";
+import { downloadFile } from "@/commonFrontend";
 
 export default function OptimizedDottedCanvas() {
   const { position, setPosition, samplingDelta } = useContext(MouseContext);
@@ -19,6 +20,7 @@ export default function OptimizedDottedCanvas() {
     "#9500E9",
   ]);
   const CIRCLE = 20;
+  const DOWNLOAD_PARSED = false;
   // Draw a circle given some specs
   const drawCircle = useCallback((x, y, r, fill, blur, w, color, shadow) => {
     canvasContext.current.beginPath();
@@ -95,9 +97,31 @@ export default function OptimizedDottedCanvas() {
       parsedCanvasData.width,
       parsedCanvasData.height
     );
-    const pixelData = new Uint8ClampedArray(
-      Object.values(parsedCanvasData.data)
-    );
+    const finalData = {};
+    if (DOWNLOAD_PARSED) {
+      Object.keys(parsedCanvasData.data).forEach((key) => {
+        if (parsedCanvasData.data[key] === 0) {
+          delete parsedCanvasData.data[key];
+        }
+      });
+      const parsedObj = {
+        height: parsedCanvasData.height,
+        width: parsedCanvasData.width,
+        data: parsedCanvasData.data,
+      };
+      const json = JSON.stringify(parsedObj);
+      const blob = new Blob([json], { type: "application/json" });
+      downloadFile(blob);
+    }
+    for (
+      let i = 0;
+      i < parsedCanvasData.width * parsedCanvasData.height * 4;
+      i++
+    ) {
+      const val = parsedCanvasData.data[i];
+      finalData[i] = val ? val : 0;
+    }
+    const pixelData = new Uint8ClampedArray(Object.values(finalData));
     imageData.data.set(pixelData);
     // Repeat the texture and logic points until the screen is covered
     for (
@@ -127,7 +151,7 @@ export default function OptimizedDottedCanvas() {
     }
 
     lastW.current = newW;
-  }, []);
+  }, [DOWNLOAD_PARSED]);
   useEffect(() => {
     const date = Date.now();
     posticipateTimeouts();
