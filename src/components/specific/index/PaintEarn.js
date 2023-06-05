@@ -3,10 +3,11 @@ import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
 import { H3, H4 } from "../../text/Headers";
 import { P2 } from "../../text/Paragraphs";
 import ConsoleEffect from "../../animations/ConsoleEffect";
-import { finalMediaLink } from "@/commonFrontend";
 import { P1 } from "@/components/text/Paragraphs";
 import settings from "@/frontendSettings";
 import Image from "next/image";
+import Img1 from "../../../../public/images/danteArtist.png";
+import Img2 from "../../../../public/images/danteStartupper.png";
 
 function PaintEarnImgs({ selected, setSelected }) {
   const [hovering, setHovering] = useState(null);
@@ -37,7 +38,7 @@ function PaintEarnImgs({ selected, setSelected }) {
             className={`rounded-full cursor-none ${
               selected === "artist" ? " border-4" : "border-0"
             } border-solid border-white transition-all duration-150`}
-            src={finalMediaLink("images/danteArtist.png")}
+            src={Img1}
             alt="Artist"
             fill
           />
@@ -70,7 +71,7 @@ function PaintEarnImgs({ selected, setSelected }) {
             className={`rounded-full cursor-none ${
               selected === "startupper" ? " border-4" : "border-0"
             } border-solid border-white transition-all duration-150`}
-            src={finalMediaLink("images/danteStartupper.png")}
+            src={Img2}
             alt="Startupper"
             fill
           />

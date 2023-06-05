@@ -7,13 +7,6 @@ export function shouldTranslate(string) {
   }
   return false;
 }
-export function finalMediaLink(path) {
-  return `${
-    REFER_TO_GITHUB
-      ? `https://raw.githubusercontent.com/Eclectic-Qbit/eq_website/main/public/${path}`
-      : path
-  }`;
-}
 export function translateText(translationPath, lang) {
   let lastVal = translations;
   const splitted = translationPath.split("/");

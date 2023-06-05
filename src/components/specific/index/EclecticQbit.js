@@ -3,9 +3,9 @@ import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
 import { H1, H2, H3, H5, H6, H7, H8, H9 } from "../../text/Headers";
 import { P1, P2, P3, P4 } from "../../text/Paragraphs";
 import Image from "next/image";
+import ImgDante from "../../../../public/images/latestDante.jpg";
 import { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "@/contexts/ScrollContext";
-import { finalMediaLink } from "@/commonFrontend";
 import settings from "@/frontendSettings";
 
 export default function EclecticQbit() {
@@ -39,7 +39,7 @@ export default function EclecticQbit() {
             target="_blank"
           >
             <Image
-              src={finalMediaLink("images/latestDante.jpg")}
+              src={ImgDante}
               fill
               sizes="100%"
               priority

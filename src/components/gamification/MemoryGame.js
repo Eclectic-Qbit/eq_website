@@ -1,6 +1,15 @@
 "use client";
-import { finalMediaLink, translateText } from "@/commonFrontend";
 import Image from "next/image";
+import ImgBlackLogo from "../../../public/images/blackLogo.png";
+import ImgTab from "../../../public/images/team/4.png";
+import ImgEnry from "../../../public/images/team/3.png";
+import ImgPipo from "../../../public/images/team/6.png";
+import ImgAdi from "../../../public/images/team/7.png";
+import ImgAxel from "../../../public/images/team/1.png";
+import ImgAbra from "../../../public/images/team/5.png";
+import ImgPari from "../../../public/images/team/8.png";
+import ImgMilena from "../../../public/images/team/9.png";
+import ImgDante from "../../../public/images/squaredDante.jpg";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { H1, H5 } from "../text/Headers";
 import { P1 } from "../text/Paragraphs";
@@ -12,7 +21,7 @@ import { P1 } from "../text/Paragraphs";
     - Translations
 */
 
-function Card({ pos, val, active, onClick, won, reset }) {
+function Card({ pos, img, active, onClick, won, reset }) {
   const [state, setState] = useState(!won ? "hidden" : "visible");
   const changeState = useCallback(() => {
     if (state === "hidden") {
@@ -46,7 +55,7 @@ function Card({ pos, val, active, onClick, won, reset }) {
         style={{ backfaceVisibility: "hidden" }}
       >
         <div className="relative w-28 aspect-square">
-          <Image src={finalMediaLink("images/blackLogo.png")} alt="Logo" fill />
+          <Image src={ImgBlackLogo} alt="Logo" fill />
         </div>
       </div>
       <div
@@ -55,20 +64,23 @@ function Card({ pos, val, active, onClick, won, reset }) {
         } transition-all duration-150 ease-in`}
         style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
       >
-        <Image
-          src={finalMediaLink(
-            val.type === "base" ? `images/team/${val.val}.png` : val.val
-          )}
-          alt=""
-          fill
-        />
+        <Image src={img} alt="" fill />
       </div>
     </div>
   );
 }
 export default function MemoryGame() {
-  const N_CARDS = 9; // Number of (single) memory cards
-  const SPEC_CARDS = useRef(["/images/squaredDante.jpg"]); // Special images
+  const CARDS_ARR = useRef([
+    ImgTab,
+    ImgEnry,
+    ImgPipo,
+    ImgAdi,
+    ImgAxel,
+    ImgAbra,
+    ImgPari,
+    ImgMilena,
+    ImgDante,
+  ]); // Array of card immages
   const streak = useRef(0); // Current user streak
   const started = useRef(0); // Starting date - from first click
   const duration = useRef(0); // Duration of the game rounded to second digit
@@ -80,28 +92,18 @@ export default function MemoryGame() {
   const [finalWin, setFinalWin] = useState(false); // True when the user will have won the game
   const generateCards = useCallback(() => {
     const arr = [];
-    for (let i = 1; i <= N_CARDS; i++) {
-      arr.push(i);
-      arr.push(i);
+    for (let i = 1; i <= CARDS_ARR.current.length; i++) {
+      arr.push(CARDS_ARR.current[i]);
+      arr.push(CARDS_ARR.current[i]);
     }
     const finalArr = [];
     while (arr.length > 0) {
       const rand = Math.floor(Math.random() * arr.length);
-      finalArr.push({ type: "base", val: arr[rand] });
+      finalArr.push(arr[rand]);
       arr.splice(rand, 1);
     }
-    for (let i = 0; i < SPEC_CARDS.current.length; i++) {
-      finalArr.splice(Math.floor(Math.random() * finalArr.length), 0, {
-        type: "specific",
-        val: SPEC_CARDS.current[i],
-      });
-      finalArr.splice(Math.floor(Math.random() * finalArr.length), 0, {
-        type: "specific",
-        val: SPEC_CARDS.current[i],
-      });
-    }
     return finalArr;
-  }, []);
+  }, [CARDS_ARR]);
   const newGame = useCallback(() => {
     // Reset old the state of the game
     started.current = 0;
