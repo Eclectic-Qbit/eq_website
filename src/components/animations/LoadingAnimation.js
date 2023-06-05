@@ -88,7 +88,7 @@ export default function LoadingAnimation({
       });
       setOffset(newArr);
     }
-  }, [elements]);
+  }, [elements, forceFade]);
   useEffect(() => {
     if (!forceFade) {
       for (let i = 0; i < currentTimeouts.current.length; i++) {

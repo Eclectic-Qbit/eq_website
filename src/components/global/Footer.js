@@ -32,7 +32,7 @@ export default function Footer() {
               <P3 translationPath="menu/home" />
             </CustomLink>
           </div>
-          <div className="w-min">
+          {/* <div className="w-min">
             <CustomLink href="/brojects">
               <P3 translationPath="menu/brojects" />
             </CustomLink>
@@ -41,17 +41,19 @@ export default function Footer() {
             <CustomLink href="/collabs">
               <P3 translationPath="menu/collabs" />
             </CustomLink>
-          </div>
+          </div> */}
+
           <div className="w-min">
             <CustomLink href="/squad">
               <P3 translationPath="menu/squad" />
             </CustomLink>
           </div>
         </div>
-        <P3 className="font-extrabold uppercase w-max -rotate-90 sm:rotate-0 -translate-x-[25%] sm:translate-x-[0%]">
-          By <br /> <span className="underline">Eclectic Qbit</span> <br />
-          With Love
-        </P3>
+        <div className="font-extrabold uppercase w-max -rotate-90 sm:rotate-0 -translate-x-[25%] sm:translate-x-[0%]">
+          <CustomLink href="privacy">
+            <P3>Privacy</P3>
+          </CustomLink>
+        </div>
       </div>
       <div className="text-center">
         <P3>eclecticqbit@gmail.com</P3>
