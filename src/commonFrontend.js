@@ -1,7 +1,6 @@
 import settings from "./frontendSettings";
 import translations from "./translations";
-const REFER_TO_GITHUB = true;
-
+const REFER_TO_GITHUB = false;
 export function shouldTranslate(string) {
   if (string === null || string === undefined) {
     return true;
