@@ -85,12 +85,12 @@ export default function Home() {
             <WhatWeDo />
           </div>
           <div className="relative">
-            <div className="absolute bottom-0 right-[0vw] w-min h-min overflow-hidden">
-              <GridCanvas w={400} h={400} cols={10} rows={10} />
-            </div>
             <HowWeDo />
           </div>
           <div>
+            <div className="absolute bottom-0 right-[0vw] w-min h-min overflow-hidden">
+              <GridCanvas w={400} h={400} cols={10} rows={10} />
+            </div>
             <PaintEarn />
           </div>
         </div>

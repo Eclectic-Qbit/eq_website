@@ -20,6 +20,7 @@ export default function HowWeDo() {
         <div className="relative flex flex-col mx-[5%] items-center justify-start lowercase gap-2">
           <div className="grid gap-2 w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -35,6 +36,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2  w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -50,6 +52,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2  w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -65,6 +68,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2 w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -80,6 +84,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2 w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -95,6 +100,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2 w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -110,6 +116,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2 w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -125,6 +132,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2 w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"
@@ -140,6 +148,7 @@ export default function HowWeDo() {
           </div>
           <div className="grid gap-2 w-full h-full">
             <ConsoleEffect
+              onHover
               style={{ textShadow: "2px 2px 2px black" }}
               className="text-yellow grid gap-2"
               additionalChar="_"

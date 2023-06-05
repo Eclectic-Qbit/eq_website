@@ -19,6 +19,7 @@ export default function WhatWeDo() {
       <div className="relative flex justify-center">
         <div className="flex flex-wrap mt-4 gap-4 ml-[5%] mr-[10%] max-w-[130rem] lowercase">
           <ConsoleEffect
+            onHover
             style={{ textShadow: "2px 2px 2px black" }}
             className="text-yellow grid gap-2"
             additionalChar="_"
@@ -31,48 +32,48 @@ export default function WhatWeDo() {
               className="text-purple font-bold uppercase"
             />
           </ConsoleEffect>
-          <div className="grid gap-2">
+          <ConsoleEffect
+            onHover
+            style={{ textShadow: "2px 2px 2px black" }}
+            className="text-yellow grid gap-2"
+            additionalChar="_"
+            placeholderChar="$ "
+            content={{ content: "whatWeDo/p3", type: "ref" }}
+          >
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="whatWeDo/h3"
               className="text-purple font-bold uppercase"
             />
-            <ConsoleEffect
-              style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow"
-              additionalChar="_"
-              placeholderChar="$ "
-              content={{ content: "whatWeDo/p3", type: "ref" }}
-            />
-          </div>
-          <div className="grid gap-2">
+          </ConsoleEffect>
+          <ConsoleEffect
+            onHover
+            style={{ textShadow: "2px 2px 2px black" }}
+            className="text-yellow grid gap-2"
+            additionalChar="_"
+            placeholderChar="$ "
+            content={{ content: "whatWeDo/p4", type: "ref" }}
+          >
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="whatWeDo/h4"
               className="text-purple font-bold uppercase"
             />
-            <ConsoleEffect
-              style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow"
-              additionalChar="_"
-              placeholderChar="$ "
-              content={{ content: "whatWeDo/p4", type: "ref" }}
-            />
-          </div>
-          <div className="grid gap-2">
+          </ConsoleEffect>
+          <ConsoleEffect
+            onHover
+            style={{ textShadow: "2px 2px 2px black" }}
+            className="text-yellow grid gap-2"
+            additionalChar="_"
+            placeholderChar="$ "
+            content={{ content: "whatWeDo/p5", type: "ref" }}
+          >
             <P2
               style={{ textShadow: "1px 1px 1px white" }}
               translationPath="whatWeDo/h5"
               className="text-purple font-bold uppercase"
             />
-            <ConsoleEffect
-              style={{ textShadow: "2px 2px 2px black" }}
-              className="text-yellow"
-              additionalChar="_"
-              placeholderChar="$ "
-              content={{ content: "whatWeDo/p5", type: "ref" }}
-            />
-          </div>
+          </ConsoleEffect>
         </div>
       </div>
     </div>

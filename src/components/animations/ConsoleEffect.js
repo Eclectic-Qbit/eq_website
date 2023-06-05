@@ -4,10 +4,11 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { P2, P3, P4 } from "../text/Paragraphs";
 import settings from "@/frontendSettings";
 import LanguageContext from "@/contexts/LanguageContext";
-import { translateText } from "@/commonFrontend";
+import { isDesktop, translateText } from "@/commonFrontend";
 import ScrollContext from "@/contexts/ScrollContext";
 
 export default function ConsoleEffect({
+  onHover,
   forceActive,
   delta,
   style,
@@ -31,6 +32,7 @@ export default function ConsoleEffect({
   const parsedDelta = useRef(delta ? delta : 20);
   const { scroll } = useContext(ScrollContext);
   const parsedContent = useMemo(() => {
+    console.log("triggered");
     clearTimeout(lastTimeout.current);
     setValue(parsedPlaceholderChar);
     if (content.type === "raw") {
@@ -123,8 +125,8 @@ export default function ConsoleEffect({
     <div
       ref={ref}
       className={`relative ${className}`}
-      onMouseEnter={() => setActive(forceActive !== undefined ? false : true)}
-      onMouseLeave={() => setActive(forceActive)}
+      onMouseEnter={() => onHover && isDesktop(innerWidth) && setActive(true)}
+      onMouseLeave={() => onHover && isDesktop(innerWidth) && setActive(false)}
     >
       <div>{children}</div>
       <div className="relative">
