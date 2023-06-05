@@ -49,11 +49,11 @@ export default function Footer() {
             </CustomLink>
           </div>
         </div>
-        <div className="font-extrabold uppercase w-max -rotate-90 sm:rotate-0 -translate-x-[25%] sm:translate-x-[0%]">
+        {/* <div className="w-max -rotate-90 sm:rotate-0 -translate-x-[25%] sm:translate-x-[0%]">
           <CustomLink href="privacy">
-            <P3>Privacy</P3>
+            <P3>privacy</P3>
           </CustomLink>
-        </div>
+        </div> */}
       </div>
       <div className="text-center">
         <P3>eclecticqbit@gmail.com</P3>
