@@ -16,7 +16,6 @@ export default function LoadingAnimation({
   delay,
   elements,
   coeffs,
-  forceFade,
   onFade,
 }) {
   const FADE_DURATION = delay ? delay : 1000;
@@ -42,6 +41,7 @@ export default function LoadingAnimation({
       return { x: -10000, y: 10000 };
     })
   );
+  const settedOffsets = useRef(false);
   const { position } = useContext(MouseContext);
   // Fade
   const fade = useCallback(() => {
@@ -64,11 +64,6 @@ export default function LoadingAnimation({
       fade();
     }
   }, [fade]);
-  // If the forceFade attribute is passed, fade
-  useEffect(() => {
-    cancelTimeouts();
-    forceFade && fade();
-  }, [cancelTimeouts, fade, forceFade]);
   // Start to move items istantly
   useEffect(() => {
     if (!hide.perma && !hide.temp) {
@@ -86,7 +81,7 @@ export default function LoadingAnimation({
   }, [handleResize]);
   // Elements position
   useEffect(() => {
-    if (!hide.perma && !hide.temp) {
+    if (!hide.perma && !hide.temp && !settedOffsets.current) {
       const width = window.innerWidth;
       const height = window.innerHeight;
       const px =
@@ -102,6 +97,7 @@ export default function LoadingAnimation({
         };
       });
       setOffset(newArr);
+      settedOffsets.current = true;
     }
   }, [elements, hide.perma, hide.temp]);
   // Start moving when view is updated

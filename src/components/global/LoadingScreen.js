@@ -45,7 +45,6 @@ export default function LoadingScreen() {
           coeffs={[1, 1.5, 2.25]}
           delay={1000}
           className="z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center text-white"
-          forceFade={false}
           onFade={onFade}
         />
       ) : (
