@@ -5,6 +5,7 @@ import LoadingAnimation from "../animations/LoadingAnimation";
 import { H3, H4 } from "../text/Headers";
 import { usePathname, useSearchParams } from "next/navigation";
 import CurrentPageContext from "@/contexts/CurrentPageContext";
+import { isDesktop } from "@/commonFrontend";
 
 export default function LoadingScreen() {
   // On page change
@@ -19,7 +20,8 @@ export default function LoadingScreen() {
   }
   useEffect(() => {
     const cookie = JSON.parse(sessionStorage.getItem("loaded"));
-    const bool = !alreadyLoaded.current && !cookie;
+    const bool =
+      !alreadyLoaded.current && !cookie && isDesktop(window.innerWidth);
     setShow(bool);
     alreadyLoaded.current = true;
   }, []);
