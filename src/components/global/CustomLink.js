@@ -1,8 +1,12 @@
+"use client";
+import CurrentPageContext from "@/contexts/CurrentPageContext";
 import Link from "next/link";
+import { useContext } from "react";
 
 export default function CustomLink({ className, children, href, blank }) {
+  const { page, setPage } = useContext(CurrentPageContext);
   return (
-    <div className="relative group">
+    <div className="relative group" onClick={() => setPage(href)}>
       <Link
         className={`${className ? className : ""} cursor-none`}
         href={href}

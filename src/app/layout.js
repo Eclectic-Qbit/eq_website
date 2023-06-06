@@ -1,3 +1,4 @@
+import CurrentPageProvider from "@/providers/CurrentPageProvider";
 import "./globals.css";
 import LanguageProvider from "@/providers/LanguageProvider";
 import MouseProvider from "@/providers/MouseProvider";
@@ -17,7 +18,9 @@ export default function RootLayout({ children }) {
       <body>
         <LanguageProvider>
           <MouseProvider>
-            <ScrollProvider>{children}</ScrollProvider>
+            <ScrollProvider>
+              <CurrentPageProvider>{children}</CurrentPageProvider>
+            </ScrollProvider>
           </MouseProvider>
         </LanguageProvider>
       </body>
