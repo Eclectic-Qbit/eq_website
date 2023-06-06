@@ -45,7 +45,7 @@ const translations = {
         <span>
           eclectic qbit, llevas el modus operandi de los qbits a web3, con un
           giro IT&apos;S A ME con la naturaleza como nuestra principal
-          inspiración, al igual que los hongos, intercambiamos nutrientes y
+          inspiración, al igual que los hongos 🍄, intercambiamos nutrientes y
           otros recursos dentro y fuera del espacio web3
         </span>
       ),
@@ -109,7 +109,7 @@ const translations = {
           incentivize engagement, making your troops stand out from the crowd
           and become stars players. <br /> our strong network, will connect you
           with the right communities and resources to reach a state of
-          superposition, interacting in ways that defy classical web3
+          superposition, interacting in ways that defy classical web3 🔥🕹️🚀
         </span>
       ),
       es: (
@@ -384,12 +384,12 @@ const translations = {
     },
     h2: {
       en: <span>😎 Today I vibe like</span>,
-      es: <span>HOY VIBRO COMO</span>,
+      es: <span>😎 Hoy vibro como</span>,
     },
-    p1: { en: <span>🎨 Artist</span>, es: <span>Artista</span> },
+    p1: { en: <span>🎨 Artist</span>, es: <span>🎨 Artista</span> },
     p2: {
       en: <span>💼 Startupper</span>,
-      es: <span>Marketing Callejero</span>,
+      es: <span>💼 Marketing Callejero</span>,
     },
     artist: {
       en: (
