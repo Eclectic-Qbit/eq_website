@@ -31,6 +31,20 @@ export function H2({ style, className, children, translationPath }) {
     </div>
   );
 }
+export function H2SP({ style, className, children, translationPath }) {
+  const { lang, setLang } = useContext(LanguageContext);
+  const props = className ? className : "";
+  return (
+    <div
+      style={style}
+      className={`${props} text-[4rem] xl:text-[10.5rem] md:text-[6.5rem] leading-none transition-all duration-300 ease-in`}
+    >
+      {shouldTranslate(children)
+        ? translateText(translationPath, lang)
+        : children}
+    </div>
+  );
+}
 export function H3({ style, className, children, translationPath }) {
   const { lang, setLang } = useContext(LanguageContext);
   const props = className ? className : "";

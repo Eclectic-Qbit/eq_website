@@ -10,7 +10,7 @@ import LogoLink from "./LogoLink";
 export default function Footer() {
   return (
     <div className="border-t-2 border-solid border-white py-10">
-      <div className="grid grid-cols-3 w-full h-full gap-[5%] items-center text-center">
+      <div className="flex flex-wrap w-full h-full gap-[5%] justify-around items-center text-center">
         <div className="flex justify-center items-center gap-2 scale-[0.8]">
           <LogoLink href="https://discord.gg/8J3SXwUn7C">
             <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
