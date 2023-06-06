@@ -9,7 +9,7 @@ import LogoLink from "./LogoLink";
 
 export default function Footer() {
   return (
-    <div className="border-t-2 border-solid border-white py-4">
+    <div className="border-t-2 border-solid border-white py-10">
       <div className="grid grid-cols-3 w-full h-full gap-[5%] items-center text-center">
         <div className="flex justify-center items-center gap-2 scale-[0.8]">
           <LogoLink href="https://discord.gg/8J3SXwUn7C">
@@ -21,7 +21,7 @@ export default function Footer() {
           <LogoLink href="https://www.reddit.com/user/Eclecticqbit/">
             <RedditLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>
-          <LogoLink href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y=">
+          <LogoLink href="https://www.instagram.com/Eclecticqbit.art/">
             <InstagramLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>
           <LogoLink href="https://t.me/eclecticqbit">
