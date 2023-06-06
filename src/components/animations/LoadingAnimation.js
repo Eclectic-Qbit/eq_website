@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import MouseContext from "@/contexts/MouseContext";
-import settings from "@/frontendSettings";
+import { isDesktop } from "@/commonFrontend";
 
 export default function LoadingAnimation({
   className,
@@ -30,6 +30,7 @@ export default function LoadingAnimation({
         })
   );
   const currentTimeouts = useRef([]);
+  const viewTimeout = useRef(null);
   const [pp, setPp] = useState({ x: 0, y: 0 });
   const [view, setView] = useState(false);
   const [hide, setHide] = useState({
@@ -42,6 +43,7 @@ export default function LoadingAnimation({
     })
   );
   const { position } = useContext(MouseContext);
+  // Fade
   const fade = useCallback(() => {
     setHide({ temp: true, perma: false });
     setTimeout(() => {
@@ -49,29 +51,42 @@ export default function LoadingAnimation({
       onFade && onFade();
     }, [FADE_DURATION]);
   }, [FADE_DURATION, onFade]);
+  // Cancel Existing Timeouts
+  const cancelTimeouts = useCallback(() => {
+    viewTimeout.current && clearTimeout(viewTimeout.current);
+    for (let i = 0; i < currentTimeouts.current.length; i++) {
+      clearTimeout(currentTimeouts.current[i]);
+    }
+  }, []);
+  // If Mobile, resize
   const handleResize = useCallback(() => {
-    if (window.innerWidth <= settings.mobileView) {
+    if (!isDesktop(innerWidth)) {
       fade();
     }
   }, [fade]);
+  // If the forceFade attribute is passed, fade
   useEffect(() => {
-    setTimeout(() => {
-      setView(true);
-    }, FADE_DURATION / 2);
-  }, [FADE_DURATION]);
+    cancelTimeouts();
+    forceFade && fade();
+  }, [cancelTimeouts, fade, forceFade]);
+  // Start to move items istantly
   useEffect(() => {
-    if (forceFade) {
-      fade();
-    } else {
-      document.addEventListener("resize", handleResize);
-      handleResize();
+    if (!hide.perma && !hide.temp) {
+      viewTimeout.current = setTimeout(() => {
+        setView(true);
+      }, 100);
     }
-    return () => {
-      document.removeEventListener("resize", handleResize);
-    };
-  }, [handleResize, fade, forceFade]);
+  }, [hide.perma, hide.temp]);
+  // Add event listener for resizing
   useEffect(() => {
-    if (!forceFade) {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
+  // Elements position
+  useEffect(() => {
+    if (!hide.perma && !hide.temp) {
       const width = window.innerWidth;
       const height = window.innerHeight;
       const px =
@@ -88,30 +103,27 @@ export default function LoadingAnimation({
       });
       setOffset(newArr);
     }
-  }, [elements, forceFade]);
+  }, [elements, hide.perma, hide.temp]);
+  // Start moving when view is updated
   useEffect(() => {
-    if (!forceFade) {
-      for (let i = 0; i < currentTimeouts.current.length; i++) {
-        clearTimeout(currentTimeouts.current[i]);
-      }
+    if (!hide.perma && !hide.temp && view) {
+      cancelTimeouts();
       const newArr = [...offset];
       for (let i = 1; i <= newArr.length; i++) {
-        const newTimeout = setTimeout(
-          () => {
-            setOffset((prevOffset) => {
-              const updatedOffset = [...prevOffset];
-              updatedOffset[i - 1] = { x: 0, y: 0 };
-              return updatedOffset;
-            });
-          },
-          view ? (FADE_DURATION * i) / newArr.length : 99999
-        );
-        currentTimeouts.current.push(newTimeout);
+        if (offset[i - 1].x !== 0 || offset[i - 1].y !== 0) {
+          const newTimeout = setTimeout(() => {
+            const updatedOffset = [...offset];
+            updatedOffset[i - 1] = { x: 0, y: 0 };
+            setOffset(updatedOffset);
+          }, (FADE_DURATION * i) / newArr.length);
+          currentTimeouts.current.push(newTimeout);
+        }
       }
     }
-  }, [view, FADE_DURATION]);
+  }, [view, FADE_DURATION, offset, hide.perma, hide.temp, cancelTimeouts]);
+  // Mouse position
   useEffect(() => {
-    if (!forceFade) {
+    if (!hide.perma && !hide.temp) {
       if (mouseEntered.current) {
         setPp({
           x: (position.clientX - window.innerWidth / 2) * 0.1,
@@ -119,15 +131,18 @@ export default function LoadingAnimation({
         });
       }
     }
-  }, [position]);
+  }, [hide.perma, hide.temp, position]);
   return (
     <>
       {!hide.perma && (
         <div
           onClick={fade}
-          className={`${hide.temp ? "opacity-0" : "opacity-1"} ${className}`}
+          className={`${
+            hide.temp ? "opacity-0" : "opacity-1"
+          } ${className} transition-all ease-in`}
+          style={{ transitionDuration: `${FADE_DURATION}ms` }}
         >
-          <div className="flex flex-col gap-16 sm:gap-0 w-full">
+          <div className="flex flex-col gap-0 w-full">
             <div ref={ref} onMouseEnter={() => (mouseEntered.current = true)}>
               {elements.map((el, i) => {
                 return (
@@ -143,7 +158,7 @@ export default function LoadingAnimation({
                       style: {
                         transform: `translate3d(${offset[i].x}px, ${offset[i].y}px,0px)`,
                       },
-                      className: `relative text-8xl text-center w-full uppercase py-2 transition-all duration-1000 ease-in font-extrabold`,
+                      className: `relative text-8xl text-center w-full uppercase py-2 font-extrabold`,
                     })}
                   </div>
                 );
