@@ -3,6 +3,18 @@ const translations = {
     it: <span>Niente panico, italiano in arrivo!</span>,
     fr: <span>Pas de panique, le français arrive!</span>,
   },
+  general: {
+    accept: {
+      en: <span>accept</span>,
+      es: <span>aceptar</span>,
+      it: <span>accetta</span>,
+    },
+    refuse: {
+      en: <span>refuse</span>,
+      es: <span>rechazar</span>,
+      it: <span>rifiuta</span>,
+    },
+  },
   menu: {
     home: { en: <span>home</span>, it: <span>home</span> },
     brojects: { en: <span>brojects</span>, it: <span>progetti</span> },
@@ -473,6 +485,376 @@ const translations = {
           🌟💰
         </span>
       ),
+    },
+  },
+  squad: {
+    tabata: {
+      en: <span>web3 pathfinder & vanguard of gaming real realms</span>,
+      es: (
+        <span>
+          exploradora de web3 y vanguardia de los verdaderos reinos del gaming
+        </span>
+      ),
+      it: (
+        <span>esploratrice web3 & difenditrice dei regni reali del gaming</span>
+      ),
+    },
+    enrico: {
+      en: <span>code alchemist of digital domination</span>,
+      es: <span>alquimista del código del dominio digital</span>,
+      it: <span>alchimista del codice del dominio digitale</span>,
+    },
+    pipo: {
+      en: <span>master of art & design dynamo</span>,
+      es: <span>maestro del arte y dinamo del diseño grafico</span>,
+      it: <span>maestro dell&apos;arte e dinamo del design</span>,
+    },
+    aditya: {
+      en: <span>community spark & engagement virtuoso</span>,
+      es: <span>chispa de la comunidad y virtuoso del compromiso</span>,
+      it: (
+        <span>scintilla della comunità e virtuoso dell&apos;interazione</span>
+      ),
+    },
+    axel: {
+      en: <span>gaming maven & community stalwart</span>,
+      es: <span>maestro en gaming y pilar de la comunidad</span>,
+      it: <span>campione del gaming & baluardo della comunità</span>,
+    },
+    abrayad: {
+      en: <span>discord dominator & guild commander </span>,
+      es: <span>dominador de Discord y condotiero de la guild</span>,
+      it: <span>dominatore di discord & condottiero delle truppe</span>,
+    },
+    pariyeksh: {
+      en: <span>partnerships prodigy & biz dev ace</span>,
+      es: <span>prodigio de alianzas y as de desarrollo empresarial</span>,
+      it: <span>prodigio delle collaborazioni & asso del biz dev </span>,
+    },
+    milena: {
+      en: <span>social media whiz & storytelling innovator</span>,
+      es: (
+        <span>hechicera de las redes sociales e innovadora en narración</span>
+      ),
+      it: <span>maga dei social media & innovatrice della narrazione</span>,
+    },
+  },
+  privacy: {
+    cookies: {
+      en: (
+        <span>
+          we use cookies to enhance your digital experience and level up your
+          browsing adventure. by accepting our cookie quest, you provide consent
+          of their usage. explore our privacy policy to learn more about how we
+          handle your data during this epic journey.
+        </span>
+      ),
+      es: (
+        <span>
+          Utilizamos cookies para mejorar tu experiencia digital y llevar tu
+          aventura de navegación al siguiente nivel. Al aceptar nuestra búsqueda
+          de cookies, otorgas tu consentimiento para su uso. Explora nuestra
+          política de privacidad para obtener más información sobre cómo
+          manejamos tus datos durante este viaje épico.
+        </span>
+      ),
+      it: (
+        <span>
+          Utilizziamo i cookie per migliorare la tua esperienza digitale e
+          rendere la tua avventura di navigazione ancora più coinvolgente.
+          Accettando la nostra missione dei cookie, fornisci il consenso al loro
+          utilizzo. Esplora la nostra informativa sulla privacy per saperne di
+          più su come gestiamo i tuoi dati durante questo epico viaggio.
+        </span>
+      ),
+    },
+    privacy: {
+      title: {
+        en: <span>Privacy Policy</span>,
+        es: <span>Política de privacidad</span>,
+        it: <span>Informativa sulla privacy</span>,
+      },
+      introduction: {
+        title: {
+          en: <span>Introduction</span>,
+          es: <span>Introducción:</span>,
+          it: <span>Introduzione:</span>,
+        },
+        body: {
+          en: (
+            <span>
+              At EclecticQbit, we value your privacy and are committed to
+              protecting your personal data. This Privacy Policy explains how we
+              collect, use, and store your information when you interact with
+              our website. Please take a moment to familiarize yourself with our
+              practices.
+            </span>
+          ),
+          es: (
+            <span>
+              En EclecticQbit, valoramos tu privacidad y nos comprometemos a
+              proteger tus datos personales. Esta Política de privacidad explica
+              cómo recopilamos, utilizamos y almacenamos tu información cuando
+              interactúas con nuestro sitio web. Por favor, tómate un momento
+              para familiarizarte con nuestras prácticas.
+            </span>
+          ),
+          it: (
+            <span>
+              A EclecticQbit, diamo valore alla tua privacy e ci impegniamo a
+              proteggere i tuoi dati personali. Questa Informativa sulla privacy
+              spiega come raccogliamo, utilizziamo e conserviamo le tue
+              informazioni quando interagisci con il nostro sito web. Ti
+              invitiamo a prenderti un momento per familiarizzare con le nostre
+              pratiche.
+            </span>
+          ),
+        },
+      },
+      dataCollection: {
+        title: {
+          en: <span>Data collection and usage</span>,
+          es: <span>Recopilación y uso de datos:</span>,
+          it: <span>Raccolta e utilizzo dei dati:</span>,
+        },
+        body: {
+          en: (
+            <span>
+              We only collect personal data that is necessary for providing you
+              with a seamless browsing experience and to fulfill any services
+              you may request. The types of data we may collect include:
+              <br />
+              Information You Provide: When you voluntarily submit information
+              through contact forms or registration processes, we collect and
+              store the data you provide.
+              <br />
+              Technical Information: We automatically collect certain technical
+              information when you visit our website, such as your IP address,
+              browser type, and operating system. This information is used for
+              website optimization and security purposes.
+              <br />
+              Cookies: We use essential cookies to ensure proper navigation and
+              settings on our website. These cookies do not track your personal
+              information or behavior for marketing purposes.
+            </span>
+          ),
+          es: (
+            <span>
+              Solo recopilamos datos personales necesarios para brindarte una
+              experiencia de navegación fluida y cumplir con los servicios que
+              solicites. Los tipos de datos que podemos recopilar incluyen:
+              <br />
+              Información que proporcionas: Cuando envías voluntariamente
+              información a través de formularios de contacto o procesos de
+              registro, recopilamos y almacenamos los datos que proporcionas.
+              <br />
+              Información técnica: Recopilamos automáticamente cierta
+              información técnica cuando visitas nuestro sitio web, como tu
+              dirección IP, tipo de navegador y sistema operativo. Esta
+              información se utiliza para la optimización y seguridad del sitio
+              web.
+              <br />
+              Cookies: Utilizamos cookies esenciales para garantizar una
+              navegación adecuada y configuración en nuestro sitio web. Estas
+              cookies no rastrean tu información personal ni tu comportamiento
+              con fines de marketing.
+            </span>
+          ),
+          it: (
+            <span>
+              Raccogliamo solo dati personali necessari per fornirti
+              un&apos;esperienza di navigazione senza interruzioni e per
+              soddisfare eventuali servizi che potresti richiedere. I tipi di
+              dati che potremmo raccogliere includono:
+              <br />
+              Informazioni fornite: Quando fornisci volontariamente informazioni
+              tramite moduli di contatto o processi di registrazione,
+              raccogliamo e archiviamo i dati che fornisci.
+              <br />
+              Informazioni tecniche: Raccogliamo automaticamente determinate
+              informazioni tecniche quando visiti il nostro sito web, come il
+              tuo indirizzo IP, il tipo di browser e il sistema operativo.
+              Queste informazioni vengono utilizzate per l&apos;ottimizzazione
+              del sito web e per scopi di sicurezza.
+              <br />
+              Cookie: Utilizziamo cookie essenziali per garantire una corretta
+              navigazione e impostazioni sul nostro sito web. Questi cookie non
+              tracciano le tue informazioni personali né il tuo comportamento a
+              scopo di marketing.
+            </span>
+          ),
+        },
+      },
+      dataSecurity: {
+        title: {
+          en: <span>Data security</span>,
+          es: <span>Seguridad de datos:</span>,
+          it: <span>Sicurezza dei dati:</span>,
+        },
+        body: {
+          en: (
+            <span>
+              We have implemented appropriate security measures to protect your
+              personal data from unauthorized access, alteration, disclosure, or
+              destruction. We regularly review and update our security practices
+              to ensure the ongoing safeguarding of your information.
+            </span>
+          ),
+          es: (
+            <span>
+              Hemos implementado medidas de seguridad adecuadas para proteger
+              tus datos personales contra el acceso no autorizado, la
+              alteración, la divulgación o la destrucción. Revisamos y
+              actualizamos regularmente nuestras prácticas de seguridad para
+              garantizar la protección continua de tu información.
+            </span>
+          ),
+          it: (
+            <span>
+              Abbiamo adottato misure di sicurezza adeguate per proteggere i
+              tuoi dati personali da accessi non autorizzati, modifiche,
+              divulgazioni o distruzioni. Revisioniamo e aggiorniamo
+              regolarmente le nostre pratiche di sicurezza per garantire la
+              tutela continua delle tue informazioni.
+            </span>
+          ),
+        },
+      },
+      dataRetention: {
+        title: {
+          en: <span>Data retention</span>,
+          es: <span>Retención de datos:</span>,
+          it: <span>Conservazione dei dati:</span>,
+        },
+        body: {
+          en: (
+            <span>
+              We retain your personal data for as long as necessary to fulfill
+              the purposes outlined in this Privacy Policy, unless a longer
+              retention period is required by law.
+            </span>
+          ),
+          es: (
+            <span>
+              Retenemos tus datos personales durante el tiempo necesario para
+              cumplir con los fines establecidos en esta Política de privacidad,
+              a menos que la ley requiera un período de retención más
+              prolongado.
+            </span>
+          ),
+          it: (
+            <span>
+              Conserviamo i tuoi dati personali per il tempo necessario a
+              soddisfare gli scopi indicati in questa Informativa sulla privacy,
+              a meno che un periodo di conservazione più lungo non sia richiesto
+              dalla legge.
+            </span>
+          ),
+        },
+      },
+      thidParty: {
+        title: {
+          en: <span>Third-Party services</span>,
+          es: <span>Servicios de terceros:</span>,
+          it: <span>Servizi di terze parti:</span>,
+        },
+        body: {
+          en: (
+            <span>
+              We do not use any third-party services that involve the processing
+              of personal data on our website. Your information will not be
+              shared, sold, or rented to any external parties without your
+              explicit consent, unless required by law.
+            </span>
+          ),
+          es: (
+            <span>
+              No utilizamos servicios de terceros que impliquen el procesamiento
+              de datos personales en nuestro sitio web. Tu información no se
+              compartirá, venderá ni alquilará a terceros externos sin tu
+              consentimiento explícito, a menos que la ley lo requiera.
+            </span>
+          ),
+          it: (
+            <span>
+              Non utilizziamo servizi di terze parti che comportano il
+              trattamento di dati personali sul nostro sito web. Le tue
+              informazioni non saranno condivise, vendute o affittate a terzi
+              esterni senza il tuo consenso esplicito, a meno che sia richiesto
+              dalla legge.
+            </span>
+          ),
+        },
+      },
+      rights: {
+        title: {
+          en: <span>Your rights</span>,
+          es: <span>Tus derechos:</span>,
+          it: <span>I tuoi diritti:</span>,
+        },
+        body: {
+          en: (
+            <span>
+              As an EU resident, you have certain rights regarding your personal
+              data, including the right to access, rectify, restrict processing,
+              and request the deletion of your information. To exercise these
+              rights or for any privacy-related concerns, please contact us
+              using the information provided at the end of this Privacy Policy.
+            </span>
+          ),
+          es: (
+            <span>
+              Como residente de la Unión Europea, tienes ciertos derechos con
+              respecto a tus datos personales, incluido el derecho de acceso,
+              rectificación, limitación del procesamiento y eliminación de tu
+              información. Para ejercer estos derechos o para cualquier consulta
+              relacionada con la privacidad, contáctanos utilizando la
+              información proporcionada al final de esta Política de privacidad.
+            </span>
+          ),
+          it: (
+            <span>
+              Come residente dell&apos;Unione Europea, hai determinati diritti
+              riguardo ai tuoi dati personali, tra cui il diritto di accesso,
+              rettifica, limitazione del trattamento e richiesta di
+              cancellazione delle tue informazioni. Per esercitare questi
+              diritti o per qualsiasi questione legata alla privacy, ti
+              preghiamo di contattarci utilizzando le informazioni fornite alla
+              fine di questa Informativa sulla privacy.
+            </span>
+          ),
+        },
+      },
+      updates: {
+        title: {
+          en: <span>Updates to privacy policy</span>,
+          es: <span>Actualizaciones de la Política de privacidad:</span>,
+          it: <span>Aggiornamenti dell&apos;Informativa sulla privacy:</span>,
+        },
+        body: {
+          en: (
+            <span>
+              We may update this Privacy Policy from time to time. Any changes
+              will be posted on this page, and we encourage you to review this
+              Policy periodically.
+            </span>
+          ),
+          es: (
+            <span>
+              Podemos actualizar esta Política de privacidad periódicamente.
+              Cualquier cambio se publicará en esta página, y te recomendamos
+              que revises esta Política periódicamente.
+            </span>
+          ),
+          it: (
+            <span>
+              Potremmo aggiornare periodicamente questa Informativa sulla
+              privacy. Eventuali modifiche saranno pubblicate su questa pagina e
+              ti incoraggiamo a rivedere periodicamente questa Informativa.
+            </span>
+          ),
+        },
+      },
     },
   },
 };

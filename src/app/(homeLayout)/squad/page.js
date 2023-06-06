@@ -15,7 +15,7 @@ import ImgMilena from "../../../../public/images/team/9.png";
 import Link from "next/link";
 import { useState } from "react";
 
-function Card({ img, title, name, langs, social }) {
+function Card({ img, name, langs, social }) {
   const [rotate, setRotate] = useState(false);
   return (
     <div
@@ -45,7 +45,10 @@ function Card({ img, title, name, langs, social }) {
           className={`absolute flex items-center justify-center p-4 top-0 left-0 w-full h-full text-center bg-[rgba(255,255,255,0.075)] transition-all duration-150 ease-in rounded-xl overflow-hidden`}
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <P1SP className="uppercase font-bold">{title}</P1SP>
+          <P1SP
+            className="uppercase font-bold"
+            translationPath={`squad/${name.toLowerCase()}`}
+          />
           <div className="absolute bottom-2 left-2 flex">
             {social &&
               social.map((el, i) => {
@@ -130,7 +133,6 @@ export default function Squad() {
       <Card
         img={ImgTab}
         name="Tabata"
-        title="web3 pathfinder & vanguard of gaming real realms"
         social={[
           {
             social: "linkedin",
@@ -142,7 +144,6 @@ export default function Squad() {
       <Card
         img={ImgEnry}
         name="Enrico"
-        title="code alchemist of digital domination"
         social={[
           {
             social: "linkedin",
@@ -154,7 +155,6 @@ export default function Squad() {
       <Card
         img={ImgPipo}
         name="Pipo"
-        title="master of art & design dynamo"
         social={[
           {
             social: "instagram",
@@ -166,7 +166,6 @@ export default function Squad() {
       <Card
         img={ImgAdi}
         name="Aditya"
-        title="community spark & engagement virtuoso"
         social={[
           {
             social: "linkedin",
@@ -178,7 +177,6 @@ export default function Squad() {
       <Card
         img={ImgAxel}
         name="Axel"
-        title="gaming maven & community stalwart"
         social={[
           {
             social: "linkedin",
@@ -187,17 +185,10 @@ export default function Squad() {
         ]}
         langs={["🇬🇧", "🇪🇸", "🇫🇷", "🇩🇪"]}
       />
-      <Card
-        img={ImgAbra}
-        name="Abrayad"
-        title="discord dominator & guild commander"
-        social={[]}
-        langs={["🇬🇧"]}
-      />
+      <Card img={ImgAbra} name="Abrayad" social={[]} langs={["🇬🇧"]} />
       <Card
         img={ImgPari}
         name="Pariyeksh"
-        title="partnerships prodigy & biz dev ace"
         social={[
           {
             social: "linkedin",
@@ -209,7 +200,6 @@ export default function Squad() {
       <Card
         img={ImgMilena}
         name="Milena"
-        title="social media whiz & storytelling innovator"
         social={[
           {
             social: "linkedin",
