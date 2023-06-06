@@ -34,7 +34,7 @@ export default function Home() {
           <LogoLink href="https://www.reddit.com/user/Eclecticqbit/">
             <RedditLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>
-          <LogoLink href="https://instagram.com/eclecticqbit?igshid=YmMyMTA2M2Y=">
+          <LogoLink href="https://www.instagram.com/Eclecticqbit.art/">
             <InstagramLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>
           <LogoLink href="https://t.me/eclecticqbit">
