@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
-import { H1, H2, H3, H5, H6, H7, H8, H9 } from "../../text/Headers";
+import { H1, H2, H2SP, H3, H4, H5, H6, H7, H8, H9 } from "../../text/Headers";
 import { P1, P2, P3, P4 } from "../../text/Paragraphs";
 import Image from "next/image";
 import ImgDante from "../../../../public/images/latestDante.jpg";
@@ -29,10 +29,10 @@ export default function EclecticQbit() {
           from="#9500E9"
           to="#FF6600"
         >
-          <H2 translationPath="eclecticQbit/title/p1" />
-          <H2 translationPath="eclecticQbit/title/p2" />
+          <H2SP translationPath="eclecticQbit/title/p1" />
+          <H2SP translationPath="eclecticQbit/title/p2" />
         </MouseMoveGradient>
-        <div className="relative mx-auto flex items-center justify-center w-[16rem] xl:w-[24rem] aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
+        <div className="relative mx-auto flex items-center justify-center w-[14rem] xl:w-[24rem] aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
           <Link
             className="relative w-full h-full"
             href="https://malpegados.jimdosite.com/"

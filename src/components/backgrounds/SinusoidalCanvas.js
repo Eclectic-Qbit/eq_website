@@ -37,7 +37,7 @@ export default function SinusoidalCanvas({ w, h, freq, animate }) {
     } else {
       clearInterval(interval.current);
     }
-  }, [animate]);
+  }, [animate, drawSinusoidal]);
   useEffect(() => {
     canvasRef.current.width = w + 10;
     canvasRef.current.height = h * 2 + 10;
