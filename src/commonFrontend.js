@@ -17,9 +17,18 @@ export function translateText(translationPath, lang) {
   }
   return lastVal[lang] ? lastVal[lang] : lastVal[settings.languages.default];
 }
-export function downloadFile(file) {
-  var downloadLink = document.createElement("a");
-  downloadLink.href = URL.createObjectURL(file);
-  downloadLink.download = "image.json";
-  downloadLink.click();
+export function downloadFile(file, type) {
+  if (!type || type === "file") {
+    const downloadLink = document.createElement("a");
+    downloadLink.href = URL.createObjectURL(file);
+    downloadLink.download = "image.json";
+    downloadLink.click();
+  } else {
+    const splittedUrl = file.split("/");
+    const fileUrl = file;
+    const anchor = document.createElement("a");
+    anchor.href = fileUrl;
+    anchor.download = splittedUrl[splittedUrl.length - 1];
+    anchor.click();
+  }
 }

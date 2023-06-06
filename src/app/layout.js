@@ -14,7 +14,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="min-h-screen min-w-screen bg-black text-white">
+    <html
+      lang="en"
+      className="min-h-screen min-w-screen bg-black text-white cursor-none"
+    >
       <body>
         <LanguageProvider>
           <MouseProvider>
