@@ -861,5 +861,33 @@ const translations = {
       },
     },
   },
+  memory: {
+    title: {
+      en: <span>kudos! bravo! superb play! epic win!</span>,
+      es: <span>kudos! ¡bravo! ¡jugada magistral! ¡victoria épica!</span>,
+    },
+    time: {
+      en: <span>you crushed the memory challenge in just %TIME% seconds!</span>,
+      es: (
+        <span>
+          aplastaste el desafío de memoria en tan solo %TIME% segundos.
+        </span>
+      ),
+    },
+    streak: {
+      en: <span>your streak is soaring with a %STREAK% boost!</span>,
+      es: <span>tu racha está en ascenso con un %STREAK% adicional.</span>,
+    },
+    points: {
+      gain: { en: <span>%GAINED_POINTS%</span> },
+      current: { en: <span>%CURRENT_POINTS% / 100</span> },
+    },
+    newGame: {
+      en: <span>feeling the surge of excitement? ready for a new game?</span>,
+      es: (
+        <span>sintiendo la oleada de emoción? listo para un nuevo juego?</span>
+      ),
+    },
+  },
 };
 export default translations;
