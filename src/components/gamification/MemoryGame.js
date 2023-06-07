@@ -9,17 +9,9 @@ import ImgAxel from "../../../public/images/team/1.png";
 import ImgAbra from "../../../public/images/team/5.png";
 import ImgPari from "../../../public/images/team/8.png";
 import ImgMilena from "../../../public/images/team/9.png";
-import ImgDante from "../../../public/images/squaredDante.jpg";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { H1, H5 } from "../text/Headers";
 import { P1 } from "../text/Paragraphs";
-
-/*
-    MISSING:
-    - Backend
-    - Discord integration
-    - Translations
-*/
 
 function Card({ pos, img, active, onClick, won, reset }) {
   const [state, setState] = useState(!won ? "hidden" : "visible");
@@ -36,35 +28,37 @@ function Card({ pos, img, active, onClick, won, reset }) {
     }
   }, [reset]);
   return (
-    <div
-      onClick={() => {
-        if (active && !won) {
-          changeState();
-          onClick(pos);
-        }
-      }}
-      className={`relative w-[12rem] aspect-square border-2 border-solid border-black transition-all duration-[500ms] ease-in`}
-      style={{
-        transformStyle: "preserve-3d",
-        transformOrigin: "center",
-        transform: `${state === "visible" ? "rotateY(-180deg)" : ""}`,
-      }}
-    >
+    <div className="sm-hover:scale-[95%] transition-scale duration-150 ease-in">
       <div
-        className="absolute top-0 left-0 w-full h-full text-center bg-white flex items-center justify-center"
-        style={{ backfaceVisibility: "hidden" }}
+        onClick={() => {
+          if (active && !won) {
+            changeState();
+            onClick(pos);
+          }
+        }}
+        className={`relative w-[4.5rem] sm:w-[9rem] lg:w-[12.5rem] aspect-square border-2 border-solid border-black transition-all duration-[500ms] ease-in`}
+        style={{
+          transformStyle: "preserve-3d",
+          transformOrigin: "center",
+          transform: `${state === "visible" ? "rotateY(-180deg)" : ""}`,
+        }}
       >
-        <div className="relative w-28 aspect-square">
-          <Image src={ImgBlackLogo} alt="Logo" fill />
+        <div
+          className="absolute top-0 left-0 w-full h-full text-center bg-white flex items-center justify-center"
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          <div className="relative w-28 aspect-square">
+            <Image src={ImgBlackLogo} alt="Logo" fill />
+          </div>
         </div>
-      </div>
-      <div
-        className={`absolute top-0 left-0 w-full h-full text-center  ${
-          won ? "bg-green" : "bg-red-500"
-        } transition-all duration-150 ease-in`}
-        style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-      >
-        <Image src={img} alt="" fill />
+        <div
+          className={`absolute top-0 left-0 w-full h-full text-center  ${
+            won ? "bg-green" : "bg-red-500"
+          } transition-all duration-150 ease-in`}
+          style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+        >
+          <Image src={img} alt="" fill />
+        </div>
       </div>
     </div>
   );
@@ -79,7 +73,6 @@ export default function MemoryGame() {
     ImgAbra,
     ImgPari,
     ImgMilena,
-    ImgDante,
   ]); // Array of card immages
   const streak = useRef(0); // Current user streak
   const started = useRef(0); // Starting date - from first click
@@ -92,9 +85,9 @@ export default function MemoryGame() {
   const [finalWin, setFinalWin] = useState(false); // True when the user will have won the game
   const generateCards = useCallback(() => {
     const arr = [];
-    for (let i = 1; i <= CARDS_ARR.current.length; i++) {
-      arr.push(CARDS_ARR.current[i]);
-      arr.push(CARDS_ARR.current[i]);
+    for (let i = 0; i < CARDS_ARR.current.length; i++) {
+      arr.push({ val: i, img: CARDS_ARR.current[i] });
+      arr.push({ val: i, img: CARDS_ARR.current[i] });
     }
     const finalArr = [];
     while (arr.length > 0) {
@@ -188,16 +181,16 @@ export default function MemoryGame() {
         </div>
       )}
       <div>
-        <H1>memory</H1>
         <div className="w-full h-full flex items-center justify-center">
           <div
-            className={`flex flex-wrap max-w-[60rem] justify-center items-center`}
+            className={`flex flex-wrap max-w-[18rem]  sm:max-w-[36rem] lg:max-w-[50rem] justify-center items-center`}
           >
             {cards.map((el, i) => {
               return (
                 <Card
                   key={i}
-                  val={el}
+                  val={el.val}
+                  img={el.img}
                   pos={i}
                   won={containsValue(el)}
                   reset={reset.includes(i) ? true : false}

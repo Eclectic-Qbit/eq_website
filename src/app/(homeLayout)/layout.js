@@ -7,7 +7,7 @@ import CookiesPrompt from "@/components/global/CookiesPrompt";
 
 export default function RootLayout({ children }) {
   return (
-    <div>
+    <div className="w-full h-full cursor-none">
       <HomepageCursor />
       <LoadingScreen />
       <Menu />
