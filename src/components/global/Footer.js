@@ -29,17 +29,17 @@ export default function Footer() {
           </LogoLink>
         </div>
         <div className="flex flex-col justify-end items-center gap-2">
-          <div className="w-min">
+          <div className="w-min lowercase">
             <CustomLink href="/privacy">
               <P3>Privacy</P3>
             </CustomLink>
           </div>
           <div
-            className="w-min"
+            className="w-max lowercase"
             onClick={() => downloadFile("/mediaKit.pdf", "url")}
           >
             <CustomLink>
-              <P3>📷</P3>
+              <P3>Media Kit</P3>
             </CustomLink>
           </div>
         </div>

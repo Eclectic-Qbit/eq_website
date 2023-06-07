@@ -58,6 +58,9 @@ export default function Menu() {
           <CustomLink href="/squad">
             <P3 translationPath="menu/squad" />
           </CustomLink>
+          <CustomLink href="/games">
+            <P3>🕹️</P3>
+          </CustomLink>
           <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
             <div
               className={`relative z-10 flex items-center w-full ${

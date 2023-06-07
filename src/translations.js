@@ -19,7 +19,11 @@ const translations = {
     home: { en: <span>home</span>, it: <span>home</span> },
     brojects: { en: <span>brojects</span>, it: <span>progetti</span> },
     collabs: { en: <span>collabs</span>, it: <span>collaborazioni</span> },
-    squad: { en: <span>squad</span>, it: <span>squadra</span> },
+    squad: {
+      en: <span>squad</span>,
+      es: <span>equipo</span>,
+      it: <span>squadra</span>,
+    },
     contacts: { en: <span>contacts</span>, it: <span>contatti</span> },
   },
   eclecticQbit: {
@@ -389,7 +393,7 @@ const translations = {
     p1: { en: <span>🎨 Artist</span>, es: <span>🎨 Artista</span> },
     p2: {
       en: <span>💼 Startupper</span>,
-      es: <span>💼 Marketing Callejero</span>,
+      es: <span>💼 Startupper</span>,
     },
     artist: {
       en: (
@@ -521,7 +525,7 @@ const translations = {
       es: <span>maestro en gaming y pilar de la comunidad</span>,
       it: <span>campione del gaming & baluardo della comunità</span>,
     },
-    abrayad: {
+    abrayadh: {
       en: <span>discord dominator & guild commander </span>,
       es: <span>dominador de Discord y condotiero de la guild</span>,
       it: <span>dominatore di discord & condottiero delle truppe</span>,

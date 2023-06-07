@@ -185,7 +185,17 @@ export default function Squad() {
         ]}
         langs={["🇬🇧", "🇪🇸", "🇫🇷", "🇩🇪"]}
       />
-      <Card img={ImgAbra} name="Abrayad" social={[]} langs={["🇬🇧"]} />
+      <Card
+        img={ImgAbra}
+        name="Abrayadh"
+        social={[
+          {
+            social: "linkedin",
+            link: "https://www.linkedin.com/in/abdulrahman-yakubu-a993a5233/",
+          },
+        ]}
+        langs={["🇬🇧"]}
+      />
       <Card
         img={ImgPari}
         name="Pariyeksh"
@@ -195,7 +205,7 @@ export default function Squad() {
             link: "https://www.linkedin.com/in/pariyeksh-chauhan",
           },
         ]}
-        langs={["🇮🇳", "🇬🇧"]}
+        langs={["🇬🇧", "🇮🇳"]}
       />
       <Card
         img={ImgMilena}
