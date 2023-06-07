@@ -194,7 +194,7 @@ export default function Squad() {
             link: "https://www.linkedin.com/in/abdulrahman-yakubu-a993a5233/",
           },
         ]}
-        langs={["🇬🇧"]}
+        langs={["🇬🇧", "🇳🇬"]}
       />
       <Card
         img={ImgPari}

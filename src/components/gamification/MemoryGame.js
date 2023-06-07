@@ -11,7 +11,7 @@ import ImgPari from "../../../public/images/team/8.png";
 import ImgMilena from "../../../public/images/team/9.png";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { H1, H5 } from "../text/Headers";
-import { P1 } from "../text/Paragraphs";
+import { P1, P2 } from "../text/Paragraphs";
 
 function Card({ pos, img, active, onClick, won, reset }) {
   const [state, setState] = useState(!won ? "hidden" : "visible");
@@ -162,22 +162,34 @@ export default function MemoryGame() {
   return (
     <div className="relative bg-black">
       {finalWin && (
-        <div className="absolute top-0 left-0 z-10 flex items-center justify-center flex-col w-full h-full bg-[rgba(0,0,0,0.75)] text-center font-extrabold">
-          <H5>GG!</H5>
-          <P1>
-            you&apos;ve completed the memory in {duration.current + " "}
-            seconds <br />
-            You&apos;re in a +{streak.current} streak!
-            <br />
-            check your position into the rankings link-by score link-by games
-          </P1>
-          <P1>
-            You got if less than 70 you&apos;ve got some points too!!! - obv
-            this message will be better than this xD
-          </P1>
-          <button onClick={newGame}>
-            <P1 className={"hover:underline"}>Wanna start a new game?</P1>
-          </button>
+        <div className="absolute top-0 left-0 z-10 flex gap-5 items-center justify-center flex-col w-full h-full bg-[rgba(0,0,0,0.75)] text-center font-extrabold">
+          <P1 className="uppercase" translationPath="memory/title" />
+          <div className="flex flex-col gap-2">
+            <P2
+              translationPath="memory/time"
+              replace={[{ placeholder: "%TIME%", val: duration.current }]}
+            />
+            <P2
+              translationPath="memory/streak"
+              replace={[{ placeholder: "%STREAK%", val: streak.current }]}
+            />
+            <div className="flex gap-5 justify-center">
+              <P2
+                translationPath="memory/points/gain"
+                replace={[{ placeholder: "%GAINED_POINTS%", val: "+1" }]}
+              />
+              <P2
+                translationPath="memory/points/current"
+                replace={[{ placeholder: "%CURRENT_POINTS%", val: "n" }]}
+              />
+            </div>
+            <button
+              className="cursor-none hover:underline text-center"
+              onClick={newGame}
+            >
+              <P2 translationPath="memory/newGame" />
+            </button>
+          </div>
         </div>
       )}
       <div>
