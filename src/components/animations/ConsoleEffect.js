@@ -125,7 +125,9 @@ export default function ConsoleEffect({
       ref={ref}
       className={`relative ${className}`}
       onMouseEnter={() => onHover && isDesktop(innerWidth) && setActive(true)}
-      onMouseLeave={() => onHover && isDesktop(innerWidth) && setActive(false)}
+      onMouseLeave={() =>
+        onHover && isDesktop(innerWidth) && !forceActive && setActive(false)
+      }
     >
       <div>{children}</div>
       <div className="relative">

@@ -57,7 +57,7 @@ export default function EclecticQbit() {
         >
           <div
             style={{ transform: `translateY(${translateY}px)` }}
-            className="w-2/3"
+            className="w-2/3 grid gap-5 mb-[2.5%]"
           >
             <P1
               style={{ textShadow: "1px 1px 1px white" }}

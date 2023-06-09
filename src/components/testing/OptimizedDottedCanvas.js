@@ -39,6 +39,7 @@ export default function OptimizedDottedCanvas() {
   }, []);
   const createTimeout = useCallback(
     (i, w, creationDate) => {
+      if (!canvasItems.current[i]) return;
       const newTimeout = setTimeout(() => {
         drawCircle(
           canvasItems.current[i][0],
@@ -86,6 +87,8 @@ export default function OptimizedDottedCanvas() {
     timeouts.current = newTimeouts;
   }, [createTimeout]);
   const handleResize = useCallback(() => {
+    timeouts.current = [];
+    canvasItems.current = [];
     // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
