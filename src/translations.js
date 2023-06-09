@@ -29,10 +29,10 @@ const translations = {
   eclecticQbit: {
     title: { p1: { en: <span>eclectic</span> }, p2: { en: <span>qbit</span> } },
     h1: {
-      en: <span>interdependence is the new independence</span>,
+      en: <span>interdependence is the new independence 🕶️</span>,
       es: (
         <span>
-          🌌 Vibra Quantica: la interdependencia es la nueva independencia 🕶️
+          Vibra Quantica: la interdependencia es la nueva independencia 🕶️
         </span>
       ),
     },
@@ -40,9 +40,9 @@ const translations = {
       en: (
         <span>
           eclectic qbit, it&apos;s all about bringing the modus operandi of
-          qbits, into web3, with a it&apos;s a me twist
-          <br /> with nature as our main inspiration, just like fungi 🍄, we
-          exchange nutrients and other resources within & beyond web3 space
+          qbits, into web3, with a IT&apos;S A ME twist with nature as our main
+          inspiration, just like fungi, we exchange nutrients and other
+          resources within & beyond web3 space
         </span>
       ),
       es: (
@@ -64,13 +64,18 @@ const translations = {
     h2: {
       en: (
         <span>
-          🍄 community building: joining forces with eclectic regens 🎮
+          👩🏽‍🔧community Building 🌱
+          <br />
+          <br />
+          joining Forces with eclectic regens
         </span>
       ),
       es: (
         <span>
-          🍄 Construcción de Comunidades: uniéndonos con los regens eclécticos
-          🎮
+          👩🏽‍🔧 Construcción de Comunidades 🌱
+          <br />
+          <br />
+          uniéndonos con los regens eclécticos
         </span>
       ),
     },
@@ -78,8 +83,8 @@ const translations = {
       en: (
         <span>
           we know that building a successful web3 project takes more than just
-          cutting-edge technology - it also requires a touch of magic. <br />
-          eclectic regens will quantum leap your project to the next level,
+          cutting-edge technology - it also requires a touch of magic <br />
+          our eclectic regens will quantum leap your project to the next level,
           infusing your community with the fun and excitement that players of
           all ages have come to know and love
         </span>
@@ -87,8 +92,8 @@ const translations = {
       es: (
         <span>
           sabemos que construir un proyecto web3 exitoso requiere más que solo
-          tecnología de vanguardia, también requiere un toque de magia nuestros
-          regens eclécticos impulsarán tu proyecto al siguiente nivel,
+          tecnología de vanguardia, también requiere un toque de magia <br />
+          nuestros regens eclécticos impulsarán tu proyecto al siguiente nivel,
           infundiendo a tu comunidad con la diversión y la emoción que los
           jugadores de todas las edades han llegado a conocer y amar
         </span>
@@ -97,45 +102,67 @@ const translations = {
     h3: {
       en: (
         <span>
-          👾 gamification and engagement: power up and network around 🤝
+          👾 Gamification & Engagement 🧑🏻‍🤝‍🧑🏽
+          <br />
+          <br />
+          power up and network around
         </span>
       ),
       es: (
-        <span>👾 Gamificación y Compromiso: potenciando y conectando 🤝</span>
+        <span>
+          👾 Gamificación y Compromiso 🧑🏻‍🤝‍🧑🏽
+          <br />
+          <br />
+          potenciando y conectando
+        </span>
       ),
     },
     p3: {
       en: (
         <span>
           but we don&apos;t stop there! we&apos;re also gamification masters
+          <br />
           we&apos;ll make your project jump higher, run faster, and defeat
-          enemies to level up in the web3 world with quests & challenges will
-          incentivize engagement, making your troops stand out from the crowd
-          and become stars players. <br /> our strong network, will connect you
-          with the right communities and resources to reach a state of
-          superposition, interacting in ways that defy classical web3 🔥🕹️🚀
+          enemies to level up in the web3 world <br />
+          with QUESTS & CHALLENGES will incentivize engagement, making your
+          troops stand out from the crowd and become stars players <br />
+          our strong network, will connect you with the right communities and
+          resources to reach a state of superposition, interacting in ways that
+          defy classical web3
         </span>
       ),
       es: (
         <span>
-          No nos detenemos ahí! también somos maestros en gamificación haremos
-          que tu proyecto salte más alto, corra más rápido y derrote enemigos
-          para subir de nivel en el mundo web3 con MISIONES Y DESAFÍOS
-          incentivamos la interacción, haciendo que tus tropas se destaquen
-          entre la multitud y se conviertan en jugadores estrella nuestra sólida
-          red te conectará con las comunidades y recursos adecuados para
-          alcanzar un estado de superposición, interactuando con las comunidades
-          de formas que desafían al web3 clásico 🔥🕹️🚀
+          No nos detenemos ahí! también somos maestros
+          <br />
+          en gamificación haremos que tu proyecto salte más alto, corra más
+          rápido y derrote enemigos para subir de nivel en el mundo web3
+          <br />
+          con MISIONES Y DESAFÍOS incentivamos la interacción, haciendo que tus
+          tropas se destaquen entre la multitud y se conviertan en jugadores
+          <br />
+          estrella nuestra sólida red te conectará con las comunidades y
+          recursos adecuados para alcanzar un estado de superposición,
+          interactuando con las comunidades de formas que desafían al web3
+          clásico
         </span>
       ),
     },
     h4: {
       en: (
-        <span>🍄 grey area: techie wizards and state-of-the-art tools 🚀</span>
+        <span>
+          🧙🏽‍♂️ grey area 🔮
+          <br />
+          <br />
+          techie Wizards and State-of-the-Art Tools
+        </span>
       ),
       es: (
         <span>
-          🍄 Área gris: magos técnicos y herramientas de última generación 🚀
+          🧙🏽‍♂️ Área gris 🔮
+          <br />
+          <br />
+          magos técnicos y herramientas de última generación
         </span>
       ),
     },
@@ -143,13 +170,16 @@ const translations = {
       en: (
         <span>
           we&apos;re not just about fun and games - we&apos;re also serious
-          about the technical side of web3 whether you&apos;re a blockchain
-          newbie or a defi pro, our technical wizards are ready to help you
-          navigate the complex web of protocols, platforms, and technologies
-          that make up the decentralized web revolution we&apos;re into.
+          about the technical side of web3
+          <br />
+          Whether you&apos;re a blockchain newbie or a DeFi pro, our technical
+          wizards are ready to help you navigate the complex web of protocols,
+          platforms, and technologies that make up the decentralized web
+          revolution we&apos;re into
           <br />
           our squad of techie troublemakers is armed with the latest tools and
           frameworks to help you smash your tech goals out of the park
+          <br />
           we&apos;re not afraid to roll up our sleeves and get our hands dirty
           with smart contracts, decentralized storage, and all the other nerdy
           bits and bobs that power the decentralized web 🎮🚀🕹️🌐
@@ -172,8 +202,20 @@ const translations = {
       ),
     },
     h5: {
-      en: <span>🌍 refi heads: we like it sustainable 🐢</span>,
-      es: <span>🌍 Refi Heads: nos gusta sostenible 🐢</span>,
+      en: (
+        <span>
+          🌍 refi heads 🐢 <br />
+          <br />
+          we like it sustainable
+        </span>
+      ),
+      es: (
+        <span>
+          🌍 Refi Heads 🐢 <br />
+          <br />
+          nos gusta sostenible
+        </span>
+      ),
     },
     p5: {
       en: (
@@ -205,8 +247,8 @@ const translations = {
       p2: { en: <span>how we do it</span>, es: <span>lo hacemos</span> },
     },
     h1: {
-      en: <span>💬 warp pipes</span>,
-      es: <span>💬 Warp Pipes</span>,
+      en: <span>💬 DiscWarpIpes</span>,
+      es: <span>💬 DiscWarpIpes</span>,
     },
     p1: {
       en: (
@@ -245,11 +287,11 @@ const translations = {
         </span>
       ),
     },
-    h3: { en: <span>🍄 power-ups</span>, es: <span>🍄 Power-Ups</span> },
+    h3: { en: <span>🍄 Power-ups</span>, es: <span>🍄 Power-Ups</span> },
     p3: {
       en: (
         <span>
-          our team provides guidance and resources to help your community
+          Our team provides guidance and resources to help your community
           members level up and reach new milestones
         </span>
       ),
@@ -261,13 +303,13 @@ const translations = {
       ),
     },
     h4: {
-      en: <span>🏆 high scores</span>,
+      en: <span>🏆 High scores</span>,
       es: <span>🏆 Tabla de Puntajes</span>,
     },
     p4: {
       en: (
         <span>
-          we track and celebrate the achievements of our eclectic troopas, from
+          We track and celebrate the achievements of our eclectic troopas, from
           the number of piece of art created to the amount of poaps collected &
           beyond
         </span>
@@ -284,7 +326,7 @@ const translations = {
     p5: {
       en: (
         <span>
-          we help our eclectic troopas form partnerships with other web3
+          We help our eclectic troopas form partnerships with other web3
           projects & beyond, expanding their reach and building new connections
         </span>
       ),
@@ -302,7 +344,7 @@ const translations = {
     p6: {
       en: (
         <span>
-          our eclectic troopas can showcase their creativity and love for your
+          Our eclectic troopas can showcase their creativity and love for your
           project through fan art contests, where winners are rewarded with nft
           and prizes
         </span>
@@ -322,7 +364,7 @@ const translations = {
     p7: {
       en: (
         <span>
-          we organize fun game nights where eclectic troopas can play&earn
+          We organize fun game nights where eclectic troopas can play&earn
           games, compete with each other, and build strong relationships
         </span>
       ),
@@ -341,7 +383,7 @@ const translations = {
     p8: {
       en: (
         <span>
-          just like the beginning of a new adventure, we celebrate the launch of
+          Just like the beginning of a new adventure, we celebrate the launch of
           your project with a party that gets everyone excited and ready to jump
           in
         </span>
@@ -361,7 +403,7 @@ const translations = {
     p9: {
       en: (
         <span>
-          our team coordinates global irl events, as online voice channels &
+          Our team coordinates global irl events, as online voice channels &
           activities to bring together eclectic troopas from around the world
         </span>
       ),

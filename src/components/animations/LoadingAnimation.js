@@ -9,7 +9,6 @@ import {
   useState,
 } from "react";
 import MouseContext from "@/contexts/MouseContext";
-import { isDesktop } from "@/commonFrontend";
 
 export default function LoadingAnimation({
   className,
@@ -58,12 +57,6 @@ export default function LoadingAnimation({
       clearTimeout(currentTimeouts.current[i]);
     }
   }, []);
-  // If Mobile, resize
-  const handleResize = useCallback(() => {
-    if (!isDesktop(innerWidth)) {
-      fade();
-    }
-  }, [fade]);
   // Start to move items istantly
   useEffect(() => {
     if (!hide.perma && !hide.temp) {
@@ -72,13 +65,6 @@ export default function LoadingAnimation({
       }, 100);
     }
   }, [hide.perma, hide.temp]);
-  // Add event listener for resizing
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [handleResize]);
   // Elements position
   useEffect(() => {
     if (!hide.perma && !hide.temp && !settedOffsets.current) {
