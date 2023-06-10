@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import ImgBlackLogo from "../../../public/images/blackLogo.png";
+import ImgWhiteLogo from "../../../public/images/whiteLogo.png";
 import ImgTab from "../../../public/images/team/4.png";
 import ImgEnry from "../../../public/images/team/3.png";
 import ImgPipo from "../../../public/images/team/6.png";
@@ -36,7 +36,7 @@ function Card({ pos, img, active, onClick, won, reset }) {
             onClick(pos);
           }
         }}
-        className={`relative w-[4.5rem] sm:w-[9rem] lg:w-[12.5rem] aspect-square border-2 border-solid border-black transition-all duration-[500ms] ease-in`}
+        className={`relative w-[4.5rem] sm:w-[9rem] lg:w-[12.5rem] aspect-square border-[0.25rem] border-solid border-white transition-all duration-[500ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",
@@ -44,11 +44,11 @@ function Card({ pos, img, active, onClick, won, reset }) {
         }}
       >
         <div
-          className="absolute top-0 left-0 w-full h-full text-center bg-white flex items-center justify-center"
+          className="absolute top-0 left-0 w-full h-full text-center bg-black flex items-center justify-center"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="relative w-28 aspect-square">
-            <Image src={ImgBlackLogo} alt="Logo" fill />
+            <Image src={ImgWhiteLogo} alt="Logo" fill />
           </div>
         </div>
         <div
@@ -195,7 +195,7 @@ export default function MemoryGame() {
       <div>
         <div className="w-full h-full flex items-center justify-center">
           <div
-            className={`flex flex-wrap max-w-[18rem]  sm:max-w-[36rem] lg:max-w-[50rem] justify-center items-center`}
+            className={`flex gap-1 flex-wrap max-w-[19rem]  sm:max-w-[37rem] lg:max-w-[51rem] justify-center items-center`}
           >
             {cards.map((el, i) => {
               return (

@@ -10,7 +10,7 @@ export default function Games() {
   return (
     <div className="w-full h-full min-h-screen gap-10 flex flex-col items-center justify-center pt-24 pb-8">
       {msg && msg}
-      <div className="flex gap-3 font-extrabold uppercase">
+      <div className="flex justify-evenly font-extrabold uppercase w-full">
         <div
           onClick={() => {
             document
@@ -55,12 +55,12 @@ export default function Games() {
           }}
         >
           <CustomLink>
-            <P1>Play 🎮</P1>
+            <P1>Play.</P1>
           </CustomLink>
         </div>
         <div>
           <CustomLink href="/games/leaderboards">
-            <P1>Classify 🥇</P1>
+            <P1>RANK BLITZ.</P1>
           </CustomLink>
         </div>
         <div
@@ -82,7 +82,7 @@ export default function Games() {
           }
         >
           <CustomLink>
-            <P1>Win 🎉</P1>
+            <P1>LEVEL UP.</P1>
           </CustomLink>
         </div>
       </div>
