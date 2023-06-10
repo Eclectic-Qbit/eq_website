@@ -39,8 +39,8 @@ export default function OptimizedDottedCanvas() {
   }, []);
   const createTimeout = useCallback(
     (i, w, creationDate) => {
-      if (!canvasItems.current[i]) return;
       const newTimeout = setTimeout(() => {
+        if (!canvasItems.current[i]) return;
         drawCircle(
           canvasItems.current[i][0],
           canvasItems.current[i][1],

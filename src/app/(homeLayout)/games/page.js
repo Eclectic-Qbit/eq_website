@@ -10,7 +10,7 @@ export default function Games() {
   return (
     <div className="w-full h-full min-h-screen gap-10 flex flex-col items-center justify-center pt-24 pb-8">
       {msg && msg}
-      <div className="flex justify-evenly font-extrabold uppercase w-full">
+      <div className="flex justify-evenly font-extrabold uppercase w-full text-center">
         <div
           onClick={() => {
             document
