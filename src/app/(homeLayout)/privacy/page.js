@@ -1,3 +1,5 @@
+"use client";
+
 import { P1, P2, P3 } from "@/components/text/Paragraphs";
 
 export default function Privacy() {
