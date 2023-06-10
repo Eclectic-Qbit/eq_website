@@ -1,3 +1,5 @@
+"use client";
+
 import { cloneElement } from "react";
 import settings from "./frontendSettings";
 import translations from "./translations";

@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import LoadingAnimation from "../animations/LoadingAnimation";
 import { H3, H4 } from "../text/Headers";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -14,8 +14,15 @@ export default function LoadingScreen() {
   // Other vars
   const ANIM_DURATION = 900;
   const [show, setShow] = useState(true);
+  const [desktop, setDesktop] = useState(true);
   const [alreadyAnimated, setAlreadyAnimated] = useState(false);
   const alreadyLoaded = useRef(false);
+  const handleResize = useCallback(() => {
+    const bool = isDesktop(window.innerWidth);
+    if (bool !== desktop) {
+      setDesktop(bool);
+    }
+  }, [desktop]);
   function onFade() {
     sessionStorage.setItem("loaded", true);
   }
@@ -25,6 +32,11 @@ export default function LoadingScreen() {
     setShow(bool);
     alreadyLoaded.current = true;
   }, []);
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
   useEffect(() => {
     if (!alreadyAnimated) {
       setTimeout(() => {
@@ -40,7 +52,7 @@ export default function LoadingScreen() {
       {show ? (
         <LoadingAnimation
           elements={
-            isDesktop(window.innerWidth)
+            desktop
               ? [
                   <H4 key={0}>Interdependence</H4>,
                   <H3 key={1}>Is the new</H3>,

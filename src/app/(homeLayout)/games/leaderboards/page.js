@@ -1,3 +1,5 @@
+"use client";
+
 import { H4, H6 } from "@/components/text/Headers";
 
 export default function Leaderboards() {
