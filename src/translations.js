@@ -30,27 +30,25 @@ const translations = {
     title: { p1: { en: <span>eclectic</span> }, p2: { en: <span>qbit</span> } },
     h1: {
       en: <span>interdependence is the new independence 🕶️</span>,
-      es: (
-        <span>
-          Vibra Quantica: la interdependencia es la nueva independencia 🕶️
-        </span>
-      ),
+      es: <span>la interdependencia es la nueva independencia 🕶️</span>,
     },
     p1: {
       en: (
         <span>
           eclectic qbit, it&apos;s all about bringing the modus operandi of
           qbits, into web3, with a IT&apos;S A ME twist with nature as our main
-          inspiration, just like fungi, we exchange nutrients and other
+          inspiration, just like fungi 🍄, we exchange nutrients and other
           resources within & beyond web3 space
         </span>
       ),
       es: (
         <span>
           eclectic qbit, llevas el modus operandi de los qbits a web3, con un
-          giro IT&apos;S A ME con la naturaleza como nuestra principal
-          inspiración, al igual que los hongos 🍄, intercambiamos nutrientes y
-          otros recursos dentro y fuera del espacio web3
+          giro IT&apos;S A ME
+          <br />
+          con la naturaleza como nuestra principal inspiración, al igual que los
+          hongos 🍄, intercambiamos nutrientes y otros recursos dentro y fuera
+          del espacio web3
         </span>
       ),
     },
@@ -60,185 +58,141 @@ const translations = {
       p1: { en: <span>this is</span>, es: <span>Eso es</span> },
       p2: { en: <span>what we do</span>, es: <span>Lo que hacemos</span> },
     },
-
-    h2: {
-      en: (
-        <span>
-          👩🏽‍🔧community Building 🌱
-          <br />
-          <br />
-          joining Forces with eclectic regens
-        </span>
-      ),
-      es: (
-        <span>
-          👩🏽‍🔧 Construcción de Comunidades 🌱
-          <br />
-          <br />
-          uniéndonos con los regens eclécticos
-        </span>
-      ),
+    community: {
+      h1: {
+        en: <span>👩🏽‍🔧 Community Building</span>,
+        es: <span>👩🏽‍🔧 Construcción de Comunidades</span>,
+      },
+      h2: {
+        en: <span>joining Forces with eclectic regens 🌱</span>,
+        es: <span> uniéndonos con los regens eclécticos 🌱</span>,
+      },
+      p: {
+        en: (
+          <span>
+            we know that building a successful web3 project takes more than just
+            cutting-edge technology - it also requires a touch of magic
+            <br />
+            our eclectic regens will quantum leap your project to the next
+            level, infusing your community with the fun and excitement that
+            players of all ages have come to know and love
+          </span>
+        ),
+        es: (
+          <span>
+            sabemos que construir un proyecto web3 exitoso requiere más que solo
+            tecnología de vanguardia, también requiere un toque de magia
+            <br />
+            nuestros regens eclécticos impulsarán tu proyecto al siguiente
+            nivel, infundiendo a tu comunidad con la diversión y la emoción que
+            los jugadores de todas las edades han llegado a conocer y amar
+          </span>
+        ),
+      },
     },
-    p2: {
-      en: (
-        <span>
-          we know that building a successful web3 project takes more than just
-          cutting-edge technology - it also requires a touch of magic <br />
-          our eclectic regens will quantum leap your project to the next level,
-          infusing your community with the fun and excitement that players of
-          all ages have come to know and love
-        </span>
-      ),
-      es: (
-        <span>
-          sabemos que construir un proyecto web3 exitoso requiere más que solo
-          tecnología de vanguardia, también requiere un toque de magia <br />
-          nuestros regens eclécticos impulsarán tu proyecto al siguiente nivel,
-          infundiendo a tu comunidad con la diversión y la emoción que los
-          jugadores de todas las edades han llegado a conocer y amar
-        </span>
-      ),
+    gamification: {
+      h1: {
+        en: <span>👾 Gamification & Engagement</span>,
+        es: <span>👾 Gamificación y Compromiso</span>,
+      },
+      h2: {
+        en: <span> power up and network around 🧑🏻‍🤝‍🧑</span>,
+        es: <span>potenciando y conectando 🧑🏻‍🤝‍🧑🏽</span>,
+      },
+      p: {
+        en: (
+          <span>
+            but we don&apos;t stop there! we&apos;re also gamification masters
+            <br />
+            we&apos;ll make your project jump higher, run faster, and defeat
+            enemies to level up in the web3 world
+            <br />
+            we&apos;ll connect you with the right communities and resources to
+            reach a state of superposition, interacting in ways that defy
+            classical web3
+          </span>
+        ),
+        es: (
+          <span>
+            No nos detenemos ahí! también somos maestros en gamificación
+            <br />
+            haremos que tu proyecto salte más alto, corra más rápido y derrote
+            enemigos para subir de nivel en el mundo web3
+            <br />
+            Te conectaremos con las comunidades y recursos adecuados para
+            alcanzar un estado de superposición, interactuando con las
+            comunidades de formas que desafían al web3 clásico
+          </span>
+        ),
+      },
     },
-    h3: {
-      en: (
-        <span>
-          👾 Gamification & Engagement 🧑🏻‍🤝‍🧑🏽
-          <br />
-          <br />
-          power up and network around
-        </span>
-      ),
-      es: (
-        <span>
-          👾 Gamificación y Compromiso 🧑🏻‍🤝‍🧑🏽
-          <br />
-          <br />
-          potenciando y conectando
-        </span>
-      ),
+    grey: {
+      h1: { en: <span>🔮 Grey Area</span>, es: <span>🔮 Área gris</span> },
+      h2: {
+        en: <span>Techie Wizards and State-of-the-Art Tools 🧙</span>,
+        es: <span> magos técnicos y herramientas de última generación 🧙</span>,
+      },
+      p: {
+        en: (
+          <span>
+            we&apos;re not just about fun and games - we&apos;re also serious
+            about the technical side of web3
+            <br />
+            our squad of techie troublemakers is armed with the latest tools and
+            frameworks to help you smash your tech goals out of the park
+            <br />
+            we&apos;re not afraid to roll up our sleeves and get our hands dirty
+            with smart contracts, decentralized storage, and all the other nerdy
+            bits and bobs that power the decentralized web 🎮🚀🕹️🌐
+          </span>
+        ),
+        es: (
+          <span>
+            no solo se trata de diversión y juegos, también contamos con
+            referentes serios en el lado técnico de la web3 <br />
+            Nuestro equipo de alborotadores técnicos está armado con las últimas
+            herramientas y marcos para ayudarte a alcanzar tus objetivos
+            tecnológicos con éxito
+            <br />
+            no tenemos miedo de ensuciarnos las manos con contratos
+            inteligentes, almacenamiento descentralizado y todos los demás
+            componentes que impulsan la web descentralizada
+          </span>
+        ),
+      },
     },
-    p3: {
-      en: (
-        <span>
-          but we don&apos;t stop there! we&apos;re also gamification masters
-          <br />
-          we&apos;ll make your project jump higher, run faster, and defeat
-          enemies to level up in the web3 world <br />
-          with QUESTS & CHALLENGES will incentivize engagement, making your
-          troops stand out from the crowd and become stars players <br />
-          our strong network, will connect you with the right communities and
-          resources to reach a state of superposition, interacting in ways that
-          defy classical web3
-        </span>
-      ),
-      es: (
-        <span>
-          No nos detenemos ahí! también somos maestros
-          <br />
-          en gamificación haremos que tu proyecto salte más alto, corra más
-          rápido y derrote enemigos para subir de nivel en el mundo web3
-          <br />
-          con MISIONES Y DESAFÍOS incentivamos la interacción, haciendo que tus
-          tropas se destaquen entre la multitud y se conviertan en jugadores
-          <br />
-          estrella nuestra sólida red te conectará con las comunidades y
-          recursos adecuados para alcanzar un estado de superposición,
-          interactuando con las comunidades de formas que desafían al web3
-          clásico
-        </span>
-      ),
-    },
-    h4: {
-      en: (
-        <span>
-          🧙🏽‍♂️ grey area 🔮
-          <br />
-          <br />
-          techie Wizards and State-of-the-Art Tools
-        </span>
-      ),
-      es: (
-        <span>
-          🧙🏽‍♂️ Área gris 🔮
-          <br />
-          <br />
-          magos técnicos y herramientas de última generación
-        </span>
-      ),
-    },
-    p4: {
-      en: (
-        <span>
-          we&apos;re not just about fun and games - we&apos;re also serious
-          about the technical side of web3
-          <br />
-          Whether you&apos;re a blockchain newbie or a DeFi pro, our technical
-          wizards are ready to help you navigate the complex web of protocols,
-          platforms, and technologies that make up the decentralized web
-          revolution we&apos;re into
-          <br />
-          our squad of techie troublemakers is armed with the latest tools and
-          frameworks to help you smash your tech goals out of the park
-          <br />
-          we&apos;re not afraid to roll up our sleeves and get our hands dirty
-          with smart contracts, decentralized storage, and all the other nerdy
-          bits and bobs that power the decentralized web 🎮🚀🕹️🌐
-        </span>
-      ),
-      es: (
-        <span>
-          no solo se trata de diversión y juegos, también somos contamos con
-          referentes seriosen el lado técnico de la web3 Ya seas un novato en
-          blockchain o un profesional de DeFi, nuestros magos técnicos están
-          listos para ayudarte a navegar por la compleja red de protocolos,
-          plataformas y tecnologías que conforman la revolución descentralizada
-          en la que estamos inmersos. Nuestro equipo de alborotadores técnicos
-          está armado con las últimas herramientas y marcos para ayudarte a
-          alcanzar tus objetivos tecnológicos con éxito no tenemos miedo de
-          ensuciarnos las manos con contratos inteligentes, almacenamiento
-          descentralizado y todos los demás componentes que impulsan la web
-          descentralizada 🎮🚀🕹️🌐
-        </span>
-      ),
-    },
-    h5: {
-      en: (
-        <span>
-          🌍 refi heads 🐢 <br />
-          <br />
-          we like it sustainable
-        </span>
-      ),
-      es: (
-        <span>
-          🌍 Refi Heads 🐢 <br />
-          <br />
-          nos gusta sostenible
-        </span>
-      ),
-    },
-    p5: {
-      en: (
-        <span>
-          we have a deep appreciation for our planet, we value life with
-          gratitude, and we also believe that society has been organized in a
-          very unbalanced and harmful way still, we&apos;re positive thinker and
-          curios researcher,and the boyscout in us always finds the refi way to
-          go from protocols and partnerships, to swags and irl&apos;s food, our
-          commitment to taking the most sustainable path is unwavering 🌿💪🌐
-        </span>
-      ),
-      es: (
-        <span>
-          tenemos una profunda apreciación por nuestro planeta, valoramos la
-          vida con gratitud y ,creemos que la sociedad se ha organizado de una
-          manera muy desequilibrada y perjudicial pero también somos pensadores
-          positivos y curiosos investigadores, el boy scout en nosotros siempre
-          encuentra el camino Refi. desde protocolos y asociaciones, hasta
-          artículos promocionales y comida en la vida real, nuestro compromiso
-          de seguir el camino más sostenible es inquebrantable 🌿💪🌐
-        </span>
-      ),
+    refi: {
+      h1: { en: <span>🌍 Refi Heads</span>, es: <span>🌍 Refi Heads</span> },
+      h2: {
+        en: <span> we like it sustainable 🐢</span>,
+        es: <span> nos gusta sostenible 🐢</span>,
+      },
+      p: {
+        en: (
+          <span>
+            we have a deep appreciation for our planet, and we also believe that
+            society has been organized in a very unbalanced and harmful way
+            still, we&apos;re positive thinker and curios researcher,and the
+            boyscout in us always finds the ReFi way to go
+            <br />
+            from protocols and partnerships, to swags and irl&apos;s food, our
+            commitment to taking the most sustainable path is unwavering 🌿💪🌐
+          </span>
+        ),
+        es: (
+          <span>
+            tenemos una profunda apreciación por nuestro planeta, y creemos que
+            la sociedad se ha organizado de una manera muy desequilibrada y
+            perjudicial pero también somos pensadores positivos y curiosos
+            investigadores, el boy scout en nosotros siempre encuentra el camino
+            ReFi
+            <br />
+            desde protocolos y asociaciones, hasta artículos promocionales y
+            comida en la vida real, nuestro compromiso de seguir el camino más
+            sostenible es inquebrantable 🌿💪🌐
+          </span>
+        ),
+      },
     },
   },
   howWeDo: {
@@ -535,14 +489,22 @@ const translations = {
   },
   squad: {
     tabata: {
-      en: <span>web3 pathfinder & vanguard of gaming real realms</span>,
+      en: (
+        <span>
+          web3 pathfinder <br /> & <br /> vanguard of gaming real realms
+        </span>
+      ),
       es: (
         <span>
-          exploradora de web3 y vanguardia de los verdaderos reinos del gaming
+          exploradora de web3 <br /> & <br /> vanguardia de los verdaderos
+          reinos del gaming
         </span>
       ),
       it: (
-        <span>esploratrice web3 & difenditrice dei regni reali del gaming</span>
+        <span>
+          esploratrice web3 <br /> & <br /> difenditrice dei regni reali del
+          gaming
+        </span>
       ),
     },
     enrico: {
@@ -551,38 +513,109 @@ const translations = {
       it: <span>alchimista del codice del dominio digitale</span>,
     },
     pipo: {
-      en: <span>master of art & design dynamo</span>,
-      es: <span>maestro del arte y dinamo del diseño grafico</span>,
-      it: <span>maestro dell&apos;arte e dinamo del design</span>,
+      en: (
+        <span>
+          master of art <br /> & <br /> design dynamo
+        </span>
+      ),
+      es: (
+        <span>
+          maestro del arte <br /> & <br /> dinamo del diseño grafico
+        </span>
+      ),
+      it: (
+        <span>
+          maestro dell&apos;arte <br /> & <br /> dinamo del design
+        </span>
+      ),
     },
     aditya: {
-      en: <span>community spark & engagement virtuoso</span>,
-      es: <span>chispa de la comunidad y virtuoso del compromiso</span>,
+      en: (
+        <span>
+          community spark <br /> & <br /> engagement virtuoso
+        </span>
+      ),
+      es: (
+        <span>
+          chispa de la comunidad <br /> & <br /> virtuoso del compromiso
+        </span>
+      ),
       it: (
-        <span>scintilla della comunità e virtuoso dell&apos;interazione</span>
+        <span>
+          scintilla della comunità <br /> & <br /> virtuoso
+          dell&apos;interazione
+        </span>
       ),
     },
     axel: {
-      en: <span>gaming maven & community stalwart</span>,
-      es: <span>maestro en gaming y pilar de la comunidad</span>,
-      it: <span>campione del gaming & baluardo della comunità</span>,
+      en: (
+        <span>
+          gaming maven <br /> & <br /> community stalwart
+        </span>
+      ),
+      es: (
+        <span>
+          maestro en gaming <br /> & <br /> pilar de la comunidad
+        </span>
+      ),
+      it: (
+        <span>
+          campione del gaming <br /> & <br /> baluardo della comunità
+        </span>
+      ),
     },
     abrayadh: {
-      en: <span>discord dominator & guild commander </span>,
-      es: <span>dominador de Discord y condotiero de la guild</span>,
-      it: <span>dominatore di discord & condottiero delle truppe</span>,
+      en: (
+        <span>
+          discord dominator <br /> & <br /> guild commander{" "}
+        </span>
+      ),
+      es: (
+        <span>
+          dominador de Discord <br /> & <br /> condotiero de la guild
+        </span>
+      ),
+      it: (
+        <span>
+          dominatore di discord <br /> & <br /> condottiero delle truppe
+        </span>
+      ),
     },
     pariyeksh: {
-      en: <span>partnerships prodigy & biz dev ace</span>,
-      es: <span>prodigio de alianzas y as de desarrollo empresarial</span>,
-      it: <span>prodigio delle collaborazioni & asso del biz dev </span>,
+      en: (
+        <span>
+          partnerships prodigy <br /> & <br /> biz dev ace
+        </span>
+      ),
+      es: (
+        <span>
+          prodigio de alianzas <br /> & <br /> as de desarrollo empresarial
+        </span>
+      ),
+      it: (
+        <span>
+          prodigio delle collaborazioni <br /> & <br /> asso del biz dev{" "}
+        </span>
+      ),
     },
     milena: {
-      en: <span>social media whiz & storytelling innovator</span>,
-      es: (
-        <span>hechicera de las redes sociales e innovadora en narración</span>
+      en: (
+        <span>
+          social media whiz <br /> & <br /> storytelling innovator
+        </span>
       ),
-      it: <span>maga dei social media & innovatrice della narrazione</span>,
+      es: (
+        <span>
+          hechicera de las redes sociales <br /> & <br /> innovadora en
+          narración
+        </span>
+      ),
+      it: (
+        <span>
+          maga dei social media
+          <br /> & <br /> innovatrice della narrazione
+        </span>
+      ),
     },
   },
   privacy: {

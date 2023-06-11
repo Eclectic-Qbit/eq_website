@@ -7,6 +7,7 @@ import ImgDante from "../../../../public/images/latestDante.jpg";
 import { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "@/contexts/ScrollContext";
 import settings from "@/frontendSettings";
+import { DanteCard } from "@/components/global/Cards";
 
 export default function EclecticQbit() {
   const parentRef = useRef(null);
@@ -23,31 +24,21 @@ export default function EclecticQbit() {
   }, [scroll]);
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      <div className="flex flex-wrap items-center justify-center font-extrabold uppercase w-full gap-y-10 mb-4">
-        <MouseMoveGradient
-          className="w-auto text-center mx-auto"
-          from="#9500E9"
-          to="#FF6600"
-        >
+      <div className="flex flex-wrap items-center justify-around font-extrabold uppercase w-full gap-y-10 mb-4">
+        <MouseMoveGradient className="text-center" from="#9500E9" to="#FF6600">
           <H2SP translationPath="eclecticQbit/title/p1" />
           <H2SP translationPath="eclecticQbit/title/p2" />
         </MouseMoveGradient>
-        <div className="relative mx-auto flex items-center justify-center w-[14rem] xl:w-[24rem] aspect-[3/4] grayscale hover:grayscale-0 transition-all ease-in duration-200">
-          <Link
-            className="relative w-full h-full"
-            href="https://malpegados.jimdosite.com/"
-            target="_blank"
-          >
-            <Image
-              src={ImgDante}
-              fill
-              sizes="100%"
-              priority
-              alt="Cat Logo"
-              className="scale-100 hover:scale-105 transition rounded-xl cursor-none"
-            />
-          </Link>
-        </div>
+        <DanteCard>
+          <Image
+            src={ImgDante}
+            fill
+            sizes="100%"
+            priority
+            alt="Cat Logo"
+            className="grayscale hover:grayscale-0 transition rounded-xl cursor-none"
+          />
+        </DanteCard>
       </div>
       <div className="mb-4">
         <div

@@ -27,7 +27,7 @@ export function MouseMoveGradient({ children, from, to, className }) {
   }, [position]);
   return (
     <div
-      className={`${className} text-transparent bg-clip-text transition-all duration-150 ease-linear`}
+      className={`${className} font-mono text-transparent bg-clip-text transition-all duration-150 ease-linear`}
       style={{
         backgroundImage: `linear-gradient(${angle}deg, ${from}, ${to})`,
       }}

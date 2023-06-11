@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "AndaleMono";
+  src: url("../../public/fonts/andaleMono.TTF") format("truetype");
+}
+body {
+  font-family: "AndaleMono", sans-serif;
+}
