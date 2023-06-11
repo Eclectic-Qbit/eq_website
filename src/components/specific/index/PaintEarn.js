@@ -26,6 +26,9 @@ function PaintEarnImgs({ selected, setSelected }) {
           } else {
             setSelected(null);
           }
+          document
+            .querySelector("#paintEarnTarget")
+            .scrollIntoView({ behavior: "smooth" });
         }}
         className={`flex w-max h-full flex-col gap-5 justify-center items-center text-black ${
           selected === "artist" && (hovering === null || hovering === "artist")
@@ -63,6 +66,9 @@ function PaintEarnImgs({ selected, setSelected }) {
           } else {
             setSelected(null);
           }
+          document
+            .querySelector("#paintEarnTarget")
+            .scrollIntoView({ behavior: "smooth" });
         }}
         className={`flex w-max h-full flex-col gap-5 justify-center items-center text-black ${
           selected === "startupper" &&
@@ -121,22 +127,26 @@ export default function PaintEarn() {
             <PaintEarnImgs selected={selected} setSelected={setSelected} />
           </div>
         </div>
-        <ConsoleEffect
-          delta={15}
-          style={{
-            textShadow: "2px 2px 2px black",
-            textAlign: "center",
-            width: "100%",
-            height: "100%",
-          }}
-          className="relative text-yellow w-full h-full lowercase"
-          content={{
-            content: `paintEarn/${selected ? selected : lastSelected.current}`,
-            type: "ref",
-          }}
-          forceActive={selected !== null}
-          spanStyling={{ backgroundColor: "#9500E9", lineHeight: "22px" }}
-        />
+        <div id="paintEarnTarget">
+          <ConsoleEffect
+            delta={15}
+            style={{
+              textShadow: "2px 2px 2px black",
+              textAlign: "center",
+              width: "100%",
+              height: "100%",
+            }}
+            className="relative text-yellow w-full h-full lowercase"
+            content={{
+              content: `paintEarn/${
+                selected ? selected : lastSelected.current
+              }`,
+              type: "ref",
+            }}
+            forceActive={selected !== null}
+            spanStyling={{ backgroundColor: "#9500E9", lineHeight: "22px" }}
+          />
+        </div>
       </div>
     </div>
   );
