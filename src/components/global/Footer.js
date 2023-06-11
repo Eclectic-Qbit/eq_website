@@ -47,14 +47,17 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-center grid gap-2">
-          <CustomLink
-            href={`mailto:${MAIL}?subject=${encodeURIComponent(
-              MAIL_SUBJ
-            )}&body=${encodeURIComponent(MAIL_BODY)}`}
-            target="_blank"
+          <div
+            onClick={() => {
+              window.location.href = `mailto:${MAIL}?subject=${encodeURIComponent(
+                MAIL_SUBJ
+              )}&body=${encodeURIComponent(MAIL_BODY)}`;
+            }}
           >
-            <P3>{MAIL}</P3>
-          </CustomLink>
+            <CustomLink>
+              <P3>{MAIL}</P3>
+            </CustomLink>
+          </div>
           <P3>IT01751460088</P3>
         </div>
       </div>
