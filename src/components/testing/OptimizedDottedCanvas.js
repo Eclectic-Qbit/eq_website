@@ -3,9 +3,11 @@ import canvasData from "./parsedCanvas.json";
 import baseCanvasItems from "./canvasItems.json";
 import MouseContext from "@/contexts/MouseContext";
 import { downloadFile } from "@/commonFrontend";
+import DebouncedResizeContext from "@/contexts/DebouncedResizeContext";
 
 export default function OptimizedDottedCanvas() {
   const { position, setPosition, samplingDelta } = useContext(MouseContext);
+  const { winSize } = useContext(DebouncedResizeContext);
   const canvasRef = useRef(null);
   const canvasContext = useRef(null);
   const canvasItems = useRef([]);
@@ -23,6 +25,9 @@ export default function OptimizedDottedCanvas() {
   const DOWNLOAD_PARSED = false;
   // Draw a circle given some specs
   const drawCircle = useCallback((x, y, r, fill, blur, w, color, shadow) => {
+    if (!canvasContext.current) {
+      canvasContext.current = canvasRef.current.getContext("2d");
+    }
     canvasContext.current.beginPath();
     canvasContext.current.filter = `blur(${blur}px)`;
     shadow && shadow.blur && (canvasContext.current.shadowBlur = shadow.blur);
@@ -86,13 +91,16 @@ export default function OptimizedDottedCanvas() {
     });
     timeouts.current = newTimeouts;
   }, [createTimeout]);
-  const handleResize = useCallback(() => {
+  useEffect(() => {
+    if (!canvasContext.current) {
+      canvasContext.current = canvasRef.current.getContext("2d");
+    }
     timeouts.current = [];
     canvasItems.current = [];
     // Set canvas dimensions to default
     canvasRef.current.width = canvasRef.current.parentNode.clientWidth;
     canvasRef.current.height = canvasRef.current.parentNode.clientHeight;
-    const newW = window.innerWidth;
+    const newW = winSize.innerW;
     // Parse "texture" and logic points
     const parsedCanvasData = JSON.parse(JSON.stringify(canvasData));
     const parsedCanvasItems = JSON.parse(JSON.stringify(baseCanvasItems));
@@ -152,9 +160,8 @@ export default function OptimizedDottedCanvas() {
         }
       }
     }
-
     lastW.current = newW;
-  }, [DOWNLOAD_PARSED]);
+  }, [DOWNLOAD_PARSED, winSize]);
   useEffect(() => {
     const date = Date.now();
     posticipateTimeouts();
@@ -211,15 +218,5 @@ export default function OptimizedDottedCanvas() {
     posticipateTimeouts,
     samplingDelta,
   ]);
-  useEffect(() => {
-    // Event listeners
-    window.addEventListener("resize", handleResize);
-    canvasContext.current = canvasRef.current.getContext("2d");
-    handleResize();
-    // Remove event listeners
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [handleResize]);
   return <canvas ref={canvasRef} />;
 }

@@ -7,7 +7,8 @@ import { LinkedinLogo } from "../logos/FullLogo";
 import Image from "next/image";
 import { cloneElement, useEffect, useState } from "react";
 import { isDesktop } from "@/commonFrontend";
-
+import malpegadosWhite from "../../../public/images/collabs/malpegadosWhite.png";
+// Cards for squad section
 export default function SquadCard({ img, name, langs, social }) {
   const [rotate, setRotate] = useState(false);
   return (
@@ -125,6 +126,7 @@ export default function SquadCard({ img, name, langs, social }) {
     </div>
   );
 }
+// Cards in the index page (What we do, How we do it)
 export function IndexCard({
   front,
   retro,
@@ -163,7 +165,7 @@ export function IndexCard({
         className={`relative z-10 ${
           form === "square"
             ? "w-[15rem] min-h-[12.5rem] sm:w-[20rem] sm:min-h-[12.5rem]"
-            : "w-[17rem] min-h-[30rem] sm:w-[25rem] sm:min-h-[30rem] lg:w-[45rem] lg:min-h-[18rem]"
+            : "w-[17rem] min-h-[30rem] sm:w-[25rem] sm:min-h-[30rem] lg:w-[42.5rem] lg:min-h-[18rem]"
         } bg-[rgba(0,0,0,1)] h-max border-2 border-solid border-white rounded-xl p-4 transition-all duration-[500ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
@@ -186,6 +188,49 @@ export function IndexCard({
           }}
         >
           {parsedRetro}
+        </div>
+      </div>
+    </div>
+  );
+}
+export function DanteCard({ children }) {
+  const [rotate, setRotate] = useState(false);
+  return (
+    <div
+      onClick={() => {
+        setRotate(!rotate);
+      }}
+    >
+      <div
+        className="relative w-[14rem] xl:w-[24rem] aspect-[3/4] transition-all duration-[500ms] ease-in bg-[rgba(0,0,0,1)] border-2 border-solid border-white rounded-xl"
+        style={{
+          transformStyle: "preserve-3d",
+          transformOrigin: "center",
+          transform: `${rotate ? "rotateY(-180deg)" : ""}`,
+        }}
+      >
+        <div
+          className="absolute top-0 left-0 w-full h-full"
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          {children}
+        </div>
+        <div
+          className="absolute top-0 left-0 w-full h-full flex justify-center items-center"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(-180deg)",
+          }}
+        >
+          <div className="relative w-full  aspect-[5/1] m-8 hover:m-2 transition-all duration-150 ease-in">
+            <Link
+              className="cursor-none"
+              href="https://malpegados.jimdosite.com/"
+              target="_blank"
+            >
+              <Image src={malpegadosWhite} alt="Malpegados" fill />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

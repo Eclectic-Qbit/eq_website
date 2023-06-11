@@ -2,7 +2,7 @@ import { IndexCard } from "@/components/global/Cards";
 import ConsoleEffect from "../../animations/ConsoleEffect";
 import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
 import { H3, H4, H6 } from "../../text/Headers";
-import { P1, P2, P4 } from "../../text/Paragraphs";
+import { P1, P1SP, P2, P4 } from "../../text/Paragraphs";
 
 export default function WhatWeDo() {
   return (
@@ -21,11 +21,19 @@ export default function WhatWeDo() {
         <div className="flex flex-wrap justify-center items-center mt-4 gap-4 lowercase">
           <IndexCard
             front={
-              <P1
-                style={{ textShadow: "1px 1px 2px white" }}
-                translationPath="whatWeDo/h2"
-                className="text-white font-bold uppercase"
-              />
+              <div>
+                <P1
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/community/h1"
+                  className="text-white font-bold uppercase"
+                />
+                <br />
+                <P2
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/community/h2"
+                  className="text-white font-bold lowercase"
+                />
+              </div>
             }
             retro={
               <ConsoleEffect
@@ -34,7 +42,7 @@ export default function WhatWeDo() {
                 className="text-yellow grid gap-4 text-center"
                 additionalChar="_"
                 placeholderChar="$ "
-                content={{ content: "whatWeDo/p2", type: "ref" }}
+                content={{ content: "whatWeDo/community/p", type: "ref" }}
               />
             }
             pass={{
@@ -43,11 +51,19 @@ export default function WhatWeDo() {
           />
           <IndexCard
             front={
-              <P1
-                style={{ textShadow: "1px 1px 1px white" }}
-                translationPath="whatWeDo/h3"
-                className="text-white font-bold uppercase"
-              />
+              <div>
+                <P1
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/gamification/h1"
+                  className="text-white font-bold uppercase"
+                />
+                <br />
+                <P2
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/gamification/h2"
+                  className="text-white font-bold lowercase"
+                />
+              </div>
             }
             retro={
               <ConsoleEffect
@@ -56,7 +72,7 @@ export default function WhatWeDo() {
                 className="text-yellow grid gap-2 text-center"
                 additionalChar="_"
                 placeholderChar="$ "
-                content={{ content: "whatWeDo/p3", type: "ref" }}
+                content={{ content: "whatWeDo/gamification/p", type: "ref" }}
               />
             }
             pass={{
@@ -65,13 +81,19 @@ export default function WhatWeDo() {
           />
           <IndexCard
             front={
-              <P1
-                style={{
-                  textShadow: "1px 1px 1px white",
-                }}
-                translationPath="whatWeDo/h4"
-                className="text-white font-bold uppercase w-full"
-              />
+              <div>
+                <P1
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/grey/h1"
+                  className="text-white font-bold uppercase"
+                />
+                <br />
+                <P2
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/grey/h2"
+                  className="text-white font-bold lowercase"
+                />
+              </div>
             }
             retro={
               <ConsoleEffect
@@ -80,7 +102,7 @@ export default function WhatWeDo() {
                 className="text-yellow grid gap-2 text-center"
                 additionalChar="_"
                 placeholderChar="$ "
-                content={{ content: "whatWeDo/p4", type: "ref" }}
+                content={{ content: "whatWeDo/grey/p", type: "ref" }}
               />
             }
             pass={{
@@ -89,11 +111,19 @@ export default function WhatWeDo() {
           />
           <IndexCard
             front={
-              <P1
-                style={{ textShadow: "1px 1px 1px white" }}
-                translationPath="whatWeDo/h5"
-                className="text-white font-bold uppercase"
-              />
+              <div>
+                <P1
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/refi/h1"
+                  className="text-white font-bold uppercase"
+                />
+                <br />
+                <P2
+                  style={{ textShadow: "1px 1px 2px white" }}
+                  translationPath="whatWeDo/refi/h2"
+                  className="text-white font-bold lowercase"
+                />
+              </div>
             }
             retro={
               <ConsoleEffect
@@ -102,7 +132,7 @@ export default function WhatWeDo() {
                 className="text-yellow grid gap-2 text-center"
                 additionalChar="_"
                 placeholderChar="$ "
-                content={{ content: "whatWeDo/p5", type: "ref" }}
+                content={{ content: "whatWeDo/refi/p", type: "ref" }}
               />
             }
             pass={{
