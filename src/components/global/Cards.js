@@ -222,13 +222,13 @@ export function DanteCard({ children }) {
             transform: "rotateY(-180deg)",
           }}
         >
-          <div className="relative w-full  aspect-[5/1] m-8 hover:m-2 transition-all duration-150 ease-in">
+          <div className="relative w-full aspect-[5/1] m-8 hover:m-2 transition-all duration-150 ease-in">
             <Link
-              className="cursor-none"
+              className="absolute w-full h-full cursor-none"
               href="https://malpegados.jimdosite.com/"
               target="_blank"
             >
-              <Image src={malpegadosWhite} alt="Malpegados" fill />
+              <Image src={malpegadosWhite} alt="Malpegados" fill sizes="100%" />
             </Link>
           </div>
         </div>

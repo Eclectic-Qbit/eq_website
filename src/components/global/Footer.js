@@ -8,6 +8,9 @@ import CustomLink from "./CustomLink";
 import LogoLink from "./LogoLink";
 
 export default function Footer() {
+  const MAIL = "ama@eclecticqbit.art";
+  const MAIL_SUBJ = "";
+  const MAIL_BODY = "";
   return (
     <div className="border-t-2 border-solid border-white py-10">
       <div className="flex flex-wrap w-full h-full gap-[5%] justify-around items-center text-center">
@@ -43,8 +46,15 @@ export default function Footer() {
             </CustomLink>
           </div>
         </div>
-        <div className="text-center">
-          <P3>ama@eclecticqbit.art</P3>
+        <div className="text-center grid gap-2">
+          <CustomLink
+            href={`mailto:${MAIL}?subject=${encodeURIComponent(
+              MAIL_SUBJ
+            )}&body=${encodeURIComponent(MAIL_BODY)}`}
+            target="_blank"
+          >
+            <P3>{MAIL}</P3>
+          </CustomLink>
           <P3>IT01751460088</P3>
         </div>
       </div>

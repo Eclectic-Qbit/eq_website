@@ -2,16 +2,39 @@
 
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
 import MemoryGame from "@/components/gamification/MemoryGame";
-import CustomLink from "@/components/global/CustomLink";
 import { P1, P2 } from "@/components/text/Paragraphs";
-import { useState } from "react";
+import ResizeContext from "@/contexts/ResizeContext";
+import settings from "@/frontendSettings";
+import Link from "next/link";
+import { useContext, useEffect, useState } from "react";
+
 export default function Games() {
   const [msg, setMsg] = useState(null);
+  const { winSize, setWinSize } = useContext(ResizeContext);
+  useEffect(() => {
+    setWinSize({ innerW: window.innerWidth });
+  }, [setWinSize]);
   return (
-    <div className="w-full h-full min-h-screen gap-10 flex flex-col items-center justify-center pt-24 pb-8">
+    <div className="w-full h-full min-h-screen gap-10 flex flex-col items-center justify-center pt-20 mb-8">
       {msg && msg}
-      <div className="flex justify-evenly font-extrabold uppercase w-full text-center">
+      <div
+        className={`${
+          winSize && winSize.innerW > settings.mobileView
+            ? "fixed top-0 left-0 pb-10  border-l-2 border-solid border-white bg-black h-screen"
+            : "top-0 relative flex-wrap flex-col"
+        }
+         flex justify-center font-extrabold uppercase w-max text-center`}
+        style={
+          winSize && winSize.innerW > settings.mobileView
+            ? {
+                writingMode: "vertical-lr",
+                rotate: "180deg",
+              }
+            : {}
+        }
+      >
         <div
+          className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in"
           onClick={() => {
             document
               .querySelector("#game")
@@ -54,16 +77,15 @@ export default function Games() {
             );
           }}
         >
-          <CustomLink>
-            <P1>Play 🎮</P1>
-          </CustomLink>
+          <P1>Play 🎮</P1>
         </div>
-        <div>
-          <CustomLink href="/games/leaderboards">
+        <div className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in">
+          <Link className="cursor-none" href="/games/leaderboards">
             <P1>RANK BLITZ 🥇</P1>
-          </CustomLink>
+          </Link>
         </div>
         <div
+          className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in"
           onClick={() =>
             setMsg(
               <div
@@ -81,9 +103,7 @@ export default function Games() {
             )
           }
         >
-          <CustomLink>
-            <P1>LEVEL UP 🎉</P1>
-          </CustomLink>
+          <P1>LEVEL UP 🎉</P1>
         </div>
       </div>
       <div id="game">

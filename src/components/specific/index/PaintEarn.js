@@ -27,23 +27,28 @@ function PaintEarnImgs({ selected, setSelected }) {
             setSelected(null);
           }
         }}
-        className={`flex flex-col gap-5 justify-center items-center ${
+        className={`flex w-max h-full flex-col gap-5 justify-center items-center text-black ${
           selected === "artist" && (hovering === null || hovering === "artist")
-            ? "text-yellow"
+            ? ""
             : "grayscale"
-        } sm:hover:grayscale-0 sm:hover:text-yellow`}
+        } ${
+          selected === "artist" && "sm:border-[0.35rem]"
+        } sm:hover:grayscale-0 transition-all duration-150 border-2 border-solid border-white rounded-xl overflow-hidden`}
       >
-        <div className="relative w-full aspect-square transition-all duration-150">
-          <Image
-            className={`rounded-full cursor-none ${
-              selected === "artist" ? " border-4" : "border-0"
-            } border-solid border-white transition-all duration-150`}
-            src={Img1}
-            alt="Artist"
-            fill
-          />
+        <div className="relative w-max h-[25rem]">
+          <div className="relative aspect-square h-[21rem]">
+            <Image
+              className={` cursor-none border-solid border-white transition-all duration-150`}
+              src={Img1}
+              alt="Artist"
+              fill
+              sizes="100%"
+            />
+          </div>
+          <div className="w-full h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">
+            <P1 translationPath="paintEarn/p1" />
+          </div>
         </div>
-        <P1 translationPath="paintEarn/p1" />
       </div>
       <div
         onMouseEnter={() => {
@@ -59,24 +64,29 @@ function PaintEarnImgs({ selected, setSelected }) {
             setSelected(null);
           }
         }}
-        className={`flex flex-col gap-5 justify-center items-center ${
+        className={`flex w-max h-full flex-col gap-5 justify-center items-center text-black ${
           selected === "startupper" &&
           (hovering === null || hovering === "startupper")
-            ? "text-yellow"
+            ? ""
             : "grayscale"
-        } sm:hover:grayscale-0 sm:hover:text-yellow transition-all duration-150`}
+        } ${
+          selected === "startupper" && "sm:border-[0.35rem]"
+        } sm:hover:grayscale-0 transition-all duration-150 border-2 border-solid border-white rounded-xl overflow-hidden`}
       >
-        <div className="relative w-full aspect-square">
-          <Image
-            className={`rounded-full cursor-none ${
-              selected === "startupper" ? " border-4" : "border-0"
-            } border-solid border-white transition-all duration-150`}
-            src={Img2}
-            alt="Startupper"
-            fill
-          />
+        <div className="relative w-max h-[25rem]">
+          <div className="relative aspect-square h-[21rem]">
+            <Image
+              className={` cursor-none border-solid border-white transition-all duration-150`}
+              src={Img2}
+              alt="Startupper"
+              fill
+              sizes="100%"
+            />
+          </div>
+          <div className="w-full h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">
+            <P1 translationPath="paintEarn/p2" />
+          </div>
         </div>
-        <P1 translationPath="paintEarn/p2" />
       </div>
     </>
   );
@@ -107,7 +117,7 @@ export default function PaintEarn() {
           className="text-purple text-center font-bold uppercase"
         />
         <div className="flex justify-center items-center gap-10 uppercase font-extrabold text-center ">
-          <div className="relative w-full max-w-[15rem] sm:max-w-[40rem] flex flex-col gap-10 sm:grid sm:grid-cols-2">
+          <div className="relative w-full flex flex-wrap justify-center gap-10 ">
             <PaintEarnImgs selected={selected} setSelected={setSelected} />
           </div>
         </div>

@@ -36,7 +36,7 @@ const translations = {
       en: (
         <span>
           eclectic qbit, it&apos;s all about bringing the modus operandi of
-          qbits, into web3, with a IT&apos;S A ME twist with nature as our main
+          qbits, into web3, with a it&apos;s a me twist with nature as our main
           inspiration, just like fungi 🍄, we exchange nutrients and other
           resources within & beyond web3 space
         </span>
@@ -44,7 +44,7 @@ const translations = {
       es: (
         <span>
           eclectic qbit, llevas el modus operandi de los qbits a web3, con un
-          giro IT&apos;S A ME
+          giro it&apos;s a me
           <br />
           con la naturaleza como nuestra principal inspiración, al igual que los
           hongos 🍄, intercambiamos nutrientes y otros recursos dentro y fuera
@@ -143,7 +143,7 @@ const translations = {
             <br />
             we&apos;re not afraid to roll up our sleeves and get our hands dirty
             with smart contracts, decentralized storage, and all the other nerdy
-            bits and bobs that power the decentralized web 🎮🚀🕹️🌐
+            bits and bobs that power the decentralized web
           </span>
         ),
         es: (
@@ -176,7 +176,7 @@ const translations = {
             boyscout in us always finds the ReFi way to go
             <br />
             from protocols and partnerships, to swags and irl&apos;s food, our
-            commitment to taking the most sustainable path is unwavering 🌿💪🌐
+            commitment to taking the most sustainable path is unwavering
           </span>
         ),
         es: (
@@ -189,7 +189,7 @@ const translations = {
             <br />
             desde protocolos y asociaciones, hasta artículos promocionales y
             comida en la vida real, nuestro compromiso de seguir el camino más
-            sostenible es inquebrantable 🌿💪🌐
+            sostenible es inquebrantable
           </span>
         ),
       },
@@ -446,9 +446,10 @@ const translations = {
           <br />
           With Paint&Earn, you&apos;ll not only grab attention for your brand or
           project, but you&apos;ll also help the street art community thrive and
-          make a positive impact in their city By teaming up with us,
-          you&apos;ll show that you value innovation, creativity, and social
-          responsibility 💻🎨🌆
+          make a positive impact in their city
+          <br />
+          By teaming up with us, you&apos;ll show that you value innovation,
+          creativity, and social responsibility 💻🎨🌆
           <br />
           <br />
           So, why settle for cookie-cutter marketing when you can make a
