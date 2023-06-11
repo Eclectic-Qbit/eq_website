@@ -99,7 +99,7 @@ export default function Squad() {
             link: "https://www.linkedin.com/in/milena-antoni%C4%87-634237143",
           },
         ]}
-        langs={["🇬🇧"]}
+        langs={["🇬🇧", "🇷🇸"]}
       />
     </div>
   );
