@@ -7,7 +7,7 @@ import ImgAdi from "../../../../public/images/team/7.png";
 import ImgAxel from "../../../../public/images/team/1.png";
 import ImgAbra from "../../../../public/images/team/5.png";
 import ImgPari from "../../../../public/images/team/8.png";
-import ImgMilena from "../../../../public/images/team/9.png";
+import ImgMilena from "../../../../public/images/team/10.png";
 import SquadCard from "@/components/global/Cards";
 
 export default function Squad() {
