@@ -35,8 +35,8 @@ function PaintEarnImgs({ selected, setSelected }) {
           selected === "artist" && "sm:border-[0.35rem]"
         } sm:hover:grayscale-0 transition-all duration-150 border-2 border-solid border-white rounded-xl overflow-hidden`}
       >
-        <div className="relative w-max h-[25rem]">
-          <div className="relative aspect-square h-[21rem]">
+        <div className="relative w-max h-[18rem] sm:h-[25rem]">
+          <div className="relative aspect-square h-[15rem]  sm:h-[21rem]">
             <Image
               className={` cursor-none border-solid border-white transition-all duration-150`}
               src={Img1}
@@ -45,7 +45,7 @@ function PaintEarnImgs({ selected, setSelected }) {
               sizes="100%"
             />
           </div>
-          <div className="w-full h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">
+          <div className="w-full h-[3rem] sm:h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">
             <P1 translationPath="paintEarn/p1" />
           </div>
         </div>
@@ -73,8 +73,8 @@ function PaintEarnImgs({ selected, setSelected }) {
           selected === "startupper" && "sm:border-[0.35rem]"
         } sm:hover:grayscale-0 transition-all duration-150 border-2 border-solid border-white rounded-xl overflow-hidden`}
       >
-        <div className="relative w-max h-[25rem]">
-          <div className="relative aspect-square h-[21rem]">
+        <div className="relative w-max h-[18rem] sm:h-[25rem]">
+          <div className="relative aspect-square h-[15rem]  sm:h-[21rem]">
             <Image
               className={` cursor-none border-solid border-white transition-all duration-150`}
               src={Img2}
@@ -83,7 +83,7 @@ function PaintEarnImgs({ selected, setSelected }) {
               sizes="100%"
             />
           </div>
-          <div className="w-full h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">
+          <div className="w-full h-[3rem] sm:h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">
             <P1 translationPath="paintEarn/p2" />
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function PaintEarn() {
             type: "ref",
           }}
           forceActive={selected !== null}
-          spanStyling={{ backgroundColor: "#9500E9", lineHeight: "24px" }}
+          spanStyling={{ backgroundColor: "#9500E9", lineHeight: "22px" }}
         />
       </div>
     </div>
