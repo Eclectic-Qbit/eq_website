@@ -6,6 +6,7 @@ import { InstagramLogo, TwitterLogo } from "../logos/BorderLogo";
 import { LinkedinLogo } from "../logos/FullLogo";
 import Image from "next/image";
 import { cloneElement, useEffect, useState } from "react";
+import { isDesktop } from "@/commonFrontend";
 
 export default function SquadCard({ img, name, langs, social }) {
   const [rotate, setRotate] = useState(false);
@@ -13,6 +14,11 @@ export default function SquadCard({ img, name, langs, social }) {
     <div
       onMouseEnter={() => setRotate(true)}
       onMouseLeave={() => setRotate(false)}
+      onClick={() => {
+        if (!isDesktop(window.innerWidth)) {
+          setRotate(!rotate);
+        }
+      }}
     >
       <div
         className={`relative w-[12rem] h-[15rem] sm:w-[20rem] sm:h-[24rem] border-2 border-solid border-white rounded-xl transition-all duration-[500ms] ease-in`}
@@ -146,6 +152,11 @@ export function IndexCard({
     <div
       onMouseEnter={() => setRotate(true)}
       onMouseLeave={() => setRotate(false)}
+      onClick={() => {
+        if (!isDesktop(window.innerWidth)) {
+          setRotate(!rotate);
+        }
+      }}
       className="bg-black"
     >
       <div

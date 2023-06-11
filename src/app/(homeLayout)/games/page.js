@@ -55,12 +55,12 @@ export default function Games() {
           }}
         >
           <CustomLink>
-            <P1>Play.</P1>
+            <P1>Play 🎮</P1>
           </CustomLink>
         </div>
         <div>
           <CustomLink href="/games/leaderboards">
-            <P1>RANK BLITZ.</P1>
+            <P1>RANK BLITZ 🥇</P1>
           </CustomLink>
         </div>
         <div
@@ -82,7 +82,7 @@ export default function Games() {
           }
         >
           <CustomLink>
-            <P1>LEVEL UP.</P1>
+            <P1>LEVEL UP 🎉</P1>
           </CustomLink>
         </div>
       </div>

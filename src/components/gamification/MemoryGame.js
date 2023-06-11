@@ -8,7 +8,7 @@ import ImgAdi from "../../../public/images/team/7.png";
 import ImgAxel from "../../../public/images/team/1.png";
 import ImgAbra from "../../../public/images/team/5.png";
 import ImgPari from "../../../public/images/team/8.png";
-import ImgMilena from "../../../public/images/team/9.png";
+import ImgMilena from "../../../public/images/team/10.png";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { H1, H5 } from "../text/Headers";
 import { P1, P2 } from "../text/Paragraphs";
@@ -36,7 +36,7 @@ function Card({ pos, img, active, onClick, won, reset }) {
             onClick(pos);
           }
         }}
-        className={`relative w-[4.5rem] sm:w-[7rem] lg:w-[10rem] aspect-square border-[0.25rem] border-solid border-white transition-all duration-[500ms] ease-in`}
+        className={`relative w-[4.5rem] sm:w-[7rem] lg:w-[10rem] aspect-square border-[0.1rem] sm:border-[0.25rem] border-solid border-white transition-all duration-[500ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",
