@@ -201,21 +201,21 @@ const translations = {
       p2: { en: <span>how we do it</span>, es: <span>lo hacemos</span> },
     },
     h1: {
-      en: <span>💬 DiscWarpIpes</span>,
-      es: <span>💬 DiscWarpIpes</span>,
+      en: <span>👾 warp pipes</span>,
+      es: <span>👾 Warp Pipes</span>,
     },
     p1: {
       en: (
         <span>
-          we build a discord server that provides a space for eclectic troopas
+          we build a discord server that provides a space for community members
           to connect, share ideas, and provide feedback on your project
         </span>
       ),
       es: (
         <span>
           construimos un servidor de Discord que brinda un espacio para que los
-          koopas eclécticos se conecten, compartan ideas y brinden comentarios
-          sobre su proyecto
+          miembro de su comunidad se conecten, compartan ideas y brinden
+          comentarios sobre su proyecto
         </span>
       ),
       it: (
@@ -226,7 +226,7 @@ const translations = {
         </span>
       ),
     },
-    h2: { en: <span>🎉 contests</span>, es: <span>🎉 Concursos</span> },
+    h2: { en: <span>🎉 Contests</span>, es: <span>🎉 Concursos</span> },
     p2: {
       en: (
         <span>
@@ -236,12 +236,12 @@ const translations = {
       ),
       es: (
         <span>
-          organizamos concursos regulares que permiten a los koopas eclécticos
+          organizamos concursos regulares que permiten a los troopas eclécticos
           mostrar sus habilidades y ganar premios
         </span>
       ),
     },
-    h3: { en: <span>🍄 Power-ups</span>, es: <span>🍄 Power-Ups</span> },
+    h3: { en: <span>🍄 Power-Ups</span>, es: <span>🍄 Power-Ups</span> },
     p3: {
       en: (
         <span>
@@ -257,7 +257,7 @@ const translations = {
       ),
     },
     h4: {
-      en: <span>🏆 High scores</span>,
+      en: <span>🏆 High Scores</span>,
       es: <span>🏆 Tabla de Puntajes</span>,
     },
     p4: {
@@ -270,13 +270,13 @@ const translations = {
       ),
       es: (
         <span>
-          Seguimos y celebramos los logros de nuestros koopas eclécticos, desde
-          el número de piezas de arte creadas hasta la cantidad de poaps
-          recolectados y más allá
+          Seguimos y celebramos los logros de nuestra comunidad, desde el número
+          de piezas de arte creadas hasta la cantidad de poaps recolectados y
+          más allá
         </span>
       ),
     },
-    h5: { en: <span>🧑‍🤝‍🧑 Partnerships</span>, es: <span>🧑‍🤝‍🧑 Alianzas</span> },
+    h5: { en: <span>🧑‍🤝‍🧑 Collaborations</span>, es: <span>🧑‍🤝‍🧑 Alianzas</span> },
     p5: {
       en: (
         <span>
@@ -286,33 +286,33 @@ const translations = {
       ),
       es: (
         <span>
-          ayudamos a nuestros koopas eclécticos a formar alianzas con otros
+          ayudamos a nuestros troopas eclécticos a formar alianzas con otros
           proyectos web3, ampliando su alcance y construyendo nuevas conexiones
         </span>
       ),
     },
     h6: {
-      en: <span>🎨 Fan art contests</span>,
+      en: <span>🎨 Fan Art Contests</span>,
       es: <span>🎨 Concursos de Arte de Fans</span>,
     },
     p6: {
       en: (
         <span>
-          Our eclectic troopas can showcase their creativity and love for your
-          project through fan art contests, where winners are rewarded with nft
-          and prizes
+          the community can showcase their creativity and love for your project
+          through fan art contests, where winners are rewarded with nft and
+          prizes
         </span>
       ),
       es: (
         <span>
-          Nuestros koopas eclécticos pueden mostrar su creatividad y amor por su
-          proyecto a través de concursos de arte de fans, donde los ganadores
-          son recompensados con NFT y premios
+          Nuestra comunidad puede mostrar su creatividad y amor por su proyecto
+          a través de concursos de arte de fans, donde los ganadores son
+          recompensados con NFT y premios
         </span>
       ),
     },
     h7: {
-      en: <span>🕹️ Game nights</span>,
+      en: <span>🕹️ Game Nights</span>,
       es: <span>🕹️ Noches de Juego</span>,
     },
     p7: {
@@ -324,14 +324,14 @@ const translations = {
       ),
       es: (
         <span>
-          organizamos divertidas noches de juegos donde los koopas eclécticos
+          organizamos divertidas noches de juegos donde los troopas eclécticos
           pueden jugar y ganar con juegos, competir entre sí y construir
           relaciones sólidas
         </span>
       ),
     },
     h8: {
-      en: <span>🌟 Launch parties</span>,
+      en: <span>🌟 Launch Parties</span>,
       es: <span>🌟 Fiestas de Lanzamiento</span>,
     },
     p8: {
@@ -351,7 +351,7 @@ const translations = {
       ),
     },
     h9: {
-      en: <span>🌎 Global events</span>,
+      en: <span>🌎 Global Events</span>,
       es: <span>🌎 Eventos Globales</span>,
     },
     p9: {
@@ -364,7 +364,7 @@ const translations = {
       es: (
         <span>
           Nuestro equipo coordina eventos irl globales, así como canales de voz
-          y actividades en línea para reunir a los koopas eclécticos de todo el
+          y actividades en línea para reunir a los troopas eclécticos de todo el
           mundo
         </span>
       ),
