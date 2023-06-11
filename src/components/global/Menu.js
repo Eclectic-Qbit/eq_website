@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useRef, useState } from "react";
 import CustomLink from "./CustomLink";
-import { P1, P2, P3 } from "../text/Paragraphs";
+import { P3 } from "../text/Paragraphs";
 import Image from "next/image";
 import ImgIcon from "../../../public/images/fullIcon_white.png";
 import ScrollContext from "@/contexts/ScrollContext";
@@ -48,7 +48,7 @@ export default function Menu() {
         </div>
       )}
       <div className="relative flex items-center h-[7.5vh] aspect-[35/12]">
-        <Image src={ImgIcon} alt="Logo" fill />
+        <Image src={ImgIcon} alt="Logo" fill sizes="100%" />
       </div>
       <div className="flex uppercase items-center justify-end w-full lg:gap-4 sm:gap-3-auto text-center">
         <div className="grid gap-0.5 md:flex md:gap-3 py-[1vh]">

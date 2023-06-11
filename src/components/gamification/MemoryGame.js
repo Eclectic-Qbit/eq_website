@@ -36,7 +36,7 @@ function Card({ pos, img, active, onClick, won, reset }) {
             onClick(pos);
           }
         }}
-        className={`relative w-[4.5rem] sm:w-[7rem] lg:w-[10rem] aspect-square border-[0.1rem] sm:border-[0.25rem] border-solid border-white transition-all duration-[500ms] ease-in`}
+        className={`relative w-[4.5rem] sm:w-[7rem] lg:w-[11.5rem] aspect-square border-[0.1rem] sm:border-[0.2rem] border-solid border-white transition-all duration-[500ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",
@@ -195,7 +195,7 @@ export default function MemoryGame() {
       <div>
         <div className="w-full h-full flex items-center justify-center">
           <div
-            className={`flex gap-1 flex-wrap max-w-[19rem]  sm:max-w-[29rem] lg:max-w-[41rem] justify-center items-center`}
+            className={`flex gap-1 flex-wrap max-w-[19rem]  sm:max-w-[29rem] lg:max-w-[47rem] justify-center items-center`}
           >
             {cards.map((el, i) => {
               return (

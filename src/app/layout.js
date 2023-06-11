@@ -4,6 +4,7 @@ import LanguageProvider from "@/providers/LanguageProvider";
 import MouseProvider from "@/providers/MouseProvider";
 import ScrollProvider from "@/providers/ScrollProvider";
 import DebouncedResizeProvider from "@/providers/DebouncedResizeProvider";
+import ResizeProvider from "@/providers/ResizeProvider";
 
 export const metadata = {
   title: "eclectic qbit",
@@ -21,7 +22,9 @@ export default function RootLayout({ children }) {
           <MouseProvider>
             <ScrollProvider>
               <CurrentPageProvider>
-                <DebouncedResizeProvider>{children}</DebouncedResizeProvider>
+                <DebouncedResizeProvider>
+                  <ResizeProvider>{children}</ResizeProvider>
+                </DebouncedResizeProvider>
               </CurrentPageProvider>
             </ScrollProvider>
           </MouseProvider>

@@ -4,18 +4,20 @@ import MouseContext from "@/contexts/MouseContext";
 import { useContext, useEffect, useRef, useState } from "react";
 import { P2, P4 } from "../text/Paragraphs";
 import settings from "@/frontendSettings";
+import ResizeContext from "@/contexts/ResizeContext";
 
 export function HomepageCursor() {
   const ref = useRef(null);
   const [side, setSide] = useState(0);
   const [resized, setResized] = useState(false);
   const { position } = useContext(MouseContext);
+  const { winSize } = useContext(ResizeContext);
   useEffect(() => {
     setSide(ref.current.offsetWidth);
-    if (window.innerWidth > settings.mobileView) {
+    if (!resized && window.innerWidth > settings.mobileView) {
       setResized(true);
     }
-  }, []);
+  }, [resized, winSize]);
   return (
     <div
       className={`fixed ${!resized && "invisible"} sm:visible ${
