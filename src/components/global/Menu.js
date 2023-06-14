@@ -26,6 +26,7 @@ export default function Menu() {
   const languages = useRef({ en: "🍔", es: "🌮", it: "🍝", fr: "🥐" });
   const ref = useRef(null);
   const dotRef = useRef(null);
+  /*
   useEffect(() => {
     const newStyle = {};
     const dir = Math.floor(Math.random() * 2);
@@ -36,6 +37,7 @@ export default function Menu() {
     newStyle.top = height;
     setDotStyle(newStyle);
   }, [page]);
+  */
   useEffect(() => {
     if (scroll > lastScroll.current) {
       setShow(false);
@@ -52,6 +54,7 @@ export default function Menu() {
         !show && "-translate-y-full"
       } transition ease-out duration-300 border-b-2 border-solid border-white cursor-none`}
     >
+      {/* 
       <div
         className="absolute top-0 right-0 flex justify-center h-full w-[2%] h-min"
         style={dotStyle}
@@ -60,6 +63,7 @@ export default function Menu() {
           <div ref={dotRef} className="w-2 h-2 bg-white rounded-full" />
         </CustomLink>
       </div>
+      */}
       {errorMsg && (
         <div
           onClick={() => {
@@ -76,13 +80,13 @@ export default function Menu() {
         <div className="flex items-center justify-start w-full">
           <CustomLink
             noUnderline
-            href={"/"}
+            href={"/story"}
             className="relative cursor-none flex items-center h-[7.5vh] aspect-[35/12]"
           >
             <Image src={ImgIcon} alt="Logo" fill sizes="100%" />
           </CustomLink>
         </div>
-        <div className="flex justify-end items-center sm:justify-center w-full">
+        <div className="flex items-center justify-center w-full">
           <div className="uppercase md:flex md:gap-4">
             <CustomLink href="/">
               <P3 translationPath="menu/home" />
@@ -90,66 +94,61 @@ export default function Menu() {
             <CustomLink href="/squad">
               <P3 translationPath="menu/squad" />
             </CustomLink>
-          </div>
-        </div>
-        <div className="flex justify-end items-center w-full">
-          <div className="grid gap-1 md:flex md:gap-4">
             <CustomLink href="/games">
               <P3>🕹️</P3>
             </CustomLink>
+          </div>
+        </div>
+        <div className="flex justify-end items-center w-full">
+          <div className="grid gap-1 md:flex md:gap-4 text-right">
             <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
-              <div
-                className={`relative z-10 w-full ${
-                  !openLang
-                    ? "translate-x-[33%] sm:translate-x-[0%]"
-                    : "-translate-x-[33%] sm:translate-x-[0%]"
-                } transition-all duration-[500ms] ease-in`}
-                onClick={() => setOpenLang(!openLang)}
+              <P3
+                className={`flex flex-wrap justify-center items-center transition-all duration-150`}
               >
-                <P3 className="flex hover:scale-[1.15] transition-all duration-150">
+                <div
+                  className="sm:hover:scale-[1.15] w-full sm:w-min text-center"
+                  onClick={() => setOpenLang(!openLang)}
+                >
                   {languages.current[lang]}
-                </P3>
-              </div>
-              <div
-                className={`absolute flex ${
-                  openLang ? "opacity-1 visible z-20" : "opacity-0"
-                } bottom-0 sm:-bottom-1 left-0 flex bg-black sm:flex-col sm:gap-3 sm:translate-x-0 sm:translate-y-full transition-all duration-[500ms] ease-in`}
-              >
-                {Object.keys(languages.current).map((e, i) => {
-                  if (e !== lang) {
-                    return (
-                      <div
-                        key={i}
-                        className="hover:scale-[1.25] transition-all duration-150"
-                        onClick={() => {
-                          if (settings.languages.ready.includes(e)) {
-                            setLang(e);
-                            localStorage.setItem("lang", e);
-                          } else {
-                            if (
-                              window.innerWidth > settings.mobileView &&
-                              openLang
-                            ) {
-                              setErrorMsg(
-                                <LoadingAnimation
-                                  elements={[
-                                    <H4 key={0}>{translations.notFound[e]}</H4>,
-                                  ]}
-                                  coeffs={[1]}
-                                  delay={1000}
-                                  className={"text-center"}
-                                />
-                              );
+                </div>
+                {openLang &&
+                  Object.keys(languages.current).map((e, i) => {
+                    if (e !== lang) {
+                      return (
+                        <div
+                          key={i}
+                          className="sm:hover:scale-[1.15] transition-all duration-150"
+                          onClick={() => {
+                            if (settings.languages.ready.includes(e)) {
+                              setLang(e);
+                              localStorage.setItem("lang", e);
+                            } else {
+                              if (
+                                window.innerWidth > settings.mobileView &&
+                                openLang
+                              ) {
+                                setErrorMsg(
+                                  <LoadingAnimation
+                                    elements={[
+                                      <H4 key={0}>
+                                        {translations.notFound[e]}
+                                      </H4>,
+                                    ]}
+                                    coeffs={[1]}
+                                    delay={1000}
+                                    className={"text-center"}
+                                  />
+                                );
+                              }
                             }
-                          }
-                        }}
-                      >
-                        <P3>{languages.current[e]}</P3>
-                      </div>
-                    );
-                  }
-                })}
-              </div>
+                          }}
+                        >
+                          <P3>{languages.current[e]}</P3>
+                        </div>
+                      );
+                    }
+                  })}
+              </P3>
             </div>
           </div>
         </div>
