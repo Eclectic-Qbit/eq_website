@@ -14,7 +14,7 @@ export default function WhatWeDo() {
           to="#FF6600"
         >
           <H4 translationPath="whatWeDo/title/p1" />
-          <H3 translationPath="whatWeDo/title/p2" />
+          <H4 translationPath="whatWeDo/title/p2" />
         </MouseMoveGradient>
       </div>
       <div className="relative flex justify-center">

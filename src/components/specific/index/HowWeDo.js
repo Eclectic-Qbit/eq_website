@@ -16,7 +16,7 @@ export default function HowWeDo() {
           to="#FF6600"
         >
           <H4 translationPath="howWeDo/title/p1" />
-          <H3 translationPath="howWeDo/title/p2" />
+          <H4 translationPath="howWeDo/title/p2" />
         </MouseMoveGradient>
         <div className="relative flex justify-center flex-wrap mx-[5%] items-center justify-start lowercase gap-4">
           <IndexCard

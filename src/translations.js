@@ -444,7 +444,7 @@ const translations = {
           that&apos;ll make a lasting impression?
           <br />
           <br />
-          With Paint&Earn, you&apos;ll not only grab attention for your brand or
+          With Paint&Earn, you&apos;ll not only grab attention for your tool or
           project, but you&apos;ll also help the street art community thrive and
           make a positive impact in their city
           <br />

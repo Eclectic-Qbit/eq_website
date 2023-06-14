@@ -202,7 +202,7 @@ export function DanteCard({ children }) {
       }}
     >
       <div
-        className="relative w-[14rem] xl:w-[24rem] aspect-[3/4] transition-all duration-[500ms] ease-in bg-[rgba(0,0,0,1)] border-2 border-solid border-white rounded-xl"
+        className="relative w-[14rem] xl:w-[22rem] aspect-[3/4] transition-all duration-[500ms] ease-in bg-[rgba(0,0,0,1)] border-2 border-solid border-white rounded-xl"
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",

@@ -1,7 +1,7 @@
 "use client";
 
 import LastTestingCanvas from "@/components/testing/LastTestingCanvas";
-import OptimizedDottedCanvas from "@/components/testing/OptimizedDottedCanvas";
+import OptimizedDottedCanvas from "@/components/backgrounds/OptimizedDottedCanvas";
 
 export default function Testing() {
   return (

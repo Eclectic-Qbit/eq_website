@@ -5,7 +5,7 @@ import GridCanvas from "@/components/backgrounds/GridCanvas";
 import SinusoidalCanvas from "@/components/backgrounds/SinusoidalCanvas";
 import EclecticQbit from "@/components/specific/index/EclecticQbit";
 import HowWeDo from "@/components/specific/index/HowWeDo";
-import OptimizedDottedCanvas from "@/components/testing/OptimizedDottedCanvas";
+import OptimizedDottedCanvas from "@/components/backgrounds/OptimizedDottedCanvas";
 import WhatWeDo from "@/components/specific/index/WhatWeDo";
 import PaintEarn from "@/components/specific/index/PaintEarn";
 import { useState } from "react";
