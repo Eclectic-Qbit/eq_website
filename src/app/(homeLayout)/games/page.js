@@ -44,7 +44,7 @@ export default function Games() {
                 onClick={() => setMsg(null)}
                 className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.65)] z-50"
               >
-                <div className="max-w-[50vw]">
+                <div className="max-w-[50vw] text-center">
                   <LoadingAnimation
                     elements={[
                       <P1 key={0} className={"uppercase"}>
@@ -70,7 +70,7 @@ export default function Games() {
                       </P2>,
                     ]}
                     coeffs={[1, 1.3, 1.6, 1.9, 2.2]}
-                    delay={1000}
+                    delay={5000}
                   />
                 </div>
               </div>

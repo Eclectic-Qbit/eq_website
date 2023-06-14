@@ -115,7 +115,7 @@ export default function PaintEarn() {
           to="#FF6600"
         >
           <H4 translationPath="paintEarn/title/p1" />
-          <H3 translationPath="paintEarn/title/p2" />
+          <H4 translationPath="paintEarn/title/p2" />
         </MouseMoveGradient>
         <P2
           style={{ textShadow: "1px 1px 2px white" }}

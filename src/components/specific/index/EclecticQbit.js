@@ -26,8 +26,8 @@ export default function EclecticQbit() {
     <div className="relative w-full min-h-screen overflow-hidden">
       <div className="flex flex-wrap items-center justify-around font-extrabold uppercase w-full gap-y-10 mb-4">
         <MouseMoveGradient className="text-center" from="#9500E9" to="#FF6600">
-          <H2SP translationPath="eclecticQbit/title/p1" />
-          <H2SP translationPath="eclecticQbit/title/p2" />
+          <H3 translationPath="eclecticQbit/title/p1" />
+          <H3 translationPath="eclecticQbit/title/p2" />
         </MouseMoveGradient>
         <DanteCard>
           <Image

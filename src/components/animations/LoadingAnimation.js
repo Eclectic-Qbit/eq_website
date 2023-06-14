@@ -12,10 +12,12 @@ import MouseContext from "@/contexts/MouseContext";
 
 export default function LoadingAnimation({
   className,
+  style,
   delay,
   elements,
   coeffs,
   onFade,
+  stopFade,
 }) {
   const FADE_DURATION = delay ? delay : 1000;
   const ref = useRef(null);
@@ -28,6 +30,7 @@ export default function LoadingAnimation({
         })
   );
   const currentTimeouts = useRef([]);
+  const currentInterval = useRef(null);
   const viewTimeout = useRef(null);
   const [pp, setPp] = useState({ x: 0, y: 0 });
   const [view, setView] = useState(false);
@@ -42,14 +45,17 @@ export default function LoadingAnimation({
   );
   const settedOffsets = useRef(false);
   const { position } = useContext(MouseContext);
+  const movedInViewport = useRef(0);
   // Fade
   const fade = useCallback(() => {
-    setHide({ temp: true, perma: false });
-    setTimeout(() => {
-      setHide({ temp: true, perma: true });
-      onFade && onFade();
-    }, [FADE_DURATION]);
-  }, [FADE_DURATION, onFade]);
+    if (!stopFade) {
+      setHide({ temp: true, perma: false });
+      setTimeout(() => {
+        setHide({ temp: true, perma: true });
+        onFade && onFade();
+      }, [FADE_DURATION]);
+    }
+  }, [FADE_DURATION, onFade, stopFade]);
   // Cancel Existing Timeouts
   const cancelTimeouts = useCallback(() => {
     viewTimeout.current && clearTimeout(viewTimeout.current);
@@ -91,15 +97,19 @@ export default function LoadingAnimation({
     if (!hide.perma && !hide.temp && view) {
       cancelTimeouts();
       const newArr = [...offset];
-      for (let i = 1; i <= newArr.length; i++) {
-        if (offset[i - 1].x !== 0 || offset[i - 1].y !== 0) {
-          const newTimeout = setTimeout(() => {
+      if (newArr.length > movedInViewport.current) {
+        const timeout = setTimeout(() => {
+          if (
+            offset[movedInViewport.current].x !== 0 ||
+            offset[movedInViewport.current].y !== 0
+          ) {
             const updatedOffset = [...offset];
-            updatedOffset[i - 1] = { x: 0, y: 0 };
+            updatedOffset[movedInViewport.current] = { x: 0, y: 0 };
             setOffset(updatedOffset);
-          }, (FADE_DURATION * i) / newArr.length);
-          currentTimeouts.current.push(newTimeout);
-        }
+          }
+          movedInViewport.current++;
+        }, FADE_DURATION / newArr.length);
+        currentTimeouts.current.push(timeout);
       }
     }
   }, [view, FADE_DURATION, offset, hide.perma, hide.temp, cancelTimeouts]);
@@ -121,10 +131,13 @@ export default function LoadingAnimation({
           onClick={fade}
           className={`${
             hide.temp ? "opacity-0" : "opacity-1"
-          } ${className} transition-all ease-in`}
+          } ${className} transition-transform ease-in`}
           style={{ transitionDuration: `${FADE_DURATION}ms` }}
         >
-          <div className="flex flex-col gap-0 w-full">
+          <div
+            className="flex flex-col gap-0 w-full"
+            style={style ? style : {}}
+          >
             <div ref={ref} onMouseEnter={() => (mouseEntered.current = true)}>
               {elements.map((el, i) => {
                 return (
@@ -136,11 +149,13 @@ export default function LoadingAnimation({
                       }px, ${pp.y * parsedCoeffs.current[i]}px, 0)`,
                     }}
                   >
-                    {cloneElement(elements[i], {
+                    {cloneElement(el, {
                       style: {
                         transform: `translate3d(${offset[i].x}px, ${offset[i].y}px,0px)`,
                       },
-                      className: `relative text-8xl text-center w-full uppercase py-2 font-extrabold`,
+                      className: `${
+                        el.props.className ? el.props.className : ""
+                      } relative text-8xl w-full uppercase py-2 font-extrabold`,
                     })}
                   </div>
                 );

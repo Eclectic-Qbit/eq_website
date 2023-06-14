@@ -4,6 +4,10 @@ import { downloadFile } from "@/commonFrontend";
 import MouseContext from "@/contexts/MouseContext";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 
+/*
+  This canvas is used for generating a texture for the background and the associated pixels array
+*/
+
 export default function LastTestingCanvas({ mouseListenerRef }) {
   const { position, setPosition, samplingDelta } = useContext(MouseContext);
   const canvasRef = useRef(null); // Canvas ref
@@ -15,7 +19,7 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
   const FRACTION = 15; // Block of pixels where to instance a drawLayer
   const CIRCLE = 30; // Radius of the circle around the mouse
   const YSPACING = 7; // Distance between two stars in vertical
-  const DENSITY = 1 / 2500; // Density of stars per row - modified by a costant in the for loops
+  const DENSITY = 1 / 10000; // Density of stars per row - modified by a costant in the for loops
   const colors = useRef([
     "#CCFF00",
     "#FF6600",
