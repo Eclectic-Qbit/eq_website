@@ -81,15 +81,18 @@ export default function Menu() {
           <CustomLink
             noUnderline
             href={"/story"}
-            className="relative cursor-none flex items-center h-[7.5vh] aspect-[35/12]"
+            className="relative cursor-none flex items-center h-[5vh] sm:h-[7.5vh] aspect-[35/12] transition-all duration-150 ease-in"
           >
             <Image src={ImgIcon} alt="Logo" fill sizes="100%" />
           </CustomLink>
         </div>
         <div className="flex items-center justify-center w-full">
-          <div className="uppercase md:flex md:gap-4">
+          <div className="uppercase md:flex md:gap-4 text-center">
             <CustomLink href="/">
               <P3 translationPath="menu/home" />
+            </CustomLink>
+            <CustomLink href="/paintEarn">
+              <P3 translationPath="menu/paintEarn" />
             </CustomLink>
             <CustomLink href="/squad">
               <P3 translationPath="menu/squad" />
@@ -103,10 +106,10 @@ export default function Menu() {
           <div className="grid gap-1 md:flex md:gap-4 text-right">
             <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
               <P3
-                className={`flex flex-wrap justify-center items-center transition-all duration-150`}
+                className={`flex flex-wrap justify-center items-center transition-all duration-150 gap-1`}
               >
                 <div
-                  className="sm:hover:scale-[1.15] w-full sm:w-min text-center"
+                  className="sm:hover:scale-[1.15] text-center"
                   onClick={() => setOpenLang(!openLang)}
                 >
                   {languages.current[lang]}

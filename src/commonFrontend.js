@@ -13,6 +13,7 @@ export function shouldTranslate(string) {
   return false;
 }
 export function translateText(translationPath, lang, replace) {
+  console.log(translationPath, lang, replace);
   let lastVal = translations;
   const splitted = translationPath.split("/");
   for (let i = 0; i < splitted.length; i++) {
