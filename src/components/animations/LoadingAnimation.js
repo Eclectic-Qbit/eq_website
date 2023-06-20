@@ -30,7 +30,6 @@ export default function LoadingAnimation({
         })
   );
   const currentTimeouts = useRef([]);
-  const currentInterval = useRef(null);
   const viewTimeout = useRef(null);
   const [pp, setPp] = useState({ x: 0, y: 0 });
   const [view, setView] = useState(false);

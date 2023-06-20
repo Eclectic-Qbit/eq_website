@@ -25,6 +25,11 @@ const translations = {
       it: <span>squadra</span>,
     },
     contacts: { en: <span>contacts</span>, it: <span>contatti</span> },
+    paintEarn: {
+      en: <span>P&E</span>,
+      es: <span>P&G</span>,
+      it: <span>P&E</span>,
+    },
   },
   eclecticQbit: {
     title: { p1: { en: <span>eclectic</span> }, p2: { en: <span>qbit</span> } },
@@ -375,12 +380,99 @@ const translations = {
       p1: { en: <span>This is</span>, es: <span>Esto es</span> },
       p2: { en: <span>Paint & Earn</span>, es: <span>Pinta & Gana!</span> },
     },
-    h1: {
+    description: {
       en: (
         <span>
-          🍄 Community building: joining forces with eclectic regens 🎮
+          is our way to bridging street art and web3, through vibrant murals
+          <br />
+          is a pulsating portal for artists to level up their skills in the
+          blockchain space
+          <br />
+          is a creative gateway to unleash a wave of awareness for captivating
+          web3 projects
+          <br />
+          is transformative moment where art meets tech, melting boundaries and
+          sparking inspiration
         </span>
       ),
+      es: (
+        <span>
+          es nuestra forma de conectar el arte callejero y web3, a través de
+          murales vibrantes
+          <br />
+          es un portal pulsante para que los artistas mejoren sus habilidades en
+          el espacio blockchain
+          <br />
+          es una puerta creativa para desatar una ola de conciencia sobre
+          proyectos web3 cautivadores
+          <br />
+          es un momento transformador donde el arte se encuentra con la
+          tecnología, desdibujando límites y despertando inspiración
+        </span>
+      ),
+    },
+    howItWorks: {
+      en: <span>This is how it works</span>,
+      es: <span>Así es como funciona</span>,
+      it: <span>Questo è come funziona</span>,
+    },
+    firstCard: {
+      title: { en: <span>🤝 Rule #1</span>, es: <span>🤝 Regla #1</span> },
+      description: {
+        en: <span>Join the Paint&Earn club!</span>,
+        es: <span>¡Únete al club Paint&Earn!</span>,
+      },
+    },
+    secondCard: {
+      title: { en: <span>🎩 Rule #2</span>, es: <span>🎩 Regla #2</span> },
+      description: {
+        en: <span>Show us your magic!</span>,
+        es: <span>¡Muéstranos tu magia!</span>,
+      },
+    },
+    thirdCard: {
+      title: { en: <span>📖 Rule #3</span>, es: <span>📖 Regla #3</span> },
+      description: {
+        en: <span>Share your wallet!</span>,
+        es: <span>¡Comparte tu billetera!</span>,
+      },
+    },
+    forthCard: {
+      title: { en: <span>🌱 Rule #4</span>, es: <span>🌱 Regla #4</span> },
+      description: {
+        en: <span>Get Your ReFi Paint!</span>,
+        es: <span>¡Obtén tu pintura ReFi!</span>,
+      },
+    },
+    fifthCard: {
+      title: { en: <span>🎨 Rule #5</span>, es: <span>🎨 Regla #5</span> },
+      description: {
+        en: (
+          <span>
+            make paint&earn happen & share insides & under the scenes with the
+            community!
+          </span>
+        ),
+        es: (
+          <span>
+            ¡Haz que paint&earn suceda y comparte información interna y detrás
+            de escenas con la comunidad!
+          </span>
+        ),
+      },
+    },
+    sixthCard: {
+      title: { en: <span>💰 Rule #6</span>, es: <span>💰 Regla #6</span> },
+      description: {
+        en: (
+          <span>Show your mural to the community, crypto in & extra bet!</span>
+        ),
+        es: (
+          <span>
+            Muestra tu mural a la comunidad, ¡cripto dentro y apuesta extra!
+          </span>
+        ),
+      },
     },
     h2: {
       en: <span>😎 Today I vibe like</span>,

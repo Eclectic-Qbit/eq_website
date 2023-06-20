@@ -22,13 +22,13 @@ function PaintEarnImgs({ selected, setSelected }) {
         onMouseLeave={() => setHovering(null)}
         onClick={() => {
           if (selected !== "artist") {
+            document
+              .querySelector("#paintEarnTarget")
+              .scrollIntoView({ behavior: "smooth" });
             setSelected("artist");
           } else {
             setSelected(null);
           }
-          document
-            .querySelector("#paintEarnTarget")
-            .scrollIntoView({ behavior: "smooth" });
         }}
         className={`flex w-max h-full flex-col gap-5 justify-center items-center text-black ${
           selected === "artist" && (hovering === null || hovering === "artist")
@@ -62,13 +62,13 @@ function PaintEarnImgs({ selected, setSelected }) {
         onMouseLeave={() => setHovering(null)}
         onClick={() => {
           if (selected !== "startupper") {
+            document
+              .querySelector("#paintEarnTarget")
+              .scrollIntoView({ behavior: "smooth" });
             setSelected("startupper");
           } else {
             setSelected(null);
           }
-          document
-            .querySelector("#paintEarnTarget")
-            .scrollIntoView({ behavior: "smooth" });
         }}
         className={`flex w-max h-full flex-col gap-5 justify-center items-center text-black ${
           selected === "startupper" &&
@@ -109,14 +109,6 @@ export default function PaintEarn() {
   return (
     <div className="relative flex items-center justify-center pb-[10vh]">
       <div className="grid gap-10 mx-[15%]">
-        <MouseMoveGradient
-          className="font-extrabold uppercase w-full text-center"
-          from="#9500E9"
-          to="#FF6600"
-        >
-          <H4 translationPath="paintEarn/title/p1" />
-          <H4 translationPath="paintEarn/title/p2" />
-        </MouseMoveGradient>
         <P2
           style={{ textShadow: "1px 1px 2px white" }}
           translationPath="paintEarn/h2"

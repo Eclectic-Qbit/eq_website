@@ -222,7 +222,7 @@ export function DanteCard({ children }) {
             transform: "rotateY(-180deg)",
           }}
         >
-          <div className="relative w-full aspect-[5/1] m-8 hover:m-2 transition-all duration-150 ease-in">
+          <div className="relative w-full aspect-[5/1] m-2 sm:m-8 hover:m-2 transition-all duration-150 ease-in">
             <Link
               className="absolute w-full h-full cursor-none"
               href="https://malpegados.jimdosite.com/"
