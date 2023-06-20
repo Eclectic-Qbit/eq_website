@@ -41,9 +41,10 @@ const translations = {
       en: (
         <span>
           eclectic qbit, it&apos;s all about bringing the modus operandi of
-          qbits, into web3, with a it&apos;s a me twist with nature as our main
-          inspiration, just like fungi 🍄, we exchange nutrients and other
-          resources within & beyond web3 space
+          qbits, into web3, with a it&apos;s a me twist
+          <br />
+          with nature as our main inspiration, just like fungi 🍄, we exchange
+          nutrients and other resources within & beyond web3 space
         </span>
       ),
       es: (
@@ -377,8 +378,8 @@ const translations = {
   },
   paintEarn: {
     title: {
-      p1: { en: <span>This is</span>, es: <span>Esto es</span> },
-      p2: { en: <span>Paint & Earn</span>, es: <span>Pinta & Gana!</span> },
+      p1: { en: <span>This is</span>, es: <span>¡ESTO ES</span> },
+      p2: { en: <span>Paint & Earn</span>, es: <span>PINTA&GANA!</span> },
     },
     description: {
       en: (
@@ -397,17 +398,14 @@ const translations = {
       ),
       es: (
         <span>
-          es nuestra forma de conectar el arte callejero y web3, a través de
-          murales vibrantes
-          <br />
-          es un portal pulsante para que los artistas mejoren sus habilidades en
-          el espacio blockchain
-          <br />
+          es nuestra forma de unir el arte callejero y el web3, a través de
+          murales vibrantes <br />
+          es un portal palpitante para que los artistas mejoren sus habilidades
+          en el espacio blockchain <br />
           es una puerta creativa para desatar una ola de conciencia sobre
-          proyectos web3 cautivadores
-          <br />
+          proyectos web3 cautivadores <br />
           es un momento transformador donde el arte se encuentra con la
-          tecnología, desdibujando límites y despertando inspiración
+          tecnología, derribando barreras y desencadenando inspiración
         </span>
       ),
     },
@@ -417,7 +415,7 @@ const translations = {
       it: <span>Questo è come funziona</span>,
     },
     firstCard: {
-      title: { en: <span>🤝 Rule #1</span>, es: <span>🤝 Regla #1</span> },
+      title: { en: <span>👾 Rule #1</span>, es: <span>👾 Regla #1</span> },
       description: {
         en: <span>Join the Paint&Earn club!</span>,
         es: <span>¡Únete al club Paint&Earn!</span>,
@@ -431,21 +429,21 @@ const translations = {
       },
     },
     thirdCard: {
-      title: { en: <span>📖 Rule #3</span>, es: <span>📖 Regla #3</span> },
+      title: { en: <span>🦊 Rule #3</span>, es: <span>🦊 Regla #3</span> },
       description: {
         en: <span>Share your wallet!</span>,
         es: <span>¡Comparte tu billetera!</span>,
       },
     },
     forthCard: {
-      title: { en: <span>🌱 Rule #4</span>, es: <span>🌱 Regla #4</span> },
+      title: { en: <span>🎨 Rule #4</span>, es: <span>🎨 Regla #4</span> },
       description: {
         en: <span>Get Your ReFi Paint!</span>,
         es: <span>¡Obtén tu pintura ReFi!</span>,
       },
     },
     fifthCard: {
-      title: { en: <span>🎨 Rule #5</span>, es: <span>🎨 Regla #5</span> },
+      title: { en: <span>🎬 Rule #5</span>, es: <span>🎬 Regla #5</span> },
       description: {
         en: (
           <span>
