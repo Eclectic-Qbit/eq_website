@@ -91,7 +91,7 @@ export default function Menu() {
             <CustomLink href="/">
               <P3 translationPath="menu/home" />
             </CustomLink>
-            <CustomLink href="/paintEarn">
+            <CustomLink href="/paint&earn">
               <P3 translationPath="menu/paintEarn" />
             </CustomLink>
             <CustomLink href="/squad">
