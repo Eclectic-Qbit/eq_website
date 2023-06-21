@@ -22,7 +22,7 @@ export default function SquadCard({ img, name, langs, social }) {
       }}
     >
       <div
-        className={`relative w-[14rem] h-[15rem] sm:w-[20rem] sm:h-[24rem] border-2 border-solid border-white rounded-xl transition-all duration-[500ms] ease-in`}
+        className={`relative w-[14rem] h-[17rem] sm:w-[20rem] sm:h-[24rem] border-2 border-solid border-white rounded-xl transition-all duration-[500ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",
