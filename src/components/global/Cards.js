@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { P1, P1SP } from "../text/Paragraphs";
 import { InstagramLogo, TwitterLogo } from "../logos/BorderLogo";
-import { LinkedinLogo } from "../logos/FullLogo";
+import { LinkedinLogo, TelegramLogo } from "../logos/FullLogo";
 import Image from "next/image";
 import { cloneElement, useEffect, useState } from "react";
 import { isDesktop } from "@/commonFrontend";
@@ -22,7 +22,7 @@ export default function SquadCard({ img, name, langs, social }) {
       }}
     >
       <div
-        className={`relative w-[12rem] h-[15rem] sm:w-[20rem] sm:h-[24rem] border-2 border-solid border-white rounded-xl transition-all duration-[500ms] ease-in`}
+        className={`relative w-[14rem] h-[15rem] sm:w-[20rem] sm:h-[24rem] border-2 border-solid border-white rounded-xl transition-all duration-[500ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",
@@ -48,7 +48,7 @@ export default function SquadCard({ img, name, langs, social }) {
             className="uppercase font-bold"
             translationPath={`squad/${name.toLowerCase()}`}
           />
-          <div className="absolute bottom-2 left-2 flex">
+          <div className="absolute bottom-2 left-2 flex gap-2">
             {social &&
               social.map((el, i) => {
                 if (el.social === "instagram") {
@@ -108,6 +108,26 @@ export default function SquadCard({ img, name, langs, social }) {
                       </div>
                     </Link>
                   );
+                } else if (el.social === "telegram") {
+                  return (
+                    <Link
+                      className="cursor-none"
+                      target="_blank"
+                      key={i}
+                      href={el.link}
+                    >
+                      <div
+                        key={i}
+                        className="relative w-[1.5rem] sm:w-[2rem] aspect-square"
+                      >
+                        <TelegramLogo
+                          fill={"white"}
+                          width={"100%"}
+                          height={"100%"}
+                        />
+                      </div>
+                    </Link>
+                  );
                 }
               })}
           </div>
@@ -135,6 +155,7 @@ export function IndexCard({
   pass,
   frontBg,
   retroBg,
+  className,
 }) {
   const [rotate, setRotate] = useState(false);
   const passFront = pass && pass.front;
@@ -159,7 +180,7 @@ export function IndexCard({
           setRotate(!rotate);
         }
       }}
-      className="bg-black"
+      className={`${className ? className : ""} bg-black`}
     >
       <div
         className={`relative z-10 ${
@@ -174,13 +195,13 @@ export function IndexCard({
         }}
       >
         <div
-          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center px-2 sm:px-4 rounded-xl "
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center sm:px-4 rounded-xl "
           style={{ backfaceVisibility: "hidden" }}
         >
           {parsedFront}
         </div>
         <div
-          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center px-2 sm:px-4 rounded-xl"
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center rounded-xl"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
