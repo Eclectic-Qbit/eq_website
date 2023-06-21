@@ -21,6 +21,10 @@ export default function Squad() {
             social: "linkedin",
             link: "https://www.linkedin.com/in/tabata-mussone-287426142",
           },
+          {
+            social: "telegram",
+            link: "https://t.me/aregen",
+          },
         ]}
         langs={["🇬🇧", "🇮🇹", "🇪🇸", "🇫🇷"]}
       />
@@ -31,6 +35,10 @@ export default function Squad() {
           {
             social: "linkedin",
             link: "https://www.linkedin.com/in/enrico-pasetto-6a48a5193/",
+          },
+          {
+            social: "telegram",
+            link: "https://t.me/enrico_pasetto",
           },
         ]}
         langs={["🇬🇧", "🇮🇹"]}
@@ -54,6 +62,10 @@ export default function Squad() {
             social: "linkedin",
             link: "https://www.linkedin.com/in/aditya2525",
           },
+          {
+            social: "telegram",
+            link: "https://t.me/AdityaSingh2525",
+          },
         ]}
         langs={["🇬🇧", "🇮🇳"]}
       />
@@ -64,6 +76,10 @@ export default function Squad() {
           {
             social: "linkedin",
             link: "https://www.linkedin.com/in/axel-nieto-418551167",
+          },
+          {
+            social: "telegram",
+            link: "https://t.me/blahaxl",
           },
         ]}
         langs={["🇬🇧", "🇪🇸", "🇫🇷", "🇩🇪"]}
@@ -76,6 +92,10 @@ export default function Squad() {
             social: "linkedin",
             link: "https://www.linkedin.com/in/abdulrahman-yakubu-a993a5233/",
           },
+          {
+            social: "telegram",
+            link: "https://t.me/abrayadh1",
+          },
         ]}
         langs={["🇬🇧", "🇳🇬"]}
       />
@@ -87,6 +107,10 @@ export default function Squad() {
             social: "linkedin",
             link: "https://www.linkedin.com/in/pariyeksh-chauhan",
           },
+          {
+            social: "telegram",
+            link: "https://t.me/pariyeksh",
+          },
         ]}
         langs={["🇬🇧", "🇮🇳"]}
       />
@@ -97,6 +121,10 @@ export default function Squad() {
           {
             social: "linkedin",
             link: "https://www.linkedin.com/in/milena-antoni%C4%87-634237143",
+          },
+          {
+            social: "telegram",
+            link: "https://t.me/mille_ant",
           },
         ]}
         langs={["🇬🇧", "🇷🇸"]}

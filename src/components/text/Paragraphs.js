@@ -2,7 +2,7 @@
 
 import { shouldTranslate, translateText } from "@/commonFrontend";
 import LanguageContext from "@/contexts/LanguageContext";
-import { useContext } from "react";
+import { cloneElement, useContext } from "react";
 
 export function P1({ style, className, children, translationPath, replace }) {
   const { lang, setLang } = useContext(LanguageContext);
@@ -33,7 +33,14 @@ export function P1SP({ style, className, children, translationPath, replace }) {
     </div>
   );
 }
-export function P2({ style, className, children, translationPath, replace }) {
+export function P2({
+  style,
+  className,
+  children,
+  translationPath,
+  replace,
+  spanStyling,
+}) {
   const { lang, setLang } = useContext(LanguageContext);
   const props = className ? className : "";
   return (
@@ -42,7 +49,9 @@ export function P2({ style, className, children, translationPath, replace }) {
       className={`${props} text-[1.25rem] xl:text-[1.5rem] md:text-[1.375rem] leading-none transition-all duration-300 ease-in`}
     >
       {shouldTranslate(children)
-        ? translateText(translationPath, lang, replace)
+        ? cloneElement(translateText(translationPath, lang, replace), {
+            style: spanStyling ? spanStyling : {},
+          })
         : children}
     </div>
   );

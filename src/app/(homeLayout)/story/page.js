@@ -57,41 +57,46 @@ export default function Story() {
         elements={
           desktop
             ? [
-                <H4 key={0} className={"uppercase font-extrabold text-center"}>
-                  why eclectic?
-                </H4>,
-                <P2 key={1} className="mt-3 text-left pr-[50%]">
-                  eclectic because we wholeheartedly embrace a diverse range of
-                  influences, ideas, and perspectives, adopting a collaborative
-                  and inclusive mindset
-                </P2>,
-                <P2 key={2} className="mt-3 text-right pl-[50%]">
-                  eclectic is our team, with diversity of backgrounds and inputs
-                </P2>,
-                <P2 key={3} className="mt-3 text-left pr-[50%]">
-                  eclectic to achieve comprehensive and inclusive results
-                </P2>,
+                <H4
+                  key={0}
+                  className={"uppercase font-extrabold text-center"}
+                  translationPath="story/whyEclectic"
+                />,
+                <P2
+                  key={1}
+                  className="mt-3 text-left pr-[50%]"
+                  translationPath="story/firstP"
+                />,
+                <P2
+                  key={2}
+                  className="mt-3 text-right pl-[50%]"
+                  translationPath="story/secondP"
+                />,
+                <P2
+                  key={3}
+                  className="mt-3 text-left pr-[50%]"
+                  translationPath="story/thirdP"
+                />,
                 <H4
                   key={5}
                   className={"uppercase font-extrabold text-center mt-6"}
-                >
-                  why qbit?
-                </H4>,
-                <P2 key={6} className="mt-3 text-left  pr-[50%]">
-                  like a qbit that defies conventional states, we break through
-                  limitations to process information with unprecedented
-                  potential
-                </P2>,
-                <P2 key={7} className="mt-3 text-right  pl-[50%]">
-                  through entanglement, we forge instant connections, fostering
-                  collaboration and unlocking a network of infinite
-                  possibilities
-                </P2>,
-                <P2 key={8} className="mt-3 text-left pr-[50%]">
-                  guided by the quantum interplay of interference, we harmonize
-                  diverse perspectives to cultivate groundbreaking innovations,
-                  embracing the realm of boundless exploration
-                </P2>,
+                  translationPath="story/whyQbit"
+                />,
+                <P2
+                  key={6}
+                  className="mt-3 text-left  pr-[50%]"
+                  translationPath="story/forthP"
+                />,
+                <P2
+                  key={7}
+                  className="mt-3 text-right  pl-[50%]"
+                  translationPath="story/fifthP"
+                />,
+                <P2
+                  key={8}
+                  className="mt-3 text-left pr-[50%]"
+                  translationPath="story/sixthP"
+                />,
               ]
             : [
                 <P1 key={0} className={"uppercase font-extrabold text-center"}>
@@ -132,7 +137,7 @@ export default function Story() {
               ]
         }
         coeffs={[1, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2]}
-        delay={9000}
+        delay={7000}
         className="relative z-10 top-0 left-0 w-screen h-full bg-transparent flex items-center justify-center text-white px-[5%] sm:px-[10%]"
         onFade={() => {}}
       />

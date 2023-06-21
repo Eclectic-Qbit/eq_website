@@ -26,8 +26,8 @@ const translations = {
     },
     contacts: { en: <span>contacts</span>, it: <span>contatti</span> },
     paintEarn: {
-      en: <span>P&E</span>,
-      es: <span>P&G</span>,
+      en: <span>Paint&Earn</span>,
+      es: <span>Pinta&Gana</span>,
       it: <span>P&E</span>,
     },
   },
@@ -378,33 +378,33 @@ const translations = {
   },
   paintEarn: {
     title: {
-      p1: { en: <span>This is</span>, es: <span>¡ESTO ES</span> },
-      p2: { en: <span>Paint & Earn</span>, es: <span>PINTA&GANA!</span> },
+      p1: { en: <span>This is</span>, es: <span>ESTO ES</span> },
+      p2: { en: <span>Paint & Earn</span>, es: <span>PINTA&GANA</span> },
     },
     description: {
       en: (
         <span>
-          is our way to bridging street art and web3, through vibrant murals
-          <br />
-          is a pulsating portal for artists to level up their skills in the
+          🖌️🔗 is our way to bridging street art and web3, through vibrant
+          murals <br />
+          🎨🚀is a pulsating portal for artists to level up their skills in the
           blockchain space
           <br />
-          is a creative gateway to unleash a wave of awareness for captivating
-          web3 projects
+          🌊🔮 is a creative gateway to unleash a wave of awareness for
+          captivating web3 projects
           <br />
-          is transformative moment where art meets tech, melting boundaries and
-          sparking inspiration
+          🖌️💡 is transformative moment where art meets tech, melting boundaries
+          and sparking inspiration
         </span>
       ),
       es: (
         <span>
-          es nuestra forma de unir el arte callejero y el web3, a través de
+          🖌️🔗 es nuestra forma de unir el arte callejero y el web3, a través de
           murales vibrantes <br />
-          es un portal palpitante para que los artistas mejoren sus habilidades
-          en el espacio blockchain <br />
-          es una puerta creativa para desatar una ola de conciencia sobre
+          🎨🚀es un portal palpitante para que los artistas mejoren sus
+          habilidades en el espacio blockchain <br />
+          🌊🔮es una puerta creativa para desatar una ola de conciencia sobre
           proyectos web3 cautivadores <br />
-          es un momento transformador donde el arte se encuentra con la
+          🖌️💡 es un momento transformador donde el arte se encuentra con la
           tecnología, derribando barreras y desencadenando inspiración
         </span>
       ),
@@ -415,62 +415,84 @@ const translations = {
       it: <span>Questo è come funziona</span>,
     },
     firstCard: {
-      title: { en: <span>👾 Rule #1</span>, es: <span>👾 Regla #1</span> },
-      description: {
-        en: <span>Join the Paint&Earn club!</span>,
-        es: <span>¡Únete al club Paint&Earn!</span>,
+      front: {
+        title: { en: <span>👾 Rule #1</span>, es: <span>👾 Regla #1</span> },
+        description: {
+          en: <span>Join the Paint&Earn club!</span>,
+          es: <span>Únete al club Paint&Earn!</span>,
+        },
+      },
+      back: {
+        en: <span>👾</span>,
       },
     },
     secondCard: {
-      title: { en: <span>🎩 Rule #2</span>, es: <span>🎩 Regla #2</span> },
-      description: {
-        en: <span>Show us your magic!</span>,
-        es: <span>¡Muéstranos tu magia!</span>,
+      front: {
+        title: { en: <span>🎩 Rule #2</span>, es: <span>🎩 Regla #2</span> },
+        description: {
+          en: <span>Show us your magic!</span>,
+          es: <span>Muéstranos tu magia!</span>,
+        },
       },
+      back: { en: <span>🎩</span> },
     },
     thirdCard: {
-      title: { en: <span>🦊 Rule #3</span>, es: <span>🦊 Regla #3</span> },
-      description: {
-        en: <span>Share your wallet!</span>,
-        es: <span>¡Comparte tu billetera!</span>,
+      front: {
+        title: { en: <span>🦊 Rule #3</span>, es: <span>🦊 Regla #3</span> },
+        description: {
+          en: <span>Share your wallet!</span>,
+          es: <span>Comparte tu billetera!</span>,
+        },
       },
+      back: { en: <span>🦊</span> },
     },
     forthCard: {
-      title: { en: <span>🎨 Rule #4</span>, es: <span>🎨 Regla #4</span> },
-      description: {
-        en: <span>Get Your ReFi Paint!</span>,
-        es: <span>¡Obtén tu pintura ReFi!</span>,
+      front: {
+        title: { en: <span>🎨 Rule #4</span>, es: <span>🎨 Regla #4</span> },
+        description: {
+          en: <span>Get Your ReFi Paint!</span>,
+          es: <span>Obtén tu pintura ReFi!</span>,
+        },
       },
+      back: { en: <span>🎨</span> },
     },
     fifthCard: {
-      title: { en: <span>🎬 Rule #5</span>, es: <span>🎬 Regla #5</span> },
-      description: {
-        en: (
-          <span>
-            make paint&earn happen & share insides & under the scenes with the
-            community!
-          </span>
-        ),
-        es: (
-          <span>
-            ¡Haz que paint&earn suceda y comparte información interna y detrás
-            de escenas con la comunidad!
-          </span>
-        ),
+      front: {
+        title: { en: <span>🎬 Rule #5</span>, es: <span>🎬 Regla #5</span> },
+        description: {
+          en: <span>paint & share</span>,
+          es: <span>pintas & compartes</span>,
+        },
       },
+      back: { en: <span>🎬</span> },
     },
     sixthCard: {
-      title: { en: <span>💰 Rule #6</span>, es: <span>💰 Regla #6</span> },
-      description: {
-        en: (
-          <span>Show your mural to the community, crypto in & extra bet!</span>
-        ),
-        es: (
-          <span>
-            Muestra tu mural a la comunidad, ¡cripto dentro y apuesta extra!
-          </span>
-        ),
+      front: {
+        title: { en: <span>💰 Rule #6</span>, es: <span>💰 Regla #6</span> },
+        description: {
+          en: <span>crypto in & extra bet!</span>,
+          es: <span>toma tu crypto & extra apuestas!</span>,
+        },
       },
+      back: { en: <span>💰</span> },
+    },
+    loginPhrase: {
+      en: (
+        <span>
+          epic rewards by logging in, leveling up, and claiming your rightful
+          roles, just do it!
+        </span>
+      ),
+      es: (
+        <span>
+          obtén recompensas épicas al iniciar sesión, subir de nivel y reclamar
+          tus roles merecidos, solo hazlo!
+        </span>
+      ),
+    },
+    loggedPhrase: {
+      en: <span>Tap here to reveal your active quests</span>,
+      es: <span>Toca aquí para descubrir tus misiones activas!</span>,
     },
     h2: {
       en: <span>😎 Today I vibe like</span>,
@@ -1027,10 +1049,96 @@ const translations = {
       },
     },
   },
+  story: {
+    whyEclectic: {
+      en: <span>why eclectic?</span>,
+      es: <span>porque eclectic?</span>,
+    },
+    firstP: {
+      en: (
+        <span>
+          eclectic because we wholeheartedly embrace a diverse range of
+          influences, ideas, and perspectives, adopting a collaborative and
+          inclusive mindset
+        </span>
+      ),
+      es: (
+        <span>
+          eclectic porque abrazaemos de todo corazón una amplia gama de
+          influencias, idas y perspectivas diversas, adoptando una mentalidad
+          colaborativa e inclusiva
+        </span>
+      ),
+    },
+    secondP: {
+      en: (
+        <span>
+          eclectic is our team, with diversity of backgrounds and inputs
+        </span>
+      ),
+      es: (
+        <span>
+          eclectic es nuestro equipo, con diversidad de antecedentes y aportes
+        </span>
+      ),
+    },
+    thirdP: {
+      en: <span> eclectic to achieve comprehensive and inclusive results</span>,
+      es: <span>eclectic para lograr resultados integrales e inclusivos</span>,
+    },
+    whyQbit: { en: <span>why qbit?</span>, es: <span>porque qbit?</span> },
+    forthP: {
+      en: (
+        <span>
+          like a qbit that defies conventional states, we break through
+          limitations to process information with unprecedented potential
+        </span>
+      ),
+      es: (
+        <span>
+          como un qbit que desafía los estados convencionales, rompemos
+          limitaciones para procesar información con un potencial sin
+          precedentes
+        </span>
+      ),
+    },
+    fifthP: {
+      en: (
+        <span>
+          through entanglement, we forge instant connections, fostering
+          collaboration and unlocking a network of infinite possibilities
+        </span>
+      ),
+      es: (
+        <span>
+          a través del entrelazamiento, forjamos conexiones instantáneas,
+          fomentando la colaboración y desbloqueando una red de posibilidades
+          infinitas
+        </span>
+      ),
+    },
+    sixthP: {
+      en: (
+        <span>
+          guided by the quantum interplay of interference, we harmonize diverse
+          perspectives to cultivate groundbreaking innovations, embracing the
+          realm of boundless exploration
+        </span>
+      ),
+      es: (
+        <span>
+          guiados por la interacción cuántica de la interferencia, armonizamos
+          perspectivas diversas para cultivar innovaciones revolucionarias,
+          abrazando el ámbito de la exploración ilimitada.
+        </span>
+      ),
+    },
+  },
+
   memory: {
     title: {
       en: <span>kudos! bravo! superb play! epic win!</span>,
-      es: <span>kudos! ¡bravo! ¡jugada magistral! ¡victoria épica!</span>,
+      es: <span>kudos! bravo! jugada magistral! victoria épica!</span>,
     },
     time: {
       en: <span>you crushed the memory challenge in just %TIME% seconds!</span>,
