@@ -22,7 +22,7 @@ export default function Home() {
   const [animateCircCanvas, setAnimateCircCanvas] = useState(false);
   return (
     <>
-      <div className="relative flex flex-col pt-[17.5vh]">
+      <div className="relative flex flex-col pt-20">
         {/* Socials */}
         <div className="absolute z-10 top-[50vh] -translate-y-[50%] right-[2%] flex flex-col gap-3">
           <LogoLink href="https://discord.gg/8J3SXwUn7C">

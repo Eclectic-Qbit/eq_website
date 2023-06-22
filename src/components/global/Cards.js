@@ -81,6 +81,7 @@ export default function SquadCard({ img, name, langs, social }) {
                         className="relative w-[1.5rem] sm:w-[2rem] aspect-square"
                       >
                         <LinkedinLogo
+                          hoverColor={"#007EBB"}
                           fill={"white"}
                           width={"100%"}
                           height={"100%"}
@@ -121,6 +122,7 @@ export default function SquadCard({ img, name, langs, social }) {
                         className="relative w-[1.5rem] sm:w-[2rem] aspect-square"
                       >
                         <TelegramLogo
+                          hoverColor={"#007EBB"}
                           fill={"white"}
                           width={"100%"}
                           height={"100%"}
@@ -156,6 +158,7 @@ export function IndexCard({
   frontBg,
   retroBg,
   className,
+  order,
 }) {
   const [rotate, setRotate] = useState(false);
   const passFront = pass && pass.front;
@@ -180,14 +183,16 @@ export function IndexCard({
           setRotate(!rotate);
         }
       }}
-      className={`${className ? className : ""} bg-black`}
+      className={`${className ? className : ""}`}
     >
       <div
         className={`relative z-10 ${
           form === "square"
             ? "w-[15rem] min-h-[12.5rem] sm:w-[20rem] sm:min-h-[12.5rem]"
-            : "w-[17rem] min-h-[30rem] sm:w-[25rem] sm:min-h-[30rem] lg:w-[42.5rem] lg:min-h-[18rem]"
-        } bg-[rgba(0,0,0,1)] h-max border-2 border-solid border-white rounded-xl p-4 transition-all duration-[500ms] ease-in`}
+            : `w-[17rem] sm:w-[25rem] ${
+                rotate ? "sm:w-[36rem] min-h-[21.5rem]" : "min-h-[12.5rem]"
+              } sm:min-h-[18rem]`
+        } bg-[rgba(0,0,0,1)] h-max border-2 border-solid border-white rounded-xl p-4 transition-all duration-[750ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",
@@ -195,13 +200,13 @@ export function IndexCard({
         }}
       >
         <div
-          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center sm:px-4 rounded-xl "
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center px-2 sm:px-4 rounded-xl "
           style={{ backfaceVisibility: "hidden" }}
         >
           {parsedFront}
         </div>
         <div
-          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center rounded-xl"
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center px-2 sm:px-4 rounded-xl"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -223,7 +228,7 @@ export function DanteCard({ children }) {
       }}
     >
       <div
-        className="relative w-[14rem] xl:w-[22rem] aspect-[3/4] transition-all duration-[500ms] ease-in bg-[rgba(0,0,0,1)] border-2 border-solid border-white rounded-xl"
+        className="relative w-[14rem] xl:w-[20rem] aspect-[3/4] transition-all duration-[500ms] ease-in bg-[rgba(0,0,0,1)] border-2 border-solid border-white rounded-xl"
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",

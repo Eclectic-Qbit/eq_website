@@ -19,7 +19,7 @@ export default function LastTestingCanvas({ mouseListenerRef }) {
   const FRACTION = 15; // Block of pixels where to instance a drawLayer
   const CIRCLE = 30; // Radius of the circle around the mouse
   const YSPACING = 7; // Distance between two stars in vertical
-  const DENSITY = 1 / 10000; // Density of stars per row - modified by a costant in the for loops
+  const DENSITY = 1 / 8500; // Density of stars per row - modified by a costant in the for loops
   const colors = useRef([
     "#CCFF00",
     "#FF6600",
