@@ -479,16 +479,20 @@ const translations = {
     loginPhrase: {
       en: (
         <span>
-          epic rewards by logging in, leveling up, and claiming your rightful
-          roles, just do it!
+          🧙‍♂ epic rewards by logging in, leveling up, and claiming your
+          rightful roles, just do it!
         </span>
       ),
       es: (
         <span>
-          obtén recompensas épicas al iniciar sesión, subir de nivel y reclamar
-          tus roles merecidos, solo hazlo!
+          🧙‍♂ obtén recompensas épicas al iniciar sesión, subir de nivel y
+          reclamar tus roles merecidos, solo hazlo!
         </span>
       ),
+    },
+    digDeep: {
+      en: <span>⛏️ Dig deep!</span>,
+      es: <span>⛏️ Excava profundo!</span>,
     },
     loggedPhrase: {
       en: <span>Tap here to reveal your active quests</span>,

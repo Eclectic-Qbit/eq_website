@@ -5,14 +5,14 @@ import { IndexCard } from "@/components/global/Cards";
 import CustomLink from "@/components/global/CustomLink";
 import PaintEarn from "@/components/specific/index/PaintEarn";
 import { H4 } from "@/components/text/Headers";
-import { P1, P2 } from "@/components/text/Paragraphs";
+import { P1, P2, P3 } from "@/components/text/Paragraphs";
 import { useState } from "react";
 
 export default function PaintAndEarn() {
   const [logged, setLogged] = useState(false);
   return (
-    <div className="mt-20 overflow-hidden">
-      <div className="mx-[10%] text-center ">
+    <div className="overflow-hidden">
+      <div className="pt-20 mx-[10%] text-center min-h-screen flex flex-col justify-center items-center">
         <div className="my-[5%] realtive w-full h-full flex flex-col items-center justify-center gap-2 text-center">
           <MouseMoveGradient
             className="font-extrabold uppercase w-full text-center"
@@ -39,7 +39,7 @@ export default function PaintAndEarn() {
           <H4 className="uppercase" translationPath="paintEarn/howItWorks" />
         </MouseMoveGradient>
         <div className="mx-[5%]">
-          <div className="flex flex-wrap text-center my-20 gap-5 items-center justify-center">
+          <div className="flex flex-wrap text-center mt-20 mb-5 gap-5 items-center justify-center">
             <IndexCard
               form={"square"}
               front={
@@ -172,6 +172,9 @@ export default function PaintAndEarn() {
                 </div>
               }
             />
+          </div>
+          <div className="text-center mb-16 font-bold">
+            <P2 className="lowercase" translationPath="paintEarn/digDeep" />
           </div>
           <div>
             <CustomLink

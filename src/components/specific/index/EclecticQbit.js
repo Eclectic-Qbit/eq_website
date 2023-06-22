@@ -8,6 +8,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import ScrollContext from "@/contexts/ScrollContext";
 import settings from "@/frontendSettings";
 import { DanteCard } from "@/components/global/Cards";
+import StarWarsEffect from "@/components/animations/StarWarsEffect";
 
 export default function EclecticQbit() {
   const parentRef = useRef(null);
@@ -24,7 +25,7 @@ export default function EclecticQbit() {
   }, [scroll]);
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      <div className="flex flex-wrap items-center justify-around font-extrabold uppercase w-full gap-y-10 mb-4">
+      <div className="flex flex-wrap items-center justify-evenly font-extrabold uppercase w-full gap-y-10 mb-4">
         <MouseMoveGradient className="text-center" from="#9500E9" to="#FF6600">
           <H3 translationPath="eclecticQbit/title/p1" />
           <H3 translationPath="eclecticQbit/title/p2" />
@@ -40,29 +41,30 @@ export default function EclecticQbit() {
           />
         </DanteCard>
       </div>
-      <div className="mb-4">
-        <div
-          ref={parentRef}
-          style={{ transform: "perspective(300px) rotateX(20deg)" }}
-          className="realtive w-full h-full flex items-center justify-center gap-2 text-center"
-        >
+      <StarWarsEffect>
+        <div className="mb-4">
           <div
-            style={{ transform: `translateY(${translateY}px)` }}
-            className="w-2/3 grid gap-5 mb-[2.5%]"
+            ref={parentRef}
+            className="realtive w-full h-full flex items-center justify-center gap-2 text-center"
           >
-            <P1
-              style={{ textShadow: "1px 1px 1px white" }}
-              translationPath="eclecticQbit/h1"
-              className="text-purple uppercase font-bold mt-[2.5%]"
-            />
-            <P2
-              style={{ textShadow: "2px 2px 2px black" }}
-              translationPath="eclecticQbit/p1"
-              className="text-yellow"
-            />
+            <div
+              style={{ transform: `translateY(${translateY}px)` }}
+              className="w-2/3 grid gap-5 mb-[2.5%]"
+            >
+              <P1
+                style={{ textShadow: "1px 1px 1px white" }}
+                translationPath="eclecticQbit/h1"
+                className="text-purple uppercase font-bold mt-[2.5%]"
+              />
+              <P2
+                style={{ textShadow: "2px 2px 2px black" }}
+                translationPath="eclecticQbit/p1"
+                className="text-yellow"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </StarWarsEffect>
     </div>
   );
 }

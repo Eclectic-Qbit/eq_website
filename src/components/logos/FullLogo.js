@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export function DiscordLogo({ className, width, height, fill }) {
   return (
     <svg
@@ -34,17 +36,19 @@ export function RedditLogo({ className, width, height, fill }) {
     </svg>
   );
 }
-export function TelegramLogo({ className, width, height, fill }) {
+export function TelegramLogo({ className, width, height, fill, hoverColor }) {
+  const [hover, setHover] = useState(false);
   return (
     <svg
-      className={className ? className : ""}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       xmlns="http://www.w3.org/2000/svg"
+      fill={hoverColor && hover ? hoverColor : fill ? fill : "black"}
       width={width ? width : 800}
       height={height ? height : 800}
-      fill={fill ? fill : "black"}
-      viewBox="4 4 16 16"
+      viewBox="0 0 32 24"
     >
-      <path d="M12 4a8 8 0 100 16 8 8 0 000-16zm3.93 5.48l-1.31 6.19c-.1.44-.36.54-.73.34l-2-1.48-1 .93a.511.511 0 01-.4.2l.14-2 3.7-3.35c.17-.14 0-.22-.24-.08l-4.54 2.85-2-.62c-.43-.13-.44-.43.09-.63l7.71-3c.38-.11.7.11.58.65z"></path>
+      <path d="M29.919 6.163l-4.225 19.925c-0.319 1.406-1.15 1.756-2.331 1.094l-6.438-4.744-3.106 2.988c-0.344 0.344-0.631 0.631-1.294 0.631l0.463-6.556 11.931-10.781c0.519-0.462-0.113-0.719-0.806-0.256l-14.75 9.288-6.35-1.988c-1.381-0.431-1.406-1.381 0.288-2.044l24.837-9.569c1.15-0.431 2.156 0.256 1.781 2.013z" />
     </svg>
   );
 }
@@ -97,19 +101,25 @@ export function MediumLogo({ width, height, fill }) {
     </svg>
   );
 }
-export function LinkedinLogo({ width, height, fill }) {
+export function LinkedinLogo({ width, height, fill, hoverColor }) {
+  const [hover, setHover] = useState(false);
   return (
     <svg
-      fill={fill ? fill : "black"}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      xmlns="http://www.w3.org/2000/svg"
       width={width ? width : 800}
       height={height ? height : 800}
-      viewBox="0 0 1920 1920"
-      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 -2 44 44"
     >
-      <path
-        d="M478.234 600.75V1920H.036V600.75h478.198Zm720.853-2.438v77.737c69.807-45.056 150.308-71.249 272.38-71.249 397.577 0 448.521 308.666 448.521 577.562v737.602h-480.6v-700.836c0-117.867-42.173-140.215-120.15-140.215-74.134 0-120.151 23.55-120.151 140.215v700.836h-480.6V598.312h480.6ZM239.099 0c131.925 0 239.099 107.294 239.099 239.099s-107.174 239.099-239.1 239.099C107.295 478.198 0 370.904 0 239.098 0 107.295 107.294 0 239.099 0Z"
-        fillRule="evenodd"
-      />
+      <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g
+          transform="translate(-702.000000, -265.000000)"
+          fill={hoverColor && hover ? hoverColor : fill ? fill : "#007EBB"}
+        >
+          <path d="M746,305 L736.2754,305 L736.2754,290.9384 C736.2754,287.257796 734.754233,284.74515 731.409219,284.74515 C728.850659,284.74515 727.427799,286.440738 726.765522,288.074854 C726.517168,288.661395 726.555974,289.478453 726.555974,290.295511 L726.555974,305 L716.921919,305 C716.921919,305 717.046096,280.091247 716.921919,277.827047 L726.555974,277.827047 L726.555974,282.091631 C727.125118,280.226996 730.203669,277.565794 735.116416,277.565794 C741.21143,277.565794 746,281.474355 746,289.890824 L746,305 L746,305 Z M707.17921,274.428187 L707.117121,274.428187 C704.0127,274.428187 702,272.350964 702,269.717936 C702,267.033681 704.072201,265 707.238711,265 C710.402634,265 712.348071,267.028559 712.41016,269.710252 C712.41016,272.34328 710.402634,274.428187 707.17921,274.428187 L707.17921,274.428187 L707.17921,274.428187 Z M703.109831,277.827047 L711.685795,277.827047 L711.685795,305 L703.109831,305 L703.109831,277.827047 L703.109831,277.827047 Z" />
+        </g>
+      </g>
     </svg>
   );
 }

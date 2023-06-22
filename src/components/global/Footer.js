@@ -45,6 +45,14 @@ export default function Footer() {
               <P3>Media Kit</P3>
             </CustomLink>
           </div>
+          <div
+            className="w-max lowercase"
+            onClick={() => downloadFile("/mediaKit.pdf", "url")}
+          >
+            <CustomLink>
+              <P3>Paint&Earn</P3>
+            </CustomLink>
+          </div>
         </div>
         <div className="text-center grid gap-2">
           <div
