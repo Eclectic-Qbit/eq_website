@@ -12,10 +12,10 @@ export default function PaintAndEarn() {
   const [logged, setLogged] = useState(false);
   return (
     <div className="overflow-hidden">
-      <div className="pt-20 mx-[10%] text-center min-h-screen flex flex-col justify-center items-center">
+      <div className="pt-20 mx-[10%] text-center flex flex-col justify-center items-center">
         <div className="my-[5%] realtive w-full h-full flex flex-col items-center justify-center gap-2 text-center">
           <MouseMoveGradient
-            className="font-extrabold uppercase w-full text-center"
+            className="font-extrabold uppercase w-full text-center mb-5"
             from="#9500E9"
             to="#FF6600"
           >
@@ -26,11 +26,11 @@ export default function PaintAndEarn() {
             className={"text-yellow"}
             translationPath="paintEarn/description"
             style={{ textShadow: "2px 2px 2px black" }}
-            spanStyling={{ backgroundColor: "#9500E9", lineHeight: "22px" }}
+            spanStyling={{ backgroundColor: "#9500E9", lineHeight: "3.75vh" }}
           />
         </div>
       </div>
-      <div className="flex flex-col min-h-screen justify-center items-center my-20">
+      <div className="flex flex-col min-h-screen justify-center items-center mb-20">
         <MouseMoveGradient
           className="font-extrabold uppercase w-full text-center"
           from="#9500E9"
