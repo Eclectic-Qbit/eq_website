@@ -189,8 +189,8 @@ export function IndexCard({
         className={`relative z-10 ${
           form === "square"
             ? "w-[15rem] min-h-[12.5rem] sm:w-[20rem] sm:min-h-[12.5rem]"
-            : `w-[17rem] sm:w-[25rem] ${
-                rotate ? "sm:w-[36rem] min-h-[21.5rem]" : "min-h-[12.5rem]"
+            : `w-[17rem] sm:w-[42.5rem] sm:min-h-[15rem] ${
+                rotate ? "min-h-[21.5rem]" : "min-h-[12.5rem]"
               } sm:min-h-[18rem]`
         } bg-[rgba(0,0,0,1)] h-max border-2 border-solid border-white rounded-xl p-4 transition-all duration-[500ms] ease-in`}
         style={{
