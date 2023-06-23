@@ -491,8 +491,8 @@ const translations = {
       ),
     },
     digDeep: {
-      en: <span>⛏️ Dig deep!</span>,
-      es: <span>⛏️ Excava profundo!</span>,
+      en: <span>⛏️ Dig deep</span>,
+      es: <span>⛏️ Excava profundo</span>,
     },
     loggedPhrase: {
       en: <span>Tap here to reveal your active quests</span>,

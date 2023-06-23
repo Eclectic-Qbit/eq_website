@@ -54,7 +54,7 @@ export default function PaintAndEarn() {
                 </div>
               }
               retro={
-                <div className="h-full w-full flex justify-center items-center hover:bg-[rgba(255,255,255,0.1)]">
+                <div className="h-full w-full flex justify-center items-center">
                   <P1
                     translationPath={"paintEarn/firstCard/back"}
                     className="grayscale hover:scale-[1.5] hover:grayscale-0"
@@ -76,7 +76,7 @@ export default function PaintAndEarn() {
                 </div>
               }
               retro={
-                <div className="h-full w-full flex justify-center items-center hover:bg-[rgba(255,255,255,0.1)]">
+                <div className="h-full w-full flex justify-center items-center">
                   <P1
                     translationPath={"paintEarn/secondCard/back"}
                     className="grayscale hover:scale-[1.5] hover:grayscale-0"
@@ -98,7 +98,7 @@ export default function PaintAndEarn() {
                 </div>
               }
               retro={
-                <div className="h-full w-full flex justify-center items-center hover:bg-[rgba(255,255,255,0.1)]">
+                <div className="h-full w-full flex justify-center items-center">
                   <P1
                     translationPath={"paintEarn/thirdCard/back"}
                     className="grayscale hover:scale-[1.5] hover:grayscale-0"
@@ -120,7 +120,7 @@ export default function PaintAndEarn() {
                 </div>
               }
               retro={
-                <div className="h-full w-full flex justify-center items-center hover:bg-[rgba(255,255,255,0.1)]">
+                <div className="h-full w-full flex justify-center items-center">
                   <P1
                     translationPath={"paintEarn/forthCard/back"}
                     className="grayscale hover:scale-[1.5] hover:grayscale-0"
@@ -142,7 +142,7 @@ export default function PaintAndEarn() {
                 </div>
               }
               retro={
-                <div className="h-full w-full flex justify-center items-center hover:bg-[rgba(255,255,255,0.1)]">
+                <div className="h-full w-full flex justify-center items-center">
                   <P1
                     translationPath={"paintEarn/fifthCard/back"}
                     className="grayscale hover:scale-[1.5] hover:grayscale-0"
@@ -164,7 +164,7 @@ export default function PaintAndEarn() {
                 </div>
               }
               retro={
-                <div className="h-full w-full flex justify-center items-center hover:bg-[rgba(255,255,255,0.1)]">
+                <div className="h-full w-full flex justify-center items-center">
                   <P1
                     translationPath={"paintEarn/sixthCard/back"}
                     className="grayscale hover:scale-[1.5] hover:grayscale-0"
