@@ -45,11 +45,8 @@ export default function Footer() {
               <P3>Media Kit</P3>
             </CustomLink>
           </div>
-          <div
-            className="w-max lowercase"
-            onClick={() => downloadFile("/mediaKit.pdf", "url")}
-          >
-            <CustomLink>
+          <div className="w-max lowercase">
+            <CustomLink href="/paint&earn">
               <P3>Paint&Earn</P3>
             </CustomLink>
           </div>
