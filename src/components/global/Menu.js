@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useRef, useState } from "react";
 import CustomLink from "./CustomLink";
-import { P3 } from "../text/Paragraphs";
+import { P3, P4 } from "../text/Paragraphs";
 import Image from "next/image";
 import ImgIcon from "../../../public/images/fullIcon_white.png";
 import ScrollContext from "@/contexts/ScrollContext";
@@ -13,6 +13,40 @@ import { H4 } from "../text/Headers";
 import translations from "@/translations";
 import Link from "next/link";
 import CurrentPageContext from "@/contexts/CurrentPageContext";
+import { DiscordLogo } from "../logos/FullLogo";
+import AuthContext from "@/contexts/AuthContext";
+
+function LoginHandle() {
+  return (
+    <Link
+      href={
+        process.env.NEXT_PUBLIC_IS_TESTING_ENV
+          ? "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=http%3A%2F%2Flocalhost%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
+          : "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=https%3A%2F%2Feclecticqbit.art%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
+      }
+      className="flex justify-center gap-2 bg-purple py-2 px-4 rounded-xl cursor-none"
+    >
+      <P4 className={"uppercase"}>Log-in</P4>
+      <div className={"h-[1rem] xl:h-[1.25rem] md:h-[1.125rem]"}>
+        <DiscordLogo height={"100%"} width={"100%"} fill={"white"} />
+      </div>
+    </Link>
+  );
+}
+function UserSection({ userInfo }) {
+  return (
+    <CustomLink className="cursor-none" href={"/user"} noUnderline>
+      <div className="relative h-[2rem] xl:h-[2.5rem] md:h-[2.25rem] aspect-square">
+        <Image
+          className="rounded-full"
+          src={`https://cdn.discordapp.com/avatars/${userInfo.id}/${userInfo.avatar}.png`}
+          alt="PFP"
+          fill
+        ></Image>
+      </div>
+    </CustomLink>
+  );
+}
 
 export default function Menu() {
   const [show, setShow] = useState(true);
@@ -25,7 +59,7 @@ export default function Menu() {
   const lastScroll = useRef(0);
   const languages = useRef({ en: "🍔", es: "🌮", it: "🍝", fr: "🥐" });
   const ref = useRef(null);
-  const dotRef = useRef(null);
+  const { userInfo } = useContext(AuthContext);
   /*
   useEffect(() => {
     const newStyle = {};
@@ -102,7 +136,7 @@ export default function Menu() {
             </CustomLink>
           </div>
         </div>
-        <div className="flex justify-end items-center w-full">
+        <div className="flex justify-end md:gap-2 items-center w-full">
           <div className="grid gap-1 md:flex md:gap-4 text-right">
             <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
               <P3
@@ -154,6 +188,7 @@ export default function Menu() {
               </P3>
             </div>
           </div>
+          {userInfo ? <UserSection userInfo={userInfo} /> : <LoginHandle />}
         </div>
       </div>
     </div>
