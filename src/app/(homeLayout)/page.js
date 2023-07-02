@@ -1,13 +1,11 @@
 "use client";
 
 import CircleCanvas from "@/components/backgrounds/CirlceCanvas";
-import GridCanvas from "@/components/backgrounds/GridCanvas";
 import SinusoidalCanvas from "@/components/backgrounds/SinusoidalCanvas";
 import EclecticQbit from "@/components/specific/index/EclecticQbit";
 import HowWeDo from "@/components/specific/index/HowWeDo";
 import OptimizedDottedCanvas from "@/components/backgrounds/OptimizedDottedCanvas";
 import WhatWeDo from "@/components/specific/index/WhatWeDo";
-import PaintEarn from "@/components/specific/index/PaintEarn";
 import { useState } from "react";
 import settings from "@/frontendSettings";
 import LogoLink from "@/components/global/LogoLink";
@@ -17,6 +15,7 @@ import {
   TelegramLogo,
 } from "@/components/logos/FullLogo";
 import { InstagramLogo, TwitterLogo } from "@/components/logos/BorderLogo";
+
 export default function Home() {
   const [animateSinCanvas, setAnimateSinCanvas] = useState(false);
   const [animateCircCanvas, setAnimateCircCanvas] = useState(false);

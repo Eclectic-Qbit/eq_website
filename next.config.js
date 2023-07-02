@@ -2,22 +2,25 @@
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
-const nextConfig = false
-  ? {
-      experimental: {
-        appDir: true,
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.discordapp.com",
+        port: "",
+        pathname: "/avatars/**",
       },
-      output: "export",
-      images: {
-        unoptimized: true,
-      },
-    }
-  : {
-      experimental: {
-        appDir: true,
-      },
-    };
+    ],
+  },
+};
 
+module.exports = nextConfig;
+/*
 module.exports = (phase, defaultConfig) => {
   return withBundleAnalyzer(defaultConfig);
 };
+*/
