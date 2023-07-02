@@ -2,6 +2,7 @@
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
+
 const nextConfig = {
   experimental: {
     appDir: true,
@@ -24,3 +25,14 @@ module.exports = (phase, defaultConfig) => {
   return withBundleAnalyzer(defaultConfig);
 };
 */
+
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/communities/:path*',
+        destination: 'https://api.zealy.io/communities/:path*'
+      }
+    ]
+  }
+}
