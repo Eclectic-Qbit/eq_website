@@ -24,9 +24,8 @@ function LoginHandle() {
           ? "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=http%3A%2F%2Flocalhost%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
           : "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=https%3A%2F%2Feclecticqbit.art%2Fapi%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
       }
-      className="flex justify-center gap-2 bg-purple py-2 px-4 rounded-xl cursor-none"
+      className="flex justify-center gap-2 bg-purple p-2 rounded-full cursor-none"
     >
-      <P4 className={"uppercase"}>Log-in</P4>
       <div className={"h-[1rem] xl:h-[1.25rem] md:h-[1.125rem]"}>
         <DiscordLogo height={"100%"} width={"100%"} fill={"white"} />
       </div>
@@ -136,7 +135,7 @@ export default function Menu() {
             </CustomLink>
           </div>
         </div>
-        <div className="flex justify-end md:gap-2 items-center w-full">
+        <div className="flex justify-end gap-2 items-center w-full">
           <div className="grid gap-1 md:flex md:gap-4 text-right">
             <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
               <P3
