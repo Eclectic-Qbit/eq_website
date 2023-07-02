@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useRef, useState } from "react";
 import CustomLink from "./CustomLink";
-import { P3, P4 } from "../text/Paragraphs";
+import { P1, P3, P4 } from "../text/Paragraphs";
 import Image from "next/image";
 import ImgIcon from "../../../public/images/fullIcon_white.png";
 import ScrollContext from "@/contexts/ScrollContext";
@@ -13,17 +13,17 @@ import { H4 } from "../text/Headers";
 import translations from "@/translations";
 import Link from "next/link";
 import CurrentPageContext from "@/contexts/CurrentPageContext";
-import { DiscordLogo } from "../logos/FullLogo";
+import { DiscordLogo, MetamaskLogo } from "../logos/FullLogo";
 import AuthContext from "@/contexts/AuthContext";
+import WalletContext from "@/contexts/WalletContext";
+import {ethers} from "ethers";
 
 function LoginHandle() {
   return (
     <Link
       href={
         process.env.NEXT_PUBLIC_IS_TESTING_ENV
-          ? "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=http%3A%2F%2Flocalhost%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
-          : "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=https%3A%2F%2Feclecticqbit.art%2Fapi%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
-      }
+          ? process.env.NEXT_PUBLIC_DEV_DISCORD_URL : process.env.NEXT_PUBLIC_PROD_DISCORD_URL}
       className="flex justify-center gap-2 bg-purple p-2 rounded-full cursor-none border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative hover:translate-x-[2px]"
     >
       <div className={"h-[1rem] xl:h-[1.25rem] md:h-[1.125rem]"}>
@@ -32,6 +32,7 @@ function LoginHandle() {
     </Link>
   );
 }
+
 function UserSection({ userInfo }) {
   return (
     <CustomLink className="cursor-none" href={"/user"} noUnderline>
@@ -45,6 +46,30 @@ function UserSection({ userInfo }) {
       </div>
     </CustomLink>
   );
+}
+
+function WalletConnect() {
+  const [wallet, setWallet] = useState(null); //replace with context
+
+  return (
+    <Link 
+    href="/"
+    className="flex justify-center gap-2 bg-orange p-2 rounded-full cursor-none border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative hover:translate-x-[2px]">
+      <div className={"h-[1rem] xl:h-[1.25rem] md:h-[1.125rem]"} onClick={async () => {
+          if(!wallet) {
+              const provider = new ethers.BrowserProvider(window.ethereum);
+      
+              await provider.send("eth_requestAccounts", []);
+      
+              const signer = provider.getSigner();
+      
+              wallet !== null && setWallet(signer);
+          }
+      }}>
+        <P4>Connect wallet</P4>
+      </div>
+    </Link>
+  )
 }
 
 export default function Menu() {
@@ -188,6 +213,7 @@ export default function Menu() {
             </div>
           </div>
           {userInfo ? <UserSection userInfo={userInfo} /> : <LoginHandle />}
+          {<WalletConnect />}
         </div>
       </div>
     </div>
