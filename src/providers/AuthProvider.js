@@ -26,7 +26,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const token = cookies.token;
     const parsedToken = jwt.decode(token);
-    if (token) {
+    if (token && parsedToken) {
       if (Date.now() >= parsedToken.exp * 1000) {
         removeCookie("token");
         setToken(null);
