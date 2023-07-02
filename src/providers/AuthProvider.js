@@ -16,6 +16,7 @@ export default function AuthProvider({ children }) {
       } catch (e) {
         console.error(e);
         setUserInfo(null);
+        setToken(null);
       }
     } else {
       userInfo !== null && setUserInfo(null);
