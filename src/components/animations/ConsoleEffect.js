@@ -18,6 +18,7 @@ export default function ConsoleEffect({
   placeholderChar,
   spanStyling,
   children,
+  delay,
 }) {
   /* Fix the ghost cancellation - first noticed after lang translation */
   const { lang, setLang } = useContext(LanguageContext);
@@ -67,51 +68,56 @@ export default function ConsoleEffect({
     }
   }, [forceActive, scroll]);
   useEffect(() => {
-    if (active) {
-      if (
-        value.length <
-        parsedContent.length + parsedChar.length + parsedPlaceholderChar.length
-      ) {
-        // Remove spacing char if exists
-        const parsedValue = parsedChar
-          ? value.replace(
-              parsedChar,
-              parsedContent.charAt(
-                value.indexOf(additionalChar) - parsedPlaceholderChar.length
+    const timeoutDelay = value.length === 0 ? (delay ? delay : 0) : 0;
+    setTimeout(() => {
+      if (active) {
+        if (
+          value.length <
+          parsedContent.length +
+            parsedChar.length +
+            parsedPlaceholderChar.length
+        ) {
+          // Remove spacing char if exists
+          const parsedValue = parsedChar
+            ? value.replace(
+                parsedChar,
+                parsedContent.charAt(
+                  value.indexOf(additionalChar) - parsedPlaceholderChar.length
+                )
               )
-            )
-          : value;
-        // Add a new char
-        const newChar = parsedContent.charAt(
-          value.length - parsedPlaceholderChar.length
-        );
-        const newStr = parsedValue + newChar + parsedChar;
-        lastTimeout.current && clearTimeout(lastTimeout.current);
-        lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => {
-          setValue(newStr);
-        }, parsedDelta.current);
-      } else if (parsedChar) {
-        const newStr =
-          value.charAt(value.length - 1) === parsedChar
-            ? value.slice(0, -1) + "|"
-            : value.slice(0, -1) + parsedChar;
-        lastTimeout.current && clearTimeout(lastTimeout.current);
-        lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => {
-          setValue(newStr);
-        }, 500);
+            : value;
+          // Add a new char
+          const newChar = parsedContent.charAt(
+            value.length - parsedPlaceholderChar.length
+          );
+          const newStr = parsedValue + newChar + parsedChar;
+          lastTimeout.current && clearTimeout(lastTimeout.current);
+          lastTimeout.current = null;
+          lastTimeout.current = setTimeout(() => {
+            setValue(newStr);
+          }, parsedDelta.current);
+        } else if (parsedChar) {
+          const newStr =
+            value.charAt(value.length - 1) === parsedChar
+              ? value.slice(0, -1) + "|"
+              : value.slice(0, -1) + parsedChar;
+          lastTimeout.current && clearTimeout(lastTimeout.current);
+          lastTimeout.current = null;
+          lastTimeout.current = setTimeout(() => {
+            setValue(newStr);
+          }, 500);
+        }
+      } else {
+        if (value.length > parsedPlaceholderChar.length) {
+          const newStr = value.substring(0, value.length - 1);
+          lastTimeout.current && clearTimeout(lastTimeout.current);
+          lastTimeout.current = null;
+          lastTimeout.current = setTimeout(() => {
+            setValue(newStr);
+          }, parsedDelta.current / 2);
+        }
       }
-    } else {
-      if (value.length > parsedPlaceholderChar.length) {
-        const newStr = value.substring(0, value.length - 1);
-        lastTimeout.current && clearTimeout(lastTimeout.current);
-        lastTimeout.current = null;
-        lastTimeout.current = setTimeout(() => {
-          setValue(newStr);
-        }, parsedDelta.current / 2);
-      }
-    }
+    }, timeoutDelay);
   }, [
     value,
     active,
@@ -119,6 +125,7 @@ export default function ConsoleEffect({
     parsedChar,
     additionalChar,
     parsedPlaceholderChar.length,
+    delay,
   ]);
   return (
     <div
