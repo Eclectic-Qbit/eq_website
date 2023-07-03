@@ -48,27 +48,138 @@ function UserSection({ userInfo }) {
   );
 }
 
-function WalletConnect() {
-  const [wallet, setWallet] = useState(null); //replace with context
-
+function WalletConnect({userWallet, setWallet}) {
   return (
     <Link 
     href="/"
     className="flex justify-center gap-2 bg-orange p-2 rounded-full cursor-none border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative hover:translate-x-[2px]">
       <div className={"h-[1rem] xl:h-[1.25rem] md:h-[1.125rem]"} onClick={async () => {
-          if(!wallet) {
-              const provider = new ethers.BrowserProvider(window.ethereum);
-      
-              await provider.send("eth_requestAccounts", []);
-      
-              const signer = provider.getSigner();
-      
-              wallet !== null && setWallet(signer);
+          if(!window.ethereum) {
+            //pop up: mm not detected
           }
+          
+          const provider = new ethers.BrowserProvider(window.ethereum);
+          await provider.send("eth_requestAccounts", []);
+      
+          const signer = provider.getSigner();
+          
+          setWallet(signer);
       }}>
         <P4>Connect wallet</P4>
       </div>
     </Link>
+  )
+}
+
+const getConnectedWalletAddress = async(wallet) => {
+  return await wallet.getAddress();
+}
+
+function WalletAddress({userWallet}) {
+  const  [address, setAddress] = useState('0');
+
+  userWallet.then((result) => {
+    setAddress(result.address);
+  });
+
+  return(
+    <Link 
+    href="/"
+    className="flex justify-center gap-2 bg-green p-2 rounded-full cursor-none border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative hover:translate-x-[2px]"
+    >
+      <div>
+        <P3>
+          {address}
+        </P3>
+      </div>
+    </Link>
+  );
+}
+
+const abi = [
+  "function mint()",
+  "function hasMinted(address sender) view returns (bool)"
+]
+
+function createContract(signer) {
+  return new ethers.Contract("Q_0", abi, signer);
+}
+
+async function mintTransaction(signer) {
+  const contract = createContract(signer);
+
+  const tx = await contract.mint();
+
+  await tx.wait();
+}
+
+async function verifyMint(signer) {
+  const contract = createContract(signer);
+
+  const [address, setAddress] = useState('0');
+
+  signer.then((result) => {
+    setAddress(result.address);
+  });
+
+  const result = await contract.hasMinted(address);
+
+  return result;
+}
+
+async function getUserStats(url) {
+  const result = await fetch(url, {
+      mode: 'cors',
+      headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': process.env.NEXT_PUBLIC_USER_DATA_API_KEY
+      }
+  });
+
+  const data = await result.json();
+
+  return data;
+}
+
+async function extractData(userInfo) {
+    const ZEALY_API_URL = "/communities/eclecticqbit";
+
+    return await getUserStats(`${ZEALY_API_URL}/users?discordId=${userInfo.id}`);
+}
+
+function QuestCard({userInfo, userWallet}) {
+  const [address, setAddress] = useState('0');
+  const [zealyAddress, setZealyAddress] = useState('0');
+  const [hasMinted, setHasMinted] = useState(true);
+
+  userWallet.then((result) => {
+    setAddress(result.address);
+  });
+
+  extractData(userInfo).then((result) => {
+    const extAddress = result.addresses.address;
+
+    if(extAddress.startsWith('0x')) {
+      setZealyAddress(extAddress);
+    }
+  });
+
+  const isLegit = address === zealyAddress; //to fix: case-sensitive
+  
+  verifyMint(userWallet).then((r) => {
+    setHasMinted(r); //dying ik
+  });
+
+  return (
+    <div>
+      <div>{
+        isLegit && !hasMinted ? 
+        <button onClick={() => {
+          mintTransaction(userWallet);
+        }}>Mint Pass</button> : <Link href='/'>To quest</Link>
+        }
+      </div>
+    </div>
   )
 }
 
@@ -84,6 +195,8 @@ export default function Menu() {
   const languages = useRef({ en: "🍔", es: "🌮", it: "🍝", fr: "🥐" });
   const ref = useRef(null);
   const { userInfo } = useContext(AuthContext);
+  const [connected, setConnected] = useState(false);
+  const [userWallet, setWallet] = useState(null);
   /*
   useEffect(() => {
     const newStyle = {};
@@ -105,6 +218,10 @@ export default function Menu() {
     }
     lastScroll.current = scroll;
   }, [scroll]);
+
+  useEffect(() => {
+    userWallet !== null && setConnected(true);
+  }, [userWallet]);
   return (
     <div
       ref={ref}
@@ -213,7 +330,8 @@ export default function Menu() {
             </div>
           </div>
           {userInfo ? <UserSection userInfo={userInfo} /> : <LoginHandle />}
-          {<WalletConnect />}
+          {connected ? <WalletAddress userWallet={userWallet}/> : <WalletConnect userWallet={userWallet} setWallet={setWallet}/>}
+          {userInfo && connected ? <QuestCard userInfo={userInfo} wallet={userWallet} /> : null}
         </div>
       </div>
     </div>
