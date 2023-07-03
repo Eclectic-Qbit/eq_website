@@ -6,14 +6,20 @@ import { DiscordLogo, RedditLogo, TelegramLogo } from "../logos/FullLogo";
 import { P3 } from "../text/Paragraphs";
 import CustomLink from "./CustomLink";
 import LogoLink from "./LogoLink";
+import { useContext } from "react";
+import LanguageContext from "@/contexts/LanguageContext";
 
 export default function Footer() {
-  const MAIL = "ama@eclecticqbit.art";
-  const MAIL_SUBJ = "";
-  const MAIL_BODY = "";
+  const { lang } = useContext(LanguageContext);
+  const MAIL = "squad@eclecticqbit.art";
+  const MAIL_SUBJ = "gm";
+  const MAIL_BODY =
+    lang === "es"
+      ? "reúne tu valentía y presiona ese botón de enviar! pregúntanos lo que desees, estamos aquí para co-crear!"
+      : "summon your courage and hit that send button! ask us anything, we are here to co-create!";
   return (
     <div className="border-t-2 border-solid border-white py-10">
-      <div className="flex flex-wrap w-full h-full gap-[5%] justify-around items-center text-center">
+      <div className="flex flex-wrap w-full h-full gap-3 justify-around items-center text-center">
         <div className="flex justify-center items-center gap-2 scale-[0.8]">
           <LogoLink href="https://discord.gg/8J3SXwUn7C">
             <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
@@ -47,7 +53,7 @@ export default function Footer() {
           </div>
           <div
             className="w-max lowercase"
-            onClick={() => downloadFile("/mediaKit.pdf", "url")}
+            onClick={() => downloadFile("/paintAndEarn.pdf", "url")}
           >
             <CustomLink>
               <P3>Paint&Earn</P3>

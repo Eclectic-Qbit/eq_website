@@ -15,16 +15,13 @@ import Link from "next/link";
 import CurrentPageContext from "@/contexts/CurrentPageContext";
 import { DiscordLogo } from "../logos/FullLogo";
 import AuthContext from "@/contexts/AuthContext";
+import { discordLink } from "@/commonFrontend";
 
 function LoginHandle() {
   return (
     <Link
-      href={
-        process.env.NEXT_PUBLIC_IS_TESTING_ENV
-          ? "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=http%3A%2F%2Flocalhost%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
-          : "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=https%3A%2F%2Feclecticqbit.art%2Fapi%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
-      }
-      className="flex justify-center gap-2 bg-purple p-2 rounded-full cursor-none border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative hover:translate-x-[2px]"
+      href={discordLink}
+      className="flex justify-center gap-2 bg-purple p-2 cursor-none border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative hover:translate-x-[2px]"
     >
       <div className={"h-[1rem] xl:h-[1.25rem] md:h-[1.125rem]"}>
         <DiscordLogo height={"100%"} width={"100%"} fill={"white"} />
@@ -35,7 +32,7 @@ function LoginHandle() {
 function UserSection({ userInfo }) {
   return (
     <CustomLink className="cursor-none" href={"/user"} noUnderline>
-      <div className="relative h-[2rem] xl:h-[2.5rem] md:h-[2.25rem] aspect-square border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative rounded-full overflow-hidden">
+      <div className="relative h-[2rem] xl:h-[2.5rem] md:h-[2.25rem] aspect-square border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative overflow-hidden">
         <Image
           className=""
           src={`https://cdn.discordapp.com/avatars/${userInfo.id}/${userInfo.avatar}.png`}

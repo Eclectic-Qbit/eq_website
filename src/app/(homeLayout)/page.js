@@ -45,7 +45,7 @@ export default function Home() {
           <OptimizedDottedCanvas />
         </div>
         {/* Content */}
-        <div className="grid gap-5">
+        <div className="grid gap-10">
           <div
             onMouseEnter={() => {
               if (window.innerWidth > settings.mobileView) {

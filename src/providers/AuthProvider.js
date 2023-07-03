@@ -1,13 +1,15 @@
 "use client";
 
 import AuthContext from "@/contexts/AuthContext";
-import { useEffect, useState } from "react";
+import CurrentPageContext from "@/contexts/CurrentPageContext";
+import { useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 const jwt = require("jsonwebtoken");
 
 export default function AuthProvider({ children }) {
   const [token, setToken] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
+  const { page } = useContext(CurrentPageContext);
   useEffect(() => {
     if (token) {
       try {
@@ -22,7 +24,7 @@ export default function AuthProvider({ children }) {
       userInfo !== null && setUserInfo(null);
       token !== null && setToken(null);
     }
-  }, [token, userInfo]);
+  }, [token, userInfo, page]);
   const [cookies, removeCookie] = useCookies();
   useEffect(() => {
     const token = cookies.token;

@@ -1,15 +1,18 @@
 "use client";
 
+import { discordLink, downloadFile } from "@/commonFrontend";
 import { MouseMoveGradient } from "@/components/animations/MouseMoveAnimations";
 import { IndexCard } from "@/components/global/Cards";
 import CustomLink from "@/components/global/CustomLink";
 import PaintEarn from "@/components/specific/index/PaintEarn";
 import { H4 } from "@/components/text/Headers";
 import { P1, P2, P3 } from "@/components/text/Paragraphs";
-import { useState } from "react";
+import AuthContext from "@/contexts/AuthContext";
+import { useContext, useState } from "react";
 
 export default function PaintAndEarn() {
   const [logged, setLogged] = useState(false);
+  const { userInfo } = useContext(AuthContext);
   return (
     <div className="overflow-hidden">
       <div className="pt-20 mx-[10%] text-center flex flex-col justify-center items-center">
@@ -30,7 +33,7 @@ export default function PaintAndEarn() {
           />
         </div>
       </div>
-      <div className="flex flex-col min-h-screen justify-center items-center mb-20">
+      <div className="flex flex-col justify-center items-center mb-20">
         <MouseMoveGradient
           className="font-extrabold uppercase w-full text-center"
           from="#9500E9"
@@ -173,23 +176,32 @@ export default function PaintAndEarn() {
               }
             />
           </div>
-          <div className="text-center mb-16 font-bold">
-            <P2 className="lowercase" translationPath="paintEarn/digDeep" />
-          </div>
-          <div>
-            <CustomLink
-              defaultUnderline
-              className="cursor-none"
-              href={"/login"}
-            >
-              <P1
-                translationPath={
-                  logged ? "paintEarn/loggedPhrase" : "paintEarn/loginPhrase"
-                }
-                className="font-bold text-center lowercase"
-              />
+          <div
+            className="flex justify-center lowercase text-center font-bold"
+            onClick={() => downloadFile("/paintAndEarn.pdf", "url")}
+          >
+            <CustomLink className={"w-max"}>
+              <P2 className="lowercase" translationPath="paintEarn/digDeep" />
             </CustomLink>
           </div>
+          {userInfo ? (
+            ""
+          ) : (
+            <div className="mt-16">
+              <CustomLink
+                defaultUnderline
+                className="cursor-none"
+                href={discordLink}
+              >
+                <P1
+                  translationPath={
+                    logged ? "paintEarn/loggedPhrase" : "paintEarn/loginPhrase"
+                  }
+                  className="font-bold text-center lowercase"
+                />
+              </CustomLink>
+            </div>
+          )}
         </div>
       </div>
       <div>

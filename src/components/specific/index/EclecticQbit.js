@@ -24,7 +24,7 @@ export default function EclecticQbit() {
     }
   }, [scroll]);
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen ">
       <div className="flex flex-wrap items-center justify-evenly font-extrabold uppercase w-full gap-y-10 mb-4">
         <MouseMoveGradient className="text-center" from="#9500E9" to="#FF6600">
           <H3 translationPath="eclecticQbit/title/p1" />
@@ -45,7 +45,7 @@ export default function EclecticQbit() {
         <div className="mb-4">
           <div
             ref={parentRef}
-            className="realtive w-full h-full flex items-center justify-center gap-2 text-center"
+            className="realtive w-full h-full flex items-center justify-center gap-2 text-center z-10"
           >
             <div
               style={{ transform: `translateY(${translateY}px)` }}

@@ -54,3 +54,6 @@ export function downloadFile(file, type) {
     anchor.click();
   }
 }
+export const discordLink = process.env.NEXT_PUBLIC_IS_TESTING_ENV
+  ? "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=http%3A%2F%2Flocalhost%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
+  : "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=https%3A%2F%2Feclecticqbit.art%2Fapi%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify";
