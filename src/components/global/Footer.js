@@ -2,7 +2,12 @@
 
 import { downloadFile } from "@/commonFrontend";
 import { InstagramLogo, TwitterLogo } from "../logos/BorderLogo";
-import { DiscordLogo, RedditLogo, TelegramLogo } from "../logos/FullLogo";
+import {
+  DiscordLogo,
+  RedditLogo,
+  TelegramLogo,
+  ZealyLogo,
+} from "../logos/FullLogo";
 import { P3 } from "../text/Paragraphs";
 import CustomLink from "./CustomLink";
 import LogoLink from "./LogoLink";
@@ -21,6 +26,9 @@ export default function Footer() {
     <div className="border-t-2 border-solid border-white py-10">
       <div className="flex flex-wrap w-full h-full gap-3 justify-around items-center text-center">
         <div className="flex justify-center items-center gap-2 scale-[0.8]">
+          <LogoLink href="https://zealy.io/c/eclecticqbit/">
+            <ZealyLogo width={"100%"} height={"100%"} />
+          </LogoLink>
           <LogoLink href="https://discord.gg/8J3SXwUn7C">
             <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>

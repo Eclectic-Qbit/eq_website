@@ -41,7 +41,7 @@ export default function Games() {
               .scrollIntoView({ behavior: "smooth" });
             setMsg(
               <div
-                onClick={() => setMsg(null)}
+                onClick={() => setTimeout(() => setMsg(null), 750)}
                 className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.65)] z-50"
               >
                 <div className="max-w-[50vw] text-center">
@@ -71,6 +71,8 @@ export default function Games() {
                     ]}
                     coeffs={[1, 1.3, 1.6, 1.9, 2.2]}
                     delay={5000}
+                    fadeDuration={750}
+                    className="z-30 fixed top-0 left-0 w-full h-full flex items-center justify-center text-white"
                   />
                 </div>
               </div>
@@ -89,7 +91,7 @@ export default function Games() {
           onClick={() =>
             setMsg(
               <div
-                onClick={() => setMsg(null)}
+                onClick={() => setTimeout(() => setMsg(null), 750)}
                 className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.65)] z-50"
               >
                 <div className="max-w-[50vw]">
@@ -97,6 +99,8 @@ export default function Games() {
                     elements={[<P1 key={0}>You must log-in first</P1>]}
                     coeffs={[1]}
                     delay={1000}
+                    fadeDuration={750}
+                    className="relative z-10 top-0 left-0 w-screen h-full bg-transparent flex items-center justify-center text-white px-[5%] sm:px-[10%]"
                   />
                 </div>
               </div>

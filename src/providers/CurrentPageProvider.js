@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function CurrentPageProvider({ children }) {
   const [page, setPage] = useState("");
+
   return (
     <CurrentPageContext.Provider value={{ page, setPage }}>
       {children}

@@ -14,12 +14,12 @@ export default function LoadingAnimation({
   className,
   style,
   delay,
+  fadeDuration,
   elements,
   coeffs,
   onFade,
   stopFade,
 }) {
-  const FADE_DURATION = delay ? delay : 1000;
   const ref = useRef(null);
   const mouseEntered = useRef(false);
   const parsedCoeffs = useRef(
@@ -47,14 +47,18 @@ export default function LoadingAnimation({
   const movedInViewport = useRef(0);
   // Fade
   const fade = useCallback(() => {
+    console.log("I'm fadiing");
     if (!stopFade) {
       setHide({ temp: true, perma: false });
       setTimeout(() => {
         setHide({ temp: true, perma: true });
         onFade && onFade();
-      }, [FADE_DURATION]);
+      }, [fadeDuration]);
     }
-  }, [FADE_DURATION, onFade, stopFade]);
+  }, [fadeDuration, onFade, stopFade]);
+  useEffect(() => {
+    console.log(hide.temp);
+  }, [hide.temp]);
   // Cancel Existing Timeouts
   const cancelTimeouts = useCallback(() => {
     viewTimeout.current && clearTimeout(viewTimeout.current);
@@ -107,11 +111,11 @@ export default function LoadingAnimation({
             setOffset(updatedOffset);
           }
           movedInViewport.current++;
-        }, FADE_DURATION / newArr.length);
+        }, delay / newArr.length);
         currentTimeouts.current.push(timeout);
       }
     }
-  }, [view, FADE_DURATION, offset, hide.perma, hide.temp, cancelTimeouts]);
+  }, [view, delay, offset, hide.perma, hide.temp, cancelTimeouts]);
   // Mouse position
   useEffect(() => {
     if (!hide.perma && !hide.temp) {
@@ -128,10 +132,8 @@ export default function LoadingAnimation({
       {!hide.perma && (
         <div
           onClick={fade}
-          className={`${
-            hide.temp ? "opacity-0" : "opacity-1"
-          } ${className} transition-transform ease-in`}
-          style={{ transitionDuration: `${FADE_DURATION}ms` }}
+          className={`${hide.temp ? "opacity-0" : "opacity-1"} ${className}`}
+          style={{ transition: `opacity ${fadeDuration}ms ease-in` }}
         >
           <div
             className="flex flex-col gap-0 w-full"
@@ -154,7 +156,7 @@ export default function LoadingAnimation({
                       },
                       className: `${
                         el.props.className ? el.props.className : ""
-                      } relative text-8xl w-full uppercase py-2 font-extrabold`,
+                      } relative text-8xl w-full uppercase py-2 font-extrabold max-w-[90%]`,
                     })}
                   </div>
                 );
