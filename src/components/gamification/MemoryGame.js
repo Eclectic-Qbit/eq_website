@@ -1,17 +1,10 @@
 "use client";
 import Image from "next/image";
 import ImgWhiteLogo from "../../../public/images/whiteLogo.png";
-import ImgTab from "../../../public/images/team/4.png";
-import ImgEnry from "../../../public/images/team/3.png";
-import ImgPipo from "../../../public/images/team/6.png";
-import ImgAdi from "../../../public/images/team/7.png";
-import ImgAxel from "../../../public/images/team/1.png";
-import ImgAbra from "../../../public/images/team/5.png";
-import ImgPari from "../../../public/images/team/8.png";
-import ImgMilena from "../../../public/images/team/10.png";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { H1, H5 } from "../text/Headers";
 import { P1, P2 } from "../text/Paragraphs";
+import { getTeamImages } from "@/commonFrontend";
 
 function Card({ pos, img, active, onClick, won, reset }) {
   const [state, setState] = useState(!won ? "hidden" : "visible");
@@ -64,16 +57,7 @@ function Card({ pos, img, active, onClick, won, reset }) {
   );
 }
 export default function MemoryGame() {
-  const CARDS_ARR = useRef([
-    ImgTab,
-    ImgEnry,
-    ImgPipo,
-    ImgAdi,
-    ImgAxel,
-    ImgAbra,
-    ImgPari,
-    ImgMilena,
-  ]); // Array of card immages
+  const CARDS_ARR = useRef(getTeamImages()); // Array of card immages
   const streak = useRef(0); // Current user streak
   const started = useRef(0); // Starting date - from first click
   const duration = useRef(0); // Duration of the game rounded to second digit

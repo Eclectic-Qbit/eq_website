@@ -5,14 +5,7 @@ import ChosePFP from "./ChosePFP";
 import { useEffect, useState } from "react";
 import AskInfo from "./AskInfo";
 import FinalPage from "./FinalPage";
-import ImgTab from "../../../../public/images/team/4.png";
-import ImgEnry from "../../../../public/images/team/3.png";
-import ImgPipo from "../../../../public/images/team/6.png";
-import ImgAdi from "../../../../public/images/team/7.png";
-import ImgAxel from "../../../../public/images/team/1.png";
-import ImgAbra from "../../../../public/images/team/5.png";
-import ImgPari from "../../../../public/images/team/8.png";
-import ImgMilena from "../../../../public/images/team/10.png";
+import { getTeamImages } from "@/commonFrontend";
 
 export default function UserRouter({ userInfo }) {
   const [page, setPage] = useState(0);
@@ -99,13 +92,13 @@ export default function UserRouter({ userInfo }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          city: ignore || !city || city.length === 0 ? "null" : val,
+          city: ignore || !val || val.length === 0 ? "null" : val,
         }),
       }
     );
     if (res.status === 200) {
       successCallback && successCallback();
-      setUsername(val);
+      setCity(val);
       setPage(3);
     } else {
       errorCallback && errorCallback();
@@ -116,7 +109,12 @@ export default function UserRouter({ userInfo }) {
       {page > 0 ? (
         page > 1 ? (
           page === 3 ? (
-            <FinalPage />
+            <FinalPage
+              userInfo={userInfo}
+              newPfp={pfp}
+              newUsername={username}
+              newCity={city}
+            />
           ) : (
             <AskInfo
               key={"ask_city"}
@@ -156,16 +154,7 @@ export default function UserRouter({ userInfo }) {
         <ChosePFP
           userInfo={userInfo}
           setPfp={sendPfp}
-          images={[
-            ImgTab,
-            ImgEnry,
-            ImgPipo,
-            ImgAdi,
-            ImgAxel,
-            ImgAbra,
-            ImgPari,
-            ImgMilena,
-          ]}
+          images={getTeamImages()}
           state={pfp >= -1 ? pfp : 0}
           skipIntro={pfp >= -1}
         />

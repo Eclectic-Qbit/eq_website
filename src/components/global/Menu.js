@@ -15,7 +15,7 @@ import Link from "next/link";
 import CurrentPageContext from "@/contexts/CurrentPageContext";
 import { DiscordLogo } from "../logos/FullLogo";
 import AuthContext from "@/contexts/AuthContext";
-import { discordLink } from "@/commonFrontend";
+import { discordLink, getImageFromIndex } from "@/commonFrontend";
 
 function LoginHandle() {
   return (
@@ -30,16 +30,14 @@ function LoginHandle() {
   );
 }
 function UserSection({ userInfo }) {
+  const img =
+    userInfo.avatar.type === "discord"
+      ? `https://cdn.discordapp.com/avatars/${userInfo.id}/${userInfo.avatar.value}.png`
+      : getImageFromIndex(userInfo.avatar.value);
   return (
     <CustomLink className="cursor-none" href={"/user"} noUnderline>
       <div className="relative h-[2rem] xl:h-[2.5rem] md:h-[2.25rem] aspect-square border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative overflow-hidden">
-        <Image
-          sizes="100%"
-          className=""
-          src={`https://cdn.discordapp.com/avatars/${userInfo.id}/${userInfo.avatar}.png`}
-          alt="PFP"
-          fill
-        ></Image>
+        <Image sizes="100%" className="" src={img} alt="PFP" fill></Image>
       </div>
     </CustomLink>
   );
