@@ -81,9 +81,10 @@ export default function FinalPage() {
           </div>
         </div>
         <div className="relative flex justify-center items-center w-full">
-          <div className="absolute top-0 left-0">
+          {/* <div className="absolute top-0 left-0">
             <P2>Are you an artist???</P2>
-          </div>
+          </div>*/}
+
           <div className="relative w-full aspect-square">
             <Image sizes="100%" src={ImgEnry} fill alt="PFP" />
           </div>

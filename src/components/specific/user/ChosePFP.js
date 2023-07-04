@@ -1,32 +1,21 @@
 "use client";
 
 import { P1, P2, P3 } from "@/components/text/Paragraphs";
-import { useCallback, useEffect, useRef, useState } from "react";
-import ImgTab from "../../../../public/images/team/4.png";
-import ImgEnry from "../../../../public/images/team/3.png";
-import ImgPipo from "../../../../public/images/team/6.png";
-import ImgAdi from "../../../../public/images/team/7.png";
-import ImgAxel from "../../../../public/images/team/1.png";
-import ImgAbra from "../../../../public/images/team/5.png";
-import ImgPari from "../../../../public/images/team/8.png";
-import ImgMilena from "../../../../public/images/team/10.png";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-export default function ChosePFP({ userInfo, setPfp }) {
+export default function ChosePFP({
+  userInfo,
+  setPfp,
+  images,
+  state,
+  skipIntro,
+}) {
   const [styles, setStyles] = useState([{}, {}, {}, {}]);
-  const [active, setActive] = useState(0);
-  const [images, setImages] = useState([
-    ImgTab,
-    ImgEnry,
-    ImgPipo,
-    ImgAdi,
-    ImgAxel,
-    ImgAbra,
-    ImgPari,
-    ImgMilena,
-  ]);
-  const index = useRef(0);
+  const [active, setActive] = useState(state ? state : 0);
+  const index = useRef(skipIntro ? 3 : 0);
   async function setPFP(type) {
+    /*
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_ROUTE}users/${userInfo.id}`,
       {
@@ -40,7 +29,8 @@ export default function ChosePFP({ userInfo, setPfp }) {
         },
       }
     );
-    setPfp("discord");
+    */
+    setPfp(type);
   }
   useEffect(() => {
     setTimeout(
@@ -62,9 +52,15 @@ export default function ChosePFP({ userInfo, setPfp }) {
           index.current += 1;
         }
       },
-      index.current === 0 ? 500 : index.current === 3 ? 4000 : 3100
+      index.current === 0
+        ? 500
+        : index.current === 3
+        ? skipIntro
+          ? 500
+          : 4000
+        : 3100
     );
-  }, [styles]);
+  }, [skipIntro, styles]);
   return (
     <div className="relative min-h-screen w-full max-w-screen flex justify-center items-center flex-col text-center overflow-hidden">
       <div>
@@ -82,8 +78,8 @@ export default function ChosePFP({ userInfo, setPfp }) {
         </div>
       </div>
       <div
-        className="opacity-0 absolute top-0 w-full h-full mt-8"
-        style={{ ...styles[3], left: "calc(50vw - 250px)" }}
+        className="opacity-0 absolute top-0 w-full h-full mt-8 left-[calc(50vw-calc(max(min(50vh,40vw),225px)/2))] sm:left-[calc(50vw-min(max(50vh,40vw),500px)/2)]"
+        style={{ ...styles[3] }}
       >
         <div
           className={`flex h-full w-max justify-start items-center relative left-0 transition-all duration-[500ms] ease-in `}
@@ -95,7 +91,7 @@ export default function ChosePFP({ userInfo, setPfp }) {
             return (
               <div
                 onClick={() => setActive(i)}
-                className="w-[250px] sm:w-[500px] aspect-square shrink-0 hover:scale-[1.05] transition-scale duration-[500ms] eaase-in"
+                className="w-[max(min(50vh,40vw),225px)] sm:w-[min(max(50vh,40vw),500px)] aspect-square shrink-0 hover:scale-[1.05] transition-scale duration-[500ms] eaase-in"
                 key={`img_${i}`}
                 style={{ zIndex: active === i ? 10 : 0 }}
               >
@@ -127,7 +123,7 @@ export default function ChosePFP({ userInfo, setPfp }) {
                       fill
                     />
                     <div
-                      onClick={() => setPFP(i)}
+                      onClick={() => i === active && setPFP(i)}
                       className={`absolute bottom-0 z-10 bg-black border-2 border-solid border-white w-full p-4 ${
                         i === active ? "opacity-1" : "opacity-0"
                       } transition-all duration-[650ms] ease-in hover:underline`}
@@ -142,9 +138,9 @@ export default function ChosePFP({ userInfo, setPfp }) {
         </div>
       </div>
       <button
-        onClick={() => setPFP("no")}
+        onClick={() => setPFP(-1)}
         style={styles[3]}
-        className="absolute bottom-4 left-[50%] -translate-x-[50%] hover:underline cursor-none opacity-0"
+        className="absolute w-full bottom-4 left-[50%] -translate-x-[50%] hover:underline cursor-none opacity-0"
       >
         <P3>Or keep your discord PFP</P3>
       </button>
