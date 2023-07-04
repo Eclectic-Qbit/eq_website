@@ -47,7 +47,7 @@ function UserSection({ userInfo }) {
 export default function Menu() {
   const [show, setShow] = useState(true);
   const [openLang, setOpenLang] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(null);
+  const [errorMsg, setErrorMsg] = useState({ content: null, delay: 0 });
   const [dotStyle, setDotStyle] = useState({ top: 0, right: 0 });
   const { scroll } = useContext(ScrollContext);
   const { lang, setLang } = useContext(LanguageContext);
@@ -78,13 +78,28 @@ export default function Menu() {
     lastScroll.current = scroll;
   }, [scroll]);
   return (
-    <div
-      ref={ref}
-      className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl ${
-        !show && "-translate-y-full"
-      } transition ease-out duration-300 border-b-2 border-solid border-white cursor-none`}
-    >
-      {/* 
+    <>
+      {errorMsg.content && (
+        <div
+          onClick={() => {
+            if (window.innerWidth > settings.mobileView) {
+              setTimeout(() => {
+                setErrorMsg({ content: null, delay: 0 });
+              }, errorMsg.delay);
+            }
+          }}
+          className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-50"
+        >
+          {errorMsg.content}
+        </div>
+      )}
+      <div
+        ref={ref}
+        className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl ${
+          !show && "-translate-y-full"
+        } transition ease-out duration-300 border-b-2 border-solid border-white cursor-none`}
+      >
+        {/* 
       <div
         className="absolute top-0 right-0 flex justify-center h-full w-[2%] h-min"
         style={dotStyle}
@@ -94,99 +109,92 @@ export default function Menu() {
         </CustomLink>
       </div>
       */}
-      {errorMsg && (
-        <div
-          onClick={() => {
-            if (window.innerWidth > settings.mobileView) {
-              setErrorMsg(null);
-            }
-          }}
-          className="absolute top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-50"
-        >
-          {errorMsg}
-        </div>
-      )}
-      <div className="flex w-full px-[2%]">
-        <div className="flex items-center justify-start w-full">
-          <CustomLink
-            noUnderline
-            href={"/story"}
-            className="relative cursor-none flex items-center h-[5vh] sm:h-[7.5vh] aspect-[35/12] transition-all duration-150 ease-in"
-          >
-            <Image src={ImgIcon} alt="Logo" fill sizes="100%" />
-          </CustomLink>
-        </div>
-        <div className="flex items-center justify-center w-full">
-          <div className="uppercase md:flex md:gap-4 text-center">
-            <CustomLink href="/">
-              <P3 translationPath="menu/home" />
-            </CustomLink>
-            <CustomLink href="/paint&earn">
-              <P3 translationPath="menu/paintEarn" />
-            </CustomLink>
-            <CustomLink href="/squad">
-              <P3 translationPath="menu/squad" />
-            </CustomLink>
-            <CustomLink href="/games">
-              <P3>🕹️</P3>
+        <div className="flex w-full px-[2%]">
+          <div className="flex items-center justify-start w-full">
+            <CustomLink
+              noUnderline
+              href={"/story"}
+              className="relative cursor-none flex items-center h-[5vh] sm:h-[7.5vh] aspect-[35/12] transition-all duration-150 ease-in"
+            >
+              <Image src={ImgIcon} alt="Logo" fill sizes="100%" />
             </CustomLink>
           </div>
-        </div>
-        <div className="flex justify-end gap-2 items-center w-full">
-          <div className="grid gap-1 md:flex md:gap-4 text-right">
-            <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
-              <P3
-                className={`flex flex-wrap justify-center items-center transition-all duration-150 gap-1`}
-              >
-                <div
-                  className="sm:hover:scale-[1.15] text-center"
-                  onClick={() => setOpenLang(!openLang)}
-                >
-                  {languages.current[lang]}
-                </div>
-                {openLang &&
-                  Object.keys(languages.current).map((e, i) => {
-                    if (e !== lang) {
-                      return (
-                        <div
-                          key={i}
-                          className="sm:hover:scale-[1.15] transition-all duration-150"
-                          onClick={() => {
-                            if (settings.languages.ready.includes(e)) {
-                              setLang(e);
-                              localStorage.setItem("lang", e);
-                            } else {
-                              if (
-                                window.innerWidth > settings.mobileView &&
-                                openLang
-                              ) {
-                                setErrorMsg(
-                                  <LoadingAnimation
-                                    elements={[
-                                      <H4 key={0}>
-                                        {translations.notFound[e]}
-                                      </H4>,
-                                    ]}
-                                    coeffs={[1]}
-                                    delay={1000}
-                                    className={"text-center"}
-                                  />
-                                );
-                              }
-                            }
-                          }}
-                        >
-                          <P3>{languages.current[e]}</P3>
-                        </div>
-                      );
-                    }
-                  })}
-              </P3>
+          <div className="flex items-center justify-center w-full">
+            <div className="uppercase md:flex md:gap-4 text-center">
+              <CustomLink href="/">
+                <P3 translationPath="menu/home" />
+              </CustomLink>
+              <CustomLink href="/paint&earn">
+                <P3 translationPath="menu/paintEarn" />
+              </CustomLink>
+              <CustomLink href="/squad">
+                <P3 translationPath="menu/squad" />
+              </CustomLink>
+              <CustomLink href="/games">
+                <P3>🕹️</P3>
+              </CustomLink>
             </div>
           </div>
-          {userInfo ? <UserSection userInfo={userInfo} /> : <LoginHandle />}
+          <div className="flex justify-end gap-2 items-center w-full">
+            <div className="grid gap-1 md:flex md:gap-4 text-right">
+              <div className={`relative flex flex-row sm:flex-col flex-wrap`}>
+                <P3
+                  className={`flex flex-wrap justify-center items-center transition-all duration-150 gap-1`}
+                >
+                  <div
+                    className="sm:hover:scale-[1.15] text-center"
+                    onClick={() => setOpenLang(!openLang)}
+                  >
+                    {languages.current[lang]}
+                  </div>
+                  {openLang &&
+                    Object.keys(languages.current).map((e, i) => {
+                      if (e !== lang) {
+                        return (
+                          <div
+                            key={i}
+                            className="sm:hover:scale-[1.15] transition-all duration-150"
+                            onClick={() => {
+                              if (settings.languages.ready.includes(e)) {
+                                setLang(e);
+                                localStorage.setItem("lang", e);
+                              } else {
+                                if (
+                                  window.innerWidth > settings.mobileView &&
+                                  openLang
+                                ) {
+                                  setErrorMsg({
+                                    content: (
+                                      <LoadingAnimation
+                                        elements={[
+                                          <H4 key={0}>
+                                            {translations.notFound[e]}
+                                          </H4>,
+                                        ]}
+                                        coeffs={[1]}
+                                        delay={1000}
+                                        className={"relative z-30 text-center"}
+                                        fadeDuration={750}
+                                      />
+                                    ),
+                                    delay: 750,
+                                  });
+                                }
+                              }
+                            }}
+                          >
+                            <P3>{languages.current[e]}</P3>
+                          </div>
+                        );
+                      }
+                    })}
+                </P3>
+              </div>
+            </div>
+            {userInfo ? <UserSection userInfo={userInfo} /> : <LoginHandle />}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

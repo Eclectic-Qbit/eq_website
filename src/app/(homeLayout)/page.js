@@ -13,6 +13,7 @@ import {
   DiscordLogo,
   RedditLogo,
   TelegramLogo,
+  ZealyLogo,
 } from "@/components/logos/FullLogo";
 import { InstagramLogo, TwitterLogo } from "@/components/logos/BorderLogo";
 
@@ -24,6 +25,9 @@ export default function Home() {
       <div className="relative flex flex-col pt-20">
         {/* Socials */}
         <div className="absolute z-10 top-[50vh] -translate-y-[50%] right-[2%] flex flex-col gap-3">
+          <LogoLink href="https://zealy.io/c/eclecticqbit/">
+            <ZealyLogo width={"100%"} height={"100%"} />
+          </LogoLink>
           <LogoLink href="https://discord.gg/8J3SXwUn7C">
             <DiscordLogo fill={"black"} width={"100%"} height={"100%"} />
           </LogoLink>

@@ -140,6 +140,7 @@ export default function Story() {
         delay={7000}
         className="relative z-10 top-0 left-0 w-screen h-full bg-transparent flex items-center justify-center text-white px-[5%] sm:px-[10%]"
         onFade={() => {}}
+        fadeDuration={750}
       />
     </div>
   );

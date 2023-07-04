@@ -96,7 +96,7 @@ export default function ChosePFP({ userInfo, setPfp }) {
             return (
               <div
                 onClick={() => setActive(i)}
-                className="shrink-0 hover:scale-[1.05] transition-scale duration-[500ms] eaase-in"
+                className="w-[250px] sm:w-[500px] aspect-square shrink-0 hover:scale-[1.05] transition-scale duration-[500ms] eaase-in"
                 key={`img_${i}`}
                 style={{ zIndex: active === i ? 10 : 0 }}
               >
@@ -107,10 +107,10 @@ export default function ChosePFP({ userInfo, setPfp }) {
                       : active > i
                       ? "scale-[0.75]"
                       : ""
-                  } transition-all duration-[150ms] ease-in`}
+                  } w-full h-full transition-all duration-[150ms] ease-in`}
                 >
                   <div
-                    className={`relative w-[500px] aspect-square ${
+                    className={`relative w-full h-full ${
                       active < i
                         ? "rotate-[5deg]"
                         : active > i
