@@ -1,7 +1,7 @@
 "use client";
 
 import ConsoleEffect from "@/components/animations/ConsoleEffect";
-import { P2 } from "@/components/text/Paragraphs";
+import { P2, P4 } from "@/components/text/Paragraphs";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function AskInfo({
@@ -11,10 +11,13 @@ export default function AskInfo({
   descrPhrase,
   bottomPhrase,
   defaultValue,
+  state,
+  forcePage,
+  page,
 }) {
   const DELTA = useRef(30);
   const [hovering, setHovering] = useState(false);
-  const [val, setVal] = useState(defaultValue);
+  const [val, setVal] = useState(state ? state : defaultValue);
   const [error, setError] = useState(null);
   function callbackError() {
     setError("Value not valid");
@@ -30,9 +33,17 @@ export default function AskInfo({
   }, [error]);
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center gap-5">
+      <div
+        className="absolute left-5 top-24 sm:hover:underline"
+        onClick={() => {
+          forcePage(page - 1);
+        }}
+      >
+        <P4>Go back</P4>
+      </div>
       <ConsoleEffect
         style={{ textShadow: "2px 2px 2px black", width: "100%" }}
-        className="text-white"
+        className="text-white text-center"
         content={{ content: title, type: "raw" }}
         forceActive={true}
         delta={DELTA.current}

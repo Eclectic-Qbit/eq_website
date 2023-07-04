@@ -10,34 +10,33 @@ export default function AuthProvider({ children }) {
   const [token, setToken] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const { page } = useContext(CurrentPageContext);
+  const [cookies] = useCookies();
+  // If the token exists, set it - Only one time
+  useEffect(() => {
+    const readToken = cookies.token;
+    setToken(readToken);
+  }, [cookies]);
+  // Every time the page changes, check the validity of the token
+  // If valid, set it and update the userInfo
   useEffect(() => {
     if (token) {
-      try {
-        const info = jwt.decode(token);
-        JSON.stringify(info) !== JSON.stringify(userInfo) && setUserInfo(info);
-      } catch (e) {
-        console.error(e);
-        setUserInfo(null);
-        setToken(null);
+      const parsedToken = jwt.decode(token);
+      console.log(parsedToken);
+      if (parsedToken) {
+        if (Date.now() >= parsedToken.exp * 1000) {
+          setToken(null);
+          setUserInfo(null);
+          console.warn("Removed invalid token from cookies and state");
+        } else {
+          setToken(parsedToken);
+          JSON.stringify(parsedToken) !== JSON.stringify(userInfo) &&
+            setUserInfo(parsedToken);
+        }
       }
     } else {
-      userInfo !== null && setUserInfo(null);
-      token !== null && setToken(null);
+      setUserInfo(null);
     }
-  }, [token, userInfo, page]);
-  const [cookies, removeCookie] = useCookies();
-  useEffect(() => {
-    const token = cookies.token;
-    const parsedToken = jwt.decode(token);
-    if (token && parsedToken) {
-      if (Date.now() >= parsedToken.exp * 1000) {
-        removeCookie("token");
-        setToken(null);
-      } else {
-        setToken(token);
-      }
-    }
-  }, [cookies, removeCookie, setToken]);
+  }, [page, token, userInfo]);
   return (
     <AuthContext.Provider value={{ userInfo, setToken }}>
       {children}
