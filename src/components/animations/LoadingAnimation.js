@@ -47,7 +47,6 @@ export default function LoadingAnimation({
   const movedInViewport = useRef(0);
   // Fade
   const fade = useCallback(() => {
-    console.log("I'm fadiing");
     if (!stopFade) {
       setHide({ temp: true, perma: false });
       setTimeout(() => {
@@ -56,9 +55,6 @@ export default function LoadingAnimation({
       }, [fadeDuration]);
     }
   }, [fadeDuration, onFade, stopFade]);
-  useEffect(() => {
-    console.log(hide.temp);
-  }, [hide.temp]);
   // Cancel Existing Timeouts
   const cancelTimeouts = useCallback(() => {
     viewTimeout.current && clearTimeout(viewTimeout.current);
@@ -156,7 +152,7 @@ export default function LoadingAnimation({
                       },
                       className: `${
                         el.props.className ? el.props.className : ""
-                      } relative text-8xl w-full uppercase py-2 font-extrabold max-w-[90%]`,
+                      } relative text-8xl w-full uppercase py-2 font-extrabold`,
                     })}
                   </div>
                 );

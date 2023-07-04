@@ -9,7 +9,6 @@ import { cache } from "react";
 export default async function UserPage(props) {
   const cookieList = cookies();
   const res = await getData(cookieList.get("token").value);
-  console.log(res);
   return (
     <div className="min-h-screen">
       <UserRouter userInfo={res.users[0]} />

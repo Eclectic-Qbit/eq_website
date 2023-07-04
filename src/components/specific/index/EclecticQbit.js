@@ -32,9 +32,9 @@ export default function EclecticQbit() {
         </MouseMoveGradient>
         <DanteCard>
           <Image
+            sizes="100%"
             src={ImgDante}
             fill
-            sizes="100%"
             priority
             alt="Cat Logo"
             className="grayscale hover:grayscale-0 transition rounded-xl cursor-none"

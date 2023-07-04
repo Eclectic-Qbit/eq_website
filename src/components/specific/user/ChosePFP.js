@@ -52,7 +52,6 @@ export default function ChosePFP({ userInfo, setPfp }) {
             transform = "";
             transition = "opacity 0.5s ease-in";
           }
-          console.log(index.current);
           const newArr = [...styles];
           newArr[index.current] = {
             opacity: 1,
@@ -119,6 +118,7 @@ export default function ChosePFP({ userInfo, setPfp }) {
                     } transition-all duration-[650ms] ease-in`}
                   >
                     <Image
+                      sizes="100%"
                       className={`${
                         active !== i ? "grayscale" : ""
                       } transition-all duration-[650ms] ease-in`}

@@ -41,11 +41,11 @@ function PaintEarnImgs({ selected, setSelected }) {
         <div className="relative w-max h-[18rem] sm:h-[25rem]">
           <div className="relative aspect-square h-[15rem]  sm:h-[21rem]">
             <Image
+              sizes="100%"
               className={` cursor-none border-solid border-white transition-all duration-150`}
               src={Img1}
               alt="Artist"
               fill
-              sizes="100%"
             />
           </div>
           <div className="w-full h-[3rem] sm:h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">
@@ -82,11 +82,11 @@ function PaintEarnImgs({ selected, setSelected }) {
         <div className="relative w-max h-[18rem] sm:h-[25rem]">
           <div className="relative aspect-square h-[15rem]  sm:h-[21rem]">
             <Image
+              sizes="100%"
               className={` cursor-none border-solid border-white transition-all duration-150`}
               src={Img2}
               alt="Startupper"
               fill
-              sizes="100%"
             />
           </div>
           <div className="w-full h-[3rem] sm:h-[4rem] flex justify-center items-center bg-white border-[0.25rem] border-solid border-black rounded-b-xl">

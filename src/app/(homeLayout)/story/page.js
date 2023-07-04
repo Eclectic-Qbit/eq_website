@@ -1,11 +1,11 @@
 "use client";
 
 import { isDesktop } from "@/commonFrontend";
-import LoadingAnimation from "@/components/animations/LoadingAnimation";
 import GridCanvas from "@/components/backgrounds/GridCanvas";
 import { H4 } from "@/components/text/Headers";
 import { P1, P2, P3 } from "@/components/text/Paragraphs";
 import { useCallback, useEffect, useState } from "react";
+import LoadingAnimation from "@/components/animations/LoadingAnimation";
 
 export default function Story() {
   const [content, setContent] = useState([]);

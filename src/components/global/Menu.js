@@ -34,6 +34,7 @@ function UserSection({ userInfo }) {
     <CustomLink className="cursor-none" href={"/user"} noUnderline>
       <div className="relative h-[2rem] xl:h-[2.5rem] md:h-[2.25rem] aspect-square border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative overflow-hidden">
         <Image
+          sizes="100%"
           className=""
           src={`https://cdn.discordapp.com/avatars/${userInfo.id}/${userInfo.avatar}.png`}
           alt="PFP"
@@ -47,7 +48,7 @@ function UserSection({ userInfo }) {
 export default function Menu() {
   const [show, setShow] = useState(true);
   const [openLang, setOpenLang] = useState(false);
-  const [errorMsg, setErrorMsg] = useState({ content: null, delay: 0 });
+  const [errorMsg, setErrorMsg] = useState(null);
   const [dotStyle, setDotStyle] = useState({ top: 0, right: 0 });
   const { scroll } = useContext(ScrollContext);
   const { lang, setLang } = useContext(LanguageContext);
@@ -79,20 +80,7 @@ export default function Menu() {
   }, [scroll]);
   return (
     <>
-      {errorMsg.content && (
-        <div
-          onClick={() => {
-            if (window.innerWidth > settings.mobileView) {
-              setTimeout(() => {
-                setErrorMsg({ content: null, delay: 0 });
-              }, errorMsg.delay);
-            }
-          }}
-          className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-50"
-        >
-          {errorMsg.content}
-        </div>
-      )}
+      {errorMsg && errorMsg}
       <div
         ref={ref}
         className={`fixed h-[10vh] bg-black z-20 top-0 left-0 flex items-center gap-2 w-full h-max text-3xl ${
@@ -116,7 +104,7 @@ export default function Menu() {
               href={"/story"}
               className="relative cursor-none flex items-center h-[5vh] sm:h-[7.5vh] aspect-[35/12] transition-all duration-150 ease-in"
             >
-              <Image src={ImgIcon} alt="Logo" fill sizes="100%" />
+              <Image sizes="100%" src={ImgIcon} alt="Logo" fill />
             </CustomLink>
           </div>
           <div className="flex items-center justify-center w-full">
@@ -163,22 +151,22 @@ export default function Menu() {
                                   window.innerWidth > settings.mobileView &&
                                   openLang
                                 ) {
-                                  setErrorMsg({
-                                    content: (
-                                      <LoadingAnimation
-                                        elements={[
-                                          <H4 key={0}>
-                                            {translations.notFound[e]}
-                                          </H4>,
-                                        ]}
-                                        coeffs={[1]}
-                                        delay={1000}
-                                        className={"relative z-30 text-center"}
-                                        fadeDuration={750}
-                                      />
-                                    ),
-                                    delay: 750,
-                                  });
+                                  setErrorMsg(
+                                    <LoadingAnimation
+                                      elements={[
+                                        <H4 key={0}>
+                                          {translations.notFound[e]}
+                                        </H4>,
+                                      ]}
+                                      coeffs={[1]}
+                                      delay={1000}
+                                      className={
+                                        "fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-30 text-center"
+                                      }
+                                      fadeDuration={750}
+                                      onFade={() => setErrorMsg(null)}
+                                    />
+                                  );
                                 }
                               }
                             }}

@@ -40,42 +40,36 @@ export default function Games() {
               .querySelector("#game")
               .scrollIntoView({ behavior: "smooth" });
             setMsg(
-              <div
-                onClick={() => setTimeout(() => setMsg(null), 750)}
-                className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.65)] z-50"
-              >
-                <div className="max-w-[50vw] text-center">
-                  <LoadingAnimation
-                    elements={[
-                      <P1 key={0} className={"uppercase"}>
-                        Need a quick tutorial?
-                      </P1>,
-                      <P2 key={1} className={"lowercase"}>
-                        the game is pretty easy! <br /> the time starts when you
-                        click a card
-                      </P2>,
-                      <P2 key={2} className={"lowercase"}>
-                        there are 3 types of rankings: <br />
-                        1 - speedrun: the earlier you finish the better your
-                        rank will be <br />
-                        2 - streak: players with highest streaks will be in the
-                        first positions of the ranking <br />3 - games played:
-                        the more you play, the most likely you&apos;ll be in the
-                        first places
-                      </P2>,
-                      <P2 key={3}>
-                        <span className="uppercase">But Remember</span>You need
-                        to log-in for accessing the leaderboards and getting
-                        some rewards!
-                      </P2>,
-                    ]}
-                    coeffs={[1, 1.3, 1.6, 1.9, 2.2]}
-                    delay={5000}
-                    fadeDuration={750}
-                    className="z-30 fixed top-0 left-0 w-full h-full flex items-center justify-center text-white"
-                  />
-                </div>
-              </div>
+              <LoadingAnimation
+                elements={[
+                  <P1 key={0} className={"uppercase"}>
+                    Need a quick tutorial?
+                  </P1>,
+                  <P2 key={1} className={"lowercase"}>
+                    the game is pretty easy! <br /> the time starts when you
+                    click a card
+                  </P2>,
+                  <P2 key={2} className={"lowercase"}>
+                    there are 3 types of rankings: <br />
+                    1 - speedrun: the earlier you finish the better your rank
+                    will be <br />
+                    2 - streak: players with highest streaks will be in the
+                    first positions of the ranking <br />3 - games played: the
+                    more you play, the most likely you&apos;ll be in the first
+                    places
+                  </P2>,
+                  <P2 key={3}>
+                    <span className="uppercase">But Remember</span>You need to
+                    log-in for accessing the leaderboards and getting some
+                    rewards!
+                  </P2>,
+                ]}
+                coeffs={[1, 1.3, 1.6, 1.9, 2.2]}
+                delay={5000}
+                fadeDuration={750}
+                onFade={() => setMsg(null)}
+                className="fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.65)] z-30 flex items-center justify-center text-white text-center"
+              />
             );
           }}
         >
@@ -90,20 +84,14 @@ export default function Games() {
           className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in"
           onClick={() =>
             setMsg(
-              <div
-                onClick={() => setTimeout(() => setMsg(null), 750)}
-                className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[rgba(0,0,0,0.65)] z-50"
-              >
-                <div className="max-w-[50vw]">
-                  <LoadingAnimation
-                    elements={[<P1 key={0}>You must log-in first</P1>]}
-                    coeffs={[1]}
-                    delay={1000}
-                    fadeDuration={750}
-                    className="relative z-10 top-0 left-0 w-screen h-full bg-transparent flex items-center justify-center text-white px-[5%] sm:px-[10%]"
-                  />
-                </div>
-              </div>
+              <LoadingAnimation
+                elements={[<P1 key={0}>Work in progress!</P1>]}
+                coeffs={[1]}
+                delay={1000}
+                onFade={() => setMsg(null)}
+                fadeDuration={750}
+                className="fixed bg-[rgba(0,0,0,0.65)] z-10 top-0 left-0 w-screen h-full flex items-center justify-center text-white px-[5%] sm:px-[10%] text-center"
+              />
             )
           }
         >
