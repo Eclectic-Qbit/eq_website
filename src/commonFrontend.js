@@ -3,6 +3,15 @@
 import { cloneElement } from "react";
 import settings from "./frontendSettings";
 import translations from "./translations";
+import imgTab from "../public/images/team/4.png";
+import imgEnry from "../public/images/team/3.png";
+import imgPipo from "../public/images/team/6.png";
+import imgAdi from "../public/images/team/7.png";
+import imgAxel from "../public/images/team/1.png";
+import imgAbra from "../public/images/team/5.png";
+import imgPari from "../public/images/team/8.png";
+import imgMilena from "../public/images/team/10.png";
+
 export function isDesktop(size) {
   return size > settings.mobileView;
 }
@@ -58,3 +67,24 @@ export const discordLink =
   process.env.NEXT_PUBLIC_IS_TESTING_ENV === "true"
     ? "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=http%3A%2F%2Flocalhost%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
     : "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=https%3A%2F%2Feclecticqbit.art%2Fapi%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify";
+
+export function getTeamImages() {
+  return [
+    imgTab,
+    imgEnry,
+    imgPipo,
+    imgAdi,
+    imgAxel,
+    imgAbra,
+    imgPari,
+    imgMilena,
+  ];
+}
+export function getImageFromIndex(index, specialType) {
+  const arr = getTeamImages();
+  if (index === -1) {
+    return specialType;
+  } else {
+    return arr[index];
+  }
+}

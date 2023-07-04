@@ -1,18 +1,17 @@
-import ChosePFP from "@/components/specific/user/ChosePFP";
 import UserRouter from "@/components/specific/user/UserRouter";
-import { H3 } from "@/components/text/Headers";
-import { P1 } from "@/components/text/Paragraphs";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
-import { cache } from "react";
 
-export default async function UserPage(props) {
+export default async function UserPage() {
   const cookieList = cookies();
   const res = await getData(cookieList.get("token").value);
   return (
-    <div className="min-h-screen">
-      <UserRouter userInfo={res.users[0]} />
-    </div>
+    res &&
+    res.user && (
+      <div className="min-h-screen">
+        <UserRouter userInfo={res.user[0]} />
+      </div>
+    )
   );
 }
 async function getData(token) {

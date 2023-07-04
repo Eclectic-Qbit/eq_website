@@ -1,20 +1,15 @@
 "use client";
 
-import ImgTab from "../../../../public/images/team/4.png";
-import ImgEnry from "../../../../public/images/team/3.png";
-import ImgPipo from "../../../../public/images/team/6.png";
-import ImgAdi from "../../../../public/images/team/7.png";
-import ImgAxel from "../../../../public/images/team/1.png";
-import ImgAbra from "../../../../public/images/team/5.png";
-import ImgPari from "../../../../public/images/team/8.png";
-import ImgMilena from "../../../../public/images/team/10.png";
 import SquadCard from "@/components/global/Cards";
+import { getTeamImages } from "@/commonFrontend";
+import { useRef } from "react";
 
 export default function Squad() {
+  const teamArr = useRef(getTeamImages());
   return (
     <div className="relative pt-32 pb-4 sm:pt-28 sm:pb-12 top-0 left-0 w-full h-full min-h-screen flex flex-wrap items-center justify-center gap-5">
       <SquadCard
-        img={ImgTab}
+        img={teamArr.current[0]}
         name="Tabata"
         social={[
           {
@@ -29,7 +24,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇮🇹", "🇪🇸", "🇫🇷"]}
       />
       <SquadCard
-        img={ImgEnry}
+        img={teamArr.current[1]}
         name="Enrico"
         social={[
           {
@@ -44,7 +39,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇮🇹"]}
       />
       <SquadCard
-        img={ImgPipo}
+        img={teamArr.current[2]}
         name="Pipo"
         social={[
           {
@@ -55,7 +50,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇪🇸"]}
       />
       <SquadCard
-        img={ImgAdi}
+        img={teamArr.current[3]}
         name="Aditya"
         social={[
           {
@@ -70,7 +65,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇮🇳"]}
       />
       <SquadCard
-        img={ImgAxel}
+        img={teamArr.current[4]}
         name="Axel"
         social={[
           {
@@ -85,7 +80,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇪🇸", "🇫🇷", "🇩🇪"]}
       />
       <SquadCard
-        img={ImgAbra}
+        img={teamArr.current[5]}
         name="Abrayadh"
         social={[
           {
@@ -100,7 +95,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇳🇬"]}
       />
       <SquadCard
-        img={ImgPari}
+        img={teamArr.current[6]}
         name="Pariyeksh"
         social={[
           {
@@ -115,7 +110,7 @@ export default function Squad() {
         langs={["🇬🇧", "🇮🇳"]}
       />
       <SquadCard
-        img={ImgMilena}
+        img={teamArr.current[7]}
         name="Milena"
         social={[
           {
