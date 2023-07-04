@@ -48,7 +48,7 @@ function Card({ pos, img, active, onClick, won, reset }) {
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="relative w-28 aspect-square">
-            <Image src={ImgWhiteLogo} alt="Logo" fill />
+            <Image sizes="100%" src={ImgWhiteLogo} alt="Logo" fill />
           </div>
         </div>
         <div
@@ -57,7 +57,7 @@ function Card({ pos, img, active, onClick, won, reset }) {
           } transition-all duration-150 ease-in`}
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <Image src={img} alt="" fill />
+          <Image sizes="100%" src={img} alt="" fill />
         </div>
       </div>
     </div>

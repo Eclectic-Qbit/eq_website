@@ -34,7 +34,7 @@ export default function SquadCard({ img, name, langs, social }) {
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="relative w-full aspect-square rounded-xl">
-            <Image priority src={img} alt={name} fill />
+            <Image sizes="100%" priority src={img} alt={name} fill />
           </div>
           <div className="text-black font-bold w-full h-[3rem] sm:h-[4rem] flex items-center justify-center border-[0.25rem] border-solid border-black rounded-b-xl">
             <P1 className="uppercase">{name}</P1>
@@ -254,7 +254,7 @@ export function DanteCard({ children }) {
               href="https://malpegados.jimdosite.com/"
               target="_blank"
             >
-              <Image src={malpegadosWhite} alt="Malpegados" fill sizes="100%" />
+              <Image sizes="100%" src={malpegadosWhite} alt="Malpegados" fill />
             </Link>
           </div>
         </div>

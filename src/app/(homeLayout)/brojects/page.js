@@ -46,7 +46,12 @@ export default function Brojects() {
               <H8>Stakeame</H8>
               <div className="relative w-64 aspect-[20/9]">
                 <Link href="https://stakea.me">
-                  <Image src="/images/stakeame.jpeg" alt="stakeame" fill />
+                  <Image
+                    sizes="100%"
+                    src="/images/stakeame.jpeg"
+                    alt="stakeame"
+                    fill
+                  />
                 </Link>
               </div>
               <div className="relative w-full h-full flex flex-wrap justify-center items-center gap-5">
@@ -70,7 +75,12 @@ export default function Brojects() {
               <H8>Stakeame</H8>
               <div className="relative w-64 aspect-[20/9]">
                 <Link href="https://stakea.me">
-                  <Image src="/images/stakeame.jpeg" alt="stakeame" fill />
+                  <Image
+                    sizes="100%"
+                    src="/images/stakeame.jpeg"
+                    alt="stakeame"
+                    fill
+                  />
                 </Link>
               </div>
               <div className="relative w-full h-full flex flex-wrap justify-center items-center gap-5">
