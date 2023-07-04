@@ -6,8 +6,23 @@ import Image from "next/image";
 import Link from "next/link";
 import ImgEnry from "../../../../public/images/team/3.png";
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
+import { getImageFromIndex } from "@/commonFrontend";
 
-export default function FinalPage() {
+export default function FinalPage({ userInfo, newPfp, newUsername, newCity }) {
+  const updatedData = {
+    pfp:
+      newPfp && newPfp > -2
+        ? newPfp
+        : userInfo.pfp.value
+        ? userInfo.pfp.value
+        : userInfo.avatar,
+    username: newUsername
+      ? newUsername
+      : userInfo.customUsername && userInfo.customUsername.value
+      ? userInfo.customUsername.value
+      : userInfo.username,
+    city: newCity ? newCity : userInfo.city,
+  };
   return (
     <>
       <LoadingAnimation
@@ -32,21 +47,21 @@ export default function FinalPage() {
           <div className="relative flex justify-center flex-col w-full h-full">
             <div className="flex gap-4">
               <div className="relative w-full h-4 max-w-[200px] bg-purple overflow-hidden">
-                <div className="absolute top-0 left-0 w-[10%] h-full bg-yellow" />
+                <div className="absolute top-0 left-0 w-[0%] h-full bg-yellow" />
               </div>
-              <P2>10 / 100 XP</P2>
+              <P2>0 / 100 XP</P2>
             </div>
             <P2>Current Role!</P2>
           </div>
-          <div className="flex flex-row items-center justify-center gap-10 flex-wrap w-full h-full border-t-2 border-solid border-white">
-            <div className="flex justify-center items-center w-[160px] h-[160px] aspect-square border-2 border-solid border-white">
+          <div className="flex flex-row items-center justify-center gap-10 flex-wrap w-full h-full border-t-2 border-solid border-white py-4">
+            <div className="flex justify-center items-center w-[100px] h-[100px] md:w-[160px] md:h-[160px] aspect-square border-2 border-solid border-white">
               <H4>?</H4>
             </div>
-            <div className="flex justify-center items-center w-[160px] h-[160px] border-2 border-solid border-white">
+            <div className="flex justify-center items-center w-[100px] h-[100px] md:w-[160px] md:h-[160px] border-2 border-solid border-white">
               <H4>?</H4>
             </div>
           </div>
-          <div className="relative w-full h-full border-t-2 border-solid border-white ">
+          <div className="relative w-full h-full border-t-2 border-solid border-white text-center flex flex-col gap-2 pt-2">
             <P2>Meet our team</P2>
             <div className="flex gap-5 items-center">
               <div className="relative w-full p-2 h-max flex overflow-hidden">
@@ -60,7 +75,7 @@ export default function FinalPage() {
                   />
                 </div>
                 <div className="relative z-10 flex justify-center items-center text-center w-full h-full">
-                  <div className="relative h-[120px] w-[60px]">
+                  <div className="relative h-[80px] w-[40px] md:h-[120px] md:w-[60px]">
                     <Image sizes="100%" src={eth_image} alt="ETH" fill />
                   </div>
                   <div className="w-full h-full text-center font-extrabold">
@@ -85,20 +100,36 @@ export default function FinalPage() {
             <P2>Are you an artist???</P2>
           </div>*/}
 
-          <div className="relative w-full aspect-square">
-            <Image sizes="100%" src={ImgEnry} fill alt="PFP" />
+          <div className="relative w-full aspect-square max-w-[500px]">
+            <Image
+              sizes="100%"
+              src={
+                updatedData.pfp > -1
+                  ? getImageFromIndex(updatedData.pfp)
+                  : `https://cdn.discordapp.com/avatars/${userInfo.discordId}/${userInfo.avatar}.png`
+              }
+              fill
+              alt="PFP"
+            />
+            <div className="absolute top-0 left-0 w-full h-max py-4 px-2 flex justify-between bg-black border-2 border-solid border-white border-b-0 -translate-y-full">
+              <P2 className={"w-max border-b-2 border-solid border-white"}>
+                {updatedData.username}
+              </P2>
+              <P2 className={"w-max border-b-2 border-solid border-white"}>
+                {updatedData.city}
+              </P2>
+            </div>
           </div>
         </div>
-        <div className="relative w-max flex-col w-full">
-          <div className="flex flex-col gap-2">
-            <P2>Nickname</P2>
-            <P2>Location</P2>
-            <P2>Points</P2>
-          </div>
-          <div className="absolute bottom-0 left-0 flex justify-between w-full">
+        <div className="relative w-max flex-col w-full h-full">
+          <P2>Point Section</P2>
+          {/*<div className="absolute bottom-0 left-0 flex justify-between w-full">
             <P2>Style</P2>
             <P2>Settings</P2>
-          </div>
+          </div> */}
+        </div>
+        <div className="absolute bottom-4 right-4 text-center">
+          <P4>This section will be updated soon. Stay tuned!</P4>
         </div>
       </div>
     </>
