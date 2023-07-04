@@ -67,7 +67,7 @@ export default function ChosePFP({ userInfo, setPfp }) {
     );
   }, [styles]);
   return (
-    <div className="relative min-h-screen w-full flex justify-center items-center flex-col text-center">
+    <div className="relative min-h-screen w-full max-w-screen flex justify-center items-center flex-col text-center overflow-hidden">
       <div>
         <div className="opacity-0" style={styles[0]}>
           <P1>Welcome {userInfo.username}</P1>
