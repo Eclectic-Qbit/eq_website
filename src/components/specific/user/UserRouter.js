@@ -19,36 +19,97 @@ export default function UserRouter({ userInfo }) {
   const [pfp, setPfp] = useState(-2);
   const [username, setUsername] = useState(null);
   const [city, setCity] = useState(null);
-  function sendUsername(val, errorCallback, successCallback, ignore) {
-    if (!ignore) {
-      if (val.length >= 3 && val.length <= 16) {
-        if (/^[a-zA-Z0-9!._$]+$/.test(val)) {
+  useEffect(() => {
+    const getPfp = userInfo.pfp && userInfo.pfp.value;
+    const getUser = userInfo.customUsername && userInfo.customUsername.value;
+    const getCity = userInfo.city && userInfo.city.value;
+    if (getPfp !== undefined && getPfp >= -1) {
+      setPfp(getPfp);
+    }
+    if (getUser !== undefined && getUser.length >= 3) {
+      setUsername(getUser);
+    }
+    if (getCity !== undefined && getCity.length > 0) {
+      setCity(getCity);
+    }
+    if (getPfp === undefined || getPfp < -1) {
+      setPage(0);
+    } else if (getUser === undefined || getUser.length < 3) {
+      setPage(1);
+    } else if (getCity === undefined || getCity.length === 0) {
+      setPage(2);
+    } else {
+      setPage(3);
+    }
+  }, [userInfo.city, userInfo.customUsername, userInfo.pfp]);
+  async function sendPfp(val, errorCallback, successCallback, ignore) {
+    // Fetch
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_ROUTE}users/${userInfo.discordId}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ pfp: ignore ? -1 : val }),
+      }
+    );
+    if (res.status === 200) {
+      successCallback && successCallback();
+      setPfp(val);
+      setPage(1);
+    } else {
+      errorCallback && errorCallback();
+    }
+  }
+  async function sendUsername(val, errorCallback, successCallback, ignore) {
+    if (ignore || (val.length >= 3 && val.length <= 16)) {
+      if (ignore || /^[a-zA-Z0-9!._$]+$/.test(val)) {
+        // Fetch
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_ROUTE}users/${userInfo.discordId}`,
+          {
+            method: "PUT",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ customUsername: ignore ? "null" : val }),
+          }
+        );
+        if (res.status === 200) {
+          successCallback && successCallback();
           setUsername(val);
-          successCallback();
-          // Fetch
           setPage(2);
-          return;
+        } else {
+          errorCallback && errorCallback();
         }
       }
-      errorCallback();
+    }
+  }
+  async function sendCity(val, errorCallback, successCallback, ignore) {
+    // Fetch
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_ROUTE}users/${userInfo.discordId}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          city: ignore || !city || city.length === 0 ? "null" : val,
+        }),
+      }
+    );
+    if (res.status === 200) {
+      successCallback && successCallback();
+      setUsername(val);
+      setPage(3);
     } else {
-      setUsername("no");
-      setPage(2);
-      successCallback();
+      errorCallback && errorCallback();
     }
-  }
-  function sendCity(val, errorCallback, successCallback, ignore) {
-    if (!ignore) {
-      // Fetch
-      successCallback();
-    }
-    setCity(val);
-    successCallback();
-    setPage(3);
-  }
-  function sendPfp(val, errorCallback, successCallback, ignore) {
-    setPfp(val);
-    setPage(1);
   }
   return (
     <>
@@ -61,7 +122,9 @@ export default function UserRouter({ userInfo }) {
               key={"ask_city"}
               title={"What city are you in?"}
               placeholder={"Ospedaletto"}
-              send={(val, callback, ignore) => sendCity(val, callback, ignore)}
+              send={(val, successCallback, errorCallback, ignore) =>
+                sendCity(val, successCallback, errorCallback, ignore)
+              }
               descrPhrase={
                 "Feel free to share your (approximate) location! This will help us to understand more about our community. We might do an event in your city too! In case you're too shy, you can leave the field blank"
               }
@@ -76,8 +139,8 @@ export default function UserRouter({ userInfo }) {
             key={"username"}
             title={"Would you like to have a custom username?"}
             placeholder={userInfo.username}
-            send={(val, callback, ignore) =>
-              sendUsername(val, callback, ignore)
+            send={(val, successCallback, errorCallback, ignore) =>
+              sendUsername(val, successCallback, errorCallback, ignore)
             }
             descrPhrase={
               "Your username must be between 3 and 16 chars long and must contain numbers, letters or symbols like $,.,_,!"

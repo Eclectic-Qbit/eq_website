@@ -36,7 +36,6 @@ export default function AskInfo({
       <div
         className="absolute left-5 top-24 sm:hover:underline"
         onClick={() => {
-          console.log(page - 1);
           forcePage(page - 1);
         }}
       >
