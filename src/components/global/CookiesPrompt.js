@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { H4, H6, H8, H9 } from "../text/Headers";
 import { P1, P2, P3, P4 } from "../text/Paragraphs";
 import Link from "next/link";
-import { getCookie, setCookie, deleteCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 
 export default function CookiesPrompt() {
   const [show, setShow] = useState(true);

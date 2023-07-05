@@ -1,28 +1,13 @@
-import { H2, H4, H5, H8 } from "@/components/text/Headers";
-import { P1, P2, P3, P4 } from "@/components/text/Paragraphs";
+import { H4 } from "@/components/text/Headers";
+import { P1, P2, P4 } from "@/components/text/Paragraphs";
 import eth_image from "../../../../public/images/ethBarcelona.gif";
 import barcelona from "../../../../public/images/barcelona.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import ImgEnry from "../../../../public/images/team/3.png";
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
 import { getImageFromIndex } from "@/commonFrontend";
 
-export default function FinalPage({ userInfo, newPfp, newUsername, newCity }) {
-  const updatedData = {
-    pfp:
-      newPfp && newPfp > -2
-        ? newPfp
-        : userInfo.pfp.value
-        ? userInfo.pfp.value
-        : userInfo.avatar,
-    username: newUsername
-      ? newUsername
-      : userInfo.customUsername && userInfo.customUsername.value
-      ? userInfo.customUsername.value
-      : userInfo.username,
-    city: newCity ? newCity : userInfo.city,
-  };
+export default function FinalPage({ userInfo, avatar, username, city }) {
   return (
     <>
       <LoadingAnimation
@@ -101,19 +86,19 @@ export default function FinalPage({ userInfo, newPfp, newUsername, newCity }) {
             <Image
               sizes="100%"
               src={
-                updatedData.pfp > -1
-                  ? getImageFromIndex(updatedData.pfp)
-                  : `https://cdn.discordapp.com/avatars/${userInfo.discordId}/${userInfo.avatar}.png`
+                avatar > -1
+                  ? getImageFromIndex(avatar)
+                  : `https://cdn.discordapp.com/avatars/${userInfo.discordId}/${avatar}.png`
               }
               fill
               alt="PFP"
             />
             <div className="absolute top-0 left-0 w-full h-max py-4 px-2 flex justify-between bg-black border-2 border-solid border-white border-b-0 -translate-y-[20%]">
               <P2 className={"w-max border-b-2 border-solid border-white"}>
-                {updatedData.username}
+                {username}
               </P2>
               <P2 className={"w-max border-b-2 border-solid border-white"}>
-                {updatedData.city}
+                {city}
               </P2>
             </div>
           </div>
