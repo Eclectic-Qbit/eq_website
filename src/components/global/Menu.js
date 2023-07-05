@@ -37,7 +37,14 @@ function UserSection({ userInfo }) {
   return (
     <CustomLink className="cursor-none" href={"/user"} noUnderline>
       <div className="relative h-[2rem] xl:h-[2.5rem] md:h-[2.25rem] aspect-square border-solid border-white border-0 md:hover:border-2 transition-all duration-150 ease-in relative overflow-hidden">
-        <Image sizes="100%" className="" src={img} alt="PFP" fill></Image>
+        <Image
+          sizes="100%"
+          className=""
+          src={img}
+          alt="PFP"
+          fill
+          quality={25}
+        />
       </div>
     </CustomLink>
   );
@@ -102,7 +109,7 @@ export default function Menu() {
               href={"/story"}
               className="relative cursor-none flex items-center h-[5vh] sm:h-[7.5vh] aspect-[35/12] transition-all duration-150 ease-in"
             >
-              <Image sizes="100%" src={ImgIcon} alt="Logo" fill />
+              <Image sizes="100%" src={ImgIcon} alt="Logo" fill quality={25} />
             </CustomLink>
           </div>
           <div className="flex items-center justify-center w-full">

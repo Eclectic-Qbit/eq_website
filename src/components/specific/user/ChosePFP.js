@@ -14,24 +14,6 @@ export default function ChosePFP({
   const [styles, setStyles] = useState([{}, {}, {}, {}]);
   const [active, setActive] = useState(state ? state : 0);
   const index = useRef(skipIntro ? 3 : 0);
-  async function setPFP(type) {
-    /*
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ROUTE}users/${userInfo.id}`,
-      {
-        method: "PUT",
-        body: {
-          pfp: {
-            id: userInfo.avatar,
-            type: "discord",
-            date: Date.now(),
-          },
-        },
-      }
-    );
-    */
-    setPfp(type);
-  }
   useEffect(() => {
     setTimeout(
       () => {
@@ -123,7 +105,7 @@ export default function ChosePFP({
                       fill
                     />
                     <div
-                      onClick={() => i === active && setPFP(i)}
+                      onClick={() => i === active && setPfp(i)}
                       className={`absolute bottom-0 z-10 bg-black border-2 border-solid border-white w-full p-4 ${
                         i === active ? "opacity-1" : "opacity-0"
                       } transition-all duration-[650ms] ease-in hover:underline`}
@@ -138,7 +120,7 @@ export default function ChosePFP({
         </div>
       </div>
       <button
-        onClick={() => setPFP(-1)}
+        onClick={() => setPfp(-1)}
         style={styles[3]}
         className="absolute w-full bottom-4 left-[50%] -translate-x-[50%] hover:underline cursor-none opacity-0"
       >

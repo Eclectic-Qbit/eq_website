@@ -6,35 +6,43 @@ import { useEffect, useState } from "react";
 import AskInfo from "./AskInfo";
 import FinalPage from "./FinalPage";
 import { getTeamImages } from "@/commonFrontend";
+import { useRouter } from "next/navigation";
 
 export default function UserRouter({ userInfo }) {
+  const router = useRouter();
   const [page, setPage] = useState(0);
   const [pfp, setPfp] = useState(-2);
   const [username, setUsername] = useState(null);
   const [city, setCity] = useState(null);
   useEffect(() => {
-    const getPfp = userInfo.pfp && userInfo.pfp.value;
-    const getUser = userInfo.customUsername && userInfo.customUsername.value;
-    const getCity = userInfo.city && userInfo.city.value;
-    if (getPfp !== undefined && getPfp >= -1) {
-      setPfp(getPfp);
+    if (!userInfo) {
+      router.push("/");
+      return;
     }
-    if (getUser !== undefined && getUser.length >= 3) {
-      setUsername(getUser);
+    // Update local state
+    const getPfp = userInfo.opt.pfp;
+    const getUser = userInfo.opt.customUsername;
+    const getCity = userInfo.opt.city;
+    if (getPfp && getPfp.value >= -1) {
+      setPfp(getPfp.value);
     }
-    if (getCity !== undefined && getCity.length > 0) {
-      setCity(getCity);
+    if (getUser && getUser.value.length >= 3) {
+      setUsername(getUser.value);
     }
-    if (getPfp === undefined || getPfp < -1) {
+    if (getCity && getCity.value.length > 0) {
+      setCity(getCity.value);
+    }
+    // Check if some data is missing
+    if (!getPfp || !getPfp.value) {
       setPage(0);
-    } else if (getUser === undefined || getUser.length < 3) {
+    } else if (!getUser || !getUser.value) {
       setPage(1);
-    } else if (getCity === undefined || getCity.length === 0) {
+    } else if (!getCity || !getCity.value) {
       setPage(2);
     } else {
       setPage(3);
     }
-  }, [userInfo.city, userInfo.customUsername, userInfo.pfp]);
+  }, [router, userInfo]);
   async function sendPfp(val, errorCallback, successCallback, ignore) {
     // Fetch
     const res = await fetch(
@@ -111,9 +119,9 @@ export default function UserRouter({ userInfo }) {
           page === 3 ? (
             <FinalPage
               userInfo={userInfo}
-              newPfp={pfp}
-              newUsername={username}
-              newCity={city}
+              avatar={pfp}
+              username={username}
+              city={city}
             />
           ) : (
             <AskInfo
