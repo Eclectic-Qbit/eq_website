@@ -1,17 +1,18 @@
 "use client";
 
 import { H4 } from "@/components/text/Headers";
-import { P1, P2, P4 } from "@/components/text/Paragraphs";
+import { P1, P2, P3, P4 } from "@/components/text/Paragraphs";
 import eth_image from "../../../../public/images/ethBarcelona.gif";
 import barcelona from "../../../../public/images/barcelona.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
-import { getImageFromIndex } from "@/commonFrontend";
-import { useState } from "react";
+import { getGamesNames, getImageFromIndex } from "@/commonFrontend";
+import { useRef, useState } from "react";
 
 export default function FinalPage({ userInfo, avatar, username, city }) {
   const [rotate, setRotate] = useState(false);
+  const games = useRef(getGamesNames());
   return (
     <>
       <LoadingAnimation
@@ -75,12 +76,40 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
               </div>
             </div>
             <div
-              className="absolute w-full h-full top-0 left-0 bg-black border-2 border-solid border-white rounded-xl"
+              className="absolute flex flex-col gap-8 w-full h-full top-0 left-0 bg-black border-2 border-solid border-white rounded-xl py-8 px-4"
               style={{
                 backfaceVisibility: "hidden",
                 transform: "rotateY(180deg)",
               }}
-            ></div>
+            >
+              <div>
+                <P2>Discord Roles:</P2>
+                <div className="grid gap-2 mt-2">
+                  {userInfo.discordRoles.map((el, i) => {
+                    return (
+                      <div key={`role_${i}`}>
+                        <P3 className={"pl-2"}>{el}</P3>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div>
+                <P2>Game Points & Leaderboards:</P2>
+                <div className="grid gap-2 mt-2">
+                  {userInfo.gameScores.map((el, i) => {
+                    return (
+                      <div className="pl-2" key={`game_${i}`}>
+                        <div className="flex gap-2">
+                          <P3>{games.current[i]} =&gt;</P3>
+                          <P3 className={"pl-2"}>{el}</P3>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
