@@ -1,28 +1,18 @@
-import { H2, H4, H5, H8 } from "@/components/text/Headers";
+"use client";
+
+import { H4 } from "@/components/text/Headers";
 import { P1, P2, P3, P4 } from "@/components/text/Paragraphs";
 import eth_image from "../../../../public/images/ethBarcelona.gif";
 import barcelona from "../../../../public/images/barcelona.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import ImgEnry from "../../../../public/images/team/3.png";
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
-import { getImageFromIndex } from "@/commonFrontend";
+import { getGamesNames, getImageFromIndex } from "@/commonFrontend";
+import { useRef, useState } from "react";
 
-export default function FinalPage({ userInfo, newPfp, newUsername, newCity }) {
-  const updatedData = {
-    pfp:
-      newPfp && newPfp > -2
-        ? newPfp
-        : userInfo.pfp.value
-        ? userInfo.pfp.value
-        : userInfo.avatar,
-    username: newUsername
-      ? newUsername
-      : userInfo.customUsername && userInfo.customUsername.value
-      ? userInfo.customUsername.value
-      : userInfo.username,
-    city: newCity ? newCity : userInfo.city,
-  };
+export default function FinalPage({ userInfo, avatar, username, city }) {
+  const [rotate, setRotate] = useState(false);
+  const games = useRef(getGamesNames());
   return (
     <>
       <LoadingAnimation
@@ -39,16 +29,98 @@ export default function FinalPage({ userInfo, newPfp, newUsername, newCity }) {
         fadeDuration={750}
         className="z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center text-white text-center"
       />
+      <div className="flex flex-col sm:flex-row wrap w-full h-full justify-center items-center mt-28 sm:mt-24">
+        <div
+          onMouseEnter={() => setRotate(true)}
+          onMouseLeave={() => setRotate(false)}
+        >
+          <div
+            className="relative transition-all duration-500 ease-in"
+            style={{
+              transformStyle: "preserve-3d",
+              transformOrigin: "center",
+              transform: `${rotate ? "rotateY(-180deg)" : ""}`,
+            }}
+          >
+            <div
+              className="w-max h-max border-2 border-solid border-white rounded-xl"
+              style={{
+                backfaceVisibility: "hidden",
+              }}
+            >
+              <div className="w-full h-max py-4 px-2 flex justify-between">
+                <P2 className={"w-max border-b-2 border-solid border-white"}>
+                  {username}
+                </P2>
+                <P2 className={"w-max border-b-2 border-solid border-white"}>
+                  {city}
+                </P2>
+              </div>
+              <div className="relative w-[50vw] aspect-square min-w-[250px] max-w-[500px]">
+                <Image
+                  sizes="100%"
+                  src={
+                    avatar > -1
+                      ? getImageFromIndex(avatar)
+                      : `https://cdn.discordapp.com/avatars/${userInfo.discordId}/${avatar}.png`
+                  }
+                  fill
+                  alt="PFP"
+                />
+              </div>
+              <div className="flex gap-2 items-center w-full h-max py-4 px-2">
+                <div className="relative w-full h-4 w-full bg-purple overflow-hidden rounded-xl overflow-hidden">
+                  <div className="absolute top-0 left-0 w-[2%] h-full bg-yellow" />
+                </div>
+                <P2>0/100XP</P2>
+              </div>
+            </div>
+            <div
+              className="absolute flex flex-col gap-8 w-full h-full top-0 left-0 bg-black border-2 border-solid border-white rounded-xl py-8 px-4"
+              style={{
+                backfaceVisibility: "hidden",
+                transform: "rotateY(180deg)",
+              }}
+            >
+              <div>
+                <P2>Discord Roles:</P2>
+                <div className="grid gap-2 mt-2">
+                  {userInfo.discordRoles.map((el, i) => {
+                    return (
+                      <div key={`role_${i}`}>
+                        <P3 className={"pl-2"}>{el}</P3>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div>
+                <P2>Game Points & Leaderboards:</P2>
+                <div className="grid gap-2 mt-2">
+                  {userInfo.gameScores.map((el, i) => {
+                    return (
+                      <div className="pl-2" key={`game_${i}`}>
+                        <div className="flex gap-2">
+                          <P3>{games.current[i]} =&gt;</P3>
+                          <P3 className={"pl-2"}>{el}</P3>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/*
       <div className="relative min-h-screen w-full px-2 md:px-10 py-24 gap-10 flex flex-col md:grid md:grid-cols-[50%,50%]">
         <div className="flex flex-col justify-between w-full ">
           <div className="relative flex justify-center md:flex-col w-full h-full py-4">
             <div className="flex items-center justify-center gap-4 w-full">
-              <div className="relative w-full h-4 max-w-[200px] bg-purple overflow-hidden">
-                <div className="absolute top-0 left-0 w-[0%] h-full bg-yellow" />
-              </div>
-              <P2>0/100 XP</P2>
+              
             </div>
-            {/*<P2>Current Role!</P2>*/}
+            {<P2>Current Role!</P2>}
           </div>
           <div className="flex flex-row items-center justify-center gap-10 flex-wrap w-full h-full border-t-2 border-solid border-white py-4">
             <div className="flex justify-center items-center w-[100px] h-[100px] md:w-[160px] md:h-[160px] aspect-square border-2 border-solid border-white">
@@ -93,32 +165,13 @@ export default function FinalPage({ userInfo, newPfp, newUsername, newCity }) {
           </div>
         </div>
         <div className="relative flex justify-center items-center w-full">
-          {/* <div className="absolute top-0 left-0">
+          { <div className="absolute top-0 left-0">
             <P2>Are you an artist???</P2>
-          </div>*/}
-
-          <div className="relative w-full aspect-square max-w-[500px]">
-            <Image
-              sizes="100%"
-              src={
-                updatedData.pfp > -1
-                  ? getImageFromIndex(updatedData.pfp)
-                  : `https://cdn.discordapp.com/avatars/${userInfo.discordId}/${userInfo.avatar}.png`
-              }
-              fill
-              alt="PFP"
-            />
-            <div className="absolute top-0 left-0 w-full h-max py-4 px-2 flex justify-between bg-black border-2 border-solid border-white border-b-0 -translate-y-[20%]">
-              <P2 className={"w-max border-b-2 border-solid border-white"}>
-                {updatedData.username}
-              </P2>
-              <P2 className={"w-max border-b-2 border-solid border-white"}>
-                {updatedData.city}
-              </P2>
-            </div>
-          </div>
-        </div>
-        {/*<div className="relative w-max flex-col w-full h-full">
+          </div>}
+  
+          
+        </div>*/}
+      {/*<div className="relative w-max flex-col w-full h-full">
           <P2>Point Section</P2>
           {<div className="absolute bottom-0 left-0 flex justify-between w-full">
             <P2>Style</P2>
@@ -126,9 +179,8 @@ export default function FinalPage({ userInfo, newPfp, newUsername, newCity }) {
           </div> }
         </div> */}
 
-        <div className="absolute bottom-4 right-4 text-center">
-          <P4>This section will be updated soon. Stay tuned!</P4>
-        </div>
+      <div className="absolute bottom-4 right-4 text-center">
+        <P4>This section will be updated soon. Stay tuned!</P4>
       </div>
     </>
   );
