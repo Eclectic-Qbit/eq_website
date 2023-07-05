@@ -20,7 +20,6 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     if (token) {
       const parsedToken = jwt.decode(token);
-      console.log(parsedToken);
       if (parsedToken) {
         if (Date.now() >= parsedToken.exp * 1000) {
           setToken(null);
