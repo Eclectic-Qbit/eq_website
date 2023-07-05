@@ -14,7 +14,6 @@ export default function ChosePFP({
   const [styles, setStyles] = useState([{}, {}, {}, {}]);
   const [active, setActive] = useState(state ? state : 0);
   const index = useRef(skipIntro ? 3 : 0);
-  console.log(userInfo);
   useEffect(() => {
     setTimeout(
       () => {
