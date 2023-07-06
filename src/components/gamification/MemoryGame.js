@@ -6,6 +6,69 @@ import { H1, H5 } from "../text/Headers";
 import { P1, P2 } from "../text/Paragraphs";
 import { getTeamImages } from "@/commonFrontend";
 
+function FinalWin({ json, newGame }) {
+  console.log(json);
+  if (json.username) {
+    return (
+      <div className="absolute top-0 left-0 z-10 flex gap-5 items-center justify-center flex-col w-full h-full bg-[rgba(0,0,0,0.75)] text-center font-extrabold">
+        <P1 className="uppercase" translationPath="memory/title" />
+        <div className="flex flex-col gap-2">
+          <P2
+            translationPath="memory/time"
+            replace={[{ placeholder: "%TIME%", val: json.duration }]}
+          />
+          <div className="flex gap-5 justify-center">
+            <P2
+              translationPath="memory/points/gain"
+              replace={[
+                {
+                  placeholder: "%GAINED_POINTS%",
+                  val: "+" + json.pointsGained,
+                },
+              ]}
+            />
+            <P2>=&gt;</P2>
+            <P2
+              translationPath="memory/points/current"
+              replace={[
+                { placeholder: "%CURRENT_POINTS%", val: json.totalPoints },
+              ]}
+            />
+          </div>
+          <button
+            className="cursor-none hover:underline text-center"
+            onClick={newGame}
+          >
+            <P2 translationPath="memory/newGame" />
+          </button>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="absolute top-0 left-0 z-10 flex gap-5 items-center justify-center flex-col w-full h-full bg-[rgba(0,0,0,0.75)] text-center font-extrabold">
+        <P1 className="uppercase" translationPath="memory/title" />
+        <div className="flex flex-col gap-2">
+          <P2
+            translationPath="memory/time"
+            replace={[{ placeholder: "%TIME%", val: json.duration }]}
+          />
+          <div className="flex gap-5 justify-center">
+            <P2>Seems like you&apos;re not logged in!</P2>
+            <P2>Please, log-in to collect points and earn rewards!</P2>
+          </div>
+          <button
+            className="cursor-none hover:underline text-center"
+            onClick={newGame}
+          >
+            <P2 translationPath="memory/newGame" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
 function Card({ pos, img, active, onClick, won, reset }) {
   const [state, setState] = useState(!won ? "hidden" : "visible");
   const changeState = useCallback(() => {
@@ -58,7 +121,6 @@ function Card({ pos, img, active, onClick, won, reset }) {
 }
 export default function MemoryGame() {
   const CARDS_ARR = useRef(getTeamImages()); // Array of card immages
-  const streak = useRef(0); // Current user streak
   const started = useRef(0); // Starting date - from first click
   const duration = useRef(0); // Duration of the game rounded to second digit
   const [cards, setCards] = useState([]); // Array containing the random cards
@@ -66,7 +128,10 @@ export default function MemoryGame() {
   const [won, setWon] = useState([]); // What cards were chosen correctly by the user
   const [reset, setReset] = useState([]); // What cards were chosen wrongly by the user
   const [wait, setWait] = useState(false); // Wait before next interaction
-  const [finalWin, setFinalWin] = useState(false); // True when the user will have won the game
+  const [finalWin, setFinalWin] = useState(false); // True if player has won, false otherwise
+  const [winContent, setWinContent] = useState(null); // Content displayed when a player wins. Otherwise null
+  const [gameToken, setGameToken] = useState(null); // Token requested to backend, necessary to start the game
+  const [userOk, setUserOk] = useState(false); // True when user clicks on play. Cannot start the game when false
   const generateCards = useCallback(() => {
     const arr = [];
     for (let i = 0; i < CARDS_ARR.current.length; i++) {
@@ -81,7 +146,7 @@ export default function MemoryGame() {
     }
     return finalArr;
   }, [CARDS_ARR]);
-  const newGame = useCallback(() => {
+  const newGame = useCallback(async () => {
     // Reset old the state of the game
     started.current = 0;
     setActivated([]);
@@ -90,10 +155,24 @@ export default function MemoryGame() {
     setWait(false);
     setFinalWin(false);
     setCards([]);
-    setTimeout(() => {
-      const newCards = generateCards();
-      setCards(newCards);
-    }, 100);
+    setUserOk(true);
+    setGameToken(null);
+    // Get token from backend
+    fetch(`${process.env.NEXT_PUBLIC_API_ROUTE}games/`, {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((json) => setGameToken(json.token));
+        // Generate new cards
+        const newCards = generateCards();
+        setCards(newCards);
+      } else {
+        console.error("Something went wrong. Cannot start the game");
+      }
+    });
   }, [generateCards]);
   function containsValue(el) {
     for (let i = 0; i < won.length; i++) {
@@ -121,12 +200,11 @@ export default function MemoryGame() {
             newArr.push(cards[activated[0]]);
             setWon(newArr);
             if (newArr.length === cards.length / 2) {
-              setFinalWin(true);
               duration.current =
                 Math.round(
                   (Date.now() - started.current) / 10 + Number.EPSILON
                 ) / 100;
-              streak.current += 1;
+              setFinalWin(true);
             }
           } else {
             const newArr = [activated[0], pos];
@@ -141,41 +219,49 @@ export default function MemoryGame() {
     }, 500);
   }
   useEffect(() => {
-    newGame();
-  }, [newGame]);
+    const newCards = generateCards();
+    setCards(newCards);
+  }, [generateCards]);
+  useEffect(() => {
+    if (finalWin) {
+      setUserOk(false);
+      fetch(`${process.env.NEXT_PUBLIC_API_ROUTE}games/`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          gameToken: gameToken,
+          gameType: "memory",
+          gameDuration: duration.current,
+        }),
+      }).then((res) => {
+        if (res.status === 200) {
+          res
+            .json()
+            .then((json) =>
+              setWinContent(<FinalWin json={json} newGame={newGame} />)
+            );
+        } else {
+          console.error("Something went wrong", res);
+        }
+      });
+    }
+  }, [finalWin, gameToken, newGame]);
   return (
     <div className="relative bg-black">
-      {finalWin && (
-        <div className="absolute top-0 left-0 z-10 flex gap-5 items-center justify-center flex-col w-full h-full bg-[rgba(0,0,0,0.75)] text-center font-extrabold">
-          <P1 className="uppercase" translationPath="memory/title" />
-          <div className="flex flex-col gap-2">
-            <P2
-              translationPath="memory/time"
-              replace={[{ placeholder: "%TIME%", val: duration.current }]}
-            />
-            <P2
-              translationPath="memory/streak"
-              replace={[{ placeholder: "%STREAK%", val: streak.current }]}
-            />
-            <div className="flex gap-5 justify-center">
-              <P2
-                translationPath="memory/points/gain"
-                replace={[{ placeholder: "%GAINED_POINTS%", val: "+1" }]}
-              />
-              <P2
-                translationPath="memory/points/current"
-                replace={[{ placeholder: "%CURRENT_POINTS%", val: "n" }]}
-              />
-            </div>
-            <button
-              className="cursor-none hover:underline text-center"
-              onClick={newGame}
-            >
-              <P2 translationPath="memory/newGame" />
-            </button>
-          </div>
+      {(!gameToken || !userOk) && !finalWin && (
+        <div className="absolute z-10 top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.8)] flex justify-center items-center">
+          <button
+            onClick={newGame}
+            className="w-max h-max py-4 px-8 border-2 border-solid border-white rounded-xl bg-black hover:underline cursor-none"
+          >
+            <P1>START</P1>
+          </button>
         </div>
       )}
+      {finalWin && winContent}
       <div>
         <div className="w-full h-full flex items-center justify-center">
           <div
@@ -191,7 +277,13 @@ export default function MemoryGame() {
                   won={containsValue(el)}
                   reset={reset.includes(i) ? true : false}
                   active={activated.length < 2 && !wait ? true : false}
-                  onClick={handleClick}
+                  onClick={
+                    gameToken
+                      ? handleClick
+                      : () => {
+                          console.log("Not Game Token Found");
+                        }
+                  }
                 />
               );
             })}

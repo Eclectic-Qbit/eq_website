@@ -21,9 +21,11 @@ export default function AuthProvider({ children }) {
     if (token) {
       const parsedToken = jwt.decode(token);
       if (parsedToken) {
-        if (Date.now() >= parsedToken.exp * 1000) {
-          setToken(null);
-          setUserInfo(null);
+        if (Date.now() < parsedToken.exp * 1000) {
+          console.log("Valid token found");
+          setUserInfo(parsedToken);
+          return;
+        } else {
           const domain =
             process.env.IS_TESTING_ENV === "true"
               ? ".localhost"
@@ -36,17 +38,13 @@ export default function AuthProvider({ children }) {
             domain: domain,
             sameSite: "strict",
           });
-          console.warn("Removed invalid token from cookies and state");
-        } else {
-          setToken(parsedToken);
-          JSON.stringify(parsedToken) !== JSON.stringify(userInfo) &&
-            setUserInfo(parsedToken);
+          console.warn("Removed expired token from cookies and state");
         }
       }
-    } else {
-      setUserInfo(null);
     }
-  }, [page, token, userInfo]);
+    console.log("Token not found");
+    setUserInfo(null);
+  }, [page, token]);
   return (
     <AuthContext.Provider value={{ userInfo, setToken }}>
       {children}

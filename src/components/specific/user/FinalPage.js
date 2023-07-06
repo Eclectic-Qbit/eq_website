@@ -7,12 +7,11 @@ import barcelona from "../../../../public/images/barcelona.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
-import { getGamesNames, getImageFromIndex } from "@/commonFrontend";
+import { getImageFromIndex } from "@/commonFrontend";
 import { useRef, useState } from "react";
 
 export default function FinalPage({ userInfo, avatar, username, city }) {
   const [rotate, setRotate] = useState(false);
-  const games = useRef(getGamesNames());
   return (
     <>
       <LoadingAnimation
@@ -97,16 +96,27 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
               <div>
                 <P2>Game Points & Leaderboards:</P2>
                 <div className="grid gap-2 mt-2">
-                  {userInfo.gameScores.map((el, i) => {
-                    return (
-                      <div className="pl-2" key={`game_${i}`}>
-                        <div className="flex gap-2">
-                          <P3>{games.current[i]} =&gt;</P3>
-                          <P3 className={"pl-2"}>{el}</P3>
+                  {userInfo.points ? (
+                    userInfo.opt.points.map((el, i) => {
+                      return (
+                        <div className="pl-2" key={`game_${i}`}>
+                          <div className="flex gap-2">
+                            <P3>{`${el.specific} (${el.type})`} =&gt;</P3>
+                            <P3 className={"pl-2"}>{el.amount}</P3>
+                          </div>
                         </div>
+                      );
+                    })
+                  ) : (
+                    <div className="pl-2">
+                      <div className="flex gap-2">
+                        <P3>Seems like you don&apos;t have any point, yet!</P3>
                       </div>
-                    );
-                  })}
+                    </div>
+                  )}
+                  <div>
+                    <P3>Total Points: {userInfo.points}/100</P3>
+                  </div>
                 </div>
               </div>
             </div>
