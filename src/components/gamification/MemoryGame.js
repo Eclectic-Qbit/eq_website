@@ -53,7 +53,7 @@ function FinalWin({ json, newGame }) {
             translationPath="memory/time"
             replace={[{ placeholder: "%TIME%", val: json.duration }]}
           />
-          <div className="flex gap-5 justify-center">
+          <div className="flex flax-col gap-5 justify-center">
             <P2>Seems like you&apos;re not logged in!</P2>
             <P2>Please, log-in to collect points and earn rewards!</P2>
           </div>
