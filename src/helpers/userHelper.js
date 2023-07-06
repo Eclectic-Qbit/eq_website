@@ -1,5 +1,4 @@
 export async function getUserData(url, headers) {
-  console.log(url, headers);
   const res = await fetch(url, {
     headers,
   });

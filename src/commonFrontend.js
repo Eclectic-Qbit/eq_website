@@ -88,7 +88,3 @@ export function getImageFromIndex(index, specialType) {
     return arr[index];
   }
 }
-
-export function getGamesNames() {
-  return ["memory"];
-}

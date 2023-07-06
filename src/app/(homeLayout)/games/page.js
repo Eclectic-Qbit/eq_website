@@ -50,13 +50,10 @@ export default function Games() {
                     click a card
                   </P2>,
                   <P2 key={2} className={"lowercase"}>
-                    there are 3 types of rankings: <br />
+                    there are 2 types of rankings: <br />
                     1 - speedrun: the earlier you finish the better your rank
-                    will be <br />
-                    2 - streak: players with highest streaks will be in the
-                    first positions of the ranking <br />3 - games played: the
-                    more you play, the most likely you&apos;ll be in the first
-                    places
+                    will be <br />2 - games played: the more you play, the most
+                    likely you&apos;ll be in the first places
                   </P2>,
                   <P2 key={3}>
                     <span className="uppercase">But Remember</span>You need to
