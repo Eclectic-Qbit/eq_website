@@ -1,6 +1,5 @@
 "use client";
 
-import { H3 } from "@/components/text/Headers";
 import ChosePFP from "./ChosePFP";
 import { useEffect, useState } from "react";
 import AskInfo from "./AskInfo";
