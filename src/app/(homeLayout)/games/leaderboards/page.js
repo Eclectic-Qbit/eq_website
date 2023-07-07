@@ -15,33 +15,45 @@ export default async function Leaderboards() {
             <div className="min-w-[280px] w-full max-w-[45%] grid gap-5">
               <P2>Speedrun Ranking:</P2>
               <div className="border-2 border-solid border-white rounded-xl py-2 px-4">
-                {data.byDuration.map((el, i) => {
-                  return (
-                    <div
-                      className="flex px-2 gap-2 justify-between gap-4 border-b-2 border-solid border-white"
-                      key={`lead_${i}`}
-                    >
-                      <P3>{el.user}</P3>
-                      <P3>{el.value} seconds</P3>
-                    </div>
-                  );
-                })}
+                {data ? (
+                  data.byDuration.map((el, i) => {
+                    return (
+                      <div
+                        className="flex px-2 gap-2 justify-between gap-4 border-b-2 border-solid border-white"
+                        key={`lead_${i}`}
+                      >
+                        <P3>{el.user}</P3>
+                        <P3>{el.value} seconds</P3>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div>
+                    <P1>404 :/</P1>
+                  </div>
+                )}
               </div>
             </div>
             <div className="min-w-[280px] w-full max-w-[45%] grid gap-5">
               <P2>Games Played Ranking:</P2>
               <div className="border-2 border-solid border-white rounded-xl py-2 px-4">
-                {data.byAttempts.map((el, i) => {
-                  return (
-                    <div
-                      className="flex px-2 gap-2 justify-between gap-4 border-b-2 border-solid border-white"
-                      key={`lead_${i}`}
-                    >
-                      <P3>{el.user}</P3>
-                      <P3>{el.value} games played</P3>
-                    </div>
-                  );
-                })}
+                {data ? (
+                  data.byAttempts.map((el, i) => {
+                    return (
+                      <div
+                        className="flex px-2 gap-2 justify-between gap-4 border-b-2 border-solid border-white"
+                        key={`lead_${i}`}
+                      >
+                        <P3>{el.user}</P3>
+                        <P3>{el.value} games played</P3>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div>
+                    <P1>404 :/</P1>
+                  </div>
+                )}
               </div>
             </div>
           </div>
