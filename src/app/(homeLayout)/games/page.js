@@ -2,10 +2,10 @@
 
 import LoadingAnimation from "@/components/animations/LoadingAnimation";
 import MemoryGame from "@/components/gamification/MemoryGame";
+import CustomLink from "@/components/global/CustomLink";
 import { P1, P2 } from "@/components/text/Paragraphs";
 import ResizeContext from "@/contexts/ResizeContext";
 import settings from "@/frontendSettings";
-import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 
 export default function Games() {
@@ -73,9 +73,9 @@ export default function Games() {
           <P1>Play 🎮</P1>
         </div>
         <div className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in">
-          <Link className="cursor-none" href="/games/leaderboards">
+          <CustomLink className="cursor-none" href="/games/leaderboards">
             <P1>RANK BLITZ 🥇</P1>
-          </Link>
+          </CustomLink>
         </div>
         <div
           className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in"
@@ -87,7 +87,7 @@ export default function Games() {
                 delay={1000}
                 onFade={() => setMsg(null)}
                 fadeDuration={750}
-                className="fixed bg-[rgba(0,0,0,0.65)] z-10 top-0 left-0 w-screen h-full flex items-center justify-center text-white px-[5%] sm:px-[10%] text-center"
+                className="fixed bg-[rgba(0,0,0,0.65)] z-30 top-0 left-0 w-screen h-full flex items-center justify-center text-white px-[5%] sm:px-[10%] text-center"
               />
             )
           }
