@@ -63,6 +63,7 @@ export function downloadFile(file, type) {
     anchor.click();
   }
 }
+console.log(process.env.NEXT_PUBLIC_IS_TESTING_ENV);
 export const discordLink =
   process.env.NEXT_PUBLIC_IS_TESTING_ENV === "true"
     ? "https://discord.com/api/oauth2/authorize?client_id=1122867395720134716&redirect_uri=http%3A%2F%2Flocalhost%3A3500%2Flogin%2Fdiscord%2Fcallback&response_type=code&scope=identify"
