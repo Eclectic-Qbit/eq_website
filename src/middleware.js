@@ -12,5 +12,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: "/troopa/:path*",
+  matcher: "/user/:path*",
 };
