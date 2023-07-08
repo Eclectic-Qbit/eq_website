@@ -1,1 +1,400 @@
-{"ssrModuleMapping":{"70":{"*":{"id":"2353","name":"*","chunks":[],"async":false}},"1298":{"*":{"id":"2595","name":"*","chunks":[],"async":false}},"1526":{"*":{"id":"7666","name":"*","chunks":[],"async":false}},"1641":{"*":{"id":"7490","name":"*","chunks":[],"async":false}},"2107":{"*":{"id":"3436","name":"*","chunks":[],"async":false}},"2306":{"*":{"id":"7833","name":"*","chunks":[],"async":false}},"2353":{"*":{"id":"8709","name":"*","chunks":[],"async":false}},"2367":{"*":{"id":"19","name":"*","chunks":[],"async":false}},"3041":{"*":{"id":"6999","name":"*","chunks":[],"async":false}},"3136":{"*":{"id":"6165","name":"*","chunks":[],"async":false}},"3220":{"*":{"id":"3955","name":"*","chunks":[],"async":false}},"3756":{"*":{"id":"3676","name":"*","chunks":[],"async":false}},"4875":{"*":{"id":"3293","name":"*","chunks":[],"async":false}},"5247":{"*":{"id":"5793","name":"*","chunks":[],"async":false}},"5287":{"*":{"id":"9697","name":"*","chunks":[],"async":false}},"5318":{"*":{"id":"734","name":"*","chunks":[],"async":false}},"5321":{"*":{"id":"8013","name":"*","chunks":[],"async":false}},"5701":{"*":{"id":"1199","name":"*","chunks":[],"async":false}},"6222":{"*":{"id":"3599","name":"*","chunks":[],"async":false}},"6523":{"*":{"id":"3274","name":"*","chunks":[],"async":false}},"6563":{"*":{"id":"4907","name":"*","chunks":[],"async":false}},"7082":{"*":{"id":"3047","name":"*","chunks":[],"async":false}},"7330":{"*":{"id":"7734","name":"*","chunks":[],"async":false}},"7359":{"*":{"id":"3820","name":"*","chunks":[],"async":false}},"8118":{"*":{"id":"371","name":"*","chunks":[],"async":false}},"8202":{"*":{"id":"6716","name":"*","chunks":[],"async":false}},"8248":{"*":{"id":"621","name":"*","chunks":[],"async":false}},"8531":{"*":{"id":"9150","name":"*","chunks":[],"async":false}},"8704":{"*":{"id":"8576","name":"*","chunks":[],"async":false}},"8932":{"*":{"id":"7341","name":"*","chunks":[],"async":false}},"9180":{"*":{"id":"2698","name":"*","chunks":[],"async":false}},"9265":{"*":{"id":"5527","name":"*","chunks":[],"async":false}},"9902":{"*":{"id":"9411","name":"*","chunks":[],"async":false}}},"edgeSSRModuleMapping":{},"clientModules":{"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\error-boundary.js":{"id":7330,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\error-boundary.js":{"id":7330,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\app-router.js":{"id":2353,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\app-router.js":{"id":2353,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\layout-router.js":{"id":9180,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\layout-router.js":{"id":9180,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\render-from-template-context.js":{"id":2306,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\render-from-template-context.js":{"id":2306,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\static-generation-searchparams-bailout-provider.js":{"id":8531,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\static-generation-searchparams-bailout-provider.js":{"id":8531,"name":"*","chunks":["272:static/chunks/webpack-4c7dff481eddb392.js","253:static/chunks/bce60fc1-16d3ed3854e4fcb2.js","698:static/chunks/698-d8cebc4284b480f4.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\CurrentPageProvider.js":{"id":8248,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\LanguageProvider.js":{"id":7082,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\MouseProvider.js":{"id":6523,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\ScrollProvider.js":{"id":5701,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\DebouncedResizeProvider.js":{"id":9265,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\ResizeProvider.js":{"id":5318,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\AuthProvider.js":{"id":8932,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\globals.css":{"id":8410,"name":"*","chunks":["44:static/chunks/f71a365d-bf2a902aa0537e2d.js","180:static/chunks/0e02fca3-f15a9edc93bc40dc.js","89:static/chunks/89-4b38f79d6f0d6419.js","185:static/chunks/app/layout-76d86dff095a3c93.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\not-found.js":{"id":2107,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","160:static/chunks/app/not-found-6ef421053d81643b.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\page.js":{"id":70,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","18:static/chunks/18-8f130685ac968d25.js","605:static/chunks/605-bacbb69dfade8738.js","515:static/chunks/app/(HomeLayout)/page-7187c6edc3df0e8b.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\Menu.js":{"id":5247,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","344:static/chunks/app/(HomeLayout)/layout-f1ac21ce0f867436.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\cursors\\Cursors.js":{"id":3756,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","344:static/chunks/app/(HomeLayout)/layout-f1ac21ce0f867436.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\LoadingScreen.js":{"id":5321,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","344:static/chunks/app/(HomeLayout)/layout-f1ac21ce0f867436.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\Footer.js":{"id":7359,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","344:static/chunks/app/(HomeLayout)/layout-f1ac21ce0f867436.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\CookiesPrompt.js":{"id":8704,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","344:static/chunks/app/(HomeLayout)/layout-f1ac21ce0f867436.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\specific\\homeLayout\\FadePage.js":{"id":1298,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","344:static/chunks/app/(HomeLayout)/layout-f1ac21ce0f867436.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\testing\\page.js":{"id":1641,"name":"*","chunks":["909:static/chunks/909-1f1b27da4b944ebe.js","605:static/chunks/605-bacbb69dfade8738.js","547:static/chunks/app/testing/page-d417d58103c4fa7e.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\brojects\\page.js":{"id":3136,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","67:static/chunks/app/(HomeLayout)/brojects/page-1d1fcc8df1f7ecc9.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\collabs\\page.js":{"id":6222,"name":"*","chunks":["68:static/chunks/app/(HomeLayout)/collabs/page-e2d51b5ba8f867ef.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\paint&earn\\page.js":{"id":5287,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","18:static/chunks/18-8f130685ac968d25.js","219:static/chunks/app/(HomeLayout)/paint&earn/page-26022b252b8e6472.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\games\\page.js":{"id":2367,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","220:static/chunks/220-56e87246c1aa20aa.js","542:static/chunks/app/(HomeLayout)/games/page-b39dfc6bd8afc381.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\squad\\page.js":{"id":6563,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","18:static/chunks/18-8f130685ac968d25.js","658:static/chunks/app/(HomeLayout)/squad/page-3221b8e56ea7f40f.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\privacy\\page.js":{"id":4875,"name":"*","chunks":["909:static/chunks/909-1f1b27da4b944ebe.js","576:static/chunks/app/(HomeLayout)/privacy/page-9eefc9dac86e01e6.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\story\\page.js":{"id":1526,"name":"*","chunks":["909:static/chunks/909-1f1b27da4b944ebe.js","522:static/chunks/app/(HomeLayout)/story/page-e581c3f7727e3187.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\testing\\generate\\page.js":{"id":8118,"name":"*","chunks":["909:static/chunks/909-1f1b27da4b944ebe.js","91:static/chunks/app/testing/generate/page-f088b990b2a8f117.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\gamification\\MemoryGame.js":{"id":3220,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","909:static/chunks/909-1f1b27da4b944ebe.js","220:static/chunks/220-56e87246c1aa20aa.js","195:static/chunks/app/testing/memory/page-8a78207f8c04be44.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\specific\\user\\UserRouter.js":{"id":3041,"name":"*","chunks":["656:static/chunks/656-7a5d64061dd02699.js","846:static/chunks/846-23492b5e34c71836.js","909:static/chunks/909-1f1b27da4b944ebe.js","359:static/chunks/app/(HomeLayout)/troopa/page-f32ccfaa07c0b9d0.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\text\\Headers.js":{"id":9902,"name":"*","chunks":["909:static/chunks/909-1f1b27da4b944ebe.js","677:static/chunks/app/(HomeLayout)/games/leaderboards/page-2158d23ec6ade687.js"],"async":false},"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\text\\Paragraphs.js":{"id":8202,"name":"*","chunks":["909:static/chunks/909-1f1b27da4b944ebe.js","677:static/chunks/app/(HomeLayout)/games/leaderboards/page-2158d23ec6ade687.js"],"async":false}},"entryCSSFiles":{"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\layout":["static/css/c3b03b2e2912dba2.css"],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\not-found":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\layout":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\testing\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\testing\\layout":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\brojects\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\collabs\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\paint&earn\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\games\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\squad\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\privacy\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\story\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\testing\\generate\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\testing\\memory\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\troopa\\page":[],"C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\games\\leaderboards\\page":[]}}
+{
+  "ssrModuleMapping": {
+    "(app-client)/./node_modules/next/dist/client/components/error-boundary.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/client/components/error-boundary.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/next/dist/client/components/app-router.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/client/components/app-router.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/next/dist/client/components/layout-router.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/client/components/layout-router.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/client/components/render-from-template-context.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/providers/CurrentPageProvider.js": {
+      "*": {
+        "id": "(sc_client)/./src/providers/CurrentPageProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/providers/LanguageProvider.js": {
+      "*": {
+        "id": "(sc_client)/./src/providers/LanguageProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/providers/MouseProvider.js": {
+      "*": {
+        "id": "(sc_client)/./src/providers/MouseProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/providers/ScrollProvider.js": {
+      "*": {
+        "id": "(sc_client)/./src/providers/ScrollProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/providers/DebouncedResizeProvider.js": {
+      "*": {
+        "id": "(sc_client)/./src/providers/DebouncedResizeProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/providers/ResizeProvider.js": {
+      "*": {
+        "id": "(sc_client)/./src/providers/ResizeProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/providers/AuthProvider.js": {
+      "*": {
+        "id": "(sc_client)/./src/providers/AuthProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/not-found.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/not-found.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/app/(HomeLayout)/page.js": {
+      "*": {
+        "id": "(sc_client)/./src/app/(HomeLayout)/page.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/components/global/Menu.js": {
+      "*": {
+        "id": "(sc_client)/./src/components/global/Menu.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/components/cursors/Cursors.js": {
+      "*": {
+        "id": "(sc_client)/./src/components/cursors/Cursors.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/components/global/LoadingScreen.js": {
+      "*": {
+        "id": "(sc_client)/./src/components/global/LoadingScreen.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/components/global/Footer.js": {
+      "*": {
+        "id": "(sc_client)/./src/components/global/Footer.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/components/global/CookiesPrompt.js": {
+      "*": {
+        "id": "(sc_client)/./src/components/global/CookiesPrompt.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/components/specific/homeLayout/FadePage.js": {
+      "*": {
+        "id": "(sc_client)/./src/components/specific/homeLayout/FadePage.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./src/components/specific/user/UserRouter.js": {
+      "*": {
+        "id": "(sc_client)/./src/components/specific/user/UserRouter.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    }
+  },
+  "edgeSSRModuleMapping": {},
+  "clientModules": {
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\error-boundary.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\error-boundary.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\app-router.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\app-router.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\layout-router.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\layout-router.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\render-from-template-context.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\render-from-template-context.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\client\\components\\static-generation-searchparams-bailout-provider.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\node_modules\\next\\dist\\esm\\client\\components\\static-generation-searchparams-bailout-provider.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\CurrentPageProvider.js": {
+      "id": "(app-client)/./src/providers/CurrentPageProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\LanguageProvider.js": {
+      "id": "(app-client)/./src/providers/LanguageProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\MouseProvider.js": {
+      "id": "(app-client)/./src/providers/MouseProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\ScrollProvider.js": {
+      "id": "(app-client)/./src/providers/ScrollProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\DebouncedResizeProvider.js": {
+      "id": "(app-client)/./src/providers/DebouncedResizeProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\ResizeProvider.js": {
+      "id": "(app-client)/./src/providers/ResizeProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\providers\\AuthProvider.js": {
+      "id": "(app-client)/./src/providers/AuthProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\globals.css": {
+      "id": "(app-client)/./src/app/globals.css",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\not-found.js": {
+      "id": "(app-client)/./src/app/not-found.js",
+      "name": "*",
+      "chunks": [
+        "app/not-found:static/chunks/app/not-found.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\page.js": {
+      "id": "(app-client)/./src/app/(HomeLayout)/page.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/page:static/chunks/app/(HomeLayout)/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\Menu.js": {
+      "id": "(app-client)/./src/components/global/Menu.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/layout:static/chunks/app/(HomeLayout)/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\cursors\\Cursors.js": {
+      "id": "(app-client)/./src/components/cursors/Cursors.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/layout:static/chunks/app/(HomeLayout)/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\LoadingScreen.js": {
+      "id": "(app-client)/./src/components/global/LoadingScreen.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/layout:static/chunks/app/(HomeLayout)/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\Footer.js": {
+      "id": "(app-client)/./src/components/global/Footer.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/layout:static/chunks/app/(HomeLayout)/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\global\\CookiesPrompt.js": {
+      "id": "(app-client)/./src/components/global/CookiesPrompt.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/layout:static/chunks/app/(HomeLayout)/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\specific\\homeLayout\\FadePage.js": {
+      "id": "(app-client)/./src/components/specific/homeLayout/FadePage.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/layout:static/chunks/app/(HomeLayout)/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\components\\specific\\user\\UserRouter.js": {
+      "id": "(app-client)/./src/components/specific/user/UserRouter.js",
+      "name": "*",
+      "chunks": [
+        "app/(HomeLayout)/troopa/page:static/chunks/app/(HomeLayout)/troopa/page.js"
+      ],
+      "async": false
+    }
+  },
+  "entryCSSFiles": {
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\layout": [
+      "static/css/app/layout.css"
+    ],
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\not-found": [],
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\page": [],
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\layout": [],
+    "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\troopa\\page": []
+  }
+}
