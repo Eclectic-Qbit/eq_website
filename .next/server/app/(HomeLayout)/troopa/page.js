@@ -296,13 +296,13 @@ __webpack_require__.r(__webpack_exports__);
         }]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5856)), "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\troopa\\layout.js"],
+          
           
         }
       ]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8213)), "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\layout.js"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5762)), "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\layout.js"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8447))).default(props))],
     apple: [],
@@ -971,52 +971,6 @@ function UserRouter({ userInfo }) {
 
 /***/ }),
 
-/***/ 5856:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ RootLayout)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_global_Menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7091);
-/* harmony import */ var _components_cursors_Cursors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1539);
-/* harmony import */ var _components_global_LoadingScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9193);
-/* harmony import */ var _components_global_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2862);
-/* harmony import */ var _components_global_CookiesPrompt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8440);
-/* harmony import */ var _components_specific_homeLayout_FadePage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1990);
-
-
-
-
-
-
-
-function RootLayout({ children }) {
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-        className: "w-full h-full cursor-none overflow-hidden",
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_specific_homeLayout_FadePage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .ZP, {
-            children: [
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_cursors_Cursors__WEBPACK_IMPORTED_MODULE_2__/* .HomepageCursor */ .c, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_LoadingScreen__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .ZP, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_Menu__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .ZP, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        children: children
-                    })
-                }),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_CookiesPrompt__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .ZP, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_Footer__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .ZP, {})
-            ]
-        })
-    });
-}
-
-
-/***/ }),
-
 /***/ 3583:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1095,7 +1049,7 @@ async function UserPage() {
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [697,225,316,437,1,315,903,684,796], () => (__webpack_exec__(6020)));
+var __webpack_exports__ = __webpack_require__.X(0, [697,225,316,437,810,315,903,492,796], () => (__webpack_exec__(6020)));
 module.exports = __webpack_exports__;
 
 })();

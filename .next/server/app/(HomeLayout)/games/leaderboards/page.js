@@ -303,7 +303,7 @@ __webpack_require__.r(__webpack_exports__);
       ]
       },
         {
-          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8213)), "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\layout.js"],
+          'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 5762)), "C:\\Users\\Enryp\\Desktop\\Tabata\\EQ\\website\\src\\app\\(HomeLayout)\\layout.js"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8447))).default(props))],
     apple: [],
@@ -544,7 +544,7 @@ async function getLeaderboards() {
 var __webpack_require__ = require("../../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [697,225,316,1,315,903,684], () => (__webpack_exec__(2734)));
+var __webpack_exports__ = __webpack_require__.X(0, [697,225,316,810,315,903,492], () => (__webpack_exec__(2734)));
 module.exports = __webpack_exports__;
 
 })();

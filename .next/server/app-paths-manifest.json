@@ -7,11 +7,11 @@
   "/(HomeLayout)/collabs/page": "app/(HomeLayout)/collabs/page.js",
   "/(HomeLayout)/paint&earn/page": "app/(HomeLayout)/paint&earn/page.js",
   "/(HomeLayout)/games/page": "app/(HomeLayout)/games/page.js",
-  "/(HomeLayout)/privacy/page": "app/(HomeLayout)/privacy/page.js",
   "/(HomeLayout)/squad/page": "app/(HomeLayout)/squad/page.js",
+  "/(HomeLayout)/privacy/page": "app/(HomeLayout)/privacy/page.js",
   "/(HomeLayout)/story/page": "app/(HomeLayout)/story/page.js",
   "/testing/generate/page": "app/testing/generate/page.js",
   "/testing/memory/page": "app/testing/memory/page.js",
-  "/(HomeLayout)/games/leaderboards/page": "app/(HomeLayout)/games/leaderboards/page.js",
-  "/(HomeLayout)/troopa/page": "app/(HomeLayout)/troopa/page.js"
+  "/(HomeLayout)/troopa/page": "app/(HomeLayout)/troopa/page.js",
+  "/(HomeLayout)/games/leaderboards/page": "app/(HomeLayout)/games/leaderboards/page.js"
 }

@@ -1,5 +1,5 @@
-exports.id = 684;
-exports.ids = [684];
+exports.id = 492;
+exports.ids = [492];
 exports.modules = {
 
 /***/ 7862:
@@ -1236,22 +1236,101 @@ function FadePage({ children }) {
 
 /***/ }),
 
-/***/ 8213:
+/***/ 5762:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ RootLayout)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_global_Menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7091);
-/* harmony import */ var _components_cursors_Cursors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1539);
-/* harmony import */ var _components_global_LoadingScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9193);
-/* harmony import */ var _components_global_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2862);
-/* harmony import */ var _components_global_CookiesPrompt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8440);
-/* harmony import */ var _components_specific_homeLayout_FadePage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1990);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ RootLayout)
+});
+
+// EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(6786);
+// EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
+var module_proxy = __webpack_require__(1913);
+;// CONCATENATED MODULE: ./src/components/global/Menu.js
+
+const proxy = (0,module_proxy.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\Menu.js`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule, $$typeof } = proxy;
+const __default__ = proxy.default;
+
+
+/* harmony default export */ const Menu = (__default__);
+;// CONCATENATED MODULE: ./src/components/cursors/Cursors.js
+
+const Cursors_proxy = (0,module_proxy.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\cursors\Cursors.js`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule: Cursors_esModule, $$typeof: Cursors_$$typeof } = Cursors_proxy;
+const Cursors_default_ = Cursors_proxy.default;
+
+const e0 = Cursors_proxy["HomepageCursor"];
+
+;// CONCATENATED MODULE: ./src/components/global/LoadingScreen.js
+
+const LoadingScreen_proxy = (0,module_proxy.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\LoadingScreen.js`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule: LoadingScreen_esModule, $$typeof: LoadingScreen_$$typeof } = LoadingScreen_proxy;
+const LoadingScreen_default_ = LoadingScreen_proxy.default;
+
+
+/* harmony default export */ const LoadingScreen = (LoadingScreen_default_);
+;// CONCATENATED MODULE: ./src/components/global/Footer.js
+
+const Footer_proxy = (0,module_proxy.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\Footer.js`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule: Footer_esModule, $$typeof: Footer_$$typeof } = Footer_proxy;
+const Footer_default_ = Footer_proxy.default;
+
+
+/* harmony default export */ const Footer = (Footer_default_);
+;// CONCATENATED MODULE: ./src/components/global/CookiesPrompt.js
+
+const CookiesPrompt_proxy = (0,module_proxy.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\CookiesPrompt.js`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule: CookiesPrompt_esModule, $$typeof: CookiesPrompt_$$typeof } = CookiesPrompt_proxy;
+const CookiesPrompt_default_ = CookiesPrompt_proxy.default;
+
+
+/* harmony default export */ const CookiesPrompt = (CookiesPrompt_default_);
+;// CONCATENATED MODULE: ./src/components/specific/homeLayout/FadePage.js
+
+const FadePage_proxy = (0,module_proxy.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\specific\homeLayout\FadePage.js`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule: FadePage_esModule, $$typeof: FadePage_$$typeof } = FadePage_proxy;
+const FadePage_default_ = FadePage_proxy.default;
+
+
+/* harmony default export */ const FadePage = (FadePage_default_);
+;// CONCATENATED MODULE: ./src/app/(HomeLayout)/layout.js
 
 
 
@@ -1260,168 +1339,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function RootLayout({ children }) {
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
         className: "w-full h-full cursor-none overflow-hidden",
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_specific_homeLayout_FadePage__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .ZP, {
+        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(FadePage, {
             children: [
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_cursors_Cursors__WEBPACK_IMPORTED_MODULE_2__/* .HomepageCursor */ .c, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_LoadingScreen__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .ZP, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_Menu__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .ZP, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                /*#__PURE__*/ jsx_runtime_.jsx(e0, {}),
+                /*#__PURE__*/ jsx_runtime_.jsx(LoadingScreen, {}),
+                /*#__PURE__*/ jsx_runtime_.jsx(Menu, {}),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
                         children: children
                     })
                 }),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_CookiesPrompt__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .ZP, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_global_Footer__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .ZP, {})
+                /*#__PURE__*/ jsx_runtime_.jsx(CookiesPrompt, {}),
+                /*#__PURE__*/ jsx_runtime_.jsx(Footer, {})
             ]
         })
     });
 }
 
-
-/***/ }),
-
-/***/ 1539:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   c: () => (/* binding */ e0)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\cursors\Cursors.js`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-const e0 = proxy["HomepageCursor"];
-
-
-/***/ }),
-
-/***/ 8440:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ZP: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* unused harmony exports __esModule, $$typeof */
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\CookiesPrompt.js`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
-
-/***/ }),
-
-/***/ 2862:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ZP: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* unused harmony exports __esModule, $$typeof */
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\Footer.js`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
-
-/***/ }),
-
-/***/ 9193:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ZP: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* unused harmony exports __esModule, $$typeof */
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\LoadingScreen.js`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
-
-/***/ }),
-
-/***/ 7091:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ZP: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* unused harmony exports __esModule, $$typeof */
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\global\Menu.js`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
-
-/***/ }),
-
-/***/ 1990:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ZP: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* unused harmony exports __esModule, $$typeof */
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1913);
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Enryp\Desktop\Tabata\EQ\website\src\components\specific\homeLayout\FadePage.js`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
 
 /***/ })
 

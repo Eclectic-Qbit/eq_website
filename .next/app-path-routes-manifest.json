@@ -7,11 +7,11 @@
   "/(HomeLayout)/collabs/page": "/collabs",
   "/(HomeLayout)/paint&earn/page": "/paint&earn",
   "/(HomeLayout)/games/page": "/games",
-  "/(HomeLayout)/privacy/page": "/privacy",
   "/(HomeLayout)/squad/page": "/squad",
+  "/(HomeLayout)/privacy/page": "/privacy",
   "/(HomeLayout)/story/page": "/story",
   "/testing/generate/page": "/testing/generate",
   "/testing/memory/page": "/testing/memory",
-  "/(HomeLayout)/games/leaderboards/page": "/games/leaderboards",
-  "/(HomeLayout)/troopa/page": "/troopa"
+  "/(HomeLayout)/troopa/page": "/troopa",
+  "/(HomeLayout)/games/leaderboards/page": "/games/leaderboards"
 }
