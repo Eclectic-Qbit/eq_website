@@ -1,5 +1,0 @@
-{
-  "/icon.png/route": "app/icon.png/route.js",
-  "/(HomeLayout)/page": "app/(HomeLayout)/page.js",
-  "/(HomeLayout)/troopa/page": "app/(HomeLayout)/troopa/page.js"
-}
