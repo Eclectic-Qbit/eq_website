@@ -19,10 +19,6 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
           <P1 key={0} className={"uppercase"}>
             Hey There!
           </P1>,
-          <P2 key={1}>
-            Please, keep in mind that this is a temporary page! Styling and
-            layout updates will be provided very soon
-          </P2>,
         ]}
         delay={1000}
         fadeDuration={750}
@@ -47,14 +43,7 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
                 backfaceVisibility: "hidden",
               }}
             >
-              <div className="w-full h-max py-4 px-2 flex justify-between">
-                <P2 className={"w-max border-b-2 border-solid border-white"}>
-                  {username}
-                </P2>
-                <P2 className={"w-max border-b-2 border-solid border-white"}>
-                  {city}
-                </P2>
-              </div>
+              <div className="w-full h-max py-4 px-2 flex justify-between"></div>
               <div className="relative w-[50vw] aspect-square min-w-[250px] max-w-[500px]">
                 <Image
                   sizes="100%"
@@ -71,7 +60,6 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
                 <div className="relative w-full h-4 w-full bg-purple overflow-hidden rounded-xl overflow-hidden">
                   <div className="absolute top-0 left-0 w-[2%] h-full bg-yellow" />
                 </div>
-                <P2>0/100XP</P2>
               </div>
             </div>
             <div
@@ -82,11 +70,9 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
               }}
             >
               <div>
-                <P2>Discord Roles:</P2>
                 <div className="grid gap-2 mt-2"></div>
               </div>
               <div>
-                <P2>Game Points & Leaderboards:</P2>
                 <div className="grid gap-2 mt-2">
                   <div></div>
                 </div>
