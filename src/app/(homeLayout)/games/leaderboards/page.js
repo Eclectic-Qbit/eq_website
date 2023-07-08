@@ -64,12 +64,7 @@ export default async function Leaderboards() {
 }
 async function getLeaderboards() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ROUTE}games/memory/leaderboards`,
-    {
-      next: {
-        revalidate: 15,
-      },
-    }
+    `${process.env.NEXT_PUBLIC_API_ROUTE}games/memory/leaderboards`
   );
   if (res.status === 200) {
     const json = await res.json();
