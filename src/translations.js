@@ -1138,8 +1138,8 @@ const translations = {
       ),
     },
   },
-
   memory: {
+    start: { en: <span>Start</span>, es: <span>Vamos</span> },
     title: {
       en: <span>kudos! bravo! superb play! epic win!</span>,
       es: <span>kudos! bravo! jugada magistral! victoria épica!</span>,
@@ -1165,6 +1165,97 @@ const translations = {
       es: (
         <span>sintiendo la oleada de emoción? listo para un nuevo juego?</span>
       ),
+    },
+  },
+  gamesPage: {
+    menu: {
+      play: { en: <span>Play 🎮</span>, es: <span>Jugar 🎮</span> },
+      ranking: {
+        en: <span>Rank Blitz 🥇</span>,
+        es: <span>Clasificaciones 🥇</span>,
+      },
+      levelUp: {
+        en: <span>Level Up 🎉</span>,
+        es: <span>Avanzar De Nivel 🎉</span>,
+      },
+    },
+    tutorial: {
+      first: {
+        en: <span>Need a quick tutorial?</span>,
+        es: <span>Necesitas un tutorial rápido?</span>,
+      },
+      second: {
+        en: (
+          <span>
+            The game is pretty easy! <br /> the time starts when you click a
+            card
+          </span>
+        ),
+        es: (
+          <span>
+            El juego es bastante fácil <br /> El tiempo comienza cuando haces
+            clic en una carta.
+          </span>
+        ),
+      },
+      third: {
+        en: (
+          <span>
+            there are 2 types of rankings: <br />1 - speedrun: the earlier you
+            finish the better your rank will be <br />2 - games played: the more
+            you play, the most likely you&apos;ll be in the first places
+          </span>
+        ),
+        es: (
+          <span>
+            Hay 2 tipos de clasificaciones: <br />
+            1 - Speedrun: cuanto antes termines, mejor será tu posición en el
+            ranking. <br />2 - Juegos jugados: cuantas más partidas juegues, más
+            probabilidades tendrás de estar en los primeros lugares.
+          </span>
+        ),
+      },
+      forth: {
+        en: (
+          <span>
+            <span className="uppercase">But Remember</span>You need to log-in
+            for accessing the leaderboards and getting some rewards!
+          </span>
+        ),
+        es: (
+          <span>
+            <span className="uppercase">Pero recuerda</span> necesitas iniciar
+            sesión para acceder a las clasificaciones y obtener algunas
+            recompensas.
+          </span>
+        ),
+      },
+    },
+  },
+  leaderboards: {
+    title: {
+      en: <span>Memory Rankings:</span>,
+      es: <span>Rankings de Memory</span>,
+    },
+    speedrun: {
+      title: {
+        en: <span>Speedrun Ranking:</span>,
+        es: <span>Ranking de Speedrun</span>,
+      },
+      entry: {
+        en: <span>%VAL%seconds</span>,
+        es: <span>%VAL%segundos</span>,
+      },
+    },
+    games: {
+      title: {
+        en: <span>Games Played Ranking:</span>,
+        es: <span>Ranking de Juegos Jugados</span>,
+      },
+      entry: {
+        en: <span>%VAL%games played</span>,
+        es: <span>%VAL%juegos jugados</span>,
+      },
     },
   },
 };
