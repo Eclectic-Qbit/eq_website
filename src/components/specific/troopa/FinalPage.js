@@ -14,6 +14,7 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
   const [rotate, setRotate] = useState(false);
   return (
     <>
+      {/*
       <LoadingAnimation
         elements={[
           <P1 key={0} className={"uppercase"}>
@@ -27,7 +28,7 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
         delay={1000}
         fadeDuration={750}
         className="z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center text-white text-center"
-      />
+      />*/}
       <div className="flex flex-col sm:flex-row wrap w-full h-full justify-center items-center mt-28 sm:mt-24">
         <div
           onMouseEnter={() => setRotate(true)}
@@ -188,10 +189,6 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
             <P2>Settings</P2>
           </div> }
         </div> */}
-
-      <div className="absolute bottom-4 right-4 text-center">
-        <P4>This section will be updated soon. Stay tuned!</P4>
-      </div>
     </>
   );
 }

@@ -257,7 +257,7 @@ export default function MemoryGame() {
             onClick={newGame}
             className="w-max h-max py-4 px-8 border-2 border-solid border-white rounded-xl bg-black hover:underline cursor-none"
           >
-            <P1>START</P1>
+            <P1 className={"uppercase"} translationPath={"memory/start"} />
           </button>
         </div>
       )}

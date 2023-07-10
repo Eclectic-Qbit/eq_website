@@ -63,10 +63,11 @@ export default function LoadingScreen() {
                   ]
             }
             coeffs={[1, 1.5, 2.25]}
-            delay={3000}
+            delay={1500}
             className="z-30 fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center text-white"
             onFade={onFade}
             fadeDuration={750}
+            hideOnScroll
           />
         ) : (
           !alreadyAnimated && (

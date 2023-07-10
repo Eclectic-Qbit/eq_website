@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import MouseContext from "@/contexts/MouseContext";
+import ScrollContext from "@/contexts/ScrollContext";
 
 export default function LoadingAnimation({
   className,
@@ -19,6 +20,7 @@ export default function LoadingAnimation({
   coeffs,
   onFade,
   stopFade,
+  hideOnScroll,
 }) {
   const ref = useRef(null);
   const mouseEntered = useRef(false);
@@ -44,6 +46,7 @@ export default function LoadingAnimation({
   );
   const settedOffsets = useRef(false);
   const { position } = useContext(MouseContext);
+  const { scroll } = useContext(ScrollContext);
   const movedInViewport = useRef(0);
   // Fade
   const fade = useCallback(() => {
@@ -67,7 +70,7 @@ export default function LoadingAnimation({
     if (!hide.perma && !hide.temp) {
       viewTimeout.current = setTimeout(() => {
         setView(true);
-      }, 100);
+      }, 10);
     }
   }, [hide.perma, hide.temp]);
   // Elements position
@@ -123,6 +126,13 @@ export default function LoadingAnimation({
       }
     }
   }, [hide.perma, hide.temp, position]);
+  useEffect(() => {
+    if (hideOnScroll) {
+      if (scroll > 0) {
+        fade();
+      }
+    }
+  }, [fade, hideOnScroll, scroll]);
   return (
     <>
       {!hide.perma && (

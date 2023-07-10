@@ -42,39 +42,44 @@ export default function Games() {
             setMsg(
               <LoadingAnimation
                 elements={[
-                  <P1 key={0} className={"uppercase"}>
-                    Need a quick tutorial?
-                  </P1>,
-                  <P2 key={1} className={"lowercase"}>
-                    the game is pretty easy! <br /> the time starts when you
-                    click a card
-                  </P2>,
-                  <P2 key={2} className={"lowercase"}>
-                    there are 2 types of rankings: <br />
-                    1 - speedrun: the earlier you finish the better your rank
-                    will be <br />2 - games played: the more you play, the most
-                    likely you&apos;ll be in the first places
-                  </P2>,
-                  <P2 key={3}>
-                    <span className="uppercase">But Remember</span>You need to
-                    log-in for accessing the leaderboards and getting some
-                    rewards!
-                  </P2>,
+                  <P1
+                    key={0}
+                    className={"uppercase"}
+                    translationPath={"gamesPage/tutorial/first"}
+                  />,
+                  <P2
+                    key={1}
+                    className={"lowercase"}
+                    translationPath={"gamesPage/tutorial/second"}
+                  />,
+                  <P2
+                    key={2}
+                    className={"lowercase"}
+                    translationPath={"gamesPage/tutorial/third"}
+                  />,
+                  <P2
+                    key={3}
+                    className={"lowercase"}
+                    translationPath={"gamesPage/tutorial/forth"}
+                  />,
                 ]}
                 coeffs={[1, 1.3, 1.6, 1.9, 2.2]}
                 delay={5000}
                 fadeDuration={750}
                 onFade={() => setMsg(null)}
-                className="fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.65)] z-30 flex items-center justify-center text-white text-center"
+                className="fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.65)] z-30 flex items-center justify-center text-white text-center px-[10%]"
               />
             );
           }}
         >
-          <P1>Play 🎮</P1>
+          <P2 className={"uppercase"} translationPath={"gamesPage/menu/play"} />
         </div>
         <div className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in">
           <CustomLink className="cursor-none" href="/games/leaderboards">
-            <P1>RANK BLITZ 🥇</P1>
+            <P2
+              className={"uppercase"}
+              translationPath={"gamesPage/menu/ranking"}
+            />
           </CustomLink>
         </div>
         <div
@@ -92,7 +97,10 @@ export default function Games() {
             )
           }
         >
-          <P1>LEVEL UP 🎉</P1>
+          <P2
+            className={"uppercase"}
+            translationPath={"gamesPage/menu/levelUp"}
+          />
         </div>
       </div>
       <div id="game">
