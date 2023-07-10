@@ -1258,5 +1258,23 @@ const translations = {
       },
     },
   },
+  privateTroopa: {
+    discordSection: {
+      en: <span>Discord Roles:</span>,
+      es: <span>Roles de Discord:</span>,
+    },
+    gamePoints: {
+      en: <span>Game Points & Leaderboards:</span>,
+      es: <span>Puntos de juego y ranking:</span>,
+    },
+    noPoints: {
+      en: <span>Seems like you don&apos;t have any point, yet!</span>,
+      es: <span>Parece que aún no tienes ningún punto</span>,
+    },
+    totalPoints: {
+      en: <span>Total Points: %VAL%/100</span>,
+      es: <span>Puntos totales: %VAL%/100</span>,
+    },
+  },
 };
 export default translations;

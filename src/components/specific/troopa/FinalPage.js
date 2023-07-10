@@ -83,7 +83,10 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
               }}
             >
               <div>
-                <P2>Discord Roles:</P2>
+                <P2
+                  className={"uppercase"}
+                  translationPath={"privateTroopa/discordSection"}
+                />
                 <div className="grid gap-2 mt-2">
                   {userInfo.discordRoles.map((el, i) => {
                     return (
@@ -95,7 +98,10 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
                 </div>
               </div>
               <div>
-                <P2>Game Points & Leaderboards:</P2>
+                <P2
+                  className={"uppercase"}
+                  translationPath={"privateTroopa/gamePoints"}
+                />
                 <div className="grid gap-2 mt-2">
                   {userInfo.points ? (
                     userInfo.opt.points.map((el, i) => {
@@ -111,12 +117,19 @@ export default function FinalPage({ userInfo, avatar, username, city }) {
                   ) : (
                     <div className="pl-2">
                       <div className="flex gap-2">
-                        <P3>Seems like you don&apos;t have any point, yet!</P3>
+                        <P3
+                          className={"lowercase"}
+                          translationPath={"privateTroopa/noPoints"}
+                        />
                       </div>
                     </div>
                   )}
                   <div>
-                    <P3>Total Points: {userInfo.points}/100</P3>
+                    <P3
+                      className={"lowercase"}
+                      translationPath={"privateTroopa/totalPoints"}
+                      replace={[{ placeholder: "%VAL%", val: userInfo.points }]}
+                    />
                   </div>
                 </div>
               </div>
