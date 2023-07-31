@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 export default function CustomLink({
   className,
+  style,
   children,
   href,
   blank,
@@ -18,8 +19,9 @@ export default function CustomLink({
         <div className={`relative group`} onClick={() => setPage(href)}>
           <Link
             className={`${className ? className : ""} cursor-none ${
-              defaultUnderline && "hover:underline"
+              defaultUnderline ? "hover:underline" : ""
             }`}
+            style={style}
             href={href}
             target={blank ? "_blank" : "_self"}
           >

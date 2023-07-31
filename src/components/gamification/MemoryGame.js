@@ -134,9 +134,15 @@ export default function MemoryGame() {
   const [userOk, setUserOk] = useState(false); // True when user clicks on play. Cannot start the game when false
   const generateCards = useCallback(() => {
     const arr = [];
+    const skip = [];
+    while (skip.length < CARDS_ARR.current.length - 8) {
+      skip.push(Math.floor(Math.random() * CARDS_ARR.current.length));
+    }
     for (let i = 0; i < CARDS_ARR.current.length; i++) {
-      arr.push({ val: i, img: CARDS_ARR.current[i] });
-      arr.push({ val: i, img: CARDS_ARR.current[i] });
+      if (!skip.includes(i)) {
+        arr.push({ val: i, img: CARDS_ARR.current[i] });
+        arr.push({ val: i, img: CARDS_ARR.current[i] });
+      }
     }
     const finalArr = [];
     while (arr.length > 0) {

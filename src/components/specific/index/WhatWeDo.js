@@ -18,7 +18,7 @@ export default function WhatWeDo() {
         </MouseMoveGradient>
       </div>
       <div className="relative flex justify-center">
-        <div className="flex flex-wrap justify-center items-center mt-4 gap-4 sm:gap-12 lowercase">
+        <div className="grid 2xl:grid-cols-2 justify-center items-center mt-4 gap-4 sm:gap-12 lowercase">
           <IndexCard
             front={
               <div>

@@ -450,8 +450,8 @@ const translations = {
       front: {
         title: { en: <span>🎨 Rule #4</span>, es: <span>🎨 Regla #4</span> },
         description: {
-          en: <span>Get Your ReFi Paint!</span>,
-          es: <span>Obtén tu pintura ReFi!</span>,
+          en: <span>Get Your Paint!</span>,
+          es: <span>Obtén tu pintura!</span>,
         },
       },
       back: { en: <span>🎨</span> },
