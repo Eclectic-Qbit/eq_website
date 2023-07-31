@@ -124,6 +124,17 @@ export default function Squad() {
         ]}
         langs={["🇬🇧", "🇷🇸"]}
       />
+      <SquadCard
+        img={teamArr.current[8]}
+        name="Jota"
+        social={[
+          {
+            social: "instagram",
+            link: "https://www.instagram.com/mansomambo/",
+          },
+        ]}
+        langs={["🇬🇧", "🇷🇸"]}
+      />
     </div>
   );
 }

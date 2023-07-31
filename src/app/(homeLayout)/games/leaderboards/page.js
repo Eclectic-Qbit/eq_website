@@ -1,11 +1,8 @@
-import { H4, H6 } from "@/components/text/Headers";
 import { P1, P2, P3 } from "@/components/text/Paragraphs";
-import { cookies } from "next/headers";
 
 // Query @ /games/:name/leaderboards/
 export default async function Leaderboards() {
   const data = await getLeaderboards();
-  const cookieList = cookies();
   return (
     <div className="w-full h-full min-h-screen text-center mt-28">
       <P1 className={"uppercase"} translationPath={"leaderboards/title"} />

@@ -82,25 +82,13 @@ export default function Games() {
             />
           </CustomLink>
         </div>
-        <div
-          className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in"
-          onClick={() =>
-            setMsg(
-              <LoadingAnimation
-                elements={[<P1 key={0}>Work in progress!</P1>]}
-                coeffs={[1]}
-                delay={1000}
-                onFade={() => setMsg(null)}
-                fadeDuration={750}
-                className="fixed bg-[rgba(0,0,0,0.65)] z-30 top-0 left-0 w-screen h-full flex items-center justify-center text-white px-[5%] sm:px-[10%] text-center"
-              />
-            )
-          }
-        >
-          <P2
-            className={"uppercase"}
-            translationPath={"gamesPage/menu/levelUp"}
-          />
+        <div className="sm:border-y-2 sm:px-2 sm:py-2 sm:hover:invert border-solid border-white py-1 bg-black transition-all duration-150 ease-in">
+          <CustomLink className="cursor-none" href={"/games/levelUp"}>
+            <P2
+              className={"uppercase"}
+              translationPath={"gamesPage/menu/levelUp"}
+            />
+          </CustomLink>
         </div>
       </div>
       <div id="game">

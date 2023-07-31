@@ -11,6 +11,7 @@ import imgAxel from "../public/images/team/1.png";
 import imgAbra from "../public/images/team/5.png";
 import imgPari from "../public/images/team/8.png";
 import imgMilena from "../public/images/team/10.png";
+import imgJota from "../public/images/team/9.png";
 
 export function isDesktop(size) {
   return size > settings.mobileView;
@@ -79,6 +80,7 @@ export function getTeamImages() {
     imgAbra,
     imgPari,
     imgMilena,
+    imgJota,
   ];
 }
 export function getImageFromIndex(index, specialType) {

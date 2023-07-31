@@ -734,6 +734,25 @@ const translations = {
         </span>
       ),
     },
+    jota: {
+      en: (
+        <span>
+          cinematic craftsman <br /> & <br />
+          animation visionary
+        </span>
+      ),
+      es: (
+        <span>
+          artesano cinematográfico <br /> & <br /> visionario de la animación
+        </span>
+      ),
+      it: (
+        <span>
+          artigiano cinematografico <br /> & <br /> visionario
+          dell&apos;animazione
+        </span>
+      ),
+    },
   },
   privacy: {
     cookies: {

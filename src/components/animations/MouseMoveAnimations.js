@@ -1,7 +1,7 @@
 "use client";
 
 import MouseContext from "@/contexts/MouseContext";
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 export function MouseMoveGradient({ children, from, to, className }) {
   const { position, setPosition } = useContext(MouseContext);
