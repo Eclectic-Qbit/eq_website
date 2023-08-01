@@ -1,6 +1,6 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
-import { MouseMoveGradient } from "../../animations/MouseMoveAnimations";
-import { H3, H4 } from "../../text/Headers";
 import { P2 } from "../../text/Paragraphs";
 import ConsoleEffect from "../../animations/ConsoleEffect";
 import { P1 } from "@/components/text/Paragraphs";

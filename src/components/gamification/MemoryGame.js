@@ -7,7 +7,6 @@ import { P1, P2 } from "../text/Paragraphs";
 import { getTeamImages } from "@/commonFrontend";
 
 function FinalWin({ json, newGame }) {
-  console.log(json);
   if (json.username) {
     return (
       <div className="absolute top-0 left-0 z-10 flex gap-5 items-center justify-center flex-col w-full h-full bg-[rgba(0,0,0,0.75)] text-center font-extrabold">
@@ -287,7 +286,7 @@ export default function MemoryGame() {
                     gameToken
                       ? handleClick
                       : () => {
-                          console.log("Not Game Token Found");
+                          console.error("Not Game Token Found");
                         }
                   }
                 />

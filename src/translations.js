@@ -1237,7 +1237,7 @@ const translations = {
       forth: {
         en: (
           <span>
-            <span className="uppercase">But Remember</span>You need to log-in
+            <span className="uppercase">But Remember</span> You need to log-in
             for accessing the leaderboards and getting some rewards!
           </span>
         ),
