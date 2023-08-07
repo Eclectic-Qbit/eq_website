@@ -90,3 +90,28 @@ export function getImageFromIndex(index, specialType) {
     return arr[index];
   }
 }
+
+export function hexColorFromTailwind(twColor) {
+  if (twColor === "purple") {
+    return "#9C0CD4";
+  }
+  if (twColor === "pink") {
+    return "#CC346C";
+  }
+  if (twColor === "orange") {
+    return "#E74F38";
+  }
+  if (twColor === "lightPurple") {
+    return "#B4249C";
+  }
+  if (twColor === "pinkOrange") {
+    return "#D43C5C";
+  }
+  if (twColor === "yellow") {
+    return "#CCFF00";
+  }
+  if (twColor === "green") {
+    return "#00FF00";
+  }
+  return null;
+}

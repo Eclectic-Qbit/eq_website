@@ -3,6 +3,7 @@ import { P1, P2, P3 } from "@/components/text/Paragraphs";
 // Query @ /games/:name/leaderboards/
 export default async function Leaderboards() {
   const data = await getLeaderboards();
+  console.log("DATA", data);
   return (
     <div className="w-full h-full min-h-screen text-center mt-28">
       <P1 className={"uppercase"} translationPath={"leaderboards/title"} />
@@ -24,9 +25,15 @@ export default async function Leaderboards() {
                       >
                         <div className="flex gap-1 justify-center">
                           <P3>
-                            {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 && "🥉"}
+                            {i === 0
+                              ? "🥇"
+                              : i === 1
+                              ? "🥈"
+                              : i === 2
+                              ? "🥉"
+                              : ""}
                           </P3>
-                          <P3>{el.user}</P3>
+                          <P3>{el.user ? el.user : "Anonym(us)"}</P3>
                         </div>
                         <P3
                           translationPath={"leaderboards/speedrun/entry"}
@@ -57,9 +64,15 @@ export default async function Leaderboards() {
                       >
                         <div className="flex gap-1">
                           <P3>
-                            {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 && "🥉"}
+                            {i === 0
+                              ? "🥇"
+                              : i === 1
+                              ? "🥈"
+                              : i === 2
+                              ? "🥉"
+                              : ""}
                           </P3>
-                          <P3>{el.user}</P3>
+                          <P3>{el.user ? el.user : "Anonym(us)"}</P3>
                         </div>
                         <P3
                           translationPath={"leaderboards/games/entry"}

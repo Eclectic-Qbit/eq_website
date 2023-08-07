@@ -12,6 +12,7 @@ import { useRef, useState } from "react";
 
 export default function FinalPage({ userInfo, avatar, username, city }) {
   const [rotate, setRotate] = useState(false);
+  console.log(userInfo, avatar, username, city);
   return (
     <>
       {/*

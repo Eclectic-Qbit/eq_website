@@ -14,29 +14,32 @@ export default function UserRouter({ userInfo }) {
   const [username, setUsername] = useState(null);
   const [city, setCity] = useState(null);
   useEffect(() => {
+    console.log("Info", userInfo);
     if (!userInfo) {
       router.push("/");
       return;
     }
     // Update local state
-    const getPfp = userInfo.opt.pfp;
-    const getUser = userInfo.opt.customUsername;
-    const getCity = userInfo.opt.city;
-    if (getPfp && getPfp.value >= -1) {
-      setPfp(getPfp.value);
+    const getPfp = userInfo.pfp;
+    const getUser = userInfo.username;
+    const getCity = userInfo.city;
+    if (getPfp && getPfp >= -1) {
+      setPfp(getPfp);
+      console.log("SETTING PFP", getPfp);
     }
-    if (getUser && getUser.value.length >= 3) {
-      setUsername(getUser.value);
+    if (getUser && getUser.length >= 3) {
+      setUsername(getUser);
     }
-    if (getCity && getCity.value.length > 0) {
-      setCity(getCity.value);
+    if (getCity && getCity.length > 0) {
+      setCity(getCity);
     }
+    console.log(getPfp, getUser, getCity);
     // Check if some data is missing
-    if (!getPfp || !getPfp.value) {
+    if (!getPfp || !getPfp < 0) {
       setPage(0);
-    } else if (!getUser || !getUser.value) {
+    } else if (!getUser || !getUser.length === 0) {
       setPage(1);
-    } else if (!getCity || !getCity.value) {
+    } else if (!getCity || !getCity.length === 0) {
       setPage(2);
     } else {
       setPage(3);
@@ -52,7 +55,9 @@ export default function UserRouter({ userInfo }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ pfp: ignore ? -1 : val }),
+        body: JSON.stringify({
+          pfp: ignore ? -1 : val >= 0 ? val : userInfo.pfp,
+        }),
       }
     );
     if (res.status === 200) {
@@ -75,7 +80,13 @@ export default function UserRouter({ userInfo }) {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ customUsername: ignore ? "null" : val }),
+            body: JSON.stringify({
+              customUsername: ignore
+                ? "null"
+                : val && val.length > 0
+                ? val
+                : userInfo.username,
+            }),
           }
         );
         if (res.status === 200) {

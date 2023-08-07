@@ -20,7 +20,11 @@ function Game({ name, img, link }) {
         style: { gridTemplateRows: "1fr 2fr" },
         children: (
           <>
-            <P1 className={"flex justify-center items-center text-center"}>
+            <P1
+              className={
+                "flex justify-center items-center text-center lowercase"
+              }
+            >
               {name}
             </P1>
             <div className="relative w-full aspect-square group-hover:scale-[1.1] transition-all">
@@ -37,7 +41,7 @@ function Game({ name, img, link }) {
 export default function Games() {
   return (
     <div className="w-full min-h-screen flex flex-col justify-center xl mb-8">
-      <H8 className={"text-center"}>Games:</H8>
+      <H8 className={"text-center uppercase"}>Games:</H8>
       <div className="flex flex-wrap justify-center gap-10 ">
         <Game name={"Memory"} img={memoryGame} link={"/memory"} />
         <Game name={"Coming soon..."} img={null} link={null} />

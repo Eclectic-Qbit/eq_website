@@ -12,11 +12,11 @@ export default async function UserPage() {
       Authorization: cookieList.get("token").value,
     }
   );
+  console.log(res);
   return (
-    res &&
-    res.user && (
+    res && (
       <div className="min-h-screen">
-        <UserRouter userInfo={res.user} />
+        <UserRouter userInfo={res} />
       </div>
     )
   );

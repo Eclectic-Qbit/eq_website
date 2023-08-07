@@ -193,13 +193,12 @@ export function IndexCard({
             : `w-[17rem] sm:w-[37.5rem] lg:w-[42.5rem] sm:min-h-[15rem] ${
                 rotate ? "min-h-[21.5rem]" : "min-h-[12.5rem]"
               } sm:min-h-[18rem]`
-        } bg-[rgba(0,0,0,1)] h-max border-2 border-solid ${
-          borderColor ? borderColor : "border-white"
-        } rounded-xl p-4 transition-all duration-[500ms] ease-in`}
+        } bg-[rgba(0,0,0,1)] h-max border-2 border-solid rounded-xl p-4 transition-all duration-[500ms] ease-in`}
         style={{
           transformStyle: "preserve-3d",
           transformOrigin: "center",
           transform: `${rotate ? "rotateY(-180deg)" : ""}`,
+          borderColor: borderColor ? borderColor : "white",
         }}
       >
         <div

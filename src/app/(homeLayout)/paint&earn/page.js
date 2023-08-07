@@ -1,6 +1,10 @@
 "use client";
 
-import { discordLink, downloadFile } from "@/commonFrontend";
+import {
+  discordLink,
+  downloadFile,
+  hexColorFromTailwind,
+} from "@/commonFrontend";
 import { MouseMoveGradient } from "@/components/animations/MouseMoveAnimations";
 import { IndexCard } from "@/components/global/Cards";
 import CustomLink from "@/components/global/CustomLink";
@@ -36,7 +40,7 @@ export default function PaintAndEarn() {
         Authorization: token,
       }).then((data) => {
         if (data) {
-          const rules = data.user.paintEarnRules;
+          const rules = data.paintEarnRules;
           setLogged(true);
           if (rules) {
             setAccomplishedRules(rules);
@@ -97,14 +101,14 @@ export default function PaintAndEarn() {
                   : state === "waiting"
                   ? "yellow"
                   : state === "rejected"
-                  ? "red"
+                  ? "orange"
                   : "white";
               const card = cloneElement(parent, {
                 key: `card_${i}`,
                 children: (
                   <IndexCard
                     form={"square"}
-                    borderColor={`border-${color}`}
+                    borderColor={hexColorFromTailwind(color)}
                     front={
                       <div
                         style={{ textShadow: "1px 1px 1px white" }}
@@ -120,7 +124,9 @@ export default function PaintAndEarn() {
                         />
                         {state && (
                           <div>
-                            <P2 className={`text-${color}`}>{state}</P2>
+                            <P2 style={{ color: hexColorFromTailwind(color) }}>
+                              {state}
+                            </P2>
                           </div>
                         )}
                       </div>
