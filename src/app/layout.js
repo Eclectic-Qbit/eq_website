@@ -6,6 +6,7 @@ import ScrollProvider from "@/providers/ScrollProvider";
 import DebouncedResizeProvider from "@/providers/DebouncedResizeProvider";
 import ResizeProvider from "@/providers/ResizeProvider";
 import AuthProvider from "@/providers/AuthProvider";
+import WorkInProgres from "../components/global/WorkInProgress";
 
 export const metadata = {
   title: "eclectic qbit",
@@ -16,6 +17,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const hide = process.env.IS_WORK_IN_PROGRESS === "true";
   return (
     <html lang="en" className="min-h-screen min-w-screen bg-black text-white">
       <body>
@@ -25,7 +27,9 @@ export default function RootLayout({ children }) {
               <CurrentPageProvider>
                 <DebouncedResizeProvider>
                   <ResizeProvider>
-                    <AuthProvider>{children}</AuthProvider>
+                    <AuthProvider>
+                      {hide ? <WorkInProgres /> : { children }}
+                    </AuthProvider>
                   </ResizeProvider>
                 </DebouncedResizeProvider>
               </CurrentPageProvider>
